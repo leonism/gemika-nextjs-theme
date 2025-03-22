@@ -3,25 +3,27 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { notFound } from "next/navigation"
 import { getContent, getAllContent } from "@/lib/content"
-import { MDXProvider } from "@/components/mdx-provider"
 import JsonLd from "@/components/json-ld"
 import type { WithContext } from "schema-dts"
+import { MDXContent } from "@/components/MDXContent";
+import { serialize } from "next-mdx-remote/serialize";
 
 interface ProjectPageProps {
-  params: {
-    slug: string
-  }
+  params: { slug: string }
 }
 
 export async function generateStaticParams() {
   const projects = await getAllContent("projects")
-  return projects.map((project) => ({
-    slug: project.slug,
-  }))
+  return projects
+    .filter((project) => project !== null)
+    .map((project) => ({
+      slug: project.slug,
+    }))
 }
 
 export async function generateMetadata({ params }: ProjectPageProps) {
-  const project = await getContent("projects", params.slug)
+  const { slug } = params;
+  const project = await getContent("projects", slug)
 
   if (!project) {
     return {
@@ -31,7 +33,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
   }
 
   return {
-    title: `${project.frontmatter.title} | Gerous Projects`,
+    title: `${project.frontmatter.title} | Gemika Projects`,
     description: project.frontmatter.excerpt,
     openGraph: {
       title: project.frontmatter.title,
@@ -42,10 +44,15 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const project = await getContent("projects", params.slug)
+  const slug = params.slug;
+  const project = await getContent("projects", slug);
+  if (!project) {
+    notFound();
+  }
+  const serializedContent = await serialize(project.content || "");
 
   if (!project) {
-    return notFound()
+    notFound()
   }
 
   // Create JSON-LD structured data
@@ -63,7 +70,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     keywords: project.frontmatter.category,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://gerous.netlify.app/projects/${params.slug}`,
+      "@id": `https://Gemika.netlify.app/projects/${slug}`,
     },
   }
 
@@ -110,7 +117,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
 
               <div className="prose prose-lg dark:prose-invert max-w-none">
-                <MDXProvider source={project.content} />
+                <MDXContent source={serializedContent} />
               </div>
 
               <div className="mt-12">
@@ -166,4 +173,3 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     </div>
   )
 }
-

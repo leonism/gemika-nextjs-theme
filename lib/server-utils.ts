@@ -1,32 +1,19 @@
+// lib/server-utils.ts
 import path from "path";
 import matter from "gray-matter";
 import { promisify } from "util";
-
-// Ensure this module only runs on the server
-if (typeof window !== 'undefined') {
-  throw new Error('This module can only be used on the server side');
-}
-
-// Server-side only
-const fs = require('fs');
+import fs from "fs";
 
 // Promisify fs methods
 const readFile = promisify(fs.readFile);
 const readdir = promisify(fs.readdir);
 const access = promisify(fs.access);
 
-// Ensure server-side usage
-export async function getFileContent(filePath: string) {
-  const fileContent = await readFile(filePath, "utf8");
-  return matter(fileContent);
-}
-
-// Add type definitions
-interface ContentError extends Error {
-  code?: string;
-}
-
 export async function getContent(type: "posts" | "projects" | "pages", slug: string) {
+  if (typeof window !== "undefined") {
+    throw new Error("getContent can only be used on the server.");
+  }
+
   // Input validation
   if (!type || !["posts", "projects", "pages"].includes(type)) {
     console.error("Invalid content type:", type);
@@ -37,7 +24,8 @@ export async function getContent(type: "posts" | "projects" | "pages", slug: str
     console.error("Error in getContent: slug is empty or invalid", {
       type,
       slug,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      stack: new Error().stack,
     });
     return null;
   }
@@ -55,17 +43,20 @@ export async function getContent(type: "posts" | "projects" | "pages", slug: str
 
     return { frontmatter, content };
   } catch (error) {
-    const err = error as ContentError;
-    if (err.code === 'ENOENT') {
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
       console.warn(`Content file not found: ${filePath}`);
     } else {
-      console.error("Error in getContent:", err.message || 'Unknown error');
+      console.error("Error in getContent:", error);
     }
     return null;
   }
 }
 
 export async function getAllContent(type: "posts" | "projects" | "pages"): Promise<any[]> {
+  if (typeof window !== "undefined") {
+    throw new Error("getAllContent can only be used on the server.");
+  }
+
   const directoryPath = path.join(process.cwd(), "content", type);
 
   try {
@@ -85,36 +76,21 @@ export async function getAllContent(type: "posts" | "projects" | "pages"): Promi
       return [];
     }
 
-    interface ContentItem  {
-      slug: string;
-      frontmatter: Record<string, any>;
-      content: string;
-    }
+    const allContent = await Promise.all(
+      mdxFiles.map(async (filename) => {
+        try {
+          const slug = filename.replace(/\.mdx$/, "");
+          const filePath = path.join(directoryPath, filename);
+          const fileContent = await readFile(filePath, "utf-8");
+          const { data: frontmatter, content } = matter(fileContent);
 
-    interface Frontmatter {
-      [key: string]: any;
-    }
-
-    interface ParsedContent {
-      data: Frontmatter;
-      content: string;
-    }
-
-    const allContent: (ContentItem | null)[] = await Promise.all(
-      mdxFiles.map(async (filename: string): Promise<ContentItem | null> => {
-      try {
-        const slug: string = filename.replace(/\.mdx$/, "");
-        const filePath: string = path.join(directoryPath, filename);
-        const fileContent: string = await readFile(filePath, "utf-8");
-        const { data: frontmatter, content }: ParsedContent = matter(fileContent);
-
-        return frontmatter && content
-        ? { slug, frontmatter, content }
-        : null;
-      } catch (error) {
-        console.error(`Error processing ${filename}:`, error);
-        return null;
-      }
+          return frontmatter && content
+            ? { slug, frontmatter, content }
+            : null;
+        } catch (error) {
+          console.error(`Error processing ${filename}:`, error);
+          return null;
+        }
       })
     );
 

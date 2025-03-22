@@ -54,7 +54,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
         <div className="container mx-auto px-4 py-6">
           <div className="flex justify-between items-center mb-8">
             <Link href="/" className="text-3xl font-bold" onClick={closeMenu}>
-              Gerous
+              Gemika
             </Link>
             <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Close menu">
               <X className="h-6 w-6" />
@@ -110,4 +110,3 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
     </>
   )
 }
-

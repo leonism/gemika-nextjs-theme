@@ -12,7 +12,7 @@ export default function NotFound() {
       image={
         <div className="relative w-64 h-64 mx-auto">
           <Image
-            src="https://images.unsplash.com/photo-1594322436404-5a0526db4d13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
+            src="https://images.unsplash.com/photo-1594322436404-5a0526db4d13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8&auto=format&fit=crop&w=500&q=80"
             alt="404 Not Found"
             fill
             className="object-cover rounded-lg"
@@ -25,8 +25,8 @@ export default function NotFound() {
         <Button asChild variant="outline">
           <Link href="/posts">Browse Blog Posts</Link>
         </Button>
-        <Button asChild variant="outline">
-          <Link href="/projects">View Projects</Link>
+        <Button asChild variant="default">
+          <Link href="/">Go to Homepage</Link>
         </Button>
       </div>
     </NotFoundLayout>

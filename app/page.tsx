@@ -1,15 +1,17 @@
 import Image from "next/image"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import PortfolioCard from "@/components/portfolio-card"
 import Link from "next/link"
-import { getAllContent } from "@/lib/content"
+// Ensure the correct path or create the file if missing
 import JsonLd from "@/components/json-ld"
-import type { WithContext } from "schema-dts"
+// Ensure the correct path or create the file if missing
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { HomeLayout } from "@/components/layouts/home-layout"
 import { PostCard } from "@/components/cards/post-card"
 import { CategoryCard } from "@/components/cards/category-card"
-import { NewsletterForm } from "@/components/forms/newsletter-form"
+// import { NewsletterForm } from "@/components/forms/newsletter-form"
+import { getAllContent } from "@/lib/content"
+import { WithContext } from "schema-dts"
 
 export default async function Home() {
   const featuredProjects = await getAllContent("projects")
@@ -23,12 +25,12 @@ export default async function Home() {
   const jsonLd: WithContext<any> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Gerous - UX Strategist & Mobile Developer",
-    url: "https://gerous.netlify.app",
+    name: "Gemika - UX Strategist & Mobile Developer",
+    url: "https://gemika.netlify.app",
     description: "Expert user experience strategist and mobile developer portfolio",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://gerous.netlify.app/search?q={search_term_string}",
+      target: "https://Gemika.netlify.app/search?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   }
@@ -129,16 +131,18 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {limitedProjects.map((project) => (
-          <PortfolioCard
-            key={project.slug}
-            title={project.frontmatter.title as string}
-            category={project.frontmatter.category as string}
-            imageUrl={project.frontmatter.coverImage as string}
-            slug={project.slug}
-          />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {limitedProjects.map((project) =>
+          project && (
+            <PortfolioCard
+              key={project.slug}
+              title={project.frontmatter.title as string}
+              category={project.frontmatter.category as string}
+              imageUrl={project.frontmatter.coverImage as string}
+              slug={project.slug}
+            />
+          )
+        )}
       </div>
 
       <div className="mt-12 text-center">
@@ -202,18 +206,22 @@ export default async function Home() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {limitedPosts.map((post) => (
-          <PostCard
-            key={post.slug}
-            title={post.frontmatter.title as string}
-            excerpt={post.frontmatter.excerpt as string}
-            date={post.frontmatter.date as string}
-            author={post.frontmatter.author as string}
-            imageUrl={post.frontmatter.coverImage as string}
-            slug={post.slug}
-            category={(post.frontmatter.tags as string[])?.[0]}
-          />
-        ))}
+        {limitedPosts
+          .filter((post) => post) // Filter out undefined or null posts
+          .map((post) =>
+            post ? (
+              <PostCard
+                key={post.slug}
+                title={post.frontmatter.title || "Untitled Post"}
+                excerpt={post.frontmatter.excerpt || "No excerpt available."}
+                date={post.frontmatter.date || "Unknown date"}
+                author={post.frontmatter.author || "Unknown author"}
+                imageUrl={post.frontmatter.coverImage || "/placeholder.svg"}
+                slug={post.slug}
+                category={(post.frontmatter.tags || ["Uncategorized"])[0]}
+              />
+            ) : null
+          )}
       </div>
 
       <div className="mt-12 text-center">
@@ -226,7 +234,7 @@ export default async function Home() {
     </div>
   )
 
-  // Newsletter Section
+  /* Newsletter Section - temporarily disabled
   const newsletterSection = (
     <div className="max-w-xl mx-auto text-center">
       <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
@@ -238,6 +246,7 @@ export default async function Home() {
       <NewsletterForm />
     </div>
   )
+  */
 
   return (
     <>
@@ -247,9 +256,10 @@ export default async function Home() {
         featuredPostsSection={featuredProjectsSection}
         trendingTopicsSection={trendingTopicsSection}
         latestPostsSection={latestPostsSection}
-        newsletterSection={newsletterSection}
-      />
+        // newsletterSection={newsletterSection} // Temporarily disabled
+      >
+        <div />
+      </HomeLayout>
     </>
   )
 }
-

@@ -1,9 +1,7 @@
 import { getContent } from "@/lib/content";
 
 interface Props {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }> | { slug: string }
 }
 
 export async function generateStaticParams() {
@@ -11,10 +9,16 @@ export async function generateStaticParams() {
 }
 
 async function Page({ params }: Props) {
-  const content = await getContent("posts", params.slug);
+  const resolvedParams = await Promise.resolve(params)
+  const content = await getContent("posts", resolvedParams.slug);
 
   if (!content) {
-    return <div>Not Found</div>;
+    return (
+      <div>
+        <h1>Content Not Found</h1>
+        <p>The requested post does not exist or has been removed.</p>
+      </div>
+    );
   }
 
   return (

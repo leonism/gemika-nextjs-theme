@@ -1,13 +1,21 @@
-"use client"
+'use client'
 
-import { MDXRemote } from "next-mdx-remote/rsc"
-import components from "@/components/mdx-components"
+import { MDXRemote } from 'next-mdx-remote'
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { components } from './mdx-components'
 
 interface MDXProviderProps {
-  source: any
+  source: MDXRemoteSerializeResult
 }
 
 export function MDXProvider({ source }: MDXProviderProps) {
-  return <MDXRemote {...source} components={components} />
-}
+  if (!source) {
+    throw new Error("MDX source is undefined. Ensure the content is serialized properly.")
+  }
 
+  return (
+    <div className="mdx-content">
+      <MDXRemote {...source} components={components ?? {}} />
+    </div>
+  )
+}

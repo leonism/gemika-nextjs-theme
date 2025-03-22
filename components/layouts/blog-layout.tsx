@@ -35,4 +35,3 @@ export function BlogLayout({ children, sidebar, pagination, title, description }
     </Container>
   )
 }
-

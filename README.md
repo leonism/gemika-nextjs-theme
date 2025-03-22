@@ -15,8 +15,8 @@ This is a Next.js project using Turbopack for development. It includes various d
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/gerous-clone.git
-   cd gerous-clone
+   git clone https://github.com/your-username/Gemika-clone.git
+   cd Gemika-clone
    ```
 
 2. Install dependencies:

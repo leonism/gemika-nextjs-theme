@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect } from "react"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export default function Error({
@@ -12,8 +11,11 @@ export default function Error({
   reset: () => void
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error)
+    console.error("Error details:", {
+      message: error?.message || "Unknown error",
+      digest: error?.digest || "No digest available",
+      stack: error?.stack || "No stack trace available",
+    })
   }, [error])
 
   return (
@@ -22,17 +24,16 @@ export default function Error({
         Something went wrong
       </h1>
       <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md">
-        We apologize for the inconvenience. An unexpected error has occurred.
+        {error?.message || "An unexpected error has occurred."}
       </p>
       <div className="flex gap-4">
         <Button onClick={reset} variant="default">
           Try again
         </Button>
         <Button asChild variant="outline">
-          <Link href="/">Go to homepage</Link>
+          <a href="/">Go to homepage</a>
         </Button>
       </div>
     </div>
   )
 }
-

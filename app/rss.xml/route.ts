@@ -4,13 +4,13 @@ import { NextResponse } from "next/server"
 export async function GET() {
   const posts = await getAllContent("posts")
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://gerous.netlify.app"
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://Gemika.netlify.app"
 
   // Create RSS XML
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gerous - UX Strategist &amp; Mobile Developer</title>
+    <title>Gemika - UX Strategist &amp; Mobile Developer</title>
     <link>${baseUrl}</link>
     <description>Expert user experience strategist and mobile developer portfolio</description>
     <language>en</language>
@@ -39,4 +39,3 @@ export async function GET() {
     },
   })
 }
-

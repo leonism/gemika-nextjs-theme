@@ -6,4 +6,3 @@ export interface SearchResult {
   type: string
   date: string
 }
-

@@ -43,4 +43,3 @@ export function SearchLayout({ children, searchInput, filters, resultsCount, sea
     </Container>
   )
 }
-

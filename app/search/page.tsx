@@ -1,30 +1,31 @@
-import { SearchLayout } from "@/components/layouts/search-layout"
-import { SearchForm } from "@/components/forms/search-form"
-import { SearchResults } from "@/components/search-results"
-import { Suspense } from "react"
-import { SkeletonLoader } from "@/components/utility/skeleton-loader"
-import JsonLd from "@/components/json-ld"
-import type { WithContext } from "schema-dts"
+"use client";
 
-interface SearchPageProps {
-  searchParams: { q?: string }
-}
+import { SearchLayout } from "@/components/layouts/search-layout";
+import { SearchForm } from "@/components/forms/search-form";
+// Ensure the correct path to the SearchResults component
+import { SearchResults } from "@/components/search-results";
+import { Suspense } from "react";
+import { SkeletonLoader } from "@/components/utility/skeleton-loader";
+import JsonLd from "@/components/json-ld";
+import type { WithContext } from "schema-dts";
+import { useSearchParams } from 'next/navigation';
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const query = searchParams.q || ""
+export default function SearchPage() {
+  const searchParams = useSearchParams();
+  const query = searchParams.get('q') || "";
 
   // Create JSON-LD structured data
   const jsonLd: WithContext<any> = {
     "@context": "https://schema.org",
     "@type": "SearchResultsPage",
-    name: `Search Results for "${query}" | Gerous`,
-    url: `https://gerous.netlify.app/search?q=${encodeURIComponent(query)}`,
+    name: `Search Results for "${query}" | Gemika`,
+    url: `https://gemika.netlify.app/search?q=${encodeURIComponent(query)}`,
     isPartOf: {
       "@type": "WebSite",
-      name: "Gerous",
-      url: "https://gerous.netlify.app",
+      name: "Gemika",
+      url: "https://gemika.netlify.app",
     },
-  }
+  };
 
   // Search filters
   const filters = (
@@ -78,7 +79,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
         </select>
       </div>
     </div>
-  )
+  );
 
   return (
     <>
@@ -99,6 +100,5 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
         )}
       </SearchLayout>
     </>
-  )
+  );
 }
-
