@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
   }
 
   return {
-    title: `${project.frontmatter.title} | Gemika Projects`,
+    title: `${project.frontmatter.title} | gemika Projects`,
     description: project.frontmatter.excerpt,
     openGraph: {
       title: project.frontmatter.title,
@@ -70,7 +70,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     keywords: project.frontmatter.category,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://Gemika.netlify.app/projects/${slug}`,
+      "@id": `https://gemika.netlify.app/projects/${slug}`,
     },
   }
 

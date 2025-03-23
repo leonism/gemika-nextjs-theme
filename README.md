@@ -1,4 +1,4 @@
-# My V0 Project
+# Gemika Next.Js Theme
 
 This is a Next.js project using Turbopack for development. It includes various dependencies and configurations to build a modern web application.
 
@@ -15,8 +15,8 @@ This is a Next.js project using Turbopack for development. It includes various d
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/Gemika-clone.git
-   cd Gemika-clone
+   git clone https://github.com/leonism/gemika-nextjs-theme.git
+   cd gemika-nextjs-theme
    ```
 
 2. Install dependencies:

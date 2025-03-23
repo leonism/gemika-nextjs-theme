@@ -1,9 +1,7 @@
 import Image from "next/image"
 import PortfolioCard from "@/components/portfolio-card"
 import Link from "next/link"
-// Ensure the correct path or create the file if missing
 import JsonLd from "@/components/json-ld"
-// Ensure the correct path or create the file if missing
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { HomeLayout } from "@/components/layouts/home-layout"
@@ -25,12 +23,12 @@ export default async function Home() {
   const jsonLd: WithContext<any> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Gemika - UX Strategist & Mobile Developer",
+    name: "gemika - UX Strategist & Mobile Developer",
     url: "https://gemika.netlify.app",
     description: "Expert user experience strategist and mobile developer portfolio",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://Gemika.netlify.app/search?q={search_term_string}",
+      target: "https://gemika.netlify.app/search?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   }

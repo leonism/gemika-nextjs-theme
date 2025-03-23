@@ -6,7 +6,7 @@ import type { Metadata } from "next"
 import type { WebPage, WithContext } from "schema-dts"
 
 export const metadata: Metadata = {
-  title: "Projects | Gemika",
+  title: "Projects | gemika",
   description: "A showcase of my recent work across UX design, mobile development, and branding projects.",
 }
 
@@ -17,13 +17,13 @@ export default async function ProjectsPage() {
   const jsonLd: WithContext<WebPage> = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Projects | Gemika",
+    name: "Projects | gemika",
     description: "A showcase of my recent work across UX design, mobile development, and branding projects.",
-    url: "https://Gemika.netlify.app/projects",
+    url: "https://gemika.netlify.app/projects",
     isPartOf: {
       "@type": "WebSite",
-      name: "Gemika",
-      url: "https://Gemika.netlify.app",
+      name: "gemika",
+      url: "https://gemika.netlify.app",
     },
   }
 

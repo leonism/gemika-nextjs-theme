@@ -1,3 +1,5 @@
+"use client"; // Mark this as a Client Component
+
 import type { ReactNode } from "react"
 import { Container } from "@/components/ui/container"
 
@@ -28,4 +30,3 @@ export function PageLayout({ children, title, subtitle, hero }: PageLayoutProps)
     </Container>
   )
 }
-

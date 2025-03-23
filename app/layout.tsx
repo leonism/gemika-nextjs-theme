@@ -15,8 +15,8 @@ import { SkipNav } from "@/components/navigation/skip-nav";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Gemika",
-  description: "Gemika's personal website",
+  title: "gemika",
+  description: "gemika's personal website",
 };
 
 export default function RootLayout({
@@ -27,8 +27,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <title>Gemika</title>
-        <meta name="description" content="Gemika's personal website" />
+        <title>gemika</title>
+        <meta name="description" content="gemika's personal website" />
       </Head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

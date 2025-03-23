@@ -45,12 +45,12 @@ export default function PostsPage({ posts }: PostsPageProps) {
   const jsonLd: WithContext<CollectionPage> = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Blog Posts | Gemika",
+    name: "Blog Posts | gemika",
     description: "Articles and insights on design, development, and digital experiences.",
     url: "https://gemika.netlify.app/posts",
     isPartOf: {
       "@type": "WebSite",
-      name: "Gemika",
+      name: "gemika",
       url: "https://gemika.netlify.app"
     }
   };

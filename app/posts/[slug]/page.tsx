@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { MDXContentWrapper } from "@/components/mdx-content-wrapper";
+// import { MDXContentWrapper } from "@/components/MDXContentWrapper";
 import { PostLayout } from "@/components/layouts/post-layout";
 
 interface PostPageProps {
@@ -15,6 +14,7 @@ export default async function PostPage({ params }: PostPageProps) {
   if (!resolvedParams?.slug) {
     throw new Error('No slug provided');
   }
+
   const post = await getContent("posts", resolvedParams.slug);
 
   if (!post || !post.frontmatter || !post.content) {

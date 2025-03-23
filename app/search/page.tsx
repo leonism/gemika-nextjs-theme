@@ -18,11 +18,11 @@ export default function SearchPage() {
   const jsonLd: WithContext<any> = {
     "@context": "https://schema.org",
     "@type": "SearchResultsPage",
-    name: `Search Results for "${query}" | Gemika`,
+    name: `Search Results for "${query}" | gemika`,
     url: `https://gemika.netlify.app/search?q=${encodeURIComponent(query)}`,
     isPartOf: {
       "@type": "WebSite",
-      name: "Gemika",
+      name: "gemika",
       url: "https://gemika.netlify.app",
     },
   };

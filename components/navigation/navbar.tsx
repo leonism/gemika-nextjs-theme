@@ -25,7 +25,7 @@ export function Navbar({ items, cta }: NavbarProps) {
     <header className="sticky top-0 z-40 w-full backdrop-blur-sm bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 shadow-sm">
       <div className="container mx-auto py-4 px-4 flex items-center justify-between">
         <Link href="/" className="text-3xl font-bold">
-          Gemika
+          gemika
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">

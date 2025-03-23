@@ -22,7 +22,7 @@ export function MetaInjector({
   canonicalUrl,
   children,
 }: MetaInjectorProps) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://Gemika.netlify.app"
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://gemika.netlify.app"
   const fullCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : undefined
 
   return (
@@ -36,7 +36,7 @@ export function MetaInjector({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content="Gemika" />
+      <meta property="og:site_name" content="gemika" />
       {ogImage && <meta property="og:image" content={ogImage} />}
 
       {/* Twitter Tags */}

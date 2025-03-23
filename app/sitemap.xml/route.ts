@@ -6,7 +6,7 @@ export async function GET() {
   const projects = await getAllContent("projects")
   const pages = await getAllContent("pages")
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://Gemika.netlify.app"
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://gemika.netlify.app"
 
   // Create sitemap XML
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

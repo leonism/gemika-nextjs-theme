@@ -29,7 +29,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <Link href="/" className="text-2xl font-bold">
-                Gemika
+                gemika
               </Link>
               <p className="text-gray-600 dark:text-gray-400">
                 Expert user experience strategist and mobile developer creating intuitive digital experiences.
@@ -171,10 +171,10 @@ export function Footer({ showNewsletter = true }: FooterProps) {
                 <li className="flex items-center">
                   <Mail size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
                   <a
-                    href="mailto:hello@Gemika.com"
+                    href="mailto:hello@gemika.com"
                     className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
                   >
-                    hello@Gemika.com
+                    hello@gemika.com
                   </a>
                 </li>
                 <li className="flex items-center">
@@ -199,7 +199,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
           </div>
 
           <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center text-gray-600 dark:text-gray-400">
-            <p>© {new Date().getFullYear()} Gemika. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} gemika. All rights reserved.</p>
             <div className="mt-2 text-sm">
               <Link href="/privacy" className="hover:underline mr-4">
                 Privacy Policy
