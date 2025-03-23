@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/container";
 import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/navigation/footer";
-// import { navItems } from "@/data/nav-items"; // Adjusted the path to the correct location
+import { navItems } from "@/data/nav-items"; // Update the path to the correct location
 
 interface PostLayoutProps {
   children: React.ReactNode;

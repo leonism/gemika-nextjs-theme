@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo } from 'react';
+import React, { useMemo } from 'react'; // Explicit React import
+import dynamic from 'next/dynamic';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import components from './mdx-components';
 
