@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { PostLayout } from "@/components/layouts/post-layout";
+import MDXContentWrapper from '@/components/MDXContentWrapper';
 
 interface PostPageProps {
   params: Promise<{ slug: string }> | { slug: string };
@@ -60,19 +60,7 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
 
           <div className="mdx-content">
-            {/* Wrap MDXRemote in try-catch to isolate rendering issues */}
-            {(() => {
-              try {
-                return post.content ? (
-                  <MDXRemote source={post.content} />
-                ) : (
-                  <p>Invalid content format.</p>
-                );
-              } catch (error) {
-                console.error("Error rendering MDX content:", error);
-                return <p>Error rendering content.</p>;
-              }
-            })()}
+            <MDXContentWrapper content={post.content} />
           </div>
         </article>
       </PostLayout>
