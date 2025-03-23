@@ -5,6 +5,8 @@ interface MDXContentProps {
   source: MDXRemoteSerializeResult;
 }
 
-export const MDXContent = ({ source }: MDXContentProps) => {
-  return <MDXProvider source={source} />;
+export function MDXContent({ source }: MDXContentProps) {
+  return (
+    <MDXProvider source={source} />
+  );
 }

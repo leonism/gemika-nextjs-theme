@@ -1,4 +1,4 @@
-# My BenJo Next.JS Project
+# My V0 Project
 
 This is a Next.js project using Turbopack for development. It includes various dependencies and configurations to build a modern web application.
 
