@@ -1,5 +1,3 @@
-"use client";
-
 import { MDXProvider } from "@/components/mdx-provider";
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 

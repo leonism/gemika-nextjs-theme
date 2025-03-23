@@ -1,6 +1,8 @@
 import path from "path";
 import matter from "gray-matter";
 import { promisify } from "util";
+// lib/content.ts
+
 
 // Ensure this module only runs on the server
 if (typeof window !== 'undefined') {
@@ -124,3 +126,5 @@ export async function getAllContent(type: "posts" | "projects" | "pages"): Promi
     return [];
   }
 }
+
+// Removed conflicting export statement

@@ -5,8 +5,8 @@ import { notFound } from "next/navigation"
 import { getContent, getAllContent } from "@/lib/content"
 import JsonLd from "@/components/json-ld"
 import type { WithContext } from "schema-dts"
-import { MDXContent } from "@/components/MDXContent";
 import { serialize } from "next-mdx-remote/serialize";
+import DynamicClientMDXRenderer from "@/components/DynamicClientMDXRenderer";
 
 interface ProjectPageProps {
   params: { slug: string }
@@ -22,7 +22,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ProjectPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const project = await getContent("projects", slug)
 
   if (!project) {
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const slug = params.slug;
+  const { slug } = await params;
   const project = await getContent("projects", slug);
   if (!project) {
     notFound();
@@ -117,7 +117,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
 
               <div className="prose prose-lg dark:prose-invert max-w-none">
-                <MDXContent source={serializedContent} />
+                <DynamicClientMDXRenderer source={serializedContent} />
               </div>
 
               <div className="mt-12">
