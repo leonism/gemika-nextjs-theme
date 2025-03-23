@@ -1,18 +1,17 @@
-import { Navbar } from "@/components/navigation/navbar";
-import { ErrorBoundary } from "@/components/error-boundary";
+import { Container } from "@/components/ui/container"
 
 interface PostLayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export function PostLayout({ children }: PostLayoutProps) {
   return (
-    <>
-      <Navbar items={[]} cta={undefined} />
-      <main className="container mx-auto px-4 py-12">
-        <ErrorBoundary error={new Error("An error occurred")} reset={() => window.location.reload()} />
-        {children}
-      </main>
-    </>
-  );
+    <Container>
+      <div className="flex flex-col min-h-screen">
+        <main className="flex-1">
+          {children}
+        </main>
+      </div>
+    </Container>
+  )
 }
