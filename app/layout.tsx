@@ -6,7 +6,6 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import type { WithContext, WebPage } from "schema-dts";
 import { ThemeProvider } from "@/components/utility/theme-provider";
-import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/navigation/footer";
 import { Toaster } from "@/components/ui/toaster";
 import { BackToTop } from "@/components/utility/back-to-top";
@@ -34,7 +33,6 @@ export default function RootLayout({
       <body className={inter.className} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <SkipNav />
-          <Navbar items={navItems} /> {/* Render Navbar */}
           {children}
           <Footer /> {/* Render Footer */}
           <Toaster />

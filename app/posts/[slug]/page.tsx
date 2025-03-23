@@ -9,64 +9,41 @@ interface PostPageProps {
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  let resolvedParams: { slug: string } | undefined;
+  const resolvedParams = await params;
 
-  try {
-    // Resolve params
-    resolvedParams = await Promise.resolve(params);
-    console.log("Resolved params:", resolvedParams); // Debug: Log params
+  if (!resolvedParams?.slug) {
+    throw new Error('No slug provided');
+  }
+  const post = await getContent("posts", resolvedParams.slug);
 
-    // Validate slug
-    if (!resolvedParams?.slug) {
-      console.error("No slug provided in params");
-      notFound();
-    }
-
-    // Fetch content with logging
-    console.log("Fetching content for slug:", resolvedParams.slug);
-    const post = await getContent("posts", resolvedParams.slug);
-    console.log("Post data received:", post); // Debug: Log post data
-
-    // Validate post existence and structure
-    if (!post || typeof post !== "object" || !post.frontmatter || !post.content) {
-      console.error("Invalid post data for slug:", resolvedParams.slug, "Data:", post);
-      notFound();
-    }
-
-    // Validate required fields
-    if (!post.frontmatter.title) {
-      console.error("Post missing required field 'title':", post.frontmatter);
-      throw new Error("Post is missing required fields");
-    }
-
-    return (
-      <PostLayout>
-        <article className="prose dark:prose-invert lg:prose-lg mx-auto">
-          <h1 className="text-4xl font-bold mb-5">{post.frontmatter.title}</h1>
-          <div className="text-gray-600 dark:text-gray-400 mb-8">
-            <time>{post.frontmatter.date}</time>
-            {post.frontmatter.author && <span> · {post.frontmatter.author}</span>}
-          </div>
-
-          {post.frontmatter.coverImage && (
-            <div className="relative aspect-[16/9] mb-8">
-              <Image
-                src={post.frontmatter.coverImage}
-                alt={post.frontmatter.title as string}
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
-          )}
-
-          <div className="mdx-content">
-            <MDXContentWrapper content={post.content} />
-          </div>
-        </article>
-      </PostLayout>
-    );
-  } catch (error) {
-    console.error("Error in PostPage:", error);
+  if (!post || !post.frontmatter || !post.content) {
     notFound();
   }
+
+  return (
+    <PostLayout>
+      <article className="prose dark:prose-invert lg:prose-lg mx-auto">
+        <h1 className="text-4xl font-bold mb-5">{post.frontmatter.title}</h1>
+        <div className="text-gray-600 dark:text-gray-400 mb-8">
+          <time>{post.frontmatter.date}</time>
+          {post.frontmatter.author && <span> · {post.frontmatter.author}</span>}
+        </div>
+
+        {post.frontmatter.coverImage && (
+          <div className="relative aspect-[16/9] mb-8">
+            <Image
+              src={post.frontmatter.coverImage}
+              alt={post.frontmatter.title as string}
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
+        )}
+
+        <div className="mdx-content">
+          <MDXContentWrapper content={post.content} />
+        </div>
+      </article>
+    </PostLayout>
+  );
 }

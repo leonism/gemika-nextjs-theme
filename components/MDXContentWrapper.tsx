@@ -1,14 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
 import { serialize } from 'next-mdx-remote/serialize';
-import { components } from './mdx-components';
-
-const DynamicMDXRemote = dynamic(() => import('next-mdx-remote').then(mod => mod.MDXRemote), {
-  ssr: false,
-  loading: () => <div>Loading...</div>
-});
+import MDXClientRenderer from './MDXClientRenderer';
 
 interface MDXContentWrapperProps {
   content: string;
@@ -36,7 +30,7 @@ export default function MDXContentWrapper({ content }: MDXContentWrapperProps) {
 
   return (
     <div className="mdx-content">
-      <DynamicMDXRemote {...mdxSource} components={components} />
+      <MDXClientRenderer source={mdxSource} />
     </div>
   );
 }
