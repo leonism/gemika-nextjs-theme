@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { MDXContentWrapper } from "@/components/mdx-content-wrapper";
 import { PostLayout } from "@/components/layouts/post-layout";
-import MDXContentWrapper from '@/components/MDXContentWrapper';
 
 interface PostPageProps {
   params: Promise<{ slug: string }> | { slug: string };

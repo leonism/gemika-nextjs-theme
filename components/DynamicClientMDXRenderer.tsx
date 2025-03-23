@@ -1,22 +1,21 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import dynamic from 'next/dynamic';
+
+const ClientMDXRenderer = dynamic(
+  () => import('@/components/ClientMDXRenderer'),
+  {
+    ssr: false,
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 interface DynamicClientMDXRendererProps {
-  source: string;
+  source: any; // Replace 'any' with the correct type for your serialized MDX content
 }
 
-export default function DynamicClientMDXRenderer({ source }: DynamicClientMDXRendererProps) {
-  const [isMounted, setIsMounted] = useState(false);
+const DynamicClientMDXRenderer: React.FC<DynamicClientMDXRendererProps> = ({ source }) => {
+  return <ClientMDXRenderer source={source} />;
+};
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return null; // Return null on server-side
-  }
-
-  return <MDXRemote source={source} />;
-}
+export default DynamicClientMDXRenderer;
