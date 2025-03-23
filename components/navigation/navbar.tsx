@@ -1,25 +1,26 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { Search } from "@/components/search"
-import { cn } from "@/lib/utils"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Search } from "@/components/search";
+import { cn } from "@/lib/utils";
+import { MobileMenu } from "@/components/navigation/mobile-menu"; // Import MobileMenu
 
 interface NavItem {
-  label: string
-  href: string
-  children?: NavItem[]
+  label: string;
+  href: string;
+  children?: NavItem[];
 }
 
 interface NavbarProps {
-  items: NavItem[]
-  cta?: { label: string; href: string }
+  items: NavItem[];
+  cta?: { label: string; href: string };
 }
 
 export function Navbar({ items, cta }: NavbarProps) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-40 w-full backdrop-blur-sm bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 shadow-sm">
@@ -28,6 +29,7 @@ export function Navbar({ items, cta }: NavbarProps) {
           gemika
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {items.map((item) =>
             item.children ? (
@@ -90,7 +92,13 @@ export function Navbar({ items, cta }: NavbarProps) {
           )}
         </nav>
 
-        <div className="flex items-center space-x-2">
+        {/* Mobile Menu Button */}
+        <div className="flex items-center space-x-2 md:hidden">
+          <MobileMenu items={items} cta={cta} /> {/* Render MobileMenu */}
+        </div>
+
+        {/* Desktop CTA and Theme Toggle */}
+        <div className="hidden md:flex items-center space-x-2">
           <Search />
           <ThemeToggle />
           {cta && (
@@ -103,5 +111,5 @@ export function Navbar({ items, cta }: NavbarProps) {
         </div>
       </div>
     </header>
-  )
+  );
 }

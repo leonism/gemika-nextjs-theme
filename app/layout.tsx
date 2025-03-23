@@ -7,13 +7,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { BackToTop } from "@/components/utility/back-to-top";
 import { Navbar } from "@/components/navigation/navbar";
 import { SkipNav } from "@/components/navigation/skip-nav";
+import { Button } from "@/components/ui/button"
 import { navItems } from "@/data/nav-items";
 import ClientOnly from "@/components/utility/client-only";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Gemika",
+  title: "Gemika Next.Js Blog",
   description: "Gemika's personal website",
 };
 
@@ -28,7 +29,8 @@ export default function RootLayout({
         <ClientOnly>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <SkipNav />
-            <Navbar items={navItems} /> {/* Pass navItems as a prop */}
+            <Navbar items={navItems} cta={{ label: "Get in touch", href: "/contact" }} />
+            {/* Pass navItems as a prop */}
             {children}
             <Footer />
             <Toaster />
