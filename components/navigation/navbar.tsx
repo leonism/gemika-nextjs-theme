@@ -35,7 +35,7 @@ export function Navbar({ items, cta }: NavbarProps) {
                 <button
                   className={cn(
                     "font-medium flex items-center",
-                    pathname.startsWith(item.href)
+                    pathname?.startsWith(item.href)
                       ? "text-black dark:text-white"
                       : "text-gray-600 dark:text-gray-300"
                   )}
