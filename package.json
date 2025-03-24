@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.5",
     "@hookform/resolvers": "latest",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-alert-dialog": "^1.1.4",
@@ -38,7 +39,6 @@
     "@radix-ui/react-toggle-group": "^1.1.1",
     "@radix-ui/react-tooltip": "^1.1.6",
     "@tailwindcss/typography": "latest",
-    "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
@@ -65,6 +65,7 @@
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-font-inter": "^4.0.0",
     "vaul": "^0.9.6",
     "zod": "latest"
   },
@@ -72,7 +73,11 @@
     "@types/node": "^22.13.11",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "postcss": "^8",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.0.6",
+    "postcss": "^8.5.3",
+    "postcss-import": "^16.1.0",
+    "postcss-preset-env": "^10.1.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
   },
@@ -81,7 +86,18 @@
     "react-dom": "18.2.0"
   },
   "overrides": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "18.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

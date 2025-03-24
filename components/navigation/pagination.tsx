@@ -75,32 +75,46 @@ export function Pagination({ currentPage, totalPages, baseUrl, className }: Pagi
   }
 
   return (
-    <nav aria-label="Pagination" className={cn("flex justify-center items-center space-x-2", className)}>
+    <nav
+      aria-label="Pagination"
+      className={cn("flex items-center justify-between sm:justify-center gap-2 w-full", className)}
+    >
+      {/* Previous Button */}
       <Button
-        variant="outline"
-        size="icon"
-        className="rounded-full"
+        variant="ghost"
+        className={cn(
+          "rounded-full h-10 w-10 p-0 hover:bg-gray-100 dark:hover:bg-gray-800",
+          "transition-all duration-200 hover:scale-105",
+          currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:shadow-md"
+        )}
         disabled={currentPage === 1}
         asChild={currentPage !== 1}
       >
         {currentPage === 1 ? (
-          <span>
-            <ChevronLeft className="h-4 w-4" />
+          <span className="flex items-center justify-center">
+            <ChevronLeft className="h-5 w-5" />
             <span className="sr-only">Previous page</span>
           </span>
         ) : (
-          <Link href={getPageUrl(currentPage - 1)}>
-            <ChevronLeft className="h-4 w-4" />
-            <span className="sr-only">Previous page</span>
+          <Link
+            href={getPageUrl(currentPage - 1)}
+            className="flex items-center justify-center h-full w-full"
+            aria-label="Previous page"
+          >
+            <ChevronLeft className="h-5 w-5" />
           </Link>
         )}
       </Button>
 
-      <div className="flex items-center space-x-2">
+      {/* Page Numbers */}
+      <div className="hidden sm:flex items-center gap-1">
         {pageNumbers.map((page, index) => {
           if (page === "ellipsis-start" || page === "ellipsis-end") {
             return (
-              <span key={`${page}-${index}`} className="px-2">
+              <span
+                key={`${page}-${index}`}
+                className="flex items-center justify-center h-10 w-10 text-gray-500 dark:text-gray-400"
+              >
                 &hellip;
               </span>
             )
@@ -109,41 +123,71 @@ export function Pagination({ currentPage, totalPages, baseUrl, className }: Pagi
           return (
             <Button
               key={`page-${page}`}
-              variant={currentPage === page ? "default" : "outline"}
+              variant={currentPage === page ? "default" : "ghost"}
               size="sm"
-              className="rounded-full w-9 h-9 p-0"
+              className={cn(
+                "rounded-full h-10 w-10 p-0 text-sm font-medium",
+                "transition-all duration-200 hover:scale-105",
+                currentPage === page
+                  ? "bg-indigo-600 hover:bg-indigo-700 shadow-md"
+                  : "hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md"
+              )}
               asChild={currentPage !== page}
             >
               {currentPage === page ? (
-                <span aria-current="page">{page}</span>
+                <span
+                  className="flex items-center justify-center h-full w-full"
+                  aria-current="page"
+                >
+                  {page}
+                </span>
               ) : (
-                <Link href={getPageUrl(page as number)}>{page}</Link>
+                <Link
+                  href={getPageUrl(page as number)}
+                  className="flex items-center justify-center h-full w-full"
+                  aria-label={`Go to page ${page}`}
+                >
+                  {page}
+                </Link>
               )}
             </Button>
           )
         })}
       </div>
 
+      {/* Mobile Current Page Display */}
+      <div className="sm:hidden flex items-center gap-1">
+        <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+          Page {currentPage} of {totalPages}
+        </span>
+      </div>
+
+      {/* Next Button */}
       <Button
-        variant="outline"
-        size="icon"
-        className="rounded-full"
+        variant="ghost"
+        className={cn(
+          "rounded-full h-10 w-10 p-0 hover:bg-gray-100 dark:hover:bg-gray-800",
+          "transition-all duration-200 hover:scale-105",
+          currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:shadow-md"
+        )}
         disabled={currentPage === totalPages}
         asChild={currentPage !== totalPages}
       >
         {currentPage === totalPages ? (
-          <span>
-            <ChevronRight className="h-4 w-4" />
+          <span className="flex items-center justify-center">
+            <ChevronRight className="h-5 w-5" />
             <span className="sr-only">Next page</span>
           </span>
         ) : (
-          <Link href={getPageUrl(currentPage + 1)}>
-            <ChevronRight className="h-4 w-4" />
-            <span className="sr-only">Next page</span>
+          <Link
+            href={getPageUrl(currentPage + 1)}
+            className="flex items-center justify-center h-full w-full"
+            aria-label="Next page"
+          >
+            <ChevronRight className="h-5 w-5" />
           </Link>
         )}
       </Button>
     </nav>
   )
 }
-

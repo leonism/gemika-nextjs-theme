@@ -12,44 +12,68 @@ interface BreadcrumbsProps {
   showHome?: boolean
 }
 
-export function Breadcrumbs({ items, className, homeHref = "/", showHome = true }: BreadcrumbsProps) {
+export function Breadcrumbs({
+  items,
+  className,
+  homeHref = "/",
+  showHome = true
+}: BreadcrumbsProps) {
   return (
-    <nav aria-label="Breadcrumb" className={cn("flex items-center text-sm", className)}>
-      <ol className="flex items-center flex-wrap">
-        {showHome && (
-          <li className="flex items-center">
-            <Link
-              href={homeHref}
-              className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
-            >
-              <Home className="h-4 w-4" />
-              <span className="sr-only">Home</span>
-            </Link>
-            <ChevronRight className="h-4 w-4 mx-2 text-gray-400" />
-          </li>
-        )}
+    <nav
+      aria-label="Breadcrumb"
+      className={cn(
+        "w-full border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 py-3",
+        className
+      )}
+    >
+      <div className="container mx-auto px-4">
+        <ol className="flex items-center space-x-2 overflow-x-auto whitespace-nowrap">
+          {showHome && (
+            <li className="flex items-center">
+              <Link
+                href={homeHref}
+                className={cn(
+                  "flex items-center text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400",
+                  "transition-colors duration-200"
+                )}
+              >
+                <Home className="h-4 w-4 flex-shrink-0" />
+                <span className="sr-only">Home</span>
+              </Link>
+              <ChevronRight className="h-4 w-4 mx-2 text-gray-400 dark:text-gray-500 flex-shrink-0" />
+            </li>
+          )}
 
-        {items.map((item, index) => (
-          <li key={item.href} className="flex items-center">
-            {index === items.length - 1 ? (
-              <span className="font-medium text-gray-900 dark:text-gray-100" aria-current="page">
-                {item.label}
-              </span>
-            ) : (
-              <>
-                <Link
-                  href={item.href}
-                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+          {items.map((item, index) => (
+            <li key={item.href} className="flex items-center">
+              {index === items.length - 1 ? (
+                <span
+                  className={cn(
+                    "text-sm font-medium text-gray-900 dark:text-gray-100",
+                    "truncate max-w-[160px] md:max-w-none"
+                  )}
+                  aria-current="page"
                 >
                   {item.label}
-                </Link>
-                <ChevronRight className="h-4 w-4 mx-2 text-gray-400" />
-              </>
-            )}
-          </li>
-        ))}
-      </ol>
+                </span>
+              ) : (
+                <>
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      "text-sm text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400",
+                      "transition-colors duration-200 truncate max-w-[120px] md:max-w-none"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                  <ChevronRight className="h-4 w-4 mx-2 text-gray-400 dark:text-gray-500 flex-shrink-0" />
+                </>
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
     </nav>
   )
 }
-

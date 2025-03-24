@@ -11,7 +11,8 @@ const nextConfig = {
     unoptimized: true,
   },
   experimental: {
-    // Enable Turbopack
+    appDir: true,         // Enable the new App Router
+    skipPagesDir: true,   // Prevent Next.js from scanning the /pages directory
     turbo: {
       rules: {
         '*.mdx': {

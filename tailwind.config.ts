@@ -18,6 +18,44 @@ const config = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      sans: [
+        'Inter var',
+        'ui-sans-serif',
+        'system-ui',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        '"Noto Sans"',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+        '"Noto Color Emoji"',
+      ],
+      serif: [
+        'ui-serif',
+        'Georgia',
+        'Cambria',
+        '"Times New Roman"',
+        'Times',
+        'serif',
+      ],
+      mono: [
+        'ui-monospace',
+        'SFMono-Regular',
+        'Menlo',
+        'Monaco',
+        'Consolas',
+        '"Liberation Mono"',
+        '"Courier New"',
+        'monospace',
+      ],
+      display: ['"Clash Display"', 'sans-serif'], // For headings
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -73,10 +111,27 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            fontFeatureSettings: '"calt", "ccmp", "kern", "rlig", "ss01"',
+            fontVariantLigatures: 'common-ligatures',
+            fontVariantNumeric: 'lining-nums proportional-nums',
+            fontVariationSettings: '"opsz" 32',
+            maxWidth: 'none',
+            // Other typography customizations
+          },
+        },
+      },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+    require('tailwindcss-font-inter')({
+      importFontWeights: [400, 500, 600, 700], // Only include weights you'll use
+    }),
+  ],
 } satisfies Config
 
 export default config
-
