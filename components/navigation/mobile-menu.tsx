@@ -25,7 +25,7 @@ interface MobileMenuProps {
 
 export function MobileMenu({ items, cta }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname() || "/"; // Default to "/" if pathname is null
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -44,8 +44,10 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
   return (
     <>
       {/* Mobile Menu Button */}
-      <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label={isOpen ? "Close menu" : "Open menu"}>
-        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      <Button variant="ghost"
+        size="icon"
+        onClick={toggleMenu}
+        aria-label={isOpen ? "Close menu" : "Open menu"}> {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </Button>
 
       {/* Mobile Menu Overlay */}
@@ -74,9 +76,10 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
                   href={item.href}
                   className={cn(
                     "block text-xl font-medium",
-                    pathname === item.href || pathname.startsWith(`${item.href}/`)
-                      ? "text-black dark:text-white"
-                      : "text-gray-600 dark:text-gray-300",
+                    (pathname === item.href || pathname.startsWith(`${item.href}/`)) &&
+                      "text-black dark:text-white",
+                    !(pathname === item.href || pathname.startsWith(`${item.href}/`)) &&
+                      "text-gray-600 dark:text-gray-300",
                   )}
                   onClick={closeMenu}
                 >

@@ -40,21 +40,20 @@ export default async function Home() {
         <div className="relative w-20 h-20 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
-            alt="Daryl Mercer"
+            alt="Gemika Haziq Nugroho"
             fill
             className="object-cover"
           />
         </div>
       </div>
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
-        Daryl Mercer
+      <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
+        Gemika Haziq Nugroho
       </h1>
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold max-w-4xl mx-auto leading-tight mb-6 bg-gradient-to-r from-gray-800 to-gray-500 dark:from-gray-200 dark:to-gray-500 bg-clip-text text-transparent">
-        I'm an expert user experience strategist and mobile developer.
+        Specializing in UI/UX strategy & mobile development.
       </h2>
       <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
-        Leveraging my expertise, I'm here to collaborate with you on crafting design solutions that transcend
-        expectations. Let's embark on a journey of innovation together!
+        With my expertise, I’m here to partner with you in creating design solutions that go beyond expectations. Let’s embark on a journey of innovation together!
       </p>
 
       <div className="flex justify-center space-x-8 mb-16">

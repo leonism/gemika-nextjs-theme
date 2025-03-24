@@ -27,6 +27,10 @@ export const navItems = [
         label: "Development Resources",
         href: "/resources/development",
       },
+      {
+        label: "Books & Articles",
+        href: "/resources/books-articles",
+      },
     ],
   },
 ];

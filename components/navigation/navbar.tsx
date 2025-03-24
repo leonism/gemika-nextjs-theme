@@ -25,8 +25,13 @@ export function Navbar({ items, cta }: NavbarProps) {
   return (
     <header className="sticky top-0 z-40 w-full backdrop-blur-sm bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 shadow-sm">
       <div className="container mx-auto py-4 px-4 flex items-center justify-between">
-        <Link href="/" className="text-3xl font-bold">
-          gemika
+        {/* Logo */}
+        <Link
+          href="/"
+          className="font-sans text-sm text-white place-items-center inline-block align-middle antialiased font-bold rounded-full bg-black tracking-tight px-4 py-3 dark:bg-white dark:text-black dark:border-white dark:shadow-lg"
+          aria-label="Go to homepage"
+        >
+        BenJo Theme
         </Link>
 
         {/* Desktop Navigation */}

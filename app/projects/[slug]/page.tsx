@@ -64,7 +64,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     image: project.frontmatter.coverImage as string,
     creator: {
       "@type": "Person",
-      name: "Daryl Mercer",
+      name: "Gemika Haziq Nugroho",
     },
     dateCreated: project.frontmatter.year,
     keywords: project.frontmatter.category,

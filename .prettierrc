@@ -48,5 +48,5 @@
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
-  "tailwindConfig": "./tailwind.config.js"
+  "tailwindConfig": "./tailwind.config.ts"
 }
