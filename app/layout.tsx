@@ -62,35 +62,10 @@ export default function RootLayout({
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
             <Footer />
           </div>
-
           {/* Custom cursor - now properly client-side rendered */}
           <CustomCursor />
         </ThemeProvider>
 
-        {/* Cursor animation script (safe hydration) */}
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            if (typeof window !== 'undefined') {
-              const cursor = document.getElementById('cursor-follower');
-              window.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-              });
-
-              // Scale effect on interactive elements
-              document.querySelectorAll('a, button, [role="button"]').forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                  cursor.style.transform = 'translate(-50%, -50%) scale(2)';
-                  cursor.style.opacity = '0.5';
-                });
-                el.addEventListener('mouseleave', () => {
-                  cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                  cursor.style.opacity = '1';
-                });
-              });
-            }
-          `
-        }} />
       </body>
     </html>
   );
