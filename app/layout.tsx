@@ -28,7 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} scroll-smooth`}>
       <body className="bg-gray-50 text-gray-900 dark:bg-[#111927] dark:text-gray-100 antialiased transition-colors duration-500">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        {/* Wrap ThemeProvider in a client component */}
+        <ClientThemeProvider>
           {/* Floating gradient blobs background - light mode only */}
           <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 dark:hidden">
             <div className="absolute top-[20%] -left-20 w-72 h-72 bg-indigo-300/20 rounded-full filter blur-3xl animate-float animation-delay-2000"></div>
@@ -61,8 +62,17 @@ export default function RootLayout({
               <Footer />
             </div>
           </div>
-        </ThemeProvider>
+        </ClientThemeProvider>
       </body>
     </html>
   );
+}
+
+// Create a new client component wrapper
+function ClientThemeProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      {children}
+    </ThemeProvider>
+  )
 }

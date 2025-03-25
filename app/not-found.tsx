@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Suspense } from "react";
 
 export default function NotFound() {
   return (

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Search } from "@/components/search";
+import { SearchClient } from "@/components/search-client";
 import { cn } from "@/lib/utils";
 import { MobileMenu } from "@/components/navigation/mobile-menu";
 
