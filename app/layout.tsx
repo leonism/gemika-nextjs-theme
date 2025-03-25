@@ -1,16 +1,27 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { CustomCursor } from "@/components/cursor";
 import { ThemeProvider } from "@/components/utility/theme-provider";
-import { Footer } from "@/components/navigation/footer";
 import { Navbar } from "@/components/navigation/navbar";
 import { navItems } from "@/data/nav-items";
+import { Footer } from "@/components/navigation/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
-  title: "Gemika Next.Js Blog",
-  description: "Gemika's personal website",
+  title: {
+    default: "Gemika | Creative Technologist",
+    template: "%s | Gemika"
+  },
+  description: "Digital garden of thoughts on design, code and creative processes",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f172a" }
+  ]
 };
 
 export default function RootLayout({
@@ -19,20 +30,67 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} scroll-smooth`}>
+      <body className="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 antialiased transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {/* Navigation Bar */}
-          <Navbar items={navItems} />
+          {/* Animated background elements */}
+          <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+            <div className="absolute top-1/4 -left-20 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-20 animate-blob animation-delay-2000"></div>
+            <div className="absolute top-1/2 -right-20 w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-20 animate-blob animation-delay-4000"></div>
+            <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 dark:opacity-20 animate-blob"></div>
+          </div>
 
-          {/* Main Content */}
-          <main className="flex-1 min-h-screen">
-            <div className="container mx-auto px-4 py-8">{children}</div>
+          {/* Navigation Bar with subtle border */}
+          <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
+            <Navbar items={navItems} />
+          </header>
+
+          {/* Main Content with creative padding */}
+          <main className="flex-1 min-h-[calc(100vh-8rem)]">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+              {/* Subtle decorative elements */}
+              <div className="hidden md:block absolute left-8 top-1/4 h-32 w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent">
+              </div>
+              <div className="hidden md:block absolute right-8 bottom-1/4 h-32 w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent">
+              </div>
+              {children}
+            </div>
           </main>
 
-          {/* Footer */}
-          <Footer />
+          {/* Footer with creative divider */}
+          <div className="relative">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
+            <Footer />
+          </div>
+
+          {/* Custom cursor - now properly client-side rendered */}
+          <CustomCursor />
         </ThemeProvider>
+
+        {/* Cursor animation script (safe hydration) */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            if (typeof window !== 'undefined') {
+              const cursor = document.getElementById('cursor-follower');
+              window.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+              });
+
+              // Scale effect on interactive elements
+              document.querySelectorAll('a, button, [role="button"]').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                  cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+                  cursor.style.opacity = '0.5';
+                });
+                el.addEventListener('mouseleave', () => {
+                  cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                  cursor.style.opacity = '1';
+                });
+              });
+            }
+          `
+        }} />
       </body>
     </html>
   );

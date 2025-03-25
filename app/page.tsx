@@ -11,8 +11,8 @@ export default async function Home() {
   const latestPosts = await getAllContent("posts")
 
   // Limit to 4 featured projects and 3 latest posts
-  const limitedProjects = featuredProjects.slice(0, 4)
-  const limitedPosts = latestPosts.slice(0, 3)
+  const limitedProjects = featuredProjects.slice(0, 5)
+  const limitedPosts = latestPosts.slice(0, 9)
 
   // Create JSON-LD structured data
   const jsonLd: WithContext<any> = {

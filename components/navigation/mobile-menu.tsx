@@ -128,8 +128,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
               <Button
                 asChild
                 className="w-full rounded-full bg-indigo-600 hover:bg-indigo-700 text-white py-4 text-lg font-medium shadow-md hover:shadow-lg transition-all"
-                onClick={() => setIsOpen(false)}
-              >
+                onClick={() => setIsOpen(false)}>
                 <Link href={cta.href}>{cta.label}</Link>
               </Button>
             )}
