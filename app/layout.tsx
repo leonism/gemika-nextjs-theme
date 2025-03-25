@@ -18,10 +18,6 @@ export const metadata: Metadata = {
     template: "%s | Gemika"
   },
   description: "Digital garden of thoughts on design, code and creative processes",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
-    { media: "(prefers-color-scheme: dark)", color: "#141D2B" }
-  ]
 };
 
 export default function RootLayout({

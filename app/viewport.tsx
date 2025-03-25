@@ -1,8 +1,7 @@
-import { Viewport } from 'next'
-
-export const viewport: Viewport = {
+// app/viewport.tsx
+export const viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f172a" }
+    { media: "(prefers-color-scheme: dark)", color: "#141D2B" }
   ]
 }
