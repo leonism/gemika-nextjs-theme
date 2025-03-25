@@ -26,7 +26,7 @@ export function Navbar({
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full dark:bg-[#1A2332]/90 dark:border-[#313F55]/50 dark:shadow-[#141D2B]/20">
+    <header className="sticky top-0 z-50 w-full">
       <div className="container mx-auto sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
           {/* Logo */}

@@ -8,12 +8,11 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    domains: ['images.unsplash.com', 'logo.clearbit.com'],
     unoptimized: true,
   },
   experimental: {
-    appDir: true,         // Enable the new App Router
-    skipPagesDir: true,   // Prevent Next.js from scanning the /pages directory
-    turbo: {
+    turbo : {
       rules: {
         '*.mdx': {
           loaders: ['@next/mdx'],

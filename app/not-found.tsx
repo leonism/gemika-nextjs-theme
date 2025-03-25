@@ -1,34 +1,27 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { NotFoundLayout } from "@/components/layouts/not-found-layout"
-import { SearchForm } from "@/components/forms/search-form"
-import Image from "next/image"
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export default function NotFound() {
   return (
-    <NotFoundLayout
-      title="404"
-      message="The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
-      image={
-        <div className="relative w-64 h-64 mx-auto">
-          <Image
-            src="https://images.unsplash.com/photo-1594322436404-5a0526db4d13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8&auto=format&fit=crop&w=500&q=80"
-            alt="404 Not Found"
-            fill
-            className="object-cover rounded-lg"
-          />
+    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-8rem)] text-center px-4">
+      <div className="space-y-6 max-w-md">
+        <h1 className="text-6xl font-bold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          404
+        </h1>
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+          Page Not Found
+        </h2>
+        <p className="text-gray-600 dark:text-gray-300">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div className="pt-6">
+          <Button asChild variant="default" size="lg">
+            <Link href="/" className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700">
+              Return Home
+            </Link>
+          </Button>
         </div>
-      }
-      searchBar={<SearchForm placeholder="Try searching for something else..." />}
-    >
-      <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-        <Button asChild variant="outline">
-          <Link href="/posts">Browse Blog Posts</Link>
-        </Button>
-        <Button asChild variant="default">
-          <Link href="/">Go to Homepage</Link>
-        </Button>
       </div>
-    </NotFoundLayout>
+    </div>
   );
 }

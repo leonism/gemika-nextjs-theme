@@ -1,4 +1,3 @@
-// app/viewport.tsx
 export const viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
