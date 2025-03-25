@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
@@ -13,51 +13,44 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "1rem",
+        sm: "1.5rem",
+        lg: "2rem",
+      },
       screens: {
         "2xl": "1400px",
       },
     },
     fontFamily: {
       sans: [
-        'Inter var',
-        'ui-sans-serif',
-        'system-ui',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        '"Noto Sans"',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
+        "Inter var", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont",
+        '"Segoe UI"', "Roboto", '"Helvetica Neue"', "Arial", '"Noto Sans"', "sans-serif",
+        '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"',
       ],
       serif: [
-        'ui-serif',
-        'Georgia',
-        'Cambria',
-        '"Times New Roman"',
-        'Times',
-        'serif',
+        "ui-serif", "Georgia", "Cambria", '"Times New Roman"', "Times", "serif",
       ],
       mono: [
-        'ui-monospace',
-        'SFMono-Regular',
-        'Menlo',
-        'Monaco',
-        'Consolas',
-        '"Liberation Mono"',
-        '"Courier New"',
-        'monospace',
+        "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas",
+        '"Liberation Mono"', '"Courier New"', "monospace",
       ],
-      display: ['"Clash Display"', 'sans-serif'], // For headings
+      display: ['"Clash Display"', "sans-serif"],
     },
     extend: {
       colors: {
+        htb: {
+          dark: "#0a0a0a",
+          darker: "#050505",
+          light: "#e0e0e0",
+          lighter: "#f5f5f5",
+          accent: "#9fef00",
+          accentDark: "#7bcb00",
+          accentLight: "#c1ff4d",
+          muted: "#1a1a1a",
+          primary: "#3b82f6",
+          secondary: "#4ade80",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -66,24 +59,6 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-        },
-        htb: {
-        dark: '#0a0a0a',
-        light: '#e2e8f0',
-        primary: '#3b82f6',  // Electric blue
-        secondary: '#4ade80', // Neon green
-        accent: '#8b5cf6'     // Purple accent
-        },
-      animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'float-delay': 'float 6s ease-in-out 2s infinite',
-        'shine': "shine 2s infinite",
-        'bounce': "bounce 2s infinite",
-      },
-      boxShadow: {
-        'cyber': '0 0 10px rgba(59, 130, 246, 0.5)',
-        'cyber-md': '0 0 15px rgba(59, 130, 246, 0.5)',
-        'cyber-lg': '0 0 20px rgba(59, 130, 246, 0.5)'
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -115,7 +90,16 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        cyber: "0 0 10px rgba(59, 130, 246, 0.5)",
+        "cyber-md": "0 0 15px rgba(59, 130, 246, 0.5)",
+        "cyber-lg": "0 0 20px rgba(59, 130, 246, 0.5)",
+      },
       keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
         shine: {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(100%)" },
@@ -128,39 +112,38 @@ const config = {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
-        'circuit-horizontal': {
-        '0%': { transform: 'translateX(-100%)' },
-        '100%': { transform: 'translateX(100%)' },
-        },
-        'circuit-vertical': {
-          '0%': { transform: 'translateY(-100%)' },
-          '100%': { transform: 'translateY(100%)' },
-        },
-        'text-shimmer': {
-          '0%': { backgroundPosition: '0% 50%' },
-          '100%': { backgroundPosition: '100% 50%' },
-        },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
       },
       animation: {
+        float: "float 6s ease-in-out infinite",
+        "float-delay": "float 6s ease-in-out 2s infinite",
+        shine: "shine 2s infinite",
+        bounce: "bounce 2s infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        'circuit-horizontal': 'circuit-horizontal 8s linear infinite',
-        'circuit-vertical': 'circuit-vertical 12s linear infinite',
-        'text-shimmer': 'text-shimmer 3s ease infinite',
       },
       typography: {
         DEFAULT: {
           css: {
             fontFeatureSettings: '"calt", "ccmp", "kern", "rlig", "ss01"',
-            fontVariantLigatures: 'common-ligatures',
-            fontVariantNumeric: 'lining-nums proportional-nums',
-            fontVariationSettings: '"opsz" 32',
-            maxWidth: 'none',
-            // Other typography customizations
+            fontVariantLigatures: "common-ligatures",
+            maxWidth: "none",
+          },
+        },
+        dark: {
+          css: {
+            color: "#e0e0e0",
+            a: {
+              color: "#9fef00",
+              "&:hover": { color: "#c1ff4d" },
+            },
+            h1: { color: "#f5f5f5" },
+            h2: { color: "#f5f5f5" },
+            h3: { color: "#f5f5f5" },
+            strong: { color: "#f5f5f5" },
           },
         },
       },
@@ -169,10 +152,8 @@ const config = {
   plugins: [
     require("tailwindcss-animate"),
     require("@tailwindcss/typography"),
-    require('tailwindcss-font-inter')({
-      importFontWeights: [400, 500, 600, 700], // Only include weights you'll use
-    }),
+    require("tailwindcss-font-inter")({ importFontWeights: [400, 500, 600, 700] }),
   ],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;
