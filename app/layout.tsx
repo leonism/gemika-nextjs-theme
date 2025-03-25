@@ -41,7 +41,7 @@ export default function RootLayout({
           </div>
 
           {/* Navigation Bar with subtle border */}
-          <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
+          <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80">
             <Navbar items={navItems} />
           </header>
 
@@ -59,7 +59,7 @@ export default function RootLayout({
 
           {/* Footer with creative divider */}
           <div className="relative">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
+            <div className="absolute inset-x-0 top-0 h-px backdrop-blur-lg bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
             <Footer />
           </div>
         </ThemeProvider>

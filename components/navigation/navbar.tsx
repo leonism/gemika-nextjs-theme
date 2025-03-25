@@ -26,8 +26,8 @@ export function Navbar({
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full dark:bg-gray-950/80 dark:border-gray-800/50 dark:shadow-gray-900/20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-200/50">
+    <header className="sticky top-0 z-50 w-full dark:bg-gray-950/80">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo - removed hover animation */}
           <div className="flex-shrink-0">
@@ -75,7 +75,7 @@ export function Navbar({
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </button>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white/90 dark:bg-gray-900/90 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 dark:border-gray-800/50">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white/90 dark:bg-gray-900/90 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     {item.children.map((child) => (
                       <Link
                         key={child.label}

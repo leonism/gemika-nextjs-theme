@@ -85,7 +85,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
                   <Link
                     key={index}
                     href={social.url}
-                    className={`p-2 rounded-full bg-white dark:bg-gray-800 shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700/50 text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-all duration-300 hover:-translate-y-1`}
+                    className={`p-2 rounded-full bg-white dark:bg-gray-800 shadow-sm hover:shadow-md border border-gray-200 text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-all duration-300 hover:-translate-y-1`}
                     aria-label={social.label}
                   >
                     <social.icon size={18} />
