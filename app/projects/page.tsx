@@ -3,7 +3,7 @@ import Link from "next/link"
 import { getAllContent } from "@/lib/content"
 import JsonLd from "@/components/json-ld"
 import type { Metadata } from "next"
-import type { WebPage, WithContext } from "schema-dtts"
+import { WithContext } from "schema-dts"
 
 export const metadata: Metadata = {
   title: "Projects | Daryl Mercer",

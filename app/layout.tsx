@@ -1,11 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { CustomCursor } from "@/components/cursor";
 import { ThemeProvider } from "@/components/utility/theme-provider";
 import { Navbar } from "@/components/navigation/navbar";
 import { navItems } from "@/data/nav-items";
 import { Footer } from "@/components/navigation/footer";
+//
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,7 +14,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Gemika | Creative Technologist",
+    default: "Creative Technologist",
     template: "%s | Gemika"
   },
   description: "Digital garden of thoughts on design, code and creative processes",
@@ -62,8 +62,6 @@ export default function RootLayout({
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
             <Footer />
           </div>
-          {/* Custom cursor - now properly client-side rendered */}
-          <CustomCursor />
         </ThemeProvider>
 
       </body>

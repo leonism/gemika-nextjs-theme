@@ -72,7 +72,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
             <div className="space-y-6">
               <Link href="/" className="inline-block">
                 <span className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
-                  gemika
+                  BenJo Theme
                 </span>
               </Link>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
