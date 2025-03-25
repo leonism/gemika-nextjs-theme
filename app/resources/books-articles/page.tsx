@@ -65,7 +65,7 @@ export default function BooksResourcesPage() {
       <main className="relative z-10">
         {/* Hero Section */}
         <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4 max-w-6xl">
+          <div className="container mx-auto px-4 max-w-6xl backdrop-blur-lg">
             <div className="max-w-3xl">
               {/* Floating badge */}
               <div className="inline-flex items-center mb-6 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-sm backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">

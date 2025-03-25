@@ -38,7 +38,7 @@ export default async function Home() {
         <div className="absolute top-0 -right-20 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 dark:opacity-30 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div className="container mx-auto px-4 max-w-6xl text-center relative z-10">
+      <div className="container mx-auto px-4 max-w-6xl text-center relative z-10 ">
         {/* Profile Image with pop effect */}
         <div className="flex justify-center mb-8">
           <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 transition-all duration-500 hover:scale-105 hover:shadow-2xl group">
@@ -114,7 +114,7 @@ export default async function Home() {
   // Featured Projects Section with enhanced animations
   const featuredProjectsSection = (
     <div className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-6xl ">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
           <div>
             <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 mb-2 block">
@@ -181,7 +181,7 @@ export default async function Home() {
   // Trending Topics Section with enhanced animations
   const trendingTopicsSection = (
     <div className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-6xl ">
         <div className="text-center mb-16">
           <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 mb-2 block">
             EXPERTISE

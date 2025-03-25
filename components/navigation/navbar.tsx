@@ -29,13 +29,35 @@ export function Navbar({
     <header className="sticky top-0 z-50 w-full dark:bg-gray-950/80">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo - removed hover animation */}
+          {/* Logo with new SVG gradient icon */}
           <div className="flex-shrink-0">
             <Link
               href="/"
-              className="relative inline-flex items-center justify-center px-5 py-2.5 overflow-hidden font-medium rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition-colors duration-300"
+              className="relative inline-flex items-center justify-center px-4 py-2.5 overflow-hidden font-medium rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition-colors duration-300"
               aria-label="Go to homepage"
             >
+              {/* Gradient SVG Logo */}
+              <svg
+                className="w-5 h-5 mr-2"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="10" fill="url(#logo-gradient)" />
+                <defs>
+                  <linearGradient
+                    id="logo-gradient"
+                    x1="12"
+                    y1="2"
+                    x2="12"
+                    y2="22"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#ffffff" stopOpacity="0.8" />
+                    <stop offset="1" stopColor="#ffffff" stopOpacity="0.4" />
+                  </linearGradient>
+                </defs>
+              </svg>
               <span className="relative text-white font-bold text-sm tracking-wide">
                 BenJo Theme
               </span>
@@ -89,7 +111,8 @@ export function Navbar({
                       >
                         {child.label}
                         {/* Only show hover animation when directly hovered */}
-                        <span className="absolute left-4 bottom-2 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 hover:w-[calc(100%-2rem)]"></span>
+                        <span className="absolute left-4 bottom-2 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 hover:w-[calc(100%-2rem)]">
+                        </span>
                       </Link>
                     ))}
                   </div>
