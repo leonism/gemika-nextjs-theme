@@ -59,6 +59,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
   const serializedContent = await serialize(project.content || "")
 
+<<<<<<< HEAD
+=======
+  // Get all projects for pagination
+  const allProjects = await getAllContent("projects")
+  const currentIndex = allProjects.findIndex(p => p?.slug === slug)
+  const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null
+  const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null
+
+>>>>>>> 938797c (fix the projects controller to stable hydration)
   // Create JSON-LD structured data
   const jsonLd: WithContext<any> = {
     "@context": "https://schema.org",
@@ -88,7 +97,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   ]
 
   return (
+<<<<<<< HEAD
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+=======
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+>>>>>>> 938797c (fix the projects controller to stable hydration)
       <JsonLd data={jsonLd} />
       <main>
         {/* Animated Back Button */}
@@ -117,6 +130,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-3 space-y-12">
+<<<<<<< HEAD
               {/* Project Header with floating category */}
               <div className="relative space-y-6">
                 <div className="absolute -top-4 -left-4 z-10">
@@ -126,6 +140,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white pt-6">
+=======
+              {/* Project Header */}
+              <div className="relative space-y-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600 pt-6">
+>>>>>>> 938797c (fix the projects controller to stable hydration)
                   {project.frontmatter.title as string}
                 </h1>
                 <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl">
@@ -133,6 +152,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </p>
               </div>
 
+<<<<<<< HEAD
               {/* Cover Image with floating tags */}
               <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group">
                 <Image
@@ -142,13 +162,43 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
+=======
+              {/* Cover Image with floating category and tags */}
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group">
+                {/* Border gradient effect */}
+                <div className="absolute inset-0 rounded-2xl p-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-20 group-hover:opacity-30 transition-opacity duration-300 -z-10"></div>
+                <div className="absolute inset-0 rounded-2xl p-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300 -z-10 animate-spin-slow"></div>
+
+                <div className="relative h-full w-full rounded-2xl overflow-hidden">
+                  <Image
+                    src={(project.frontmatter.coverImage as string) || "/placeholder.svg"}
+                    alt={project.frontmatter.title as string}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    priority
+                  />
+                </div>
+>>>>>>> 938797c (fix the projects controller to stable hydration)
 
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
 
+<<<<<<< HEAD
                 {/* Floating tags at bottom */}
                 {(project.frontmatter.tags as string[])?.length > 0 && (
                   <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-2">
+=======
+                {/* Category button positioned at bottom right */}
+                <div className="absolute bottom-4 right-4 z-10">
+                  <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-indigo-500/80 to-purple-600/80 text-white backdrop-blur-sm border border-white/20 shadow-lg hover:scale-105 transition-transform duration-300">
+                    {project.frontmatter.category as string}
+                  </span>
+                </div>
+
+                {/* Floating tags at bottom left */}
+                {(project.frontmatter.tags as string[])?.length > 0 && (
+                  <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
+>>>>>>> 938797c (fix the projects controller to stable hydration)
                     {(project.frontmatter.tags as string[])?.map((tag, index) => {
                       const colorIndex = index % TAG_COLORS.length
                       const color = TAG_COLORS[colorIndex]
@@ -191,18 +241,90 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         key={index}
                         className="group relative aspect-square rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
                       >
+<<<<<<< HEAD
                         <Image
                           src={image || "/placeholder.svg"}
                           alt={`${project.frontmatter.title as string} gallery image ${index + 1}`}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
                         />
+=======
+                        {/* Border gradient effect */}
+                        <div className="absolute inset-0 rounded-2xl p-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-20 group-hover:opacity-30 transition-opacity duration-300 -z-10"></div>
+                        <div className="absolute inset-0 rounded-2xl p-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300 -z-10 animate-spin-slow"></div>
+
+                        <div className="relative h-full w-full rounded-2xl overflow-hidden">
+                          <Image
+                            src={image || "/placeholder.svg"}
+                            alt={`${project.frontmatter.title as string} gallery image ${index + 1}`}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
+                        </div>
+>>>>>>> 938797c (fix the projects controller to stable hydration)
                         <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
                     ))}
                   </div>
                 </div>
               )}
+<<<<<<< HEAD
+=======
+
+              {/* Pagination */}
+              <div className="flex items-center justify-between pt-12 border-t border-gray-200 dark:border-gray-700">
+                {prevProject ? (
+                  <Link
+                    href={`/projects/${prevProject.slug}`}
+                    className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 group"
+                  >
+                    <div className="relative h-10 w-10 rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 p-2 mr-2 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/20 transition-colors">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        className="h-6 w-6 text-gray-500 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                      </svg>
+                    </div>
+                    <div className="text-left">
+                      <span className="text-sm text-gray-500 dark:text-gray-400">Previous Project</span>
+                      <p className="font-medium">{prevProject.frontmatter.title}</p>
+                    </div>
+                  </Link>
+                ) : (
+                  <div></div>
+                )}
+
+                {nextProject ? (
+                  <Link
+                    href={`/projects/${nextProject.slug}`}
+                    className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 group ml-auto text-right"
+                  >
+                    <div className="text-right">
+                      <span className="text-sm text-gray-500 dark:text-gray-400">Next Project</span>
+                      <p className="font-medium">{nextProject.frontmatter.title}</p>
+                    </div>
+                    <div className="relative h-10 w-10 rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 p-2 ml-2 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/20 transition-colors">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        className="h-6 w-6 text-gray-500 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </div>
+                  </Link>
+                ) : (
+                    <div>
+                  </div>
+                )}
+              </div>
+>>>>>>> 938797c (fix the projects controller to stable hydration)
             </div>
 
             {/* Sidebar with sticky details */}
@@ -330,9 +452,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className="relative py-20 mt-16 overflow-hidden">
           {/* Animated gradient background */}
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 dark:from-indigo-900/20 dark:to-purple-900/20 overflow-hidden">
+<<<<<<< HEAD
             <div className="absolute top-0 -left-20 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10 animate-blob animation-delay-2000"></div>
             <div className="absolute top-0 -right-20 w-96 h-96 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10 animate-blob animation-delay-4000"></div>
             <div className="absolute -bottom-20 left-20 w-96 h-96 bg-amber-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10 animate-blob"></div>
+=======
+            <div className="absolute top-0 -left-20 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10 animate-blob animation-delay-2000">
+            </div>
+            <div className="absolute top-0 -right-20 w-96 h-96 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10 animate-blob animation-delay-4000">
+            </div>
+            <div className="absolute -bottom-20 left-20 w-96 h-96 bg-amber-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10 animate-blob">
+            </div>
+>>>>>>> 938797c (fix the projects controller to stable hydration)
           </div>
 
           <div className="container mx-auto px-4 max-w-7xl relative z-10">
