@@ -94,7 +94,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <JsonLd data={jsonLd} />
       <main>
         {/* Animated Back Button */}
@@ -123,9 +123,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-3 space-y-12">
-              {/* Project Header */}
+              {/* Project Header with floating category */}
               <div className="relative space-y-6">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                <h1 className="text-5xl md:text-5xl lg:text-6xl leading-tight font-bold bg-gradient-to-r bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent dark:text-transparent bg-clip-text dark:bg-gradient-to-r dark:from-indigo-500 dark:to-emerald-500">
                   {project.frontmatter.title as string}
                 </h1>
                 <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl">
@@ -133,57 +133,49 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </p>
               </div>
 
-              {/* Cover Image with floating tags and category */}
-              <div className="relative aspect-video rounded-2xl overflow-hidden group">
-                {/* Border gradient effect */}
-                <div className="absolute inset-0 rounded-2xl p-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                <div className="absolute inset-0.5 rounded-xl bg-white dark:bg-gray-900 z-0"></div>
+              {/* Cover Image with floating tags */}
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group">
+                <div className="absolute inset-0 rounded-2xl p-[2px]">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative h-full w-full rounded-[15px] bg-white dark:bg-gray-800 overflow-hidden">
+                    <Image
+                      src={(project.frontmatter.coverImage as string) || "/placeholder.svg"}
+                      alt={project.frontmatter.title as string}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      priority
+                    />
+                  </div>
+                </div>
 
-                {/* Category at top left */}
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg transform rotate-[-4deg] hover:rotate-0 transition-transform duration-300">
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
+
+                {/* Category at bottom right */}
+                <div className="absolute bottom-4 right-4 z-10">
+                  <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg">
                     {project.frontmatter.category as string}
                   </span>
                 </div>
 
-                <div className="relative h-full w-full rounded-xl overflow-hidden z-10">
-                  <Image
-                    src={(project.frontmatter.coverImage as string) || "/placeholder.svg"}
-                    alt={project.frontmatter.title as string}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    priority
-                  />
+                {/* Floating tags at bottom */}
+                {(project.frontmatter.tags as string[])?.length > 0 && (
+                  <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-2">
+                    {(project.frontmatter.tags as string[])?.map((tag, index) => {
+                      const colorIndex = index % TAG_COLORS.length
+                      const color = TAG_COLORS[colorIndex]
 
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
-
-                  {/* Category at bottom right */}
-                  <div className="absolute bottom-4 right-4 z-10">
-                    <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg transform rotate-[4deg] hover:rotate-0 transition-transform duration-300">
-                      {project.frontmatter.category as string}
-                    </span>
+                      return (
+                        <span
+                          key={index}
+                          className={`${color.bg} ${color.text} px-3 py-1.5 text-xs font-semibold rounded-full backdrop-blur-sm border border-white/20 dark:border-gray-700/50 shadow-sm hover:scale-105 transition-all duration-300`}
+                        >
+                          {tag}
+                        </span>
+                      )
+                    })}
                   </div>
-
-                  {/* Floating tags at bottom */}
-                  {(project.frontmatter.tags as string[])?.length > 0 && (
-                    <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-2">
-                      {(project.frontmatter.tags as string[])?.map((tag, index) => {
-                        const colorIndex = index % TAG_COLORS.length
-                        const color = TAG_COLORS[colorIndex]
-
-                        return (
-                          <span
-                            key={index}
-                            className={`${color.bg} ${color.text} px-3 py-1.5 text-xs font-semibold rounded-full backdrop-blur-sm border border-white/20 dark:border-gray-700/50 shadow-sm hover:scale-105 transition-all duration-300`}
-                          >
-                            {tag}
-                          </span>
-                        )
-                      })}
-                    </div>
-                  )}
-                </div>
+                )}
               </div>
 
               {/* Project Content with animated background */}
@@ -207,71 +199,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {(project.frontmatter.gallery as string[])?.map((image, index) => (
-                      <div key={index} className="group relative">
-                        {/* Border gradient effect */}
-                        <div className="absolute inset-0 rounded-2xl p-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                        <div className="absolute inset-0.5 rounded-xl bg-white dark:bg-gray-900 z-0"></div>
-
-                        <div className="relative aspect-square rounded-xl overflow-hidden z-10">
-                          <Image
-                            src={image || "/placeholder.svg"}
-                            alt={`${project.frontmatter.title as string} gallery image ${index + 1}`}
-                            fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div
+                        key={index}
+                        className="group relative aspect-square rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+                      >
+                        <div className="absolute inset-0 rounded-2xl p-[2px]">
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                          <div className="relative h-full w-full rounded-[15px] bg-white dark:bg-gray-800 overflow-hidden">
+                            <Image
+                              src={image || "/placeholder.svg"}
+                              alt={`${project.frontmatter.title as string} gallery image ${index + 1}`}
+                              fill
+                              className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                          </div>
                         </div>
+                        <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
                     ))}
                   </div>
                 </div>
               )}
-
-              {/* Pagination */}
-              <div className="flex items-center justify-between pt-12 border-t border-gray-200 dark:border-gray-700">
-                {prevProject ? (
-                  <Link
-                    href={`/projects/${prevProject.slug}`}
-                    className="inline-flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 p-2 flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                      </svg>
-                    </div>
-                    <span className="font-medium">Previous Project</span>
-                  </Link>
-                ) : (
-                  <div></div>
-                )}
-
-                <div className="flex space-x-2">
-                  {allProjects.map((proj, index) => (
-                    <Link
-                      key={proj?.slug}
-                      href={`/projects/${proj?.slug}`}
-                      className={`w-3 h-3 rounded-full ${proj?.slug === slug ? 'bg-indigo-600' : 'bg-gray-300 dark:bg-gray-600'} transition-colors`}
-                      aria-current={proj?.slug === slug ? "page" : undefined}
-                    />
-                  ))}
-                </div>
-
-                {nextProject ? (
-                  <Link
-                    href={`/projects/${nextProject.slug}`}
-                    className="inline-flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                  >
-                    <span className="font-medium">Next Project</span>
-                    <div className="w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 p-2 flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </Link>
-                ) : (
-                  <div></div>
-                )}
-              </div>
             </div>
 
             {/* Sidebar with sticky details */}
@@ -392,6 +340,54 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 )}
               </div>
             </div>
+          </div>
+
+          {/* Pagination */}
+          <div className="flex items-center justify-between mt-16 border-t border-gray-200 dark:border-gray-700 pt-8">
+            {prevProject && (
+              <Link
+                href={`/projects/${prevProject.slug}`}
+                className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 group"
+              >
+                <div className="relative h-10 w-10 rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 p-2 mr-2 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/20 transition-colors">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    className="h-6 w-6 text-gray-500 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">Previous Project</span>
+                  <p className="font-medium">{prevProject.frontmatter.title}</p>
+                </div>
+              </Link>
+            )}
+            {nextProject && (
+              <Link
+                href={`/projects/${nextProject.slug}`}
+                className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 group ml-auto"
+              >
+                <div>
+                  <span className="text-sm text-gray-500 dark:text-gray-400 text-right">Next Project</span>
+                  <p className="font-medium">{nextProject.frontmatter.title}</p>
+                </div>
+                <div className="relative h-10 w-10 rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 p-2 ml-2 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/20 transition-colors">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    className="h-6 w-6 text-gray-500 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </Link>
+            )}
           </div>
         </section>
 

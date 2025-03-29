@@ -1,0 +1,9 @@
+{
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "css.vendorPrefixes": true,
+  "tailwindCSS.emmetCompletions": true
+}

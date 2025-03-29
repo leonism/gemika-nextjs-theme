@@ -123,8 +123,9 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        float: 'float 6s ease-in-out infinite',
-        'float-delay': 'float 6s ease-in-out 2s infinite',
+        "float": "float 6s ease-in-out infinite",
+        "spin-slow": "spin 8s linear infinite",
+        "float-delay": 'float 6s ease-in-out 2s infinite'
       },
       typography: {
         DEFAULT: {
