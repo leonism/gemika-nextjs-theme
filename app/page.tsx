@@ -34,8 +34,10 @@ export default async function Home() {
     <div className="relative bg-gradient-to-b from-gray-50 to-white dark:from-[#111927] dark:to-[#1A2332] py-16 md:py-24 lg:py-28 overflow-hidden">
       {/* Floating gradient blobs - light mode only */}
       <div className="absolute inset-0 overflow-hidden opacity-20 dark:opacity-0">
-        <div className="absolute top-0 -left-20 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-0 -right-20 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-0 -left-20 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000">
+        </div>
+        <div className="absolute top-0 -right-20 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000">
+        </div>
       </div>
 
       <div className="container mx-auto px-4 max-w-6xl text-center relative z-10">

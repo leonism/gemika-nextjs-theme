@@ -28,17 +28,17 @@ export function Navbar({
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      <div className="container mx-auto sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
+      <div className="container">
+        <div className="flex items-center justify-between bg-white h-14 sm:h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link
               href="/"
-              className="relative inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2.5 overflow-hidden font-medium rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition-colors duration-300"
+              className="relative inline-flex items-center justify-center sm:px-4 sm:py-2 overflow-hidden font-medium rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-sm hover:shadow-md"
               aria-label="Go to homepage"
             >
               <svg
-                className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2"
+                className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 animate-pulse"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -73,13 +73,16 @@ export function Navbar({
                     className={cn(
                       "px-3 py-1.5 sm:px-4 sm:py-2 font-medium flex items-center transition-all duration-300 text-sm sm:text-base",
                       pathname?.startsWith(item.href)
-                        ? "text-indigo-600 dark:text-[#C4F468]"
+                        ? "text-indigo-600 dark:text-[#C4F468] font-semibold"
                         : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
                     )}
                   >
                     <span className="relative group">
                       {item.label}
-                      <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                      <span className={cn(
+                        "absolute left-0 bottom-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300",
+                        pathname?.startsWith(item.href) ? "w-full" : "w-0 group-hover:w-full"
+                      )}></span>
                     </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -91,25 +94,31 @@ export function Navbar({
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="ml-1 h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:rotate-180"
+                      className={cn(
+                        "ml-1 h-3 w-3 sm:h-4 sm:w-4 transition-transform",
+                        pathname?.startsWith(item.href) ? "rotate-180 text-indigo-500 dark:text-[#C4F468]" : "group-hover:rotate-180"
+                      )}
                     >
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </button>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 mt-1 w-48 bg-white/90 dark:bg-[#141D2B]/90 rounded-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 shadow-lg border border-gray-200 dark:border-[#313F55]">
+                  <div className="absolute left-1/2 transform-translate-x-1/2 mt-1 w-48 bg-white/90 dark:bg-[#141D2B]/90 rounded-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 shadow-lg border border-gray-200 dark:border-[#313F55] backdrop-blur-sm">
                     {item.children.map((child) => (
                       <Link
                         key={child.label}
                         href={child.href}
                         className={cn(
-                          "block px-4 py-2 text-sm transition-colors relative",
+                          "block px-4 py-2 text-sm transition-colors relative group",
                           pathname === child.href
-                            ? "text-indigo-600 dark:text-[#C4F468] font-medium"
-                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-[#313F55]/50"
+                            ? "text-indigo-600 font-medium"
+                            : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
                         )}
                       >
                         {child.label}
-                        <span className="absolute left-4 bottom-1 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 hover:w-[calc(100%-2rem)]"></span>
+                        <span className={cn(
+                          "absolute left-4 bottom-1 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300",
+                          pathname === child.href ? "w-[calc(100%-2rem)]" : "w-0 group-hover:w-[calc(100%-2rem)]"
+                        )}></span>
                       </Link>
                     ))}
                   </div>
@@ -120,13 +129,16 @@ export function Navbar({
                   href={item.href}
                   className={cn(
                     "px-3 py-1.5 sm:px-4 sm:py-2 font-medium transition-all duration-300 relative group text-sm sm:text-base",
-                    pathname === item.href
-                      ? "text-indigo-600 dark:text-[#C4F468]"
+                    pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href))
+                      ? "text-indigo-600  font-semibold"
                       : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
                   )}
                 >
                   {item.label}
-                  <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className={cn(
+                    "absolute left-0 bottom-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300",
+                    pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href)) ? "w-full" : "w-0 group-hover:w-full"
+                  )}></span>
                 </Link>
               )
             )}
@@ -137,17 +149,17 @@ export function Navbar({
             {/* Desktop Controls */}
             <div className="hidden md:flex items-center space-x-3 sm:space-x-4">
               <div className="relative">
-                <Search className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" />
+                <Search className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300" />
               </div>
 
-              <ThemeToggle className="w-4 h-4 sm:w-5 sm:h-5" />
+              <ThemeToggle className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300" />
 
               {cta?.href && cta?.label && (
                 <Link href={cta.href} className="block">
                   <Button
                     variant="default"
                     size="sm"
-                    className="px-4 py-1.5 sm:px-5 sm:py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium transition-colors duration-300 text-sm sm:text-base"
+                    className="px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium transition-all duration-300 text-sm sm:text-base shadow-sm hover:shadow-md"
                   >
                     {cta.label}
                   </Button>

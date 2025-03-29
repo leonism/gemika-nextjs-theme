@@ -29,16 +29,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`${inter.variable} scroll-smooth`}>
       <body suppressHydrationWarning>
         <ClientThemeProvider>
-          {/* Floating gradient blobs background - light mode only */}
-          <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 dark:hidden">
-            <div className="absolute top-[20%] -left-20 w-72 h-72 bg-indigo-300/20 rounded-full filter blur-3xl animate-float animation-delay-2000"></div>
-            <div className="absolute top-[60%] -right-20 w-96 h-96 bg-emerald-300/20 rounded-full filter blur-3xl animate-float animation-delay-4000"></div>
-            <div className="absolute bottom-[20%] left-[25%] w-80 h-80 bg-amber-300/20 rounded-full filter blur-3xl animate-float"></div>
-          </div>
-
           {/* Glass-like navigation bar */}
-          <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-[#1A2332]/90 border-b border-gray-200/50 dark:border-[#313F55]/50 dark:backdrop-blur-xl shadow-sm shadow-gray-200/10 dark:shadow-[#141D2B]/20">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <header className="sticky top-0 z-50 w-full">
+            <div className="container">
               <Navbar items={navItems} />
             </div>
           </header>
