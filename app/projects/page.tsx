@@ -3,26 +3,13 @@ import Link from "next/link"
 import { getAllContent } from "@/lib/content"
 import JsonLd from "@/components/json-ld"
 import type { Metadata } from "next"
-<<<<<<< HEAD
-import { WithContext } from "schema-dts"
-=======
 import { WebPage, WithContext } from "schema-dts"
->>>>>>> 938797c (fix the projects controller to stable hydration)
 
 export const metadata: Metadata = {
   title: "Projects | Daryl Mercer",
   description: "A showcase of my recent work across UX design, mobile development, and branding projects.",
 }
 
-<<<<<<< HEAD
-// Color system for project categories
-const CATEGORY_COLORS = {
-  design: { bg: "bg-indigo-100 dark:bg-indigo-900/30", text: "text-indigo-600 dark:text-indigo-300" },
-  development: { bg: "bg-emerald-100 dark:bg-emerald-900/30", text: "text-emerald-600 dark:text-emerald-300" },
-  branding: { bg: "bg-amber-100 dark:bg-amber-900/30", text: "text-amber-600 dark:text-amber-300" },
-  featured: { bg: "bg-rose-100 dark:bg-rose-900/30", text: "text-rose-600 dark:text-rose-300" },
-  default: { bg: "bg-gray-100 dark:bg-gray-700", text: "text-gray-600 dark:text-gray-300" }
-=======
 // Color system for project categories - updated with translucent colors
 const CATEGORY_COLORS = {
   design: { bg: "bg-indigo-100/80 dark:bg-indigo-900/20", text: "text-indigo-600 dark:text-indigo-300" },
@@ -30,7 +17,6 @@ const CATEGORY_COLORS = {
   branding: { bg: "bg-amber-100/80 dark:bg-amber-900/20", text: "text-amber-600 dark:text-amber-300" },
   featured: { bg: "bg-rose-100/80 dark:bg-rose-900/20", text: "text-rose-600 dark:text-rose-300" },
   default: { bg: "bg-gray-100/80 dark:bg-gray-700/50", text: "text-gray-600 dark:text-gray-300" }
->>>>>>> 938797c (fix the projects controller to stable hydration)
 }
 
 export default async function ProjectsPage() {
@@ -50,17 +36,12 @@ export default async function ProjectsPage() {
     },
   }
 
-<<<<<<< HEAD
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-=======
   // Pagination variables (example with 3 pages)
   const currentPage = 1;
   const totalPages = 3;
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
->>>>>>> 938797c (fix the projects controller to stable hydration)
       <JsonLd data={jsonLd} />
       <main>
         {/* Hero Section with animated background */}
@@ -122,85 +103,6 @@ export default async function ProjectsPage() {
               </p>
             </div>
           ) : (
-<<<<<<< HEAD
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project) => {
-                // Get category color scheme
-                const category = (project.frontmatter.category as string)?.toLowerCase() || 'default'
-                const colorScheme = CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] || CATEGORY_COLORS.default
-
-                return (
-                  <Link
-                    key={project.slug}
-                    href={`/projects/${project.slug}`}
-                    className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
-                  >
-                    {/* Project Image with floating tags */}
-                    <div className="relative aspect-video overflow-hidden">
-                      <Image
-                        src={(project.frontmatter.coverImage as string) || "/placeholder.svg"}
-                        alt={project.frontmatter.title as string}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-
-                      {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
-
-                      {/* Floating category tags */}
-                      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-                        <span className={`text-xs font-semibold ${colorScheme.bg} ${colorScheme.text} px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/20 dark:border-gray-700/50 shadow-sm`}>
-                          {project.frontmatter.category as string}
-                        </span>
-                        {project.frontmatter.featured && (
-                          <span className="text-xs font-semibold bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-300 px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/20 dark:border-gray-700/50 shadow-sm">
-                            Featured
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Project Info */}
-                    <div className="relative p-6">
-                      {/* Content container */}
-                      <div className="relative z-10">
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
-                          {project.frontmatter.title as string}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-300 line-clamp-2 mb-4">
-                          {project.frontmatter.excerpt as string}
-                        </p>
-                        <div className="flex items-center text-sm font-medium text-indigo-600 dark:text-indigo-400">
-                          View case study
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
-                            stroke="currentColor"
-                            className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-
-                      {/* Soft blurry background effect on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/30 dark:from-gray-800/80 dark:to-gray-800/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-2xl"></div>
-                    </div>
-
-                    {/* Animated hover indicator */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-500 to-emerald-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                  </Link>
-                )
-              })}
-            </div>
-=======
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((project) => {
@@ -310,7 +212,6 @@ export default async function ProjectsPage() {
                 </nav>
               </div>
             </>
->>>>>>> 938797c (fix the projects controller to stable hydration)
           )}
         </section>
 
