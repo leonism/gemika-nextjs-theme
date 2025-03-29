@@ -46,13 +46,6 @@ export default async function ProjectsPage() {
       <main>
         {/* Hero Section with animated background */}
         <section className="relative overflow-hidden py-20 md:py-28">
-          {/* Floating gradient blobs */}
-          <div className="absolute inset-0 overflow-hidden opacity-20 dark:opacity-10">
-            <div className="absolute top-0 -left-20 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 dark:opacity-30 animate-blob animation-delay-2000"></div>
-            <div className="absolute top-0 -right-20 w-96 h-96 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 dark:opacity-30 animate-blob animation-delay-4000"></div>
-            <div className="absolute -bottom-20 left-20 w-96 h-96 bg-amber-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 dark:opacity-30 animate-blob"></div>
-          </div>
-
           <div className="container mx-auto px-4 max-w-6xl relative z-10">
             {/* Animated floating badge */}
             <div className="inline-flex items-center justify-center mb-6 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-sm backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
@@ -64,7 +57,7 @@ export default async function ProjectsPage() {
 
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
-                My <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-500">Projects</span>
+                My <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-500 dark:from-purple-500 dark:to-indigo-500">Projects</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
                 A curated collection of my recent work across UX design, mobile development, and branding projects.
@@ -146,21 +139,21 @@ export default async function ProjectsPage() {
                       <div className="relative p-6">
                         {/* Content container */}
                         <div className="relative z-10">
-                          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
+                          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-purple-400 transition-colors duration-300">
                             {project.frontmatter.title as string}
                           </h3>
                           <p className="text-gray-600 dark:text-gray-300 line-clamp-2 mb-4">
                             {project.frontmatter.excerpt as string}
                           </p>
-                          <div className="flex items-center text-sm font-medium text-indigo-600 dark:text-indigo-400">
-                            View case study
+                          <div className="flex items-center text-sm font-medium text-indigo-600 dark:text-purple-400">
+                            <span className="mr-1">Explore case study</span>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 24 24"
                               strokeWidth={2}
                               stroke="currentColor"
-                              className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"
+                              className="w-4 h-4 transition-transform group-hover:translate-x-1"
                             >
                               <path
                                 strokeLinecap="round"
@@ -176,7 +169,7 @@ export default async function ProjectsPage() {
                       </div>
 
                       {/* Animated hover indicator */}
-                      <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-500 to-emerald-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                      <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-500 to-emerald-500 dark:from-purple-500 dark:to-indigo-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                     </Link>
                   )
                 })}
@@ -196,7 +189,7 @@ export default async function ProjectsPage() {
                       key={page}
                       className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
                         page === currentPage
-                          ? 'bg-gradient-to-r from-indigo-500 to-emerald-500 text-white shadow-md'
+                          ? 'bg-gradient-to-r from-indigo-500 to-emerald-500 dark:from-purple-500 dark:to-indigo-500 text-white shadow-md'
                           : 'border border-gray-200 dark:border-gray-700 hover:bg-gradient-to-r hover:from-indigo-500/10 hover:to-emerald-500/10 dark:hover:bg-gray-800'
                       }`}
                     >
@@ -217,13 +210,14 @@ export default async function ProjectsPage() {
 
         {/* CTA Section */}
         {projects.length > 0 && (
-          <section className="bg-gradient-to-r from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900/50 py-20">
+          <section className="bg-gradient-to-b from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900 py-20">
             <div className="container mx-auto px-4 max-w-4xl text-center">
               <div className="relative inline-block mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6 relative z-10">
                   Want to see more of my work?
                 </h2>
-                <div className="absolute -bottom-1 left-0 right-0 h-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-full animate-pulse"></div>
+                <div className="absolute -bottom-1 left-0 right-0 h-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-full animate-pulse">
+                </div>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
                 I'm constantly working on new projects and case studies. Feel free to reach out if you'd like to discuss
@@ -232,15 +226,21 @@ export default async function ProjectsPage() {
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white rounded-full font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white rounded-full font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center"
                 >
-                  Get in touch
+                  <span>Get in touch</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 ml-2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
                 </Link>
                 <Link
                   href="/about"
-                  className="px-8 py-3 border-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 rounded-full font-medium transition-all hover:bg-gray-200 dark:hover:bg-gray-700/50 hover:shadow-lg"
+                  className="px-8 py-3 border-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 rounded-full font-medium transition-all hover:bg-gray-200 dark:hover:bg-gray-700/50 hover:shadow-lg inline-flex items-center"
                 >
-                  Learn about my process
+                  <span>Learn about my process</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 ml-2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+                  </svg>
                 </Link>
               </div>
             </div>
