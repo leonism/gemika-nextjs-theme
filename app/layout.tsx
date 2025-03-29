@@ -1,16 +1,16 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/utility/theme-provider";
-import { Navbar } from "@/components/navigation/navbar";
-import { navItems } from "@/data/nav-items";
-import { Footer } from "@/components/navigation/footer";
+import "./globals.css"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import { ThemeProvider } from "@/components/utility/theme-provider"
+import { Navbar } from "@/components/navigation/navbar"
+import { navItems } from "@/data/nav-items"
+import { Footer } from "@/components/navigation/footer"
 
 const inter = Inter({
   subsets: ["latin"],
   variable: '--font-inter',
   display: 'swap'
-});
+})
 
 export const metadata: Metadata = {
   title: {
@@ -18,17 +18,16 @@ export const metadata: Metadata = {
     template: "%s | Gemika"
   },
   description: "Digital garden of thoughts on design, code and creative processes",
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} scroll-smooth`}>
-      <body className="bg-gray-50 text-gray-900 dark:bg-[#111927] dark:text-gray-100 antialiased transition-colors duration-500">
-        {/* Wrap ThemeProvider in a client component */}
+      <body suppressHydrationWarning>
         <ClientThemeProvider>
           {/* Floating gradient blobs background - light mode only */}
           <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 dark:hidden">
@@ -45,7 +44,7 @@ export default function RootLayout({
           </header>
 
           {/* Main content with subtle decorative elements */}
-          <main className="flex-1 min-h-[calc(100vh-10rem)]">
+          <main className="flex-1 min-h-[calc(100vh-10rem)] bg-gray-50 text-gray-900 dark:bg-[#111927] dark:text-gray-100 antialiased transition-colors duration-500">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative">
               {/* Decorative vertical lines (desktop only) */}
               <div className="hidden lg:block absolute left-8 top-1/4 h-48 w-0.5 bg-gradient-to-b from-transparent via-gray-300/50 to-transparent dark:via-[#313F55]/50"></div>
@@ -65,13 +64,17 @@ export default function RootLayout({
         </ClientThemeProvider>
       </body>
     </html>
-  );
+  )
 }
 
-// Create a new client component wrapper
 function ClientThemeProvider({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
       {children}
     </ThemeProvider>
   )
