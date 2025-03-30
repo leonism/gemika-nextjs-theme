@@ -8,7 +8,6 @@ interface FooterProps {
 }
 
 export function Footer({ showNewsletter = true }: FooterProps) {
-  // Social media data for cleaner mapping
   const socialLinks = [
     { icon: Facebook, label: "Facebook", url: "#" },
     { icon: Twitter, label: "Twitter", url: "#" },
@@ -17,7 +16,6 @@ export function Footer({ showNewsletter = true }: FooterProps) {
     { icon: Github, label: "GitHub", url: "#" }
   ]
 
-  // Quick links data
   const quickLinks = [
     { name: "Home", url: "/" },
     { name: "Projects", url: "/projects" },
@@ -26,7 +24,6 @@ export function Footer({ showNewsletter = true }: FooterProps) {
     { name: "Contact", url: "/contact" }
   ]
 
-  // Resources data
   const resources = [
     { name: "Design Resources", url: "/resources/design" },
     { name: "Development Tools", url: "/resources/development" },
@@ -35,19 +32,38 @@ export function Footer({ showNewsletter = true }: FooterProps) {
     { name: "RSS Feed", url: "/rss.xml" }
   ]
 
+  const contactItems = [
+    {
+      icon: Mail,
+      content: <a href="mailto:hello@gemika.com">hello@gemika.com</a>,
+      iconClass: "text-indigo-600 dark:text-[#C4F468]",
+      bgClass: "bg-indigo-100 dark:bg-[#313F55]/30"
+    },
+    {
+      icon: Phone,
+      content: <a href="tel:+1234567890">+1 (234) 567-890</a>,
+      iconClass: "text-emerald-600 dark:text-[#C4F468]",
+      bgClass: "bg-emerald-100 dark:bg-[#313F55]/30"
+    },
+    {
+      icon: MapPin,
+      content: <span>123 Design Street<br />San Francisco, CA 94103</span>,
+      iconClass: "text-amber-600 dark:text-[#C4F468]",
+      bgClass: "bg-amber-100 dark:bg-[#313F55]/30"
+    }
+  ]
+
+  const legalLinks = [
+    { name: "Privacy Policy", url: "/privacy" },
+    { name: "Terms of Service", url: "/terms" },
+    { name: "Cookie Policy", url: "/cookies" }
+  ]
+
   return (
-    <footer className="bg-gradient-to-b from-gray-50 to-gray-100 w-full dark:from-[#111927] dark:to-[#1A2332] border-t border-gray-200 dark:border-[#313F55]/50">
+    <footer className="bg-white w-full">
       <Container>
-        {/* Newsletter Section with animated background */}
         {showNewsletter && (
           <div className="py-12 sm:py-16 border-b border-gray-200 dark:border-[#313F55]/50 relative overflow-hidden">
-            {/* Animated gradient dots background - light mode only */}
-            <div className="absolute inset-0 opacity-10 dark:opacity-0">
-              <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-indigo-300 rounded-full filter blur-3xl animate-pulse animation-delay-2000"></div>
-              <div className="absolute top-1/3 right-1/3 w-40 h-40 bg-emerald-300 rounded-full filter blur-3xl animate-pulse animation-delay-4000"></div>
-              <div className="absolute bottom-1/4 right-1/4 w-28 h-28 bg-amber-300 rounded-full filter blur-3xl animate-pulse"></div>
-            </div>
-
             <div className="max-w-2xl mx-auto text-center relative z-10">
               <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/80 dark:bg-[#141D2B]/80 shadow-sm backdrop-blur-sm border border-gray-200 dark:border-[#313F55]/50 mb-4 sm:mb-6">
                 <span className="text-xs sm:text-sm font-medium text-indigo-600 dark:text-[#C4F468]">
@@ -65,7 +81,6 @@ export function Footer({ showNewsletter = true }: FooterProps) {
           </div>
         )}
 
-        {/* Main Footer Content */}
         <div className="py-12 sm:py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-10">
             {/* Brand Column */}
@@ -78,105 +93,54 @@ export function Footer({ showNewsletter = true }: FooterProps) {
               <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                 Crafting intuitive digital experiences through thoughtful UX strategy and cutting-edge development.
               </p>
-
-              {/* Social Links with hover animations */}
               <div className="flex space-x-3 sm:space-x-4">
-                {socialLinks.map((social, index) => {
-                  const Icon = social.icon
-                  return (
-                    <Link
-                      key={index}
-                      href={social.url}
-                      className={`p-2 rounded-full bg-white dark:bg-[#141D2B] shadow-sm hover:shadow-md border border-gray-200 dark:border-[#313F55]/50 text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-[#C4F468] transition-all duration-300 hover:-translate-y-1`}
-                      aria-label={social.label}
-                    >
-                      <Icon size={16} className="sm:w-5 sm:h-5" />
-                    </Link>
-                  )
-                })}
+                {socialLinks.map(({ icon: Icon, label, url }, index) => (
+                  <Link
+                    key={index}
+                    href={url}
+                    className="p-2 rounded-full bg-white dark:bg-[#141D2B] shadow-sm hover:shadow-md border border-gray-200 dark:border-[#313F55]/50 text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-[#C4F468] transition-all duration-300 hover:-translate-y-1"
+                    aria-label={label}
+                  >
+                    <Icon size={16} className="sm:w-5 sm:h-5" />
+                  </Link>
+                ))}
               </div>
             </div>
 
             {/* Quick Links Column */}
             <div>
-              <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6 text-gray-900 dark:text-white flex items-center">
-                <span className="w-4 h-0.5 bg-indigo-500 mr-3"></span>
-                Quick Links
-              </h3>
+              <SectionTitle>Quick Links</SectionTitle>
               <ul className="space-y-2 sm:space-y-3">
-                {quickLinks.map((link, index) => (
-                  <li key={index}>
-                    <Link
-                      href={link.url}
-                      className="text-sm sm:text-base text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-[#C4F468] transition-colors duration-300 flex items-center group"
-                    >
-                      <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 group-hover:bg-indigo-500 transition-colors"></span>
-                      {link.name}
-                    </Link>
-                  </li>
+                {quickLinks.map(({ name, url }, index) => (
+                  <ListItem key={index} url={url} name={name} hoverColor="indigo" />
                 ))}
               </ul>
             </div>
 
             {/* Resources Column */}
             <div>
-              <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6 text-gray-900 dark:text-white flex items-center">
-                <span className="w-4 h-0.5 bg-emerald-500 mr-3"></span>
-                Resources
-              </h3>
+              <SectionTitle color="emerald">Resources</SectionTitle>
               <ul className="space-y-2 sm:space-y-3">
-                {resources.map((resource, index) => (
-                  <li key={index}>
-                    <Link
-                      href={resource.url}
-                      className="text-sm sm:text-base text-gray-600 hover:text-emerald-600 dark:text-gray-400 dark:hover:text-[#C4F468] transition-colors duration-300 flex items-center group"
-                    >
-                      <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 group-hover:bg-emerald-500 transition-colors"></span>
-                      {resource.name}
-                    </Link>
-                  </li>
+                {resources.map(({ name, url }, index) => (
+                  <ListItem key={index} url={url} name={name} hoverColor="emerald" />
                 ))}
               </ul>
             </div>
 
             {/* Contact Column */}
             <div>
-              <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6 text-gray-900 dark:text-white flex items-center">
-                <span className="w-4 h-0.5 bg-amber-500 mr-3"></span>
-                Get In Touch
-              </h3>
+              <SectionTitle color="amber">Get In Touch</SectionTitle>
               <ul className="space-y-3 sm:space-y-4">
-                <li className="flex items-start">
-                  <div className="p-2 bg-indigo-100 dark:bg-[#313F55]/30 rounded-full mr-3 flex-shrink-0">
-                    <Mail size={16} className="text-indigo-600 dark:text-[#C4F468]" />
-                  </div>
-                  <a
-                    href="mailto:hello@gemika.com"
-                    className="text-sm sm:text-base text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-[#C4F468] transition-colors"
-                  >
-                    hello@gemika.com
-                  </a>
-                </li>
-                <li className="flex items-start">
-                  <div className="p-2 bg-emerald-100 dark:bg-[#313F55]/30 rounded-full mr-3 flex-shrink-0">
-                    <Phone size={16} className="text-emerald-600 dark:text-[#C4F468]" />
-                  </div>
-                  <a
-                    href="tel:+1234567890"
-                    className="text-sm sm:text-base text-gray-600 hover:text-emerald-600 dark:text-gray-400 dark:hover:text-[#C4F468] transition-colors"
-                  >
-                    +1 (234) 567-890
-                  </a>
-                </li>
-                <li className="flex items-start">
-                  <div className="p-2 bg-amber-100 dark:bg-[#313F55]/30 rounded-full mr-3 flex-shrink-0">
-                    <MapPin size={16} className="text-amber-600 dark:text-[#C4F468]" />
-                  </div>
-                  <span className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
-                    123 Design Street<br />
-                    San Francisco, CA 94103
-                  </span>
-                </li>
+                {contactItems.map(({ icon: Icon, content, bgClass, iconClass }, index) => (
+                  <li key={index} className="flex items-start">
+                    <div className={`p-2 ${bgClass} rounded-full mr-3 flex-shrink-0`}>
+                      <Icon size={16} className={iconClass} />
+                    </div>
+                    <span className="text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-current">
+                      {content}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -187,29 +151,55 @@ export function Footer({ showNewsletter = true }: FooterProps) {
               © {new Date().getFullYear()} gemika. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-              <Link
-                href="/privacy"
-                className="text-xs sm:text-sm text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-[#C4F468] transition-colors font-medium"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-xs sm:text-sm text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-[#C4F468] transition-colors font-medium"
-              >
-                Terms of Service
-              </Link>
-              <Link
-                href="/cookies"
-                className="text-xs sm:text-sm text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-[#C4F468] transition-colors font-medium"
-              >
-                Cookie Policy
-              </Link>
+              {legalLinks.map(({ name, url }) => (
+                <Link
+                  key={name}
+                  href={url}
+                  className="text-xs sm:text-sm text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-[#C4F468] transition-colors font-medium"
+                >
+                  {name}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
       </Container>
     </footer>
+  )
+}
+
+// Helper components for better organization
+function SectionTitle({ children, color = "indigo" }: { children: React.ReactNode, color?: string }) {
+  const colorClasses = {
+    indigo: "bg-indigo-500",
+    emerald: "bg-emerald-500",
+    amber: "bg-amber-500"
+  }
+
+  return (
+    <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6 text-gray-900 dark:text-white flex items-center">
+      <span className={`w-4 h-0.5 ${colorClasses[color]} mr-3`}></span>
+      {children}
+    </h3>
+  )
+}
+
+function ListItem({ url, name, hoverColor }: { url: string, name: string, hoverColor: "indigo" | "emerald" }) {
+  const hoverClasses = {
+    indigo: "group-hover:bg-indigo-500 hover:text-indigo-600",
+    emerald: "group-hover:bg-emerald-500 hover:text-emerald-600"
+  }
+
+  return (
+    <li>
+      <Link
+        href={url}
+        className="text-sm sm:text-base text-gray-600 dark:text-gray-400 dark:hover:text-[#C4F468] transition-colors duration-300 flex items-center group"
+      >
+        <span className={`w-2 h-2 bg-gray-400 rounded-full mr-3 ${hoverClasses[hoverColor]} transition-colors`}></span>
+        {name}
+      </Link>
+    </li>
   )
 }
 

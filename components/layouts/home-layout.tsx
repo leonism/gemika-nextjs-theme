@@ -10,6 +10,17 @@ interface HomeLayoutProps {
   newsletterSection?: ReactNode;
 }
 
+/**
+ * HomeLayout component provides the main structure for the home page.
+ * It's composed of optional sections that can be passed as props.
+ *
+ * @param {ReactNode} children - Main content children
+ * @param {ReactNode} heroSection - Optional hero section component
+ * @param {ReactNode} featuredPostsSection - Optional featured posts section
+ * @param {ReactNode} trendingTopicsSection - Optional trending topics section
+ * @param {ReactNode} latestPostsSection - Optional latest posts section
+ * @param {ReactNode} newsletterSection - Optional newsletter section
+ */
 export function HomeLayout({
   children,
   heroSection,
@@ -18,39 +29,71 @@ export function HomeLayout({
   latestPostsSection,
   newsletterSection,
 }: HomeLayoutProps) {
+
+  // Helper component for consistent section styling
+  const SectionWrapper = ({
+    children,
+    className = ""
+  }: {
+    children: ReactNode;
+    className?: string
+  }) => (
+    <section className={`py-12 ${className}`}>
+      {children}
+    </section>
+  );
+
+  // Helper component for special background sections
+  const HighlightSection = ({ children }: { children: ReactNode }) => (
+    <SectionWrapper className="bg-gray-50 dark:bg-gray-900 rounded-lg my-12">
+      {children}
+    </SectionWrapper>
+  );
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section - Only rendered if provided */}
       {heroSection && (
         <div className="relative overflow-hidden">
-          <section className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 py-10 md:py-24">
-            <div className="container mx-auto px-4">{heroSection}</div>
-          </section>
+          <SectionWrapper className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 py-5 md:py-24 px-4">
+            <div className="container mx-auto">
+              {heroSection}
+            </div>
+          </SectionWrapper>
         </div>
       )}
 
-      {/* Main Content Sections */}
+      {/* Main Content Area */}
       <Container>
+        {/* Featured Posts Section */}
         {featuredPostsSection && (
-          <section className="py-12">{featuredPostsSection}</section>
+          <SectionWrapper>
+            {featuredPostsSection}
+          </SectionWrapper>
         )}
 
+        {/* Trending Topics Section */}
         {trendingTopicsSection && (
-          <section className="py-12 bg-gray-50 dark:bg-gray-900 rounded-lg my-12">
+          <HighlightSection>
             {trendingTopicsSection}
-          </section>
+          </HighlightSection>
         )}
 
+        {/* Latest Posts Section */}
         {latestPostsSection && (
-          <section className="py-12">{latestPostsSection}</section>
+          <SectionWrapper>
+            {latestPostsSection}
+          </SectionWrapper>
         )}
 
+        {/* Newsletter Section */}
         {newsletterSection && (
-          <section className="py-12 bg-gray-50 dark:bg-gray-900 rounded-lg my-12">
+          <HighlightSection>
             {newsletterSection}
-          </section>
+          </HighlightSection>
         )}
 
+        {/* Main Children Content */}
         {children}
       </Container>
     </div>
