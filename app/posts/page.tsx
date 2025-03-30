@@ -20,15 +20,7 @@ export default async function PostsIndexPage() {
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
-      {/* Hero Section with animated gradient background */}
       <section className="relative overflow-hidden py-16 md:py-24">
-        {/* Animated gradient background */}
-        {/* <div className="absolute inset-0 overflow-hidden opacity-20 dark:opacity-10">
-          <div className="absolute top-0 -left-20 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 dark:opacity-30 animate-blob animation-delay-2000"></div>
-          <div className="absolute top-0 -right-20 w-96 h-96 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 dark:opacity-30 animate-blob animation-delay-4000"></div>
-          <div className="absolute -bottom-20 left-20 w-96 h-96 bg-amber-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 dark:opacity-30 animate-blob"></div>
-        </div> */}
-
         <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
           {/* Subtle animated floating badge */}
           <div className="inline-flex items-center justify-center mb-6 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-sm backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">

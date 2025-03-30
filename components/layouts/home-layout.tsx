@@ -55,7 +55,7 @@ export function HomeLayout({
       {/* Hero Section - Only rendered if provided */}
       {heroSection && (
         <div className="relative overflow-hidden">
-          <SectionWrapper className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 py-5 md:py-24 px-4">
+          <SectionWrapper className="bg-gradient-to-r from-gray-100 to-gray-200 py-5 md:py-24 px-4">
             <div className="container mx-auto">
               {heroSection}
             </div>

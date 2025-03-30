@@ -104,7 +104,7 @@ export default async function Home() {
           description="Areas where I bring the most value to projects and teams"
         />
 
-        {/* Latest blog posts section */}
+        {/* Latest blog posts section - Added mb-16 for bottom spacing */}
         <LatestPostsSection
           posts={latestPosts}
           subtitle="BLOG"
@@ -140,7 +140,7 @@ function FeaturedProjectsSection({ projects, subtitle, title, linkText, linkHref
   linkHref: string
 }) {
   return (
-    <SectionWrapper bgClass="bg-white dark:bg-[#111927]">
+    <SectionWrapper bgClass="bg-white rounded-[12px]">
       <SectionHeader
         subtitle={subtitle}
         title={title}
@@ -168,7 +168,7 @@ function TrendingTopicsSection({ topics, subtitle, title, description }: {
   description: string
 }) {
   return (
-    <SectionWrapper bgClass="bg-gray-50 dark:bg-[#1A2332]">
+    <SectionWrapper bgClass="bg-gray-50">
       <CenteredSectionHeader
         subtitle={subtitle}
         title={title}
@@ -183,6 +183,7 @@ function TrendingTopicsSection({ topics, subtitle, title, description }: {
  * Latest Posts Section
  *
  * Displays a grid of recent blog posts.
+ * Added mb-16 class to create space before footer.
  * @param {Array} posts - List of post data
  * @param {string} subtitle - Section subtitle
  * @param {string} title - Section title
@@ -197,7 +198,7 @@ function LatestPostsSection({ posts, subtitle, title, linkText, linkHref }: {
   linkHref: string
 }) {
   return (
-    <SectionWrapper bgClass="bg-white dark:bg-[#111927]">
+    <SectionWrapper bgClass="bg-white rounded-xl shadow-sm mb-16"> {/* Added mb-16 here */}
       <SectionHeader
         subtitle={subtitle}
         title={title}
@@ -224,7 +225,7 @@ function LatestPostsSection({ posts, subtitle, title, linkText, linkHref }: {
  */
 function SectionWrapper({ bgClass, children }: { bgClass: string; children: React.ReactNode }) {
   return (
-    <section className={`py-12 sm:py-16 lg:py-20 ${bgClass}`}>
+    <section className={`py-10 mb-2.5 sm:py-16 lg:py-20 ${bgClass}`}>
       <div className="container mx-auto px-4 max-w-6xl">
         {children}
       </div>
@@ -250,11 +251,11 @@ function SectionHeader({ subtitle, title, linkText, linkHref }: {
   return (
     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 sm:mb-12 gap-3 sm:gap-4">
       <div>
-        <span className="text-xs sm:text-sm font-semibold text-indigo-600 dark:text-[#C4F468] mb-1 sm:mb-2 block">
+        <span className="text-xs sm:text-sm font-semibold text-indigo-600 mb-1 sm:mb-2 block">
           {subtitle}
         </span>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-          <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600 dark:text-white bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600 bg-clip-text text-transparent">
             {title}
           </span>
         </h2>
@@ -279,15 +280,15 @@ function CenteredSectionHeader({ subtitle, title, description }: {
 }) {
   return (
     <div className="text-center mb-12 sm:mb-16">
-      <span className="text-xs sm:text-sm font-semibold text-indigo-600 dark:text-[#C4F468] mb-1 sm:mb-2 block">
+      <span className="text-xs sm:text-sm font-semibold text-indigo-600 mb-1 sm:mb-2 block">
         {subtitle}
       </span>
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
-        <span className="bg-gradient-to-r from-gray-800 via-gray-600 to-gray-500 dark:text-white bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-gray-800 via-gray-600 to-gray-500 bg-clip-text text-transparent">
           {title}
         </span>
       </h2>
-      <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+      <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
         {description}
       </p>
     </div>
@@ -305,11 +306,11 @@ function SectionLink({ href, text }: { href: string; text: string }) {
   return (
     <Link
       href={href}
-      className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors relative group"
+      className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium text-gray-500 hover:text-gray-900  transition-colors relative group"
     >
       {text}
-      <span className="absolute bottom-0 left-0 w-0 h-px bg-indigo-600 dark:bg-[#C4F468] transition-all duration-300 group-hover:w-full"></span>
-      <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 dark:text-gray-500" />
+      <span className="absolute bottom-0 left-0 w-0 h-px bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+      <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
     </Link>
   );
 }
@@ -348,7 +349,7 @@ function HeroSection({ brands }: { brands: string[] }) {
 function ProfileImage() {
   return (
     <div className="flex justify-center mb-6 sm:mb-8">
-      <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-xl border-4 border-white dark:border-[#313F55] transition-all duration-500 hover:scale-105 hover:shadow-2xl group">
+      <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-xl border-4 border-white transition-all duration-500 hover:scale-105 hover:shadow-2xl group">
         <Image
           src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
           alt="Gemika Haziq Nugroho"
@@ -371,12 +372,12 @@ function HeroHeadings() {
   return (
     <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-        <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:text-white bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
           Gemika Haziq Nugroho
         </span>
       </h1>
       <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
-        <span className="bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 dark:text-gray-300 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 bg-clip-text text-transparent">
           UX Strategist & Mobile Developer
         </span>
       </h2>
@@ -391,7 +392,7 @@ function HeroHeadings() {
  */
 function HeroDescription() {
   return (
-    <p className="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-300 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed">
+    <p className="text-base sm:text-lg md:text-xl text-gray-500 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed">
       Crafting exceptional digital experiences through thoughtful design and cutting-edge development.
     </p>
   );
@@ -437,8 +438,8 @@ function PrimaryButton({ href, text }: { href: string; text: string }) {
  */
 function SecondaryButton({ href, text }: { href: string; text: string }) {
   return (
-    <Link href={href} className="px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 rounded-full font-medium transition-all duration-300 hover:bg-gray-100 dark:hover:bg-[#1A2332] hover:shadow-lg relative overflow-hidden group text-sm sm:text-base">
-      <span className="absolute inset-0 bg-gray-100 dark:bg-[#313F55] opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+    <Link href={href} className="px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-gray-900 text-gray-900 rounded-full font-medium transition-all duration-300 hover:bg-gray-100 hover:shadow-lg relative overflow-hidden group text-sm sm:text-base">
+      <span className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
       {text}
     </Link>
   );
@@ -455,12 +456,12 @@ function BrandLogos({ brands }: { brands: string[] }) {
     <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10">
       {brands.map((brand, index) => (
         <div key={index} className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 transition-all duration-300 hover:scale-110 group">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 to-purple-100 dark:bg-[#313F55]/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <Image
             src={`https://logo.clearbit.com/${brand.toLowerCase()}.com`}
             alt={brand}
             fill
-            className="object-contain grayscale group-hover:grayscale-0 transition-all duration-500 dark:brightness-125"
+            className="object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
           />
         </div>
       ))}
@@ -573,7 +574,7 @@ function TopicsGrid({ topics }: { topics: any[] }) {
 }
 
 /**
- * Topic Card
+ * Topic Card / Category
  *
  * An individual topic card with image, tags, description, and metadata.
  * @param {Object} topic - Topic data
@@ -582,7 +583,7 @@ function TopicCard({ topic }: { topic: any }) {
   return (
     <Link
       href={`/category/${topic.title.toLowerCase().replace(' ', '-')}`}
-      className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-white dark:bg-[#141D2B] shadow-lg transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 hover:shadow-xl"
+      className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-white shadow-lg transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 hover:shadow-xl"
     >
       <TopicImage topic={topic} />
       <TopicContent topic={topic} />
@@ -635,11 +636,11 @@ function TopicContent({ topic }: { topic: any }) {
     <div className="p-4 sm:p-6 relative">
       <div className="relative z-10">
         <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">
-          <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:text-white bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             {topic.title}
           </span>
         </h3>
-        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-3 sm:mb-4">
+        <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
           {topic.description}
         </p>
         <TopicMeta topic={topic} />
@@ -657,12 +658,12 @@ function TopicContent({ topic }: { topic: any }) {
  */
 function TopicMeta({ topic }: { topic: any }) {
   return (
-    <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+    <div className="flex items-center text-xs sm:text-sm text-gray-500">
       <span className="flex items-center mr-3 sm:mr-4">
         <ClockIcon />
         {topic.count} projects
       </span>
-      <span className="flex items-center text-indigo-600 dark:text-[#C4F468]">
+      <span className="flex items-center text-indigo-600">
         Explore
         <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1" />
       </span>
@@ -690,7 +691,7 @@ function ClockIcon() {
  */
 function TopicHoverOverlay() {
   return (
-    <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/30 dark:from-[#141D2B]/80 dark:to-[#141D2B]/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-xl sm:rounded-b-2xl"></div>
+    <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-xl sm:rounded-b-2xl"></div>
   );
 }
 
@@ -720,7 +721,7 @@ function PostCard({ post }: { post: any }) {
   return (
     <Link
       href={`/posts/${post.slug}`}
-      className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-white dark:bg-[#141D2B] shadow-lg transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 hover:shadow-xl"
+      className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-white border-white/20 shadow-sm transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 hover:shadow-xl"
     >
       <PostImage post={post} />
       <PostContent post={post} />
@@ -777,10 +778,10 @@ function PostContent({ post }: { post: any }) {
 function PostMeta({ post }: { post: any }) {
   return (
     <div className="flex items-center gap-1 sm:gap-2 mb-2 sm:mb-3">
-      <span className="px-2 sm:px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 dark:bg-[#313F55]/20 text-indigo-600 dark:text-[#C4F468] text-xs font-medium rounded-full">
+      <span className="px-2 sm:px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-600 text-xs font-medium rounded-full">
         {(post.frontmatter.tags || ["Uncategorized"])[0]}
       </span>
-      <span className="text-xs text-gray-500 dark:text-gray-400">
+      <span className="text-xs text-gray-500">
         {post.frontmatter.date || "Unknown date"}
       </span>
     </div>
@@ -795,7 +796,7 @@ function PostMeta({ post }: { post: any }) {
  */
 function PostTitle({ post }: { post: any }) {
   return (
-    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 group-hover:text-indigo-600 dark:group-hover:text-[#C4F468] transition-colors">
+    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-indigo-600 transition-colors">
       {post.frontmatter.title || "Untitled Post"}
     </h3>
   );
@@ -809,7 +810,7 @@ function PostTitle({ post }: { post: any }) {
  */
 function PostExcerpt({ post }: { post: any }) {
   return (
-    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 line-clamp-3">
+    <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-3">
       {post.frontmatter.excerpt || "No excerpt available."}
     </p>
   );
@@ -822,7 +823,7 @@ function PostExcerpt({ post }: { post: any }) {
  */
 function ReadMoreLink() {
   return (
-    <div className="inline-flex items-center text-indigo-600 dark:text-[#C4F468] font-medium text-sm sm:text-base">
+    <div className="inline-flex items-center text-indigo-600 font-medium text-sm sm:text-base">
       Read more
       <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 transition-transform group-hover:translate-x-1" />
     </div>

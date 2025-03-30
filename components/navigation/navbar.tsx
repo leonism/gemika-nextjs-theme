@@ -27,19 +27,15 @@ export function Navbar({
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full h-15 sm:h-16 md:h-20 backdrop-blur-sm bg-white/70 dark:bg-gray-900/70 border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
+    <header className="sticky top-0 z-50 w-full h-15 sm:h-16 md:h-20 border-b border-gray-200/50 shadow-sm bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-        {/* Logo Section - not stuck to left edge */}
         <div className="flex-1">
           <Logo />
         </div>
-
         {/* Desktop Navigation - centered */}
         <div className="flex-1 flex justify-center">
           <DesktopNav items={items} pathname={pathname} />
         </div>
-
-        {/* Action Controls - not stuck to right edge */}
         <div className="flex-1 flex justify-end">
           <div className="flex items-center space-x-2 sm:space-x-3">
             <DesktopControls cta={cta} />

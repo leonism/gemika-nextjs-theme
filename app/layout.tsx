@@ -38,7 +38,7 @@ export default function RootLayout({
 
           {/* Footer with gradient top border */}
           <div className="relative">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-300/50 to-transparent dark:via-[#313F55]/50">
+            <div className="absolute inset-x-0 top-0 h-px">
             </div>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <Footer />
