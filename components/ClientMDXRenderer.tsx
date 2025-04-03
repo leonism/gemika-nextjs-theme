@@ -1,20 +1,18 @@
 "use client";
 
-import React, { useMemo } from 'react'; // Explicit React import
-import dynamic from 'next/dynamic';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import components from './mdx-components';
+import { MDXRemote } from 'next-mdx-remote';
+import { components } from './mdx-components';
 
 interface ClientMDXRendererProps {
-  source: MDXRemoteSerializeResult;
+  source: any;
 }
 
-const ClientMDXRenderer: React.FC<ClientMDXRendererProps> = ({ source }) => {
-  const memoizedComponents = useMemo(() => components, []);
+export default function ClientMDXRenderer({ source }: ClientMDXRendererProps) {
+  if (!source) return null;
 
   return (
-    <MDXRemote {...source} components={memoizedComponents} />
+    <div className="prose dark:prose-invert max-w-none">
+      <MDXRemote {...source} components={components} />
+    </div>
   );
-};
-
-export default ClientMDXRenderer;
+}

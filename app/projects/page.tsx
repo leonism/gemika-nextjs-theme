@@ -2,11 +2,16 @@ import Image from "next/image"
 import Link from "next/link"
 import { getAllContent } from "@/lib/content"
 import JsonLd from "@/components/json-ld"
+import { Pagination } from "@/components/navigation/pagination"
 import type { Metadata } from "next"
 import { WebPage, WithContext } from "schema-dts"
+import ClientOnly from "@/components/utility/client-only"
+import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemote } from 'next-mdx-remote'
+import { Footer } from '@/components/navigation/footer'
 
 export const metadata: Metadata = {
-  title: "Projects | Daryl Mercer",
+  title: "Projects |",
   description: "A showcase of my recent work across UX design, mobile development, and branding projects.",
 }
 
@@ -25,11 +30,11 @@ export default async function ProjectsPage({
 }: {
   searchParams: { page?: string }
 }) {
-  // First get all projects (await this first)
   const allProjects = await getAllContent("projects")
 
-  // Then handle searchParams
-  const page = searchParams?.page ? parseInt(searchParams.page) : 1
+  // Await searchParams before accessing properties
+  const resolvedSearchParams = await searchParams
+  const page = resolvedSearchParams?.page ? parseInt(resolvedSearchParams.page) : 1
   const currentPage = isNaN(page) || page < 1 ? 1 : page
 
   // Calculate pagination
@@ -76,111 +81,38 @@ export default async function ProjectsPage({
 
         <section className="container mx-auto px-4 max-w-7xl py-12 md:py-20">
           {currentProjects.length === 0 ? (
-            <div className="text-center py-20">
-              <div className="mx-auto w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mb-6 animate-bounce">
-                <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
-                </svg>
-              </div>
-              <h2 className="text-2xl font-medium text-gray-900 dark:text-white mb-2">
-                No projects available yet
-              </h2>
-            </div>
+            <p>No projects found.</p>
           ) : (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {currentProjects.map((project) => {
-                  const category = (project.frontmatter.category as string)?.toLowerCase() || 'default'
-                  const colorScheme = CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] || CATEGORY_COLORS.default
-
-                  return (
-                    <Link
-                      key={project.slug}
-                      href={`/projects/${project.slug}`}
-                      className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
-                    >
-                      <div className="relative aspect-video overflow-hidden">
-                        <Image
-                          src={project.frontmatter.coverImage as string}
-                          alt={project.frontmatter.title as string}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-110"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
-                        <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-                          <span className={`text-xs font-semibold ${colorScheme.bg} ${colorScheme.text} px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/20 dark:border-gray-700/50 shadow-sm`}>
-                            {project.frontmatter.category as string}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="relative p-6">
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
-                          {project.frontmatter.title as string}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-300 line-clamp-2 mb-4">
-                          {project.frontmatter.excerpt as string}
-                        </p>
-                        <div className="flex items-center text-sm font-medium text-indigo-600 dark:text-indigo-400">
-                          View case study
-                          <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                          </svg>
-                        </div>
-                      </div>
-                    </Link>
-                  )
-                })}
-              </div>
-
-              {totalPages > 1 && (
-                <div className="flex justify-center mt-16">
-                  <nav className="flex items-center gap-2">
-                    <Link
-                      href={`/projects?page=${Math.max(1, currentPage - 1)}`}
-                      className={`w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${
-                        currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
-                      }`}
-                      aria-disabled={currentPage === 1}
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                      </svg>
-                    </Link>
-
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-                      <Link
-                        key={pageNum}
-                        href={`/projects?page=${pageNum}`}
-                        className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
-                          pageNum === currentPage
-                            ? 'bg-gradient-to-r from-indigo-500 to-emerald-500 text-white shadow-md'
-                            : 'border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800'
-                        }`}
-                      >
-                        {pageNum}
-                      </Link>
-                    ))}
-
-                    <Link
-                      href={`/projects?page=${Math.min(totalPages, currentPage + 1)}`}
-                      className={`w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${
-                        currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
-                      }`}
-                      aria-disabled={currentPage === totalPages}
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                      </svg>
-                    </Link>
-                  </nav>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {currentProjects.map((project) => (
+                <div key={project.slug} className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
+                  <Link href={`/projects/${project.slug}`}>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300">
+                        {project.excerpt}
+                      </p>
+                    </div>
+                  </Link>
                 </div>
-              )}
-            </>
+              ))}
+            </div>
           )}
         </section>
       </main>
+
+      {/* Add Footer at the bottom */}
+      <Footer />
+
+      <ClientOnly>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          baseUrl="/projects"
+        />
+      </ClientOnly>
     </div>
   )
 }

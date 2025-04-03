@@ -55,7 +55,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
       {/* Mobile Menu Overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-white dark:bg-gray-900 transition-opacity duration-300 ease-in-out",
+          "fixed inset-0 z-40 dark:bg-gray-900 transition-opacity duration-300 ease-in-out",
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}
       >

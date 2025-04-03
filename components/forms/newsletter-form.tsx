@@ -57,10 +57,13 @@ export function NewsletterForm() {
         className="flex-1"
         required
       />
-      <Button type="submit" disabled={isLoading}>
+      <Button
+        type="submit"
+        disabled={isLoading}
+        className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 transition-colors"
+      >
         {isLoading ? "Subscribing..." : "Subscribe"}
       </Button>
     </form>
   )
 }
-

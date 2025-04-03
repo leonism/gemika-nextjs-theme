@@ -7,6 +7,7 @@ import JsonLd from "@/components/json-ld"
 import type { WithContext } from "schema-dts"
 import { serialize } from "next-mdx-remote/serialize"
 import DynamicClientMDXRenderer from "@/components/DynamicClientMDXRenderer"
+import { Breadcrumbs } from "@/components/navigation/breadcrumbs"
 
 interface ProjectPageProps {
   params: { slug: string }
@@ -481,7 +482,7 @@ function RelatedProjectsCTA() {
 /**
  * Main project page component
  */
-export default async function ProjectPage({ params }: ProjectPageProps) {
+async function ProjectPageContent({ params }: ProjectPageProps) {
   const { slug } = await params
   const project = await getContent("projects", slug)
   if (!project) {
@@ -564,5 +565,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <RelatedProjectsCTA />
       </main>
     </div>
+  )
+}
+
+
+export default async function ProjectPage({ params }: { params: { slug: string } }) {
+  const resolvedParams = await params; // Ensure params is awaited
+  const breadcrumbs = [
+    { href: '/', label: 'Home' },
+    { href: '/projects', label: 'Projects' },
+    { href: `/projects/${resolvedParams.slug}`, label: resolvedParams.slug.replace(/-/g, ' ') }
+  ]
+
+  return (
+    <>
+      <Breadcrumbs items={breadcrumbs} className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl pt-4" />
+      {/* ... rest of the project page content ... */}
+    </>
   )
 }

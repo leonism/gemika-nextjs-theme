@@ -1,21 +1,20 @@
 "use client";
 
 import dynamic from 'next/dynamic';
+import { components } from './mdx-components';
 
 const ClientMDXRenderer = dynamic(
-  () => import('@/components/ClientMDXRenderer'),
+  () => import('./ClientMDXRenderer'),
   {
     ssr: false,
-    loading: () => <p>Loading...</p>,
+    loading: () => <p>Loading content...</p>,
   }
 );
 
 interface DynamicClientMDXRendererProps {
-  source: any; // Replace 'any' with the correct type for your serialized MDX content
+  source: any;
 }
 
-const DynamicClientMDXRenderer: React.FC<DynamicClientMDXRendererProps> = ({ source }) => {
+export default function DynamicClientMDXRenderer({ source }: DynamicClientMDXRendererProps) {
   return <ClientMDXRenderer source={source} />;
-};
-
-export default DynamicClientMDXRenderer;
+}

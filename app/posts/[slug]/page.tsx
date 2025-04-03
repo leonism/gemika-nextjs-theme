@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
 import DynamicClientMDXRenderer from "@/components/DynamicClientMDXRenderer";
+import { BreadcrumbWrapper } from "@/components/navigation/breadcrumb-wrapper"
 
 interface PostPageProps {
   params: Promise<{ slug: string }> | { slug: string };
@@ -46,7 +47,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
       {/* Render MDX content */}
       <div className="mdx-content">
-        <DynamicClientMDXRenderer content={post.content} />
+        <DynamicClientMDXRenderer source={post.content} />
       </div>
     </article>
   );

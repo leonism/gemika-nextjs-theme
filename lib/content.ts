@@ -67,6 +67,7 @@ export async function getContent(type: "posts" | "projects" | "pages", slug: str
   }
 }
 
+// Update the getAllContent function to ensure tags are included
 export async function getAllContent(type: "posts" | "projects" | "pages"): Promise<any[]> {
   const directoryPath = path.join(process.cwd(), "content", type);
 
