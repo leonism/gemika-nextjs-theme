@@ -1,47 +1,64 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { formatDate } from "@/lib/utils"
-import type { SearchResult } from "@/types/search"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import type { SearchResult } from "@/types/search";
 
 interface SearchResultsProps {
-  query: string
+  query: string;
 }
 
+// Helper function to format dates
+const formatDate = (dateString: string) => {
+  if (!dateString) return "";
+  try {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  } catch (e) {
+    return dateString;
+  }
+};
+
 export function SearchResults({ query }: SearchResultsProps) {
-  const [results, setResults] = useState<SearchResult[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchResults() {
-      setIsLoading(true)
+      setIsLoading(true);
       try {
-        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`)
+        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
         if (!response.ok) {
-          throw new Error("Failed to fetch search results")
+          throw new Error("Failed to fetch search results");
         }
-        const data = await response.json()
-        setResults(data)
+        const data = await response.json();
+        setResults(data);
       } catch (error) {
-        console.error("Error searching content:", error)
+        console.error("Error searching content:", error);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
     }
 
     if (query) {
-      fetchResults()
+      fetchResults();
+    } else {
+      setResults([]);
+      setIsLoading(false);
     }
-  }, [query])
+  }, [query]);
 
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-12">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
       </div>
-    )
+    );
   }
 
   if (results.length === 0) {
@@ -60,7 +77,7 @@ export function SearchResults({ query }: SearchResultsProps) {
           </Link>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -68,23 +85,16 @@ export function SearchResults({ query }: SearchResultsProps) {
       {results.map((result) => (
         <div key={result.id} className="border-b border-gray-200 dark:border-gray-800 pb-6">
           <div className="flex flex-col md:flex-row gap-4">
-            {result.type === "Blog Post" && (
-              <div className="w-full md:w-1/4">
-                <div className="aspect-video relative rounded-lg overflow-hidden">
-                  <Image src="/placeholder.svg" alt={result.title} fill className="object-cover" />
-                </div>
-              </div>
-            )}
             <div className="flex-1">
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
                 {result.type} • {formatDate(result.date)}
               </p>
               <h2 className="text-xl font-semibold mb-2">
                 <Link href={result.url} className="hover:text-primary transition-colors">
-                  {result.title}
+                  {result.frontmatter.title}
                 </Link>
               </h2>
-              <p className="text-gray-700 dark:text-gray-300">{result.excerpt}</p>
+              <p className="text-gray-700 dark:text-gray-300">{result.frontmatter.excerpt}</p>
               <Link href={result.url} className="mt-2 inline-block text-primary hover:underline">
                 Read more →
               </Link>
@@ -93,6 +103,5 @@ export function SearchResults({ query }: SearchResultsProps) {
         </div>
       ))}
     </div>
-  )
+  );
 }
-
