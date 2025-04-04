@@ -63,7 +63,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
           {/* Header with Close Button */}
           <div className="flex justify-between items-center mb-8">
             <Link href="/" className="text-3xl font-bold text-gray-900 dark:text-gray-100" onClick={() => setIsOpen(false)}>
-              Daryl Mercer
+              Gemika Haziq Nugroho
             </Link>
             <Button
               variant="ghost"

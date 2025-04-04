@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
   }
 
   return {
-    title: `${project.frontmatter.title} | Daryl Mercer Projects`,
+    title: `${project.frontmatter.title} | Gemika Haziq Nugroho Projects`,
     description: project.frontmatter.excerpt,
     openGraph: {
       title: project.frontmatter.title,
@@ -513,7 +513,7 @@ async function ProjectPageContent({ params }: ProjectPageProps) {
     image: project.frontmatter.coverImage as string,
     creator: {
       "@type": "Person",
-      name: "Daryl Mercer",
+      name: "Gemika Haziq Nugroho",
     },
     dateCreated: project.frontmatter.year,
     keywords: project.frontmatter.category,
@@ -528,12 +528,7 @@ async function ProjectPageContent({ params }: ProjectPageProps) {
       <JsonLd data={jsonLd} />
 
       <main>
-        {/* Back button */}
-        <div className="container mx-auto px-4 py-8 max-w-7xl">
-          <BackButton />
-        </div>
-
-        {/* Project Content */}
+        {/* Project Content - Removed the back button section */}
         <section className="container mx-auto px-4 py-8 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* Main Content */}
@@ -588,7 +583,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
 
   return (
     <>
-      <Breadcrumbs items={breadcrumbs} className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl pt-4" />
+      <Breadcrumbs items={breadcrumbs} className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl" />
       <ProjectPageContent params={resolvedParams} />
     </>
   )

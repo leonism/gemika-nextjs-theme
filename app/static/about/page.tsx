@@ -22,7 +22,7 @@ export default async function AboutPage() {
         <section className="container mx-auto px-4 py-16 max-w-4xl">
           <h1 className="text-4xl font-bold mb-6">{about.frontmatter.title}</h1>
           <div className="prose prose-lg dark:prose-invert">
-            <MDXProvider source={about.content} />
+            <MDXProvider source={await serialize(about.content)} />
           </div>
         </section>
       </main>

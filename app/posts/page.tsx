@@ -1,6 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getAllContent } from "@/lib/content";
+import { Pagination } from "@/components/navigation/pagination";
+import { Metadata } from "next";
+import { WebPage, WithContext } from "schema-dts";
+import JsonLd from "@/components/json-ld";
+
+export const metadata: Metadata = {
+  title: "Blog | Insights & Thoughts",
+  description: "Explore my latest writings on UX design, development, and creative processes.",
+};
 
 // Color palette for tags to ensure visual consistency
 const TAG_COLORS = [
@@ -11,15 +20,49 @@ const TAG_COLORS = [
   { bg: "bg-violet-100 dark:bg-violet-900/30", text: "text-violet-600 dark:text-violet-300" },
 ];
 
-export default async function PostsIndexPage() {
+const POSTS_PER_PAGE = 6;
+
+export default async function PostsIndexPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }> | { page?: string }
+}) {
+  // Get all posts and sort by date (newest first)
   const allPosts = await getAllContent("posts");
-  const postsPerPage = 6;
-  const totalPages = Math.ceil(allPosts.length / postsPerPage);
-  const currentPage = 1; // Default to first page, you can make this dynamic later
-  const posts = allPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
+  const sortedPosts = allPosts.sort((a, b) => {
+    const dateA = new Date(a.frontmatter.date || '2000-01-01');
+    const dateB = new Date(b.frontmatter.date || '2000-01-01');
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  // Pagination logic - properly await searchParams
+  const resolvedSearchParams = await searchParams;
+  const page = resolvedSearchParams?.page ? parseInt(resolvedSearchParams.page) : 1;
+  const validatedPage = isNaN(page) || page < 1 ? 1 : page;
+
+  const totalPosts = sortedPosts.length;
+  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
+  const startIndex = (validatedPage - 1) * POSTS_PER_PAGE;
+  const posts = sortedPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+
+  // JSON-LD structured data
+  const jsonLd: WithContext<WebPage> = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Blog | Insights & Thoughts",
+    description: "Explore my latest writings on UX design, development, and creative processes.",
+    url: "https://example.com/posts",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Gemika Haziq Nugroho",
+      url: "https://example.com",
+    },
+  };
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+      <JsonLd data={jsonLd} />
+
       <section className="relative overflow-hidden py-16 md:py-24">
         <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
           {/* Subtle animated floating badge */}
@@ -54,106 +97,88 @@ export default async function PostsIndexPage() {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-10 h-10 text-gray-400"
+                className="w-12 h-12 text-gray-400 dark:text-gray-500"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
                 />
               </svg>
             </div>
-            <h2 className="text-2xl font-medium text-gray-900 dark:text-white mb-2">
-              No articles available yet
-            </h2>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">No posts found</h3>
             <p className="text-gray-600 dark:text-gray-400 max-w-md mx-auto">
-              I'm currently working on some new content. Check back soon!
+              There are no blog posts available at the moment. Please check back later.
             </p>
           </div>
         ) : (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post, index) => {
-                // Rotate through tag colors
-                const tagColor = TAG_COLORS[index % TAG_COLORS.length];
+                // Get a color for each tag based on its index
+                const getTagColor = (tagIndex: number) => {
+                  return TAG_COLORS[tagIndex % TAG_COLORS.length];
+                };
 
                 return (
                   <Link
                     key={post.slug}
                     href={`/posts/${post.slug}`}
-                    className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+                    className="group flex flex-col h-full bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-200 dark:border-gray-700"
                   >
-                    {/* Featured Image with gradient overlay */}
-                    <div className="relative aspect-video overflow-hidden">
-                      <Image
-                        src={post.frontmatter.coverImage || "/placeholder.svg"}
-                        alt={post.frontmatter.title as string}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-
-                      {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
-
-                      {/* Tags overlapping the image bottom */}
-                      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-                        {(post.frontmatter.tags as string[])?.map((tag, tagIndex) => {
-                          const colorIndex = (index + tagIndex) % TAG_COLORS.length;
-                          const color = TAG_COLORS[colorIndex];
-
-                          return (
+                    {post.frontmatter.coverImage && (
+                      <div className="relative h-48 w-full overflow-hidden">
+                        <Image
+                          src={post.frontmatter.coverImage as string}
+                          alt={post.frontmatter.title as string}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        {post.frontmatter.category && (
+                          <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 dark:bg-gray-900/90 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300 backdrop-blur-sm">
+                            {post.frontmatter.category}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    <div className="flex flex-col flex-grow p-6">
+                      <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                        <time dateTime={post.frontmatter.date as string}>
+                          {post.frontmatter.date}
+                        </time>
+                        {post.frontmatter.readingTime && (
+                          <>
+                            <span className="mx-2">•</span>
+                            <span>{post.frontmatter.readingTime} read</span>
+                          </>
+                        )}
+                      </div>
+                      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                        {post.frontmatter.title}
+                      </h2>
+                      <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2 flex-grow">
+                        {post.frontmatter.excerpt}
+                      </p>
+                      {post.frontmatter.tags && (
+                        <div className="flex flex-wrap gap-2 mt-auto">
+                          {(post.frontmatter.tags as string[]).slice(0, 3).map((tag, tagIndex) => (
                             <span
-                              key={tagIndex}
-                              className={`text-xs font-semibold ${color.bg} ${color.text} px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/20 dark:border-gray-700/50 shadow-sm hover:scale-105 transition-transform duration-200`}
+                              key={tag}
+                              className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
+                                getTagColor(tagIndex).bg
+                              } ${getTagColor(tagIndex).text}`}
                             >
                               {tag}
                             </span>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    {/* Content with soft blurry background effect */}
-                    <div className="relative p-6">
-                      {/* Floating content container */}
-                      <div className="relative z-10">
-                        {/* Title with hover effect */}
-                        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300 line-clamp-2">
-                          {post.frontmatter.title as string}
-                        </h2>
-
-                        {/* Excerpt */}
-                        <p className="text-gray-600 dark:text-gray-300 mb-5 line-clamp-2">
-                          {post.frontmatter.excerpt as string}
-                        </p>
-
-                        {/* Meta information with icons */}
-                        <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-                          {/* Date */}
-                          <div className="flex items-center space-x-1">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>{post.frontmatter.date as string}</span>
-                          </div>
-
-                          {/* Author */}
-                          <div className="flex items-center space-x-1">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                            <span>{post.frontmatter.author as string}</span>
-                          </div>
+                          ))}
+                          {(post.frontmatter.tags as string[]).length > 3 && (
+                            <span className="inline-block px-2 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+                              +{(post.frontmatter.tags as string[]).length - 3} more
+                            </span>
+                          )}
                         </div>
-                      </div>
-
-                      {/* Soft blurry background effect */}
-                      <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/30 dark:from-gray-800/80 dark:to-gray-800/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-2xl"></div>
+                      )}
                     </div>
-
-                    {/* Hover indicator */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-500 to-emerald-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                   </Link>
                 );
               })}
@@ -161,45 +186,13 @@ export default async function PostsIndexPage() {
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex justify-center mt-16">
-                <nav className="flex items-center space-x-2">
-                  {/* Previous Button */}
-                  <Link
-                    href={`/posts?page=${currentPage > 1 ? currentPage - 1 : 1}`}
-                    className={`inline-flex items-center justify-center w-10 h-10 rounded-full ${currentPage === 1 ? 'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed' : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
-                    aria-disabled={currentPage === 1}
-                    tabIndex={currentPage === 1 ? -1 : undefined}
-                  >
-                    <span className="sr-only">Previous</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </Link>
-
-                  {/* Page Numbers */}
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                    <Link
-                      key={page}
-                      href={`/posts?page=${page}`}
-                      className={`inline-flex items-center justify-center w-10 h-10 rounded-full ${currentPage === page ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white' : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
-                    >
-                      {page}
-                    </Link>
-                  ))}
-
-                  {/* Next Button */}
-                  <Link
-                    href={`/posts?page=${currentPage < totalPages ? currentPage + 1 : totalPages}`}
-                    className={`inline-flex items-center justify-center w-10 h-10 rounded-full ${currentPage === totalPages ? 'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed' : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
-                    aria-disabled={currentPage === totalPages}
-                    tabIndex={currentPage === totalPages ? -1 : undefined}
-                  >
-                    <span className="sr-only">Next</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </nav>
+              <div className="mt-16">
+                <Pagination
+                  currentPage={validatedPage}
+                  totalPages={totalPages}
+                  baseUrl="/posts"
+                  className="justify-center"
+                />
               </div>
             )}
           </>
