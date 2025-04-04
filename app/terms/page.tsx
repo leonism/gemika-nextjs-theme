@@ -1,12 +1,7 @@
 import { getContent } from "@/lib/content";
-import dynamic from 'next/dynamic';
 import { serialize } from 'next-mdx-remote/serialize';
 import { notFound } from "next/navigation";
-
-const MDXProvider = dynamic(() => import('@/components/mdx-provider'), {
-  ssr: false,
-  loading: () => <div className="text-center py-8">Loading content...</div>
-});
+import { MDXProvider } from "@/components/mdx-provider";
 
 export default async function TermsPage() {
   const terms = await getContent("pages", "terms");
