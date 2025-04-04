@@ -1,7 +1,12 @@
 import { getContent } from "@/lib/content";
-import { MDXProvider } from "@/components/mdx-provider";
+import dynamic from 'next/dynamic';
 import { serialize } from 'next-mdx-remote/serialize';
 import { notFound } from "next/navigation";
+
+// Dynamically import the MDXProvider to ensure it's only used on the client side
+const MDXProvider = dynamic(() => import('@/components/mdx-provider').then(mod => mod.MDXProvider), {
+  ssr: false,
+});
 
 export default async function AboutPage() {
   const about = await getContent("pages", "about");
@@ -25,7 +30,9 @@ export default async function AboutPage() {
               />
             </div>
           )}
-          <h1 className="text-4xl font-bold mb-6 text-center">{about.frontmatter.title}</h1>
+          <h1 className="text-4xl font-bold mb-6 text-center">
+            {about.frontmatter.title}
+          </h1>
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <MDXProvider source={serializedContent} />
           </div>
