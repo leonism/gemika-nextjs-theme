@@ -78,119 +78,67 @@ export function Pagination({ currentPage, totalPages, baseUrl, className }: Pagi
   }
 
   return (
-    <nav
-      aria-label="Pagination"
-      className={cn("flex items-center justify-between sm:justify-center gap-2 w-full", className)}
-    >
-      {/* Previous Button */}
-      <Button
-        variant="ghost"
+    <nav className={cn("flex items-center justify-center space-x-2", className)}>
+      {/* Previous button */}
+      <Link
+        href={getPageUrl(currentPage > 1 ? currentPage - 1 : 1)}
+        aria-label="Go to previous page"
         className={cn(
-          "rounded-full h-10 w-10 p-0 hover:bg-gray-100 dark:hover:bg-gray-800",
-          "transition-all duration-200 hover:scale-105",
-          currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:shadow-md"
+          "inline-flex items-center justify-center rounded-full w-10 h-10 text-sm font-medium transition-colors",
+          "border border-gray-200 bg-white text-gray-900 shadow-sm hover:bg-gray-100",
+          "dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50 dark:hover:bg-gray-800",
+          currentPage === 1 && "pointer-events-none opacity-50"
         )}
-        disabled={currentPage === 1}
-        asChild={currentPage !== 1}
       >
-        {currentPage === 1 ? (
-          <span className="flex items-center justify-center">
-            <ChevronLeft className="h-5 w-5" />
-            <span className="sr-only">Previous page</span>
-          </span>
-        ) : (
-          <Link
-            href={getPageUrl(currentPage - 1)}
-            className="flex items-center justify-center h-full w-full"
-            aria-label="Previous page"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </Link>
-        )}
-      </Button>
+        <ChevronLeft className="h-4 w-4" />
+      </Link>
 
-      {/* Page Numbers */}
-      <div className="hidden sm:flex items-center gap-1">
-        {pageNumbers.map((page, index) => {
+      {/* Page numbers */}
+      <div className="flex items-center space-x-2">
+        {pageNumbers.map((page, i) => {
           if (page === "ellipsis-start" || page === "ellipsis-end") {
             return (
               <span
-                key={`${page}-${index}`}
-                className="flex items-center justify-center h-10 w-10 text-gray-500 dark:text-gray-400"
+                key={`ellipsis-${i}`}
+                className="flex h-10 w-10 items-center justify-center text-sm text-gray-400"
               >
-                &hellip;
+                ...
               </span>
             )
           }
 
           return (
-            <Button
+            <Link
               key={`page-${page}`}
-              variant={currentPage === page ? "default" : "ghost"}
-              size="sm"
+              href={getPageUrl(page as number)}
+              aria-label={`Go to page ${page}`}
+              aria-current={currentPage === page ? "page" : undefined}
               className={cn(
-                "rounded-full h-10 w-10 p-0 text-sm font-medium",
-                "transition-all duration-200 hover:scale-105",
+                "inline-flex items-center justify-center rounded-full w-10 h-10 text-sm font-medium transition-colors",
                 currentPage === page
-                  ? "bg-indigo-600 hover:bg-indigo-700 shadow-md"
-                  : "hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md"
+                  ? "bg-indigo-600 text-white hover:bg-indigo-700"
+                  : "border border-gray-200 bg-white text-gray-900 shadow-sm hover:bg-gray-100 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50 dark:hover:bg-gray-800"
               )}
-              asChild={currentPage !== page}
             >
-              {currentPage === page ? (
-                <span
-                  className="flex items-center justify-center h-full w-full"
-                  aria-current="page"
-                >
-                  {page}
-                </span>
-              ) : (
-                <Link
-                  href={getPageUrl(page as number)}
-                  className="flex items-center justify-center h-full w-full"
-                  aria-label={`Go to page ${page}`}
-                >
-                  {page}
-                </Link>
-              )}
-            </Button>
+              {page}
+            </Link>
           )
         })}
       </div>
 
-      {/* Mobile Current Page Display */}
-      <div className="sm:hidden flex items-center gap-1">
-        <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
-          Page {currentPage} of {totalPages}
-        </span>
-      </div>
-
-      {/* Next Button */}
-      <Button
-        variant="ghost"
+      {/* Next button */}
+      <Link
+        href={getPageUrl(currentPage < totalPages ? currentPage + 1 : totalPages)}
+        aria-label="Go to next page"
         className={cn(
-          "rounded-full h-10 w-10 p-0 hover:bg-gray-100 dark:hover:bg-gray-800",
-          "transition-all duration-200 hover:scale-105",
-          currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:shadow-md"
+          "inline-flex items-center justify-center rounded-full w-10 h-10 text-sm font-medium transition-colors",
+          "border border-gray-200 bg-white text-gray-900 shadow-sm hover:bg-gray-100",
+          "dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50 dark:hover:bg-gray-800",
+          currentPage === totalPages && "pointer-events-none opacity-50"
         )}
-        disabled={currentPage === totalPages}
-        asChild={currentPage !== totalPages}
       >
-        {currentPage === totalPages ? (
-          <span className="flex items-center justify-center">
-            <ChevronRight className="h-5 w-5" />
-            <span className="sr-only">Next page</span>
-          </span>
-        ) : (
-          <Link
-            href={getPageUrl(currentPage + 1)}
-            className="flex items-center justify-center h-full w-full"
-            aria-label="Next page"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </Link>
-        )}
-      </Button>
+        <ChevronRight className="h-4 w-4" />
+      </Link>
     </nav>
   )
 }

@@ -2,10 +2,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { notFound } from "next/navigation"
+import { ChevronLeft } from "lucide-react"
 import { getContent, getAllContent } from "@/lib/content"
-import JsonLd from "@/components/json-ld"
-import type { WithContext } from "schema-dts"
 import { serialize } from "next-mdx-remote/serialize"
+import { MDXRemote } from "next-mdx-remote"
+import JsonLd from "@/components/json-ld"
+import { WithContext } from "schema-dts"
+import ClientOnly from "@/components/utility/client-only"
+import { MDXProviderClient } from "@/components/mdx-provider-client"
 import DynamicClientMDXRenderer from "@/components/DynamicClientMDXRenderer"
 import { Breadcrumbs } from "@/components/navigation/breadcrumbs"
 
@@ -178,7 +182,9 @@ function ProjectCoverImage({
 function ProjectContent({ content }: { content: any }) {
   return (
     <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-a:text-indigo-600 dark:prose-a:text-indigo-400 hover:prose-a:text-indigo-700 dark:hover:prose-a:text-indigo-300 prose-img:rounded-xl prose-img:shadow-md">
-      <DynamicClientMDXRenderer source={content} />
+      <ClientOnly>
+        <MDXProviderClient source={content} />
+      </ClientOnly>
     </div>
   )
 }
@@ -193,7 +199,7 @@ function ProjectGallery({ images, title }: { images: string[]; title: string }) 
     <div className="space-y-6">
       <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center">
         <svg className="w-6 h-6 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2-2V12a2 2 0 002-2z" />
         </svg>
         Project Gallery
       </h2>
@@ -488,6 +494,8 @@ async function ProjectPageContent({ params }: ProjectPageProps) {
   if (!project) {
     notFound()
   }
+
+  // Properly serialize the MDX content
   const serializedContent = await serialize(project.content || "")
 
   // Get all projects for pagination
@@ -542,6 +550,7 @@ async function ProjectPageContent({ params }: ProjectPageProps) {
                 tags={project.frontmatter.tags as string[]}
               />
 
+              {/* Pass the serialized content to the ProjectContent component */}
               <ProjectContent content={serializedContent} />
 
               <ProjectGallery
@@ -580,7 +589,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   return (
     <>
       <Breadcrumbs items={breadcrumbs} className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl pt-4" />
-      {/* ... rest of the project page content ... */}
+      <ProjectPageContent params={resolvedParams} />
     </>
   )
 }

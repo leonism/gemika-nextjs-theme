@@ -7,21 +7,22 @@ import type { Metadata } from "next"
 import { WebPage, WithContext } from "schema-dts"
 import ClientOnly from "@/components/utility/client-only"
 import { serialize } from 'next-mdx-remote/serialize'
-import { components } from '@/components/mdx-components'
-import { MDXContent } from '@/components/MDXContent'
 
 export const metadata: Metadata = {
-  title: "Projects |",
+  title: "Projects",
   description: "A showcase of my recent work across UX design, mobile development, and branding projects.",
 }
 
-const CATEGORY_COLORS = {
-  design: { bg: "bg-indigo-100/80", text: "text-indigo-600" },
-  development: { bg: "bg-emerald-100/80", text: "text-emerald-600" },
-  branding: { bg: "bg-amber-100/80", text: "text-amber-600" },
-  featured: { bg: "bg-rose-100/80", text: "text-rose-600" },
+// Define category colors with lowercase keys for case-insensitive matching
+const CATEGORY_COLORS: Record<string, { bg: string, text: string }> = {
+  "design": { bg: "bg-indigo-100/80", text: "text-indigo-600" },
+  "web development": { bg: "bg-emerald-100/80", text: "text-emerald-600" },
+  "branding": { bg: "bg-amber-100/80", text: "text-amber-600" },
+  "featured": { bg: "bg-rose-100/80", text: "text-rose-600" },
   "artificial intelligence": { bg: "bg-purple-100/80", text: "text-purple-600" },
-  default: { bg: "bg-gray-100/80", text: "text-gray-600" }
+  "mobile development": { bg: "bg-blue-100/80", text: "text-blue-600" },
+  "artificial intelligence & data visualization": { bg: "bg-fuchsia-100/80", text: "text-fuchsia-600" },
+  "default": { bg: "bg-gray-100/80", text: "text-gray-600" }
 }
 
 const PROJECTS_PER_PAGE = 6
@@ -31,8 +32,12 @@ export default async function ProjectsPage({
 }: {
   searchParams: { page?: string }
 }) {
-  // Get all projects and sort by date (newest first)
+  // Get all projects from the content/projects folder
   const allProjects = await getAllContent("projects")
+
+  console.log("Projects found:", allProjects.length)
+
+  // Sort projects by year (newest first)
   const sortedProjects = allProjects.sort((a, b) => {
     const dateA = new Date(a.frontmatter.date || a.frontmatter.year || '2000-01-01');
     const dateB = new Date(b.frontmatter.date || b.frontmatter.year || '2000-01-01');
@@ -47,26 +52,26 @@ export default async function ProjectsPage({
     }))
   );
 
-  // Pagination logic
-  const resolvedSearchParams = await searchParams
+  // Pagination logic - properly await searchParams
+  const resolvedSearchParams = await searchParams;
   const page = resolvedSearchParams?.page ? parseInt(resolvedSearchParams.page) : 1
-  const currentPage = isNaN(page) || page < 1 ? 1 : page
+  const validatedPage = isNaN(page) || page < 1 ? 1 : page
 
   // Calculate pagination
   const totalProjects = serializedProjects.length
   const totalPages = Math.ceil(totalProjects / PROJECTS_PER_PAGE)
-  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE
+  const startIndex = (validatedPage - 1) * PROJECTS_PER_PAGE
   const currentProjects = serializedProjects.slice(startIndex, startIndex + PROJECTS_PER_PAGE)
 
   const jsonLd: WithContext<WebPage> = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Projects | Daryl Mercer",
+    name: "Projects | Gemika Haziq Nugroho",
     description: "A showcase of my recent work across UX design, mobile development, and branding projects.",
     url: "https://example.com/projects",
     isPartOf: {
       "@type": "WebSite",
-      name: "Daryl Mercer",
+      name: "Gemika Haziq Nugroho",
       url: "https://example.com",
     },
   }
@@ -99,71 +104,75 @@ export default async function ProjectsPage({
             <p>No projects found.</p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {currentProjects.map((project) => (
-                <div key={project.slug} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group h-full flex flex-col">
-                  <Link href={`/projects/${project.slug}`} className="flex flex-col h-full">
-                    {/* Cover Image */}
-                    <div className="relative w-full h-48 overflow-hidden">
-                      <Image
-                        src={project.frontmatter.coverImage || "/placeholder.svg"}
-                        alt={project.frontmatter.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      {/* Category Badge */}
-                      {project.frontmatter.category && (
-                        <div className="absolute bottom-3 right-3">
-                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                            CATEGORY_COLORS[project.frontmatter.category?.toLowerCase() as keyof typeof CATEGORY_COLORS] ?
-CATEGORY_COLORS[project.frontmatter.category?.toLowerCase() as keyof typeof CATEGORY_COLORS]?.bg :
-                            CATEGORY_COLORS.default.bg
-                          } ${
-                            CATEGORY_COLORS[project.frontmatter.category?.toLowerCase() as keyof typeof CATEGORY_COLORS] ?
-CATEGORY_COLORS[project.frontmatter.category?.toLowerCase() as keyof typeof CATEGORY_COLORS]?.text :
-                            CATEGORY_COLORS.default.text
-                          }`}>
-                            {project.frontmatter.category}
-                          </span>
-                        </div>
-                      )}
-                    </div>
+              {currentProjects.map((project) => {
+                // Get category color (case insensitive)
+                const categoryKey = project.frontmatter.category ?
+                  project.frontmatter.category.toLowerCase() : 'default';
+                const colorSet = Object.keys(CATEGORY_COLORS).includes(categoryKey) ?
+                  CATEGORY_COLORS[categoryKey] : CATEGORY_COLORS.default;
 
-                    <div className="p-6 flex-grow flex flex-col">
-                      {/* Date/Year */}
-                      <div className="text-sm text-gray-500 mb-2">
-                        {project.frontmatter.date || project.frontmatter.year}
+                return (
+                  <div key={project.slug} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group h-full flex flex-col">
+                    <Link href={`/projects/${project.slug}`} className="flex flex-col h-full">
+                      {/* Cover Image */}
+                      <div className="relative w-full h-48 overflow-hidden">
+                        <Image
+                          src={project.frontmatter.coverImage || "/placeholder.svg"}
+                          alt={project.frontmatter.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        {/* Category Badge */}
+                        {project.frontmatter.category && (
+                          <div className="absolute bottom-3 right-3">
+                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${colorSet.bg} ${colorSet.text}`}>
+                              {project.frontmatter.category}
+                            </span>
+                          </div>
+                        )}
                       </div>
 
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">
-                        {project.frontmatter.title}
-                      </h3>
-                      <p className="text-gray-600 mb-4">
-                        {project.frontmatter.excerpt}
-                      </p>
-
-                      {/* Client */}
-                      {project.frontmatter.client && (
-                        <div className="mt-auto mb-3">
-                          <span className="text-sm text-gray-500">Client: </span>
-                          <span className="text-sm font-medium text-gray-700">{project.frontmatter.client}</span>
+                      <div className="p-6 flex-grow flex flex-col">
+                        {/* Date/Year */}
+                        <div className="text-sm text-gray-500 mb-2">
+                          {project.frontmatter.date || project.frontmatter.year}
                         </div>
-                      )}
-                    </div>
-                  </Link>
-                </div>
-              ))}
+
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">
+                          {project.frontmatter.title}
+                        </h3>
+                        <p className="text-gray-600 mb-4">
+                          {project.frontmatter.excerpt}
+                        </p>
+
+                        {/* Client */}
+                        {project.frontmatter.client && (
+                          <div className="mt-auto mb-3">
+                            <span className="text-sm text-gray-500">Client: </span>
+                            <span className="text-sm font-medium text-gray-700">{project.frontmatter.client}</span>
+                          </div>
+                        )}
+                      </div>
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
           )}
         </section>
       </main>
 
-      <ClientOnly>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          baseUrl="/projects"
-        />
-      </ClientOnly>
+      {/* Center-aligned pagination with proper spacing */}
+      <div className="flex justify-center items-center py-12">
+        <ClientOnly>
+          <Pagination
+            currentPage={validatedPage}
+            totalPages={totalPages}
+            baseUrl="/projects"
+            className="rounded-full"
+          />
+        </ClientOnly>
+      </div>
     </div>
   )
 }
