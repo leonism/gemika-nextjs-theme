@@ -56,36 +56,38 @@ export function Search() {
           <SearchIcon className="h-5 w-5" />
         </Button>
       ) : (
-        <div className="absolute right-0 top-0 w-full sm:w-72 transition-all duration-300 ease-in-out">
-          <form onSubmit={handleSearch} className="relative flex items-center">
-            <Input
-              type="search"
-              placeholder="Search and Press Enter"
-              className="flex-grow pr-10"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              autoFocus
-            />
-            <Button
-              type="submit"
-              variant="ghost"
-              size="icon"
-              className="absolute right-10 top-0 h-full"
-              aria-label="Go"
-            >
-              Go
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              className="absolute right-0 top-0 h-full"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close"
-            >
-              <X className="h-4 w-4" />
-            </Button>
-          </form>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-lg p-4 transition-transform transform scale-100">
+            <form onSubmit={handleSearch} className="relative flex items-center">
+              <Input
+                type="search"
+                placeholder="Search and Press Enter"
+                className="flex-grow pr-10"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                autoFocus
+              />
+              <Button
+                type="submit"
+                variant="ghost"
+                size="icon"
+                className="absolute right-10 top-0 h-full"
+                aria-label="Go"
+              >
+                Go
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="absolute right-0 top-0 h-full"
+                onClick={() => setIsOpen(false)}
+                aria-label="Close"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </form>
+          </div>
         </div>
       )}
     </div>
