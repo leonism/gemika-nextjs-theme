@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect, useRef } from "react"
 import { SearchIcon, X } from "lucide-react"
 import { Input } from "@/components/ui/input"
@@ -15,6 +14,7 @@ export function Search() {
   const router = useRouter()
   const searchRef = useRef<HTMLDivElement>(null)
 
+  // Use click away hook to close the search bar when clicking outside
   useClickAway(searchRef as React.RefObject<HTMLElement>, () => {
     if (isOpen) setIsOpen(false)
   })
@@ -60,22 +60,13 @@ export function Search() {
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-lg p-4 transition-transform transform scale-100">
             <form onSubmit={handleSearch} className="relative flex items-center">
               <Input
-                type="search"
+                type="text"
                 placeholder="Search and Press Enter"
                 className="flex-grow pr-10"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 autoFocus
               />
-              <Button
-                type="submit"
-                variant="ghost"
-                size="icon"
-                className="absolute right-10 top-0 h-full"
-                aria-label="Go"
-              >
-                Go
-              </Button>
               <Button
                 type="button"
                 variant="ghost"
