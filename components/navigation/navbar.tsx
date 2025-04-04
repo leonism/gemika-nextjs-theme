@@ -221,7 +221,6 @@ function DesktopControls({ cta }: { cta: { label: string; href: string } }) {
         <Search />
       </Button>
 
-      {/* Remove Button wrapper for ThemeToggle */}
       <ThemeToggle className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300" />
 
       {cta?.href && cta?.label && (

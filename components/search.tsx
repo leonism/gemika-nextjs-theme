@@ -15,7 +15,7 @@ export function Search() {
   const router = useRouter()
   const searchRef = useRef<HTMLDivElement>(null)
 
-  useClickAway(searchRef, () => {
+  useClickAway(searchRef as React.RefObject<HTMLElement>, () => {
     if (isOpen) setIsOpen(false)
   })
 
@@ -56,22 +56,32 @@ export function Search() {
           <SearchIcon className="h-5 w-5" />
         </Button>
       ) : (
-        <div className="absolute right-0 top-0 w-full sm:w-72">
-          <form onSubmit={handleSearch} className="relative">
+        <div className="absolute right-0 top-0 w-full sm:w-72 transition-all duration-300 ease-in-out">
+          <form onSubmit={handleSearch} className="relative flex items-center">
             <Input
               type="search"
-              placeholder="Search..."
-              className="pr-10"
+              placeholder="Search and Press Enter"
+              className="flex-grow pr-10"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               autoFocus
             />
+            <Button
+              type="submit"
+              variant="ghost"
+              size="icon"
+              className="absolute right-10 top-0 h-full"
+              aria-label="Go"
+            >
+              Go
+            </Button>
             <Button
               type="button"
               variant="ghost"
               size="icon"
               className="absolute right-0 top-0 h-full"
               onClick={() => setIsOpen(false)}
+              aria-label="Close"
             >
               <X className="h-4 w-4" />
             </Button>
@@ -81,4 +91,3 @@ export function Search() {
     </div>
   )
 }
-
