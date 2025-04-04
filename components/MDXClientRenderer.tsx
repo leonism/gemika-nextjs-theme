@@ -1,17 +1,16 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+import { MDXRemote } from 'next-mdx-remote';
 import { components } from './mdx-components';
-
-const DynamicMDXRemote = dynamic(() => import('next-mdx-remote').then(mod => mod.MDXRemote), {
-  ssr: false,
-  loading: () => <div>Loading...</div>
-});
 
 interface MDXClientRendererProps {
   source: any;
 }
 
 export default function MDXClientRenderer({ source }: MDXClientRendererProps) {
-  return <DynamicMDXRemote {...source} components={components} />;
+  return (
+    <div className="prose dark:prose-invert max-w-none">
+      <MDXRemote {...source} components={components} />
+    </div>
+  );
 }

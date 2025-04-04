@@ -1,13 +1,16 @@
 'use client';
 
-import { MDXRemote } from 'next-mdx-remote';
-import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { components } from './mdx-components';
+import dynamic from 'next/dynamic';
+
+const MDXClientRenderer = dynamic(
+  () => import('@/components/MDXClientRenderer'),
+  { ssr: false }
+);
 
 interface MDXContentProps {
-  source: MDXRemoteSerializeResult;
+  source: any;
 }
 
 export function MDXContent({ source }: MDXContentProps) {
-  return <MDXRemote {...source} components={components} />;
+  return <MDXClientRenderer source={source} />;
 }
