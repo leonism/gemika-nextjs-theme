@@ -72,8 +72,6 @@ export default async function Home() {
     <>
       <JsonLd data={jsonLd} />
       <HomeLayout>
-        {/* Remove the Breadcrumbs component */}
-        {/* <Breadcrumbs items={breadcrumbs} className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl pt-4" /> */}
         {/* Hero Section - Minimal nesting */}
         <section className="relative bg-gray-50 py-8 sm:py-12 md:py-24 lg:py-28 xl:py-32 overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl text-center relative z-10">
