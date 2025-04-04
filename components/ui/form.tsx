@@ -14,7 +14,6 @@ import {
 
 import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
-import { useFormField } from "@/hooks/use-form-field"; // Add this import
 
 const Form = FormProvider
 
@@ -42,6 +41,7 @@ const FormField = <
   )
 }
 
+// Ensure useFormField is defined only once
 const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext)
   const itemContext = React.useContext(FormItemContext)
