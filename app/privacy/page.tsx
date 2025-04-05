@@ -1,7 +1,14 @@
 import { getContent } from "@/lib/content";
 import { serialize } from 'next-mdx-remote/serialize';
 import { notFound } from "next/navigation";
-import { MDXProvider } from "@/components/mdx-provider";
+import dynamic from 'next/dynamic';
+
+const MDXProvider = dynamic(() => import('@/components/mdx-provider').then(
+  (mod) => mod.MDXProvider as React.FC<{ source: any }>
+), {
+  ssr: false,
+  loading: () => <div className="text-center py-8">Loading content...</div>
+});
 
 export default async function PrivacyPage() {
   const privacy = await getContent("pages", "privacy");

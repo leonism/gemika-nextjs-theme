@@ -9,5 +9,6 @@ interface MDXProviderProps {
 }
 
 export function MDXProvider({ source }: MDXProviderProps) {
+  if (!source) return null;
   return <MDXRemote {...source} components={components} />;
 }
