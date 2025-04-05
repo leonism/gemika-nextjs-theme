@@ -11,7 +11,7 @@ import { ChevronRight } from "lucide-react"
 import { HomeLayout } from "@/components/layouts/home-layout"
 import { getAllContent } from "@/lib/content"
 import { WithContext } from "schema-dts"
-import {Footer} from "@/components/navigation/footer"
+import { Footer } from "@/components/navigation/footer"
 import { Breadcrumbs } from "@/components/navigation/breadcrumbs"
 
 // Constants - Kept at top for easy reference
