@@ -245,9 +245,11 @@ export default async function Home() {
                         </span>
                       </div>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-xl sm:rounded-b-2xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-xl sm:rounded-b-2xl">
+                    </div>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500">
+                  </div>
                 </Link>
               ))}
             </div>
@@ -310,6 +312,8 @@ export default async function Home() {
                         <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 transition-transform group-hover:translate-x-1" />
                       </div>
                     </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500">
                   </div>
                 </Link>
               ))}
