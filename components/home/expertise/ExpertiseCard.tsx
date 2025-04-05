@@ -4,12 +4,12 @@ import { ChevronRight } from "lucide-react"
 
 interface ExpertiseCardProps {
   topic: {
-    image: string
-    title: string
-    description: string
-    count: number
-    tags: string[]
-    color: string
+    title: string;
+    image: string;
+    tags: string[];
+    color: string;
+    description: string;
+    count: number;
   }
 }
 

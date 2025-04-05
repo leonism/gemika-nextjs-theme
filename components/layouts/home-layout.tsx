@@ -5,7 +5,7 @@ interface HomeLayoutProps {
   children: ReactNode;
   heroSection?: ReactNode;
   featuredPostsSection?: ReactNode;
-  trendingTopicsSection?: ReactNode;
+  areaExpertiseSection?: ReactNode;
   latestPostsSection?: ReactNode;
   newsletterSection?: ReactNode;
 }
@@ -17,15 +17,16 @@ interface HomeLayoutProps {
  * @param {ReactNode} children - Main content children
  * @param {ReactNode} heroSection - Optional hero section component
  * @param {ReactNode} featuredPostsSection - Optional featured posts section
- * @param {ReactNode} trendingTopicsSection - Optional trending topics section
+ * @param {ReactNode} areaExpertiseSection - Optional trending topics section
  * @param {ReactNode} latestPostsSection - Optional latest posts section
  * @param {ReactNode} newsletterSection - Optional newsletter section
  */
+
 export function HomeLayout({
   children,
   heroSection,
   featuredPostsSection,
-  trendingTopicsSection,
+  areaExpertiseSection,
   latestPostsSection,
   newsletterSection,
 }: HomeLayoutProps) {
@@ -72,10 +73,10 @@ export function HomeLayout({
           </SectionWrapper>
         )}
 
-        {/* Trending Topics Section */}
-        {trendingTopicsSection && (
+        {/* Area Expertise Section */}
+        {areaExpertiseSection && (
           <HighlightSection>
-            {trendingTopicsSection}
+            {areaExpertiseSection}
           </HighlightSection>
         )}
 

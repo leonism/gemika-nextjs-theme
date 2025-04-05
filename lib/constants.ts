@@ -1,4 +1,4 @@
-export const TRENDING_TOPICS = [
+export const AREA_EXPERTISE = [
   {
     image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     title: "UX Design",
@@ -24,3 +24,19 @@ export const TRENDING_TOPICS = [
     color: "bg-amber-600"
   }
 ]
+
+export const PROJECTS_PER_PAGE = 6;
+
+export const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
+  "design": { bg: "bg-indigo-100/80", text: "text-indigo-600" },
+  "web development": { bg: "bg-emerald-100/80", text: "text-emerald-600" },
+  "branding": { bg: "bg-amber-100/80", text: "text-amber-600" },
+  "featured": { bg: "bg-rose-100/80", text: "text-rose-600" },
+  "artificial intelligence": { bg: "bg-purple-100/80", text: "text-purple-600" },
+  "mobile development": { bg: "bg-blue-100/80", text: "text-blue-600" },
+  "artificial intelligence & data visualization": {
+    bg: "bg-fuchsia-100/80",
+    text: "text-fuchsia-600"
+  },
+  "default": { bg: "bg-gray-100/80", text: "text-gray-600" }
+} as const;

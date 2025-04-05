@@ -3,7 +3,7 @@ import { HeroSection } from "@/components/home/hero/HeroSection"
 import { FeaturedProjects } from "@/components/home/projects/FeaturedProjects"
 import { ExpertiseSection } from "@/components/home/expertise/ExpertiseSection"
 import { LatestPosts } from "@/components/home/posts/LatestPosts"
-import { TRENDING_TOPICS } from "@/lib/constants"
+import { AREA_EXPERTISE } from "@/lib/constants"
 import { getAllContent } from "@/lib/content"
 import { WithContext } from "schema-dts"
 import JsonLd from "@/components/json-ld"
@@ -33,7 +33,7 @@ export default async function Home() {
       <HomeLayout>
         <HeroSection />
         <FeaturedProjects projects={featuredProjects} />
-        <ExpertiseSection topics={TRENDING_TOPICS} />
+        <ExpertiseSection topics={AREA_EXPERTISE} />
         <LatestPosts posts={latestPosts} />
       </HomeLayout>
     </>

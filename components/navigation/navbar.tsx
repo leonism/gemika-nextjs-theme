@@ -39,6 +39,7 @@ export function Navbar({
         <div className="flex-1 flex justify-end">
           <div className="flex items-center space-x-1.5 sm:space-x-2 md:space-x-3">
             <DesktopControls cta={cta} />
+            {/* Mobile Navigation */}
             <MobileMenuButton items={items} cta={cta} />
           </div>
         </div>
