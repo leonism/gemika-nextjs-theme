@@ -117,7 +117,6 @@ export default async function PostPage({ params }: PostPageProps) {
             </ClientOnly>
           </div>
 
-          // Replace the current pagination section with this:
           {/* Post navigation - similar to project pagination */}
           <div className="flex items-center justify-between mt-16 border-t border-gray-200 dark:border-gray-700 pt-8">
             {prevPost && (
