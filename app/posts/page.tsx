@@ -51,11 +51,11 @@ export default async function PostsIndexPage({
     "@type": "CollectionPage",
     name: "Blog | Insights & Thoughts",
     description: "Explore my latest writings on UX design, development, and creative processes.",
-    url: "https://example.com/posts",
+    url: "https://gemika.vercel.app/posts",
     isPartOf: {
       "@type": "WebSite",
       name: "Gemika Haziq Nugroho",
-      url: "https://example.com",
+      url: "https://gemika.vercel.app",
     },
   };
 

@@ -7,13 +7,21 @@ interface FooterProps {
   showNewsletter?: boolean
 }
 
+/**
+ * Footer component that displays website footer with optional newsletter section,
+ * quick links, resources, contact information, and copyright notice.
+ *
+ * @param {boolean} showNewsletter - Determines whether to show the newsletter subscription section
+ * @returns {JSX.Element} - The footer component with responsive design
+ */
 export function Footer({ showNewsletter = true }: FooterProps) {
   return (
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
       <Container>
+        {/* Newsletter Section - Optional based on showNewsletter prop */}
         {showNewsletter && (
           <div className="border-b border-gray-200 dark:border-gray-800 py-12">
-            <div className="max-w-xl mx-auto text-center">
+            <div className="max-w-xl mx-auto text-center px-4 sm:px-6 lg:px-8"> {/* Added responsive padding */}
               <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 Subscribe to our Newsletter
               </h3>
@@ -25,8 +33,10 @@ export function Footer({ showNewsletter = true }: FooterProps) {
           </div>
         )}
 
-        <div className="py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Main Footer Content */}
+        <div className="py-12 mt-8"> {/* Added top margin (mt-8) for gap from previous section */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8"> {/* Added responsive padding */}
+            {/* Brand/Company Information Column */}
             <div className="space-y-4">
               <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 BenJo Theme
@@ -34,6 +44,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
               <p className="text-gray-600 dark:text-gray-400">
                 Expert user experience strategist and mobile developer creating intuitive digital experiences.
               </p>
+              {/* Social Media Links */}
               <div className="flex space-x-4">
                 <Link
                   href="#"
@@ -73,6 +84,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
               </div>
             </div>
 
+            {/* Quick Links Column */}
             <div>
               <h3 className="font-semibold text-lg mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 Quick Links
@@ -121,6 +133,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
               </ul>
             </div>
 
+            {/* Resources Column */}
             <div>
               <h3 className="font-semibold text-lg mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 Resources
@@ -169,6 +182,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
               </ul>
             </div>
 
+            {/* Contact Information Column */}
             <div>
               <h3 className="font-semibold text-lg mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 Contact
@@ -204,7 +218,8 @@ export function Footer({ showNewsletter = true }: FooterProps) {
             </div>
           </div>
 
-          <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center text-gray-600 dark:text-gray-400">
+          {/* Copyright and Legal Links Section */}
+          <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center text-gray-600 dark:text-gray-400 px-4 sm:px-6 lg:px-8"> {/* Added responsive padding */}
             <p>© {new Date().getFullYear()} gemika. All rights reserved.</p>
             <div className="mt-2 text-sm">
               <Link href="/privacy" className="hover:underline mr-4">

@@ -55,11 +55,11 @@ export default async function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Gemika Haziq Nugroho - UX Strategist & Mobile Developer",
-    url: "https://example.com",
+    url: "https://gemika.vercel.app",
     description: "Expert user experience strategist and mobile developer portfolio",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://example.com/search?q={search_term_string}",
+      target: "https://gemika.vercel.app/search?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };
@@ -111,12 +111,17 @@ export default async function Home() {
             {/* Buttons */}
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 mb-10 sm:mb-12 md:mb-16">
               <Link href="/projects" className="relative px-5 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 overflow-hidden font-medium rounded-full group">
-                <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 -skew-x-12 bg-gradient-to-r from-indigo-600 to-purple-600 group-hover:translate-x-12 group-hover:skew-x-12"></span>
-                <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform -translate-x-12 -skew-x-12 bg-gradient-to-r from-indigo-700 to-purple-700 group-hover:translate-x-0 group-hover:skew-x-12"></span>
-                <span className="relative text-white font-medium text-sm sm:text-base md:text-lg">View My Work</span>
+                <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 -skew-x-12 bg-gradient-to-r from-indigo-600 to-purple-600 group-hover:translate-x-12 group-hover:skew-x-12">
+                </span>
+                <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform -translate-x-12 -skew-x-12 bg-gradient-to-r from-indigo-700 to-purple-700 group-hover:translate-x-0 group-hover:skew-x-12">
+                </span>
+                <span className="relative text-white font-medium text-sm sm:text-base md:text-lg">
+                  View My Work
+                </span>
               </Link>
               <Link href="/contact" className="px-5 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 border-2 border-gray-900 text-gray-900 rounded-full font-medium transition-all duration-300 hover:bg-gray-100 hover:shadow-lg relative overflow-hidden group text-sm sm:text-base md:text-lg">
-                <span className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                <span className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                </span>
                 Get In Touch
               </Link>
             </div>
@@ -125,12 +130,13 @@ export default async function Home() {
             <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10">
               {BRANDS.map((brand, index) => (
                 <div key={index} className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 transition-all duration-300 hover:scale-110 group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  </div>
                   <Image
                     src={`https://logo.clearbit.com/${brand.toLowerCase()}.com`}
                     alt={brand}
                     fill
-                    className="object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="object-contain grayscale group-hover:grayscale-0 transition-all duration-500 rounded-full p-1 group-hover:p-0"
                   />
                 </div>
               ))}
@@ -143,7 +149,11 @@ export default async function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 gap-3 sm:gap-4">
               <div>
-                <span className="text-xs sm:text-sm font-semibold text-indigo-600 mb-1 sm:mb-2 block">PORTFOLIO</span>
+                <div className="inline-flex items-center justify-center mb-6 px-4 py-2 rounded-full bg-white/80 shadow-sm backdrop-blur-sm border border-gray-200 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+                <span className="text-sm font-medium text-indigo-600">
+                  PORTFOLIO
+                </span>
+                </div>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
                   <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600 bg-clip-text text-transparent">
                     Featured Projects
@@ -152,7 +162,8 @@ export default async function Home() {
               </div>
               <Link href="/projects" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm md:text-base font-medium text-gray-500 hover:text-gray-900 transition-colors relative group">
                 View all projects
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-indigo-600 transition-all duration-300 group-hover:w-full">
+                </span>
                 <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
               </Link>
             </div>
@@ -194,7 +205,11 @@ export default async function Home() {
         <section className="py-8 sm:py-10 md:py-14 lg:py-16 xl:py-20 mb-2.5">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
             <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-              <span className="text-xs sm:text-sm md:text-base font-semibold text-indigo-600 mb-1 sm:mb-2 block">EXPERTISE</span>
+              <div className="inline-flex items-center justify-center mb-6 px-4 py-2 rounded-full bg-white/80 shadow-sm backdrop-blur-sm border border-gray-200 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+                <span className="text-sm font-medium text-indigo-600">
+                  AREA OF EXPERTISE
+                </span>
+              </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 md:mb-4">
                 <span className="bg-gradient-to-r from-gray-800 via-gray-600 to-gray-500 bg-clip-text text-transparent">
                   My Core Specializations
@@ -210,7 +225,7 @@ export default async function Home() {
                 <Link
                   key={topic.title}
                   href={`/category/${topic.title.toLowerCase().replace(' ', '-')}`}
-                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl  shadow-lg transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 hover:shadow-xl"
+                  className="group relative overflow-hidden bg-white rounded-xl sm:rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 hover:shadow-xl"
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <Image src={topic.image} alt={topic.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -261,7 +276,11 @@ export default async function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 gap-3 sm:gap-4">
               <div>
-                <span className="text-xs sm:text-sm md:text-base font-semibold text-indigo-600 mb-1 sm:mb-2 block">BLOG</span>
+                <div className="inline-flex items-center justify-center mb-6 px-4 py-2 rounded-full bg-white/80 shadow-sm backdrop-blur-sm border border-gray-200 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+                  <span className="text-sm font-medium text-indigo-600">
+                    BLOG
+                  </span>
+                </div>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
                   <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600 bg-clip-text text-transparent">
                     Latest Articles
@@ -270,7 +289,8 @@ export default async function Home() {
               </div>
               <Link href="/posts" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm md:text-base font-medium text-gray-500 hover:text-gray-900 transition-colors relative group">
                 View all articles
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-indigo-600 transition-all duration-300 group-hover:w-full">
+                </span>
                 <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-gray-400" />
               </Link>
             </div>
@@ -280,7 +300,7 @@ export default async function Home() {
                 <Link
                   key={post.slug}
                   href={`/posts/${post.slug}`}
-                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 hover:shadow-xl"
+                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 hover:shadow-xl bg-white"
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <Image
@@ -297,8 +317,15 @@ export default async function Home() {
                         <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-600 text-xs sm:text-sm font-medium rounded-full">
                           {(post.frontmatter.tags || ["Uncategorized"])[0]}
                         </span>
-                        <span className="text-xs sm:text-sm text-gray-500">
-                          {post.frontmatter.date || "Unknown date"}
+                        <span className="flex items-center text-xs sm:text-sm text-gray-500">
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          {new Date(post.frontmatter.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                          }) || "Unknown date"}
                         </span>
                       </div>
                       <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2 md:mb-3 group-hover:text-indigo-600 transition-colors">

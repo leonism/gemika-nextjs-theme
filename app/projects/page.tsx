@@ -1,9 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from "next"
 import { getAllContent } from "@/lib/content"
 import JsonLd from "@/components/json-ld"
 import { Pagination } from "@/components/navigation/pagination"
-import type { Metadata } from "next"
 import { WebPage, WithContext } from "schema-dts"
 import ClientOnly from "@/components/utility/client-only"
 import { serialize } from 'next-mdx-remote/serialize'
@@ -68,11 +68,11 @@ export default async function ProjectsPage({
     "@type": "CollectionPage",
     name: "Projects | Gemika Haziq Nugroho",
     description: "A showcase of my recent work across UX design, mobile development, and branding projects.",
-    url: "https://example.com/projects",
+    url: "https://gemika.vercel.app/projects",
     isPartOf: {
       "@type": "WebSite",
       name: "Gemika Haziq Nugroho",
-      url: "https://example.com",
+      url: "https://gemika.vercel.app",
     },
   }
 
@@ -90,7 +90,10 @@ export default async function ProjectsPage({
 
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">
-                My <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-500">Projects</span>
+                My
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-500">
+                    Projects
+                  </span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
                 A curated collection of my recent work.

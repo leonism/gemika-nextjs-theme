@@ -519,7 +519,7 @@ async function ProjectPageContent({ params }: ProjectPageProps) {
     keywords: project.frontmatter.category,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://example.com/projects/${slug}`,
+      "@id": `https://gemika.vercel.app/projects/${slug}`,
     },
   }
 
