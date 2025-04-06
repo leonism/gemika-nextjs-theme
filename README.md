@@ -9,6 +9,9 @@ This is a Next.js project using Turbopack for development. It includes various d
 - [Building for Production](#building-for-production)
 - [Starting the Production Server](#starting-the-production-server)
 - [Deployment](#deployment)
+- [New Features](#new-features)
+- [Changelog](#changelog)
+- [Deployment Status](#deployment-status)
 
 ## Installation
 
