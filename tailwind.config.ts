@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+import plugin from "tailwindcss/plugin"
 
 const config = {
   darkMode: ["class"],
@@ -143,8 +144,20 @@ const config = {
   plugins: [
     require("tailwindcss-animate"),
     require("@tailwindcss/typography"),
-    require('tailwindcss-font-inter')({
+    require("tailwindcss-font-inter")({
       importFontWeights: [400, 500, 600, 700],
+    }),
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".text-crisp": {
+          "font-smooth": "always",
+          "-webkit-font-smoothing": "antialiased",
+          "-moz-osx-font-smoothing": "grayscale",
+          "text-rendering": "optimizeLegibility",
+          "letter-spacing": "0.01em",
+          "line-height": "1.5",
+        },
+      })
     }),
   ],
 } satisfies Config

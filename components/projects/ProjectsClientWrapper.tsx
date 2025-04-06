@@ -5,6 +5,8 @@ import { useMemo, useEffect } from "react";
 import { ProjectsGrid } from "./ProjectsGrid";
 import { ProjectsPagination } from "./ProjectsPagination";
 import { PROJECTS_PER_PAGE } from "@/lib/constants";
+import Head from "next/head";
+
 
 interface Props {
   projects: any[];

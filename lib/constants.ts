@@ -1,3 +1,4 @@
+// these are the constant for the AREA_EXPERTISE section in the homepage
 export const AREA_EXPERTISE = [
   {
     image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
@@ -25,8 +26,10 @@ export const AREA_EXPERTISE = [
   }
 ]
 
+// these are the constant for the PROJECTS_PER_PAGE at project page
 export const PROJECTS_PER_PAGE = 6;
 
+// these are the constant for the CATEGORY_COLORS at post page
 export const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
   "design": { bg: "bg-indigo-100/80", text: "text-indigo-600" },
   "web development": { bg: "bg-emerald-100/80", text: "text-emerald-600" },
