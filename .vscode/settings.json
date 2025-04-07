@@ -1,9 +1,33 @@
 {
-  "editor.quickSuggestions": {
-    "other": true,
-    "comments": false,
-    "strings": true
+  // Tailwind-specific optimizations
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "javascriptreact": "javascriptreact",
+    "typescript": "typescript",
+    "typescriptreact": "typescriptreact",
+    "astro": "html",
+    "svelte": "html",
+    "vue": "html",
+    "mdx": "html"
   },
-  "css.vendorPrefixes": true,
-  "tailwindCSS.emmetCompletions": true
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.hoverPreview": true,
+  "tailwindCSS.colorDecorators": true,
+  "tailwindCSS.showPixelEquivalents": true,
+  "tailwindCSS.trace.server": "off",
+
+  // Formatter settings
+  "[html]": {
+    "editor.defaultFormatter": "bradlc.vscode-tailwindcss",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "bradlc.vscode-tailwindcss"
+  },
+
+  // File associations
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }
