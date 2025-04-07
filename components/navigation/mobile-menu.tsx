@@ -156,7 +156,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
                 </div>
               </div>
 
-              {/* Call-to-Action Button */}
+              {/* Call-to-Action / Contact Button */}
               <div className="flex items-center justify-between m-4">
               {cta && (
                 <Button
