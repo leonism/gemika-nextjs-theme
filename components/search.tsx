@@ -22,6 +22,8 @@ export function Search() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     if (query.trim()) {
+      // Close any open mobile menu by setting body overflow back to normal
+      document.body.style.overflow = ''
       router.push(`/search?q=${encodeURIComponent(query)}`)
       setIsOpen(false)
     }
@@ -56,8 +58,8 @@ export function Search() {
           <SearchIcon className="h-5 w-5" />
         </Button>
       ) : (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-lg p-4 transition-transform transform scale-100">
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-[100]">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-lg mx-4 p-4 transition-transform transform scale-100">
             <form onSubmit={handleSearch} className="relative flex items-center">
               <Input
                 type="text"
@@ -73,9 +75,9 @@ export function Search() {
                 size="icon"
                 className="absolute right-0 top-0 h-full"
                 onClick={() => setIsOpen(false)}
-                aria-label="Close"
               >
-                <X className="h-4 w-4" />
+                <X className="h-5 w-5" />
+                <span className="sr-only">Close</span>
               </Button>
             </form>
           </div>
