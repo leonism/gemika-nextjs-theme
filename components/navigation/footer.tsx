@@ -16,12 +16,12 @@ interface FooterProps {
  */
 export function Footer({ showNewsletter = true }: FooterProps) {
   return (
-    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+    <footer className="bg-white shadow-inner border-t border-gray-200 dark:bg-gray-900 dark:border-gray-800 mt-6 sm:mt-10 md:mt-12 lg:mt-14">
       <Container>
         {/* Newsletter Section - Optional based on showNewsletter prop */}
         {showNewsletter && (
-          <div className="border-b border-gray-200 dark:border-gray-800 py-12">
-            <div className="max-w-xl mx-auto text-center px-4 sm:px-6 lg:px-8"> {/* Added responsive padding */}
+          <div className="py-12 border-b border-gray-200 dark:border-gray-800">
+            <div className="max-w-xl mx-auto text-center px-4"> {/* Added responsive padding */}
               <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 Subscribe to our Newsletter
               </h3>
@@ -34,7 +34,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
         )}
 
         {/* Main Footer Content */}
-        <div className="py-12 mt-8"> {/* Added top margin (mt-8) for gap from previous section */}
+        <div className="py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8"> {/* Added responsive padding */}
             {/* Brand/Company Information Column */}
             <div className="space-y-4">
