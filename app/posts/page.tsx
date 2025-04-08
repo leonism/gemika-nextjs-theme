@@ -1,11 +1,11 @@
 import { getAllContent } from "@/lib/content";
-import { Pagination } from "@/components/navigation/pagination";
 import { Metadata } from "next";
 import { WebPage, WithContext } from "schema-dts";
 import JsonLd from "@/components/json-ld";
 import { HeroSection } from "@/components/posts/HeroSection";
 import { PostsGrid } from "@/components/posts/PostsGrid";
 import { POSTS_PER_PAGE } from "@/lib/posts";
+import { Pagination } from "@/components/navigation/pagination";
 
 // Tell Next.js that this route should be dynamically rendered
 export const dynamic = "force-dynamic";

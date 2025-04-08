@@ -24,8 +24,9 @@ export function Search() {
     if (query.trim()) {
       // Close any open mobile menu by setting body overflow back to normal
       document.body.style.overflow = ''
-      router.push(`/search?q=${encodeURIComponent(query)}`)
+      // Close the mobile menu
       setIsOpen(false)
+      router.push(`/search?q=${encodeURIComponent(query)}`)
     }
   }
 

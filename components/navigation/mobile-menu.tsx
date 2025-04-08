@@ -66,28 +66,28 @@ function Logo() {
 }
 
 export function MobileMenu({ items, cta }: MobileMenuProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   // Close menu when route changes and prevent body scrolling when menu is open
   useEffect(() => {
     const handleRouteChange = () => {
-      setIsOpen(false);
-    };
+      setIsOpen(false)
+    }
 
     // Prevent body scrolling when menu is open
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = ''
     }
 
-    window.addEventListener('popstate', handleRouteChange);
+    window.addEventListener('popstate', handleRouteChange)
 
     return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('popstate', handleRouteChange);
-    };
-  }, [isOpen]);
+      document.body.style.overflow = ''
+      window.removeEventListener('popstate', handleRouteChange)
+    }
+  }, [isOpen])
 
   return (
     <div className="md:hidden">
@@ -189,5 +189,5 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
