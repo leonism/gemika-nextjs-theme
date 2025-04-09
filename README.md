@@ -1,31 +1,45 @@
-# Gemika Next.Js Theme
+# 🚀 Gemika Next.js Theme
 
-This is a Next.js project using Turbopack for development. It includes various dependencies and configurations to build a modern web application.
+A modern, performant portfolio and blog theme built with Next.js, featuring cutting-edge design patterns and developer experience.
 
-## Table of Contents
+![Project Banner](public/banner.png)
+<!-- Add your banner image if available -->
 
-- [Installation](#installation)
-- [Running the Development Server](#running-the-development-server)
-- [Building for Production](#building-for-production)
-- [Starting the Production Server](#starting-the-production-server)
-- [Deployment](#deployment)
-- [New Features](#new-features)
-- [Changelog](#changelog)
-- [Deployment Status](#deployment-status)
+## 🌟 Features
 
-## Installation
+- ⚡ Turbocharged development with Turbopack
+- 🌙 Dark/light mode toggle
+- 📱 Fully responsive design
+- 🔍 Advanced search functionality
+- 📝 MDX-powered content system
+- 🎨 Gradient-heavy UI with smooth animations
+- 📊 SEO optimized with JSON-LD structured data
+- 📱 Mobile-first approach with touch-friendly interactions
 
-1. Clone the repository:
+## 📋 Table of Contents
 
-   ```bash
-   git clone https://github.com/leonism/gemika-nextjs-theme.git
-   cd gemika-nextjs-theme
-   ```
+- 🛠️ [Installation](#installation)
+- 🏃 [Running the Development Server](#running-the-development-server)
+- 🏗️ [Building for Production](#building-for-production)
+- 🚀 [Starting the Production Server](#starting-the-production-server)
+- 🌍 [Deployment](#deployment)
+- ✨ [New Features](#new-features)
+- 📜 [Changelog](#changelog)
+- 📊 [Project Structure](#project-structure)
+- 🤝 [Contributing](#contributing)
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+## 🛠️ Installation
+
+Get started with these simple steps:
+
+```bash
+# Clone the repository
+git clone https://github.com/leonism/gemika-nextjs-theme.git
+cd gemika-nextjs-theme
+
+# Install dependencies
+npm install
+```
 
 ## Running the Development Server
 
