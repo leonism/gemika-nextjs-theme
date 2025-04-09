@@ -6,11 +6,16 @@ export default function AboutPage() {
       <main>
         <section className="container mx-auto max-w-4xl px-4 py-16">
           <div className="mb-8">
-            <img
-              src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
-              alt="Profile"
-              className="mx-auto h-32 w-32 rounded-full object-cover"
-            />
+            // Replace the img tag (around line 9)
+            <div className="relative mx-auto mb-8 h-64 w-64 overflow-hidden rounded-full">
+              <Image
+                src="/path/to/profile-image.jpg"
+                alt="Profile"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
           <h1 className="mb-6 text-center text-4xl font-bold">About Me</h1>
           <div className="prose prose-lg max-w-none dark:prose-invert">

@@ -9,8 +9,6 @@ import { useSearchParams } from 'next/navigation';
 
 // components/search-client.tsx
 
-// components/search-client.tsx
-
 function SearchComponent() {
   const searchParams = useSearchParams();
   // Your search logic here

@@ -23,10 +23,22 @@ export async function POST(request: Request) {
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error processing contact form:', error);
-    return NextResponse.json(
-      { error: 'An error occurred while processing your request' },
-      { status: 500 }
-    );
+    // Replace console.log with console.error (around line 16)
+    try {
+      // Process the form data
+      const formData = await request.json();
+      if (!formData.name || !formData.email || !formData.message) {
+        return NextResponse.json(
+          { error: 'Name, email, and message are required' },
+          { status: 400 }
+        );
+      }
+    } catch (error) {
+      console.error('Error processing contact form:', error);
+      return NextResponse.json(
+        { success: false, message: 'Failed to process your request' },
+        { status: 500 }
+      );
+    }
   }
 }

@@ -39,19 +39,21 @@ export function SearchForm({
   );
 
   // Handle input change
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setQuery(value);
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      setQuery(value);
 
-    if (instant && value) {
-      debouncedSearch(value);
-    }
-  };
+      if (instant && value) {
+        debouncedSearch(value);
+      }
+    },
+    [instant, debouncedSearch]
+  );
 
   // Handle form submission
-  // Replace the useCallback with an inline function with explicit dependencies
   const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
+    (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       if (query.trim()) {
         router.push(`/search?q=${encodeURIComponent(query)}`);
@@ -60,7 +62,7 @@ export function SearchForm({
     [query, router]
   );
 
-  // Update local state when URL query changes
+  // Sync query when searchParams change
   useEffect(() => {
     setQuery(initialQuery);
   }, [initialQuery]);

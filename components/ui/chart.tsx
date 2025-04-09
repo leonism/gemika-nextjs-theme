@@ -6,7 +6,6 @@ import * as RechartsPrimitive from 'recharts';
 
 import { cn } from '@/lib/utils';
 
-// Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: '', dark: '.dark' } as const;
 
 export type ChartConfig = {
@@ -135,9 +134,7 @@ const ChartTooltipContent = React.forwardRef<
     const { config } = useChart();
 
     const tooltipLabel = React.useMemo(() => {
-      if (hideLabel || !payload?.length) {
-        return null;
-      }
+      if (hideLabel || !payload?.length) return null;
 
       const [item] = payload;
       const key = `${labelKey || item.dataKey || item.name || 'value'}`;
@@ -155,9 +152,7 @@ const ChartTooltipContent = React.forwardRef<
         );
       }
 
-      if (!value) {
-        return null;
-      }
+      if (!value) return null;
 
       return <div className={cn('font-medium', labelClassName)}>{value}</div>;
     }, [
@@ -170,9 +165,7 @@ const ChartTooltipContent = React.forwardRef<
       labelKey,
     ]);
 
-    if (!active || !payload?.length) {
-      return null;
-    }
+    if (!active || !payload?.length) return null;
 
     const nestLabel = payload.length === 1 && indicator !== 'dot';
 
@@ -273,9 +266,7 @@ const ChartLegendContent = React.forwardRef<
   ) => {
     const { config } = useChart();
 
-    if (!payload?.length) {
-      return null;
-    }
+    if (!payload?.length) return null;
 
     return (
       <div
@@ -293,9 +284,7 @@ const ChartLegendContent = React.forwardRef<
           return (
             <div
               key={item.value}
-              className={cn(
-                'flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-muted-foreground'
-              )}
+              className="flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-muted-foreground"
             >
               {itemConfig?.icon && !hideIcon ? (
                 <itemConfig.icon />
@@ -317,15 +306,12 @@ const ChartLegendContent = React.forwardRef<
 );
 ChartLegendContent.displayName = 'ChartLegend';
 
-// Helper to extract item config from a payload.
 function getPayloadConfigFromPayload(
   config: ChartConfig,
   payload: unknown,
   key: string
 ) {
-  if (typeof payload !== 'object' || payload === null) {
-    return undefined;
-  }
+  if (typeof payload !== 'object' || payload === null) return undefined;
 
   const payloadPayload =
     'payload' in payload &&
