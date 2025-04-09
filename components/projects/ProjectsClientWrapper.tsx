@@ -1,12 +1,14 @@
-"use client";
+'use client';
 
-import { useSearchParams } from "next/navigation";
-import { useMemo, useEffect } from "react";
-import { ProjectsGrid } from "./ProjectsGrid";
-import { ProjectsPagination } from "./ProjectsPagination";
-import { PROJECTS_PER_PAGE } from "@/lib/constants";
-import Head from "next/head";
+import { useEffect, useMemo } from 'react';
 
+import Head from 'next/head';
+import { useSearchParams } from 'next/navigation';
+
+import { PROJECTS_PER_PAGE } from '@/lib/constants';
+
+import { ProjectsGrid } from './ProjectsGrid';
+import { ProjectsPagination } from './ProjectsPagination';
 
 interface Props {
   projects: any[];
@@ -14,12 +16,12 @@ interface Props {
 
 export default function ProjectsClientWrapper({ projects }: Props) {
   const searchParams = useSearchParams();
-  const pageParam = searchParams.get("page");
+  const pageParam = searchParams.get('page');
   const page = pageParam ? parseInt(pageParam, 10) : 1;
   const validatedPage = isNaN(page) || page < 1 ? 1 : page;
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [validatedPage]);
 
   const totalProjects = projects.length;
@@ -31,13 +33,16 @@ export default function ProjectsClientWrapper({ projects }: Props) {
   );
 
   return (
-    <section className="container mx-auto px-4 max-w-7xl py-12 md:py-20">
+    <section className="container mx-auto max-w-7xl px-4 py-12 md:py-20">
       {currentProjects.length === 0 ? (
         <p>No projects found.</p>
       ) : (
         <>
           <ProjectsGrid projects={currentProjects} />
-          <ProjectsPagination currentPage={validatedPage} totalPages={totalPages} />
+          <ProjectsPagination
+            currentPage={validatedPage}
+            totalPages={totalPages}
+          />
         </>
       )}
     </section>

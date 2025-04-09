@@ -52,7 +52,8 @@
   }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0) rotate(0deg);
     }
     50% {
@@ -63,7 +64,7 @@
   .animate-float {
     animation: float 8s ease-in-out infinite;
   }
-  .animate-float[data-delay="2s"] {
+  .animate-float[data-delay='2s'] {
     animation-delay: 2s;
   }
 
@@ -75,7 +76,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    background-color: rgb(249, 250, 251); /* Corrected from bg-gray-50 to the actual color value */
+    background-color: rgb(
+      249,
+      250,
+      251
+    ); /* Corrected from bg-gray-50 to the actual color value */
   }
   /* For dark mode links */
   .dark .prose a {
@@ -93,7 +98,7 @@
 
   /* Add these new styles */
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-500;
+    @apply bg-gradient-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent;
   }
 
   .dark .gradient-text {

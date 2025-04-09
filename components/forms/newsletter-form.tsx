@@ -1,54 +1,55 @@
-"use client"
+'use client';
 
-import type React from "react"
+import type React from 'react';
+import { useState } from 'react';
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from '@/hooks/use-toast';
+
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 export function NewsletterForm() {
-  const [email, setEmail] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const { toast } = useToast()
+  const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!email) {
       toast({
-        title: "Error",
-        description: "Please enter your email address",
-        variant: "destructive",
-      })
-      return
+        title: 'Error',
+        description: 'Please enter your email address',
+        variant: 'destructive',
+      });
+      return;
     }
 
-    setIsLoading(true)
+    setIsLoading(true);
 
     try {
       // In a real application, you would send this to your API
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast({
-        title: "Success!",
-        description: "Thank you for subscribing to our newsletter!",
-      })
+        title: 'Success!',
+        description: 'Thank you for subscribing to our newsletter!',
+      });
 
-      setEmail("")
+      setEmail('');
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to subscribe. Please try again later.",
-        variant: "destructive",
-      })
+        title: 'Error',
+        description: 'Failed to subscribe. Please try again later.',
+        variant: 'destructive',
+      });
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:flex-row">
       <Input
         type="email"
         placeholder="Enter your email"
@@ -60,10 +61,10 @@ export function NewsletterForm() {
       <Button
         type="submit"
         disabled={isLoading}
-        className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 transition-colors"
+        className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white transition-colors hover:from-purple-700 hover:to-indigo-700"
       >
-        {isLoading ? "Subscribing..." : "Subscribe"}
+        {isLoading ? 'Subscribing...' : 'Subscribe'}
       </Button>
     </form>
-  )
+  );
 }

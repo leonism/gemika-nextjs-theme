@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react';
 
 interface JsonLdProps {
-  data: Record<string, unknown>
+  data: Record<string, unknown>;
 }
 
 const JsonLd: React.FC<JsonLdProps> = ({ data }) => {
@@ -10,7 +10,7 @@ const JsonLd: React.FC<JsonLdProps> = ({ data }) => {
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
-  )
-}
+  );
+};
 
-export default JsonLd
+export default JsonLd;

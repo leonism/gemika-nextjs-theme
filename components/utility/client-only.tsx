@@ -1,8 +1,13 @@
-"use client"; // Mark this as a Client Component
+'use client';
 
-import { useEffect, useState } from "react";
+// Mark this as a Client Component
+import { useEffect, useState } from 'react';
 
-export default function ClientOnly({ children }: { children: React.ReactNode }) {
+export default function ClientOnly({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {

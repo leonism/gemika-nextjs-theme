@@ -1,5 +1,3 @@
 // ...existing code...
-<Link href={`/posts/${slug}`}>
-  {/* ... rest of the card content ... */}
-</Link>
+<Link href={`/posts/${slug}`}>{/* ... rest of the card content ... */}</Link>;
 // ...existing code...

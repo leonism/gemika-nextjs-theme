@@ -1,15 +1,16 @@
-import type React from "react"
-import Head from "next/head"
+import type React from 'react';
+
+import Head from 'next/head';
 
 interface MetaInjectorProps {
-  title: string
-  description: string
-  keywords?: string[]
-  ogImage?: string
-  ogType?: "website" | "article"
-  twitterCard?: "summary" | "summary_large_image"
-  canonicalUrl?: string
-  children?: React.ReactNode
+  title: string;
+  description: string;
+  keywords?: string[];
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  twitterCard?: 'summary' | 'summary_large_image';
+  canonicalUrl?: string;
+  children?: React.ReactNode;
 }
 
 export function MetaInjector({
@@ -17,20 +18,25 @@ export function MetaInjector({
   description,
   keywords,
   ogImage,
-  ogType = "website",
-  twitterCard = "summary_large_image",
+  ogType = 'website',
+  twitterCard = 'summary_large_image',
   canonicalUrl,
   children,
 }: MetaInjectorProps) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://gemika.netlify.app"
-  const fullCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : undefined
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://gemika.netlify.app';
+  const fullCanonicalUrl = canonicalUrl
+    ? `${siteUrl}${canonicalUrl}`
+    : undefined;
 
   return (
     <Head>
       {/* Basic Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      {keywords && keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")} />}
+      {keywords && keywords.length > 0 && (
+        <meta name="keywords" content={keywords.join(', ')} />
+      )}
 
       {/* Open Graph Tags */}
       <meta property="og:title" content={title} />
@@ -51,5 +57,5 @@ export function MetaInjector({
       {/* Additional Meta Tags */}
       {children}
     </Head>
-  )
+  );
 }

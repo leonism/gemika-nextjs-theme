@@ -2,9 +2,9 @@ name: Lint & Build Next.js
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
   pull_request:
-    branches: [ "main" ]
+    branches: ['main']
 
 jobs:
   lint-and-build:

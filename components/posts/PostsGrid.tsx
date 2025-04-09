@@ -1,8 +1,11 @@
-import Link from "next/link";
-import { Pagination } from "@/components/navigation/pagination";
-import { EmptyState } from "./EmptyState";
-import { PostCard } from "./PostCard";
-import { Post } from "@/lib/posts";
+import Link from 'next/link';
+
+import { Pagination } from '@/components/navigation/pagination';
+
+import { Post } from '@/lib/posts';
+
+import { EmptyState } from './EmptyState';
+import { PostCard } from './PostCard';
 
 interface PostsGridProps {
   posts: Post[];
@@ -16,8 +19,8 @@ export function PostsGrid({ posts, currentPage, totalPages }: PostsGridProps) {
   }
 
   return (
-    <section className="container mx-auto px-4 py-12 md:py-20 max-w-7xl bg-gray-50 dark:bg-gray-900">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="container mx-auto max-w-7xl bg-gray-50 px-4 py-12 dark:bg-gray-900 md:py-20">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}

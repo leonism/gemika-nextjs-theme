@@ -1,14 +1,14 @@
 export function EmptyState() {
   return (
-    <div className="text-center py-20">
-      <div className="mx-auto w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mb-6 animate-bounce">
+    <div className="py-20 text-center">
+      <div className="mx-auto mb-6 flex h-24 w-24 animate-bounce items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-12 h-12 text-gray-400 dark:text-gray-500"
+          className="h-12 w-12 text-gray-400 dark:text-gray-500"
         >
           <path
             strokeLinecap="round"
@@ -17,11 +17,12 @@ export function EmptyState() {
           />
         </svg>
       </div>
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+      <h3 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
         No posts found
       </h3>
-      <p className="text-gray-600 dark:text-gray-400 max-w-md mx-auto">
-        There are no blog posts available at the moment. Please check back later.
+      <p className="mx-auto max-w-md text-gray-600 dark:text-gray-400">
+        There are no blog posts available at the moment. Please check back
+        later.
       </p>
     </div>
   );

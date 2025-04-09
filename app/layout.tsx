@@ -1,30 +1,34 @@
-import "./globals.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/utility/theme-provider"
-import { SkipNav } from "@/components/navigation/skip-nav"
-import { Navbar } from "@/components/navigation/navbar"
-import { navItems } from "@/data/nav-items"
-import { Footer } from "@/components/navigation/footer"
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+
+import { Footer } from '@/components/navigation/footer';
+import { Navbar } from '@/components/navigation/navbar';
+import { SkipNav } from '@/components/navigation/skip-nav';
+import { ThemeProvider } from '@/components/utility/theme-provider';
+
+import { navItems } from '@/data/nav-items';
+
+import './globals.css';
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap'
-})
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
-    default: "Gemika | Creative Technologist",
-    template: "%s | Gemika"
+    default: 'Gemika | Creative Technologist',
+    template: '%s | Gemika',
   },
-  description: "Digital garden of thoughts on design, code and creative processes",
-}
+  description:
+    'Digital garden of thoughts on design, code and creative processes',
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -32,12 +36,10 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SkipNav />
           <Navbar items={navItems} />
-          <main id="main-content">
-            {children}
-          </main>
+          <main id="main-content">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

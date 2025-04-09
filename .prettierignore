@@ -5,3 +5,6 @@ public/
 *.config.js
 *.config.cjs
 *.config.mjs
+out
+dist
+public

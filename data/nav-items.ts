@@ -1,35 +1,35 @@
 export const navItems = [
   {
-    label: "Home",
-    href: "/",
+    label: 'Home',
+    href: '/',
   },
   {
-    label: "Projects",
-    href: "/projects",
+    label: 'Projects',
+    href: '/projects',
   },
   {
-    label: "Posts",
-    href: "/posts",
+    label: 'Posts',
+    href: '/posts',
   },
   {
-    label: "About",
-    href: "/about",
+    label: 'About',
+    href: '/about',
   },
   {
-    label: "Resources",
-    href: "/resources",
+    label: 'Resources',
+    href: '/resources',
     children: [
       {
-        label: "Design Resources",
-        href: "/resources/design",
+        label: 'Design Resources',
+        href: '/resources/design',
       },
       {
-        label: "Development Resources",
-        href: "/resources/development",
+        label: 'Development Resources',
+        href: '/resources/development',
       },
       {
-        label: "Books & Articles",
-        href: "/resources/books-articles",
+        label: 'Books & Articles',
+        href: '/resources/books-articles',
       },
     ],
   },
