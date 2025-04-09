@@ -10,9 +10,9 @@ export function HeroSection() {
     <section className="relative bg-gray-50 py-8 sm:py-12 md:py-24 lg:py-28 xl:py-32 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl text-center relative z-10">
 
-        {/* Profile Image */}
+        {/* Profile Image - Increased size for mobile */}
         <div className="flex justify-center mb-6 sm:mb-8 md:mb-10">
-          <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full overflow-hidden shadow-xl border-4 border-white transition-all duration-500 hover:scale-105 hover:shadow-2xl group">
+          <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full overflow-hidden shadow-xl border-4 border-white transition-all duration-500 hover:scale-105 hover:shadow-2xl group">
             <Image
               src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
               alt="Gemika Haziq Nugroho"

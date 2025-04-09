@@ -228,14 +228,14 @@ function DropdownMenuItem({ item, pathname }: { item: NavItem; pathname: string 
 
 function DesktopControls({ cta }: { cta: { label: string; href: string } }) {
   return (
-    <div className="hidden md:flex items-center space-x-2 sm:space-x-3 md:space-x-4">
-      {/* Search button */}
-      <div className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+    <div className="hidden md:flex items-center space-x-3 md:space-x-4">
+      {/* Search button - removed rounded background, simplified hover */}
+      <div className="flex items-center justify-center transition-colors hover:text-indigo-600 dark:hover:text-indigo-400">
         <Search />
       </div>
 
-      {/* Theme toggle - aligned with search icon */}
-      <div className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+      {/* Theme toggle - aligned with search icon, removed rounded background */}
+      <div className="flex items-center justify-center transition-colors hover:text-indigo-600 dark:hover:text-indigo-400">
         <ThemeToggle className="w-5 h-5 text-gray-600 dark:text-gray-400" />
       </div>
 

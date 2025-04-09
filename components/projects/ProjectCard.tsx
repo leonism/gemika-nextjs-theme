@@ -9,7 +9,7 @@ export function ProjectCard({ project }: { project: any }) {
     CATEGORY_COLORS[categoryKey] : CATEGORY_COLORS.default;
 
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group h-full flex flex-col">
+    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group h-full flex flex-col hover:-translate-y-1 sm:hover:-translate-y-2">
       <Link href={`/projects/${project.slug}`} className="flex flex-col h-full">
         <div className="relative w-full h-48 overflow-hidden">
           <Image
@@ -28,23 +28,33 @@ export function ProjectCard({ project }: { project: any }) {
         </div>
 
         <div className="p-6 flex-grow flex flex-col">
-          <div className="text-sm text-gray-500 mb-2">
-            {project.frontmatter.date || project.frontmatter.year}
-          </div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">
+          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
             {project.frontmatter.title}
           </h3>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-600 mb-4 text-sm sm:text-base">
             {project.frontmatter.excerpt}
           </p>
-          {project.frontmatter.client && (
-            <div className="mt-auto mb-3">
-              <span className="text-sm text-gray-500">Client: </span>
-              <span className="text-sm font-medium text-gray-700">
+
+          {/* Year and Client info with icons, aligned horizontally */}
+          <div className="mt-auto flex flex-wrap gap-4">
+            {project.frontmatter.year && (
+              <div className="flex items-center text-gray-500 text-sm">
+                <svg className="w-4 h-4 mr-1.5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {project.frontmatter.year}
+              </div>
+            )}
+
+            {project.frontmatter.client && (
+              <div className="flex items-center text-gray-500 text-sm">
+                <svg className="w-4 h-4 mr-1.5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
                 {project.frontmatter.client}
-              </span>
-            </div>
-          )}
+              </div>
+            )}
+          </div>
         </div>
       </Link>
     </div>

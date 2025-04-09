@@ -24,8 +24,8 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                 PORTFOLIO
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-              <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-emerald-500">
                 Featured Projects
               </span>
             </h2>

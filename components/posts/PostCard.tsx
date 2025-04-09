@@ -8,7 +8,7 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <Link
       href={`/posts/${post.slug}`}
-      className="group flex flex-col h-full bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-200 dark:border-gray-700"
+      className="group flex flex-col h-full bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 border border-gray-200 dark:border-gray-700"
     >
       {post.frontmatter.coverImage && (
         <div className="relative h-48 w-full overflow-hidden">
@@ -27,16 +27,6 @@ export function PostCard({ post }: { post: Post }) {
       )}
 
       <div className="flex flex-col flex-grow p-6">
-        <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
-          <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
-          {post.frontmatter.readingTime && (
-            <>
-              <span className="mx-2">•</span>
-              <span>{post.frontmatter.readingTime} read</span>
-            </>
-          )}
-        </div>
-
         <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
           {post.frontmatter.title}
         </h2>
@@ -45,22 +35,24 @@ export function PostCard({ post }: { post: Post }) {
           {post.frontmatter.excerpt}
         </p>
 
-        {post.frontmatter.tags && (
-          <div className="flex flex-wrap gap-2 mt-auto">
-            {post.frontmatter.tags.slice(0, 3).map((tag, index) => (
-              <Tag
-                key={tag}
-                tag={tag}
-                colorIndex={index}
-              />
-            ))}
-            {post.frontmatter.tags.length > 3 && (
-              <span className="inline-block px-2 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
-                +{post.frontmatter.tags.length - 3} more
-              </span>
-            )}
+        {/* Date and Reading Time with Icons */}
+        <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-auto">
+          <div className="flex items-center mr-4">
+            <svg className="w-4 h-4 mr-1.5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
           </div>
-        )}
+
+          {post.frontmatter.readingTime && (
+            <div className="flex items-center">
+              <svg className="w-4 h-4 mr-1.5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>{post.frontmatter.readingTime} read</span>
+            </div>
+          )}
+        </div>
       </div>
     </Link>
   );

@@ -48,19 +48,21 @@ export function PostCard({ post }: PostCardProps) {
               }) : "Unknown date"}
             </span>
           </div>
-          <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1 sm:mb-2 md:mb-3 group-hover:text-indigo-600 transition-colors">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-hover:text-indigo-600 transition-colors">
             {post.frontmatter.title || "Untitled Post"}
           </h3>
-          <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-2 sm:mb-3 md:mb-4 line-clamp-2 sm:line-clamp-3">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-3 sm:mb-4 md:mb-5 line-clamp-2 sm:line-clamp-3">
             {post.frontmatter.excerpt || "No excerpt available."}
           </p>
-          <div className="inline-flex items-center text-indigo-600 font-medium text-xs sm:text-sm md:text-base">
+          {/* Read more link */}
+          <div className="flex items-center text-indigo-600 font-medium text-sm sm:text-base">
             Read more
-            <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 transition-transform group-hover:translate-x-1" />
+            <svg className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
     </Link>
-  )
+  );
 }
