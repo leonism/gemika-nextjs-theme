@@ -29,19 +29,32 @@ export function Navbar({
   return (
     <header className="sticky top-0 z-50 w-full h-14 sm:h-16 md:h-18 lg:h-20 border-b border-gray-200/50 shadow-md bg-white dark:bg-gray-900 dark:border-gray-800/50">
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 h-full flex items-center justify-between max-w-7xl">
-        {/* Rest of the header content */}
+        {/* Logo */}
         <div className="flex-1">
           <Logo />
         </div>
+
         {/* Desktop Navigation - centered */}
         <div className="flex-1 flex justify-center">
           <DesktopNav items={items} pathname={pathname} />
         </div>
+
+        {/* Right side controls */}
         <div className="flex-1 flex justify-end">
           <div className="flex items-center space-x-1.5 sm:space-x-2 md:space-x-3">
+            {/* Desktop controls (theme toggle and CTA) */}
             <DesktopControls cta={cta} />
-            {/* Mobile Navigation */}
-            <MobileMenuButton items={items} cta={cta} />
+
+            {/* Mobile controls - only search and hamburger */}
+            <div className="flex items-center md:hidden">
+              {/* Search icon - visible on mobile */}
+              <div className="mr-1">
+                <Search />
+              </div>
+
+              {/* Mobile Navigation */}
+              <MobileMenuButton items={items} cta={cta} />
+            </div>
           </div>
         </div>
       </div>
@@ -216,16 +229,17 @@ function DropdownMenuItem({ item, pathname }: { item: NavItem; pathname: string 
 function DesktopControls({ cta }: { cta: { label: string; href: string } }) {
   return (
     <div className="hidden md:flex items-center space-x-2 sm:space-x-3 md:space-x-4">
-      <Button
-        variant="ghost"
-        size="icon"
-        asChild
-      >
+      {/* Search button */}
+      <div className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
         <Search />
-      </Button>
-      {/* Added Theme Switcher */}
-      <ThemeToggle className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 font-bold text-gray-900 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300" />
-      {/* Added Contact Button */}
+      </div>
+
+      {/* Theme toggle - aligned with search icon */}
+      <div className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <ThemeToggle className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+      </div>
+
+      {/* Contact Button */}
       {cta?.href && cta?.label && (
         <Link href={cta.href} className="block">
           <Button

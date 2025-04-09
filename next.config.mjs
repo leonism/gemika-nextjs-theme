@@ -18,10 +18,23 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
-  // Image configuration
+    // Image configuration
   images: {
-    domains: ['images.unsplash.com', 'logo.clearbit.com'],
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https', // Assuming HTTPS for both
+        hostname: 'images.unsplash.com',
+        port: '', // Optional: Defaults to standard ports (80/443)
+        pathname: '**', // Allow any path under this hostname
+      },
+      {
+        protocol: 'https', // Assuming HTTPS
+        hostname: 'logo.clearbit.com',
+        port: '', // Optional
+        pathname: '**', // Allow any path under this hostname
+      },
+    ],
+    unoptimized: true, // Keep this if you still need it
   },
 
   // Experimental features

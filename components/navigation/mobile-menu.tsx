@@ -66,7 +66,7 @@ function Logo() {
 }
 
 export function MobileMenu({ items, cta }: MobileMenuProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   // Close menu when route changes and prevent body scrolling when menu is open
   useEffect(() => {
@@ -115,9 +115,13 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
         }`}
       >
         <div className="flex flex-col h-full">
-          {/* Header with Close Button */}
+          {/* Header with Close Button and Theme Toggle (replacing logo) */}
           <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-800">
-            <Logo />
+            {/* Theme Toggle - perfectly rounded */}
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 shadow-sm">
+              <ThemeToggle className="h-5 w-5" />
+            </div>
+
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -127,7 +131,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
             </button>
           </div>
 
-          {/* Navigation Items */}
+          {/* Navigation Items - unchanged */}
           <nav className="flex-1 overflow-y-auto p-4 space-y-1">
             {items.map((item) => (
               <div key={item.href} className="py-1">
@@ -141,7 +145,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
                 >
                   {item.label}
                 </Link>
-                {/* Navigation Sub Items */}
+                {/* Navigation Sub Items - unchanged */}
                 {item.children && (
                   <div className="pl-4 mt-1 space-y-1">
                     {item.children.map((child) => (
@@ -163,17 +167,8 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
             ))}
           </nav>
 
-          {/* Bottom Section */}
+          {/* Bottom Section - remove duplicate theme toggle */}
           <div className="p-4 border-t border-gray-200 dark:border-gray-800">
-            <div className="flex items-center justify-between mb-4">
-              <div className="h-8 w-8">
-                <Search />
-              </div>
-              <div className="h-8 w-8">
-                <ThemeToggle className="h-8 w-8" />
-              </div>
-            </div>
-
             {/* Call-to-Action / Contact Button */}
             {cta && (
               <Button
@@ -189,5 +184,5 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
