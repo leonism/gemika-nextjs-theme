@@ -1,12 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
+import Image, { type ImageProps } from "next/image";
 
-import Image, { type ImageProps } from 'next/image';
+import { cn } from "@/lib/utils";
 
-import { cn } from '@/lib/utils';
-
-interface LazyImageProps extends Omit<ImageProps, 'src'> {
+interface LazyImageProps extends Omit<ImageProps, "src"> {
   src: string;
   alt: string;
   className?: string;
@@ -19,7 +18,7 @@ export function LazyImage({
   alt,
   className,
   threshold = 0.1,
-  placeholderColor = '#e5e7eb',
+  placeholderColor = "#e5e7eb",
   ...props
 }: LazyImageProps) {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,7 +33,7 @@ export function LazyImage({
           observer.disconnect();
         }
       },
-      { threshold }
+      { threshold },
     );
 
     if (imgRef.current) {
@@ -47,7 +46,7 @@ export function LazyImage({
   }, [threshold]);
 
   return (
-    <div ref={imgRef} className={cn('relative overflow-hidden', className)}>
+    <div ref={imgRef} className={cn("relative overflow-hidden", className)}>
       {!isLoaded && (
         <div
           className="absolute inset-0 animate-pulse"
@@ -58,11 +57,11 @@ export function LazyImage({
       {isVisible && (
         <Image
           {...props}
-          src={src || '/placeholder.svg'}
+          src={src || "/placeholder.svg"}
           alt={alt}
           className={cn(
-            'transition-opacity duration-300',
-            isLoaded ? 'opacity-100' : 'opacity-0'
+            "transition-opacity duration-300",
+            isLoaded ? "opacity-100" : "opacity-0",
           )}
           onLoad={() => setIsLoaded(true)}
         />

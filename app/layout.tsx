@@ -1,28 +1,27 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-import { Footer } from '@/components/navigation/footer';
-import { Navbar } from '@/components/navigation/navbar';
-import { SkipNav } from '@/components/navigation/skip-nav';
-import { ThemeProvider } from '@/components/utility/theme-provider';
+import { Footer } from "@/components/navigation/footer";
+import { Navbar } from "@/components/navigation/navbar";
+import { SkipNav } from "@/components/navigation/skip-nav";
+import { ThemeProvider } from "@/components/utility/theme-provider";
+import { navItems } from "@/data/nav-items";
 
-import { navItems } from '@/data/nav-items';
-
-import './globals.css';
+import "./globals.css";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Gemika | Creative Technologist',
-    template: '%s | Gemika',
+    default: "Gemika | Creative Technologist",
+    template: "%s | Gemika",
   },
   description:
-    'Digital garden of thoughts on design, code and creative processes',
+    "Digital garden of thoughts on design, code and creative processes",
 };
 
 export default function RootLayout({

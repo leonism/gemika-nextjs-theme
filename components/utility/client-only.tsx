@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 // Mark this as a Client Component
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export default function ClientOnly({
   children,

@@ -1,4 +1,4 @@
-import { Container } from '@/components/ui/container';
+import { Container } from "@/components/ui/container";
 
 interface PostLayoutProps {
   children: React.ReactNode;

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 interface TOCItem {
   id: string;
@@ -16,18 +16,18 @@ interface TableOfContentsProps {
 
 export function TableOfContents({ className }: TableOfContentsProps) {
   const [headings, setHeadings] = useState<TOCItem[]>([]);
-  const [activeId, setActiveId] = useState<string>('');
+  const [activeId, setActiveId] = useState<string>("");
 
   // Extract headings from the page
   useEffect(() => {
     const extractHeadings = () => {
-      const elements = Array.from(document.querySelectorAll('h2, h3, h4'));
+      const elements = Array.from(document.querySelectorAll("h2, h3, h4"));
 
       const items = elements
         .filter((el) => el.id) // Only include elements with IDs
         .map((el) => ({
           id: el.id,
-          text: el.textContent || '',
+          text: el.textContent || "",
           level: Number(el.tagName.substring(1)), // Get heading level (2 for h2, 3 for h3, etc.)
         }));
 
@@ -56,8 +56,8 @@ export function TableOfContents({ className }: TableOfContentsProps) {
         });
       },
       {
-        rootMargin: '0px 0px -80% 0px',
-      }
+        rootMargin: "0px 0px -80% 0px",
+      },
     );
 
     headings.forEach((heading) => {
@@ -73,7 +73,7 @@ export function TableOfContents({ className }: TableOfContentsProps) {
   }
 
   return (
-    <nav className={cn('space-y-2', className)}>
+    <nav className={cn("space-y-2", className)}>
       <h4 className="mb-3 font-medium text-gray-900 dark:text-gray-100">
         Table of Contents
       </h4>
@@ -82,13 +82,13 @@ export function TableOfContents({ className }: TableOfContentsProps) {
           <li
             key={heading.id}
             className={cn(
-              'transition-colors',
-              heading.level === 2 ? 'pl-0' : '',
-              heading.level === 3 ? 'pl-4' : '',
-              heading.level === 4 ? 'pl-8' : '',
+              "transition-colors",
+              heading.level === 2 ? "pl-0" : "",
+              heading.level === 3 ? "pl-4" : "",
+              heading.level === 4 ? "pl-8" : "",
               activeId === heading.id
-                ? 'font-medium text-primary'
-                : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'
+                ? "font-medium text-primary"
+                : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100",
             )}
           >
             <a
@@ -96,7 +96,7 @@ export function TableOfContents({ className }: TableOfContentsProps) {
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById(heading.id)?.scrollIntoView({
-                  behavior: 'smooth',
+                  behavior: "smooth",
                 });
               }}
             >

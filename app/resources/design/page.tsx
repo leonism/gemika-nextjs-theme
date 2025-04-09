@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 import {
   Card,
@@ -6,15 +6,15 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from "@/components/ui/card";
 
 export default function DesignResourcesPage() {
   const designResources = [
     {
-      title: 'Figma UI Kits',
+      title: "Figma UI Kits",
       description:
-        'A collection of premium and free UI kits for Figma to jumpstart your design projects.',
-      link: '#',
+        "A collection of premium and free UI kits for Figma to jumpstart your design projects.",
+      link: "#",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -35,13 +35,13 @@ export default function DesignResourcesPage() {
         </svg>
       ),
       color:
-        'bg-indigo-100 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-300',
+        "bg-indigo-100 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-300",
     },
     {
-      title: 'Color Palette Generators',
+      title: "Color Palette Generators",
       description:
-        'Tools and resources for creating harmonious color schemes for your digital products.',
-      link: '#',
+        "Tools and resources for creating harmonious color schemes for your digital products.",
+      link: "#",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -58,13 +58,13 @@ export default function DesignResourcesPage() {
         </svg>
       ),
       color:
-        'bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-300',
+        "bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-300",
     },
     {
-      title: 'Typography Resources',
+      title: "Typography Resources",
       description:
-        'Font pairing tools, typography guidelines, and resources for better text design.',
-      link: '#',
+        "Font pairing tools, typography guidelines, and resources for better text design.",
+      link: "#",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -83,13 +83,13 @@ export default function DesignResourcesPage() {
         </svg>
       ),
       color:
-        'bg-amber-100 dark:bg-amber-900/20 text-amber-600 dark:text-amber-300',
+        "bg-amber-100 dark:bg-amber-900/20 text-amber-600 dark:text-amber-300",
     },
     {
-      title: 'Icon Libraries',
+      title: "Icon Libraries",
       description:
-        'Curated collections of high-quality icons for various design needs and styles.',
-      link: '#',
+        "Curated collections of high-quality icons for various design needs and styles.",
+      link: "#",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -112,13 +112,13 @@ export default function DesignResourcesPage() {
         </svg>
       ),
       color:
-        'bg-violet-100 dark:bg-violet-900/20 text-violet-600 dark:text-violet-300',
+        "bg-violet-100 dark:bg-violet-900/20 text-violet-600 dark:text-violet-300",
     },
     {
-      title: 'UX Research Templates',
+      title: "UX Research Templates",
       description:
-        'Ready-to-use templates for user interviews, surveys, and usability testing.',
-      link: '#',
+        "Ready-to-use templates for user interviews, surveys, and usability testing.",
+      link: "#",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -138,13 +138,13 @@ export default function DesignResourcesPage() {
           <polyline points="10 9 9 9 8 9" />
         </svg>
       ),
-      color: 'bg-rose-100 dark:bg-rose-900/20 text-rose-600 dark:text-rose-300',
+      color: "bg-rose-100 dark:bg-rose-900/20 text-rose-600 dark:text-rose-300",
     },
     {
-      title: 'Design System Examples',
+      title: "Design System Examples",
       description:
-        'Inspiration from well-crafted design systems by leading companies and organizations.',
-      link: '#',
+        "Inspiration from well-crafted design systems by leading companies and organizations.",
+      link: "#",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +162,7 @@ export default function DesignResourcesPage() {
           <line x1="12" y1="17" x2="12" y2="21" />
         </svg>
       ),
-      color: 'bg-sky-100 dark:bg-sky-900/20 text-sky-600 dark:text-sky-300',
+      color: "bg-sky-100 dark:bg-sky-900/20 text-sky-600 dark:text-sky-300",
     },
   ];
 
@@ -187,7 +187,7 @@ export default function DesignResourcesPage() {
             </div>
 
             <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-              Curated{' '}
+              Curated{" "}
               <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
                 Design Resources
               </span>

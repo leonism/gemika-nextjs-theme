@@ -1,15 +1,14 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { MobileMenu } from '@/components/navigation/mobile-menu';
-import { Search } from '@/components/search';
-import { SearchDialog } from '@/components/search/search-dialog';
-import { ThemeToggle } from '@/components/theme-toggle';
-import { Button } from '@/components/ui/button';
-
-import { cn } from '@/lib/utils';
+import { MobileMenu } from "@/components/navigation/mobile-menu";
+import { Search } from "@/components/search";
+import { SearchDialog } from "@/components/search/search-dialog";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface NavItem {
   label: string;
@@ -24,7 +23,7 @@ interface NavbarProps {
 
 export function Navbar({
   items,
-  cta = { label: 'Contact', href: '/contact' },
+  cta = { label: "Contact", href: "/contact" },
 }: NavbarProps) {
   const pathname = usePathname();
 
@@ -149,10 +148,10 @@ function DropdownNavItem({
     <div className="group relative">
       <button
         className={cn(
-          'flex items-center px-3 py-1.5 text-sm font-medium transition-all duration-300 sm:px-4 sm:py-2 sm:text-base',
+          "flex items-center px-3 py-1.5 text-sm font-medium transition-all duration-300 sm:px-4 sm:py-2 sm:text-base",
           pathname?.startsWith(item.href)
-            ? 'font-semibold text-indigo-600 dark:text-[#C4F468]'
-            : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
+            ? "font-semibold text-indigo-600 dark:text-[#C4F468]"
+            : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white",
         )}
       >
         <NavLinkContent
@@ -175,16 +174,16 @@ function SimpleNavItem({
 }) {
   const isActive =
     pathname === item.href ||
-    (item.href !== '/' && pathname?.startsWith(item.href));
+    (item.href !== "/" && pathname?.startsWith(item.href));
 
   return (
     <Link
       href={item.href}
       className={cn(
-        'group relative px-2 py-1 text-xs font-medium transition-all duration-300 sm:px-3 sm:py-1.5 sm:text-sm md:px-4 md:py-2 md:text-base',
+        "group relative px-2 py-1 text-xs font-medium transition-all duration-300 sm:px-3 sm:py-1.5 sm:text-sm md:px-4 md:py-2 md:text-base",
         isActive
-          ? 'font-semibold text-indigo-600'
-          : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
+          ? "font-semibold text-indigo-600"
+          : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white",
       )}
     >
       <NavLinkContent label={item.label} active={isActive} />
@@ -204,8 +203,8 @@ function NavLinkContent({
       {label}
       <span
         className={cn(
-          'absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300',
-          active ? 'w-full' : 'w-0 group-hover:w-full'
+          "absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300",
+          active ? "w-full" : "w-0 group-hover:w-full",
         )}
       ></span>
     </>
@@ -225,10 +224,10 @@ function DropdownIcon({ active }: { active?: boolean }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={cn(
-        'ml-0.5 h-2 w-2 transition-transform sm:ml-1 sm:h-3 sm:w-3 md:h-4 md:w-4',
+        "ml-0.5 h-2 w-2 transition-transform sm:ml-1 sm:h-3 sm:w-3 md:h-4 md:w-4",
         active
-          ? 'rotate-180 text-indigo-500 dark:text-[#C4F468]'
-          : 'group-hover:rotate-180'
+          ? "rotate-180 text-indigo-500 dark:text-[#C4F468]"
+          : "group-hover:rotate-180",
       )}
     >
       <polyline points="6 9 12 15 18 9"></polyline>
@@ -265,19 +264,19 @@ function DropdownMenuItem({
     <Link
       href={item.href}
       className={cn(
-        'group relative block px-3 py-1.5 text-xs transition-colors sm:px-4 sm:py-2 sm:text-sm',
+        "group relative block px-3 py-1.5 text-xs transition-colors sm:px-4 sm:py-2 sm:text-sm",
         isActive
-          ? 'font-medium text-indigo-600'
-          : 'text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
+          ? "font-medium text-indigo-600"
+          : "text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white",
       )}
     >
       {item.label}
       <span
         className={cn(
-          'absolute bottom-1 left-3 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 sm:left-4',
+          "absolute bottom-1 left-3 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 sm:left-4",
           isActive
-            ? 'w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)]'
-            : 'w-0 group-hover:w-[calc(100%-1.5rem)] sm:group-hover:w-[calc(100%-2rem)]'
+            ? "w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)]"
+            : "w-0 group-hover:w-[calc(100%-1.5rem)] sm:group-hover:w-[calc(100%-2rem)]",
         )}
       ></span>
     </Link>

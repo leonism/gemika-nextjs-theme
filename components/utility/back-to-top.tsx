@@ -1,12 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import { ArrowUp } from "lucide-react";
 
-import { ArrowUp } from 'lucide-react';
-
-import { Button } from '@/components/ui/button';
-
-import { cn } from '@/lib/utils';
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface BackToTopProps {
   threshold?: number;
@@ -26,15 +24,15 @@ export function BackToTop({
       setIsVisible(window.scrollY > threshold);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [threshold]);
 
   const scrollToTop = () => {
     if (smooth) {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     } else {
       window.scrollTo(0, 0);
@@ -50,8 +48,8 @@ export function BackToTop({
       variant="outline"
       size="icon"
       className={cn(
-        'fixed bottom-6 right-6 z-50 rounded-full bg-white shadow-md dark:bg-gray-800',
-        className
+        "fixed bottom-6 right-6 z-50 rounded-full bg-white shadow-md dark:bg-gray-800",
+        className,
       )}
       onClick={scrollToTop}
       aria-label="Back to top"

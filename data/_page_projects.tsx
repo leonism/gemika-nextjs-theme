@@ -1,38 +1,36 @@
-import type { Metadata } from 'next';
-import { serialize } from 'next-mdx-remote/serialize';
-import Image from 'next/image';
-import Link from 'next/link';
+import type { Metadata } from "next";
+import { serialize } from "next-mdx-remote/serialize";
+import Image from "next/image";
+import Link from "next/link";
+import { WebPage, WithContext } from "schema-dts";
 
-import { WebPage, WithContext } from 'schema-dts';
-
-import JsonLd from '@/components/json-ld';
-import { Pagination } from '@/components/navigation/pagination';
-import ClientOnly from '@/components/utility/client-only';
-
-import { getAllContent } from '@/lib/content';
+import JsonLd from "@/components/json-ld";
+import { Pagination } from "@/components/navigation/pagination";
+import ClientOnly from "@/components/utility/client-only";
+import { getAllContent } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: 'Projects',
+  title: "Projects",
   description:
-    'A showcase of my recent work across UX design, mobile development, and branding projects.',
+    "A showcase of my recent work across UX design, mobile development, and branding projects.",
 };
 
 // Define category colors with lowercase keys for case-insensitive matching
 const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
-  design: { bg: 'bg-indigo-100/80', text: 'text-indigo-600' },
-  'web development': { bg: 'bg-emerald-100/80', text: 'text-emerald-600' },
-  branding: { bg: 'bg-amber-100/80', text: 'text-amber-600' },
-  featured: { bg: 'bg-rose-100/80', text: 'text-rose-600' },
-  'artificial intelligence': {
-    bg: 'bg-purple-100/80',
-    text: 'text-purple-600',
+  design: { bg: "bg-indigo-100/80", text: "text-indigo-600" },
+  "web development": { bg: "bg-emerald-100/80", text: "text-emerald-600" },
+  branding: { bg: "bg-amber-100/80", text: "text-amber-600" },
+  featured: { bg: "bg-rose-100/80", text: "text-rose-600" },
+  "artificial intelligence": {
+    bg: "bg-purple-100/80",
+    text: "text-purple-600",
   },
-  'mobile development': { bg: 'bg-blue-100/80', text: 'text-blue-600' },
-  'artificial intelligence & data visualization': {
-    bg: 'bg-fuchsia-100/80',
-    text: 'text-fuchsia-600',
+  "mobile development": { bg: "bg-blue-100/80", text: "text-blue-600" },
+  "artificial intelligence & data visualization": {
+    bg: "bg-fuchsia-100/80",
+    text: "text-fuchsia-600",
   },
-  default: { bg: 'bg-gray-100/80', text: 'text-gray-600' },
+  default: { bg: "bg-gray-100/80", text: "text-gray-600" },
 };
 
 const PROJECTS_PER_PAGE = 6;
@@ -43,17 +41,17 @@ export default async function ProjectsPage({
   searchParams: { page?: string };
 }) {
   // Get all projects from the content/projects folder
-  const allProjects = await getAllContent('projects');
+  const allProjects = await getAllContent("projects");
 
-  console.log('Projects found:', allProjects.length);
+  console.log("Projects found:", allProjects.length);
 
   // Sort projects by year (newest first)
   const sortedProjects = allProjects.sort((a, b) => {
     const dateA = new Date(
-      a.frontmatter.date || a.frontmatter.year || '2000-01-01'
+      a.frontmatter.date || a.frontmatter.year || "2000-01-01",
     );
     const dateB = new Date(
-      b.frontmatter.date || b.frontmatter.year || '2000-01-01'
+      b.frontmatter.date || b.frontmatter.year || "2000-01-01",
     );
     return dateB.getTime() - dateA.getTime();
   });
@@ -62,8 +60,8 @@ export default async function ProjectsPage({
   const serializedProjects = await Promise.all(
     sortedProjects.map(async (project) => ({
       ...project,
-      content: await serialize(project.content || ''),
-    }))
+      content: await serialize(project.content || ""),
+    })),
   );
 
   // Pagination logic - properly await searchParams
@@ -79,20 +77,20 @@ export default async function ProjectsPage({
   const startIndex = (validatedPage - 1) * PROJECTS_PER_PAGE;
   const currentProjects = serializedProjects.slice(
     startIndex,
-    startIndex + PROJECTS_PER_PAGE
+    startIndex + PROJECTS_PER_PAGE,
   );
 
   const jsonLd: WithContext<WebPage> = {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: 'Projects | Gemika Haziq Nugroho',
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Projects | Gemika Haziq Nugroho",
     description:
-      'A showcase of my recent work across UX design, mobile development, and branding projects.',
-    url: 'https://gemika.vercel.app/projects',
+      "A showcase of my recent work across UX design, mobile development, and branding projects.",
+    url: "https://gemika.vercel.app/projects",
     isPartOf: {
-      '@type': 'WebSite',
-      name: 'Gemika Haziq Nugroho',
-      url: 'https://gemika.vercel.app',
+      "@type": "WebSite",
+      name: "Gemika Haziq Nugroho",
+      url: "https://gemika.vercel.app",
     },
   };
 
@@ -131,9 +129,9 @@ export default async function ProjectsPage({
                 // Get category color (case insensitive)
                 const categoryKey = project.frontmatter.category
                   ? project.frontmatter.category.toLowerCase()
-                  : 'default';
+                  : "default";
                 const colorSet = Object.keys(CATEGORY_COLORS).includes(
-                  categoryKey
+                  categoryKey,
                 )
                   ? CATEGORY_COLORS[categoryKey]
                   : CATEGORY_COLORS.default;
@@ -151,7 +149,7 @@ export default async function ProjectsPage({
                       <div className="relative h-48 w-full overflow-hidden">
                         <Image
                           src={
-                            project.frontmatter.coverImage || '/placeholder.svg'
+                            project.frontmatter.coverImage || "/placeholder.svg"
                           }
                           alt={project.frontmatter.title}
                           fill
@@ -186,7 +184,7 @@ export default async function ProjectsPage({
                         {project.frontmatter.client && (
                           <div className="mb-3 mt-auto">
                             <span className="text-sm text-gray-500">
-                              Client:{' '}
+                              Client:{" "}
                             </span>
                             <span className="text-sm font-medium text-gray-700">
                               {project.frontmatter.client}

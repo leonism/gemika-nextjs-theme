@@ -1,6 +1,6 @@
-import type { SearchResult } from '@/types/search';
+import { searchPosts } from "./mdx";
 
-import { searchPosts } from './mdx';
+import type { SearchResult } from "@/types/search";
 
 export async function searchContent(query: string): Promise<SearchResult[]> {
   const normalizedQuery = query.toLowerCase().trim();
@@ -17,7 +17,7 @@ export async function searchContent(query: string): Promise<SearchResult[]> {
     title: post.frontmatter.title as string,
     excerpt: post.frontmatter.excerpt as string,
     url: `/posts/${post.slug}`,
-    type: 'Blog Post',
+    type: "Blog Post",
     date: post.frontmatter.date as string,
   }));
 

@@ -1,15 +1,14 @@
-'use client';
+"use client";
 
-import type React from 'react';
-import { useState } from 'react';
+import type React from "react";
+import { useState } from "react";
 
-import { useToast } from '@/hooks/use-toast';
-
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export function NewsletterForm() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
@@ -18,9 +17,9 @@ export function NewsletterForm() {
 
     if (!email) {
       toast({
-        title: 'Error',
-        description: 'Please enter your email address',
-        variant: 'destructive',
+        title: "Error",
+        description: "Please enter your email address",
+        variant: "destructive",
       });
       return;
     }
@@ -32,16 +31,16 @@ export function NewsletterForm() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast({
-        title: 'Success!',
-        description: 'Thank you for subscribing to our newsletter!',
+        title: "Success!",
+        description: "Thank you for subscribing to our newsletter!",
       });
 
-      setEmail('');
+      setEmail("");
     } catch (error) {
       toast({
-        title: 'Error',
-        description: 'Failed to subscribe. Please try again later.',
-        variant: 'destructive',
+        title: "Error",
+        description: "Failed to subscribe. Please try again later.",
+        variant: "destructive",
       });
     } finally {
       setIsLoading(false);
@@ -63,7 +62,7 @@ export function NewsletterForm() {
         disabled={isLoading}
         className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white transition-colors hover:from-purple-700 hover:to-indigo-700"
       >
-        {isLoading ? 'Subscribing...' : 'Subscribe'}
+        {isLoading ? "Subscribing..." : "Subscribe"}
       </Button>
     </form>
   );

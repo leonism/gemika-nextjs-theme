@@ -1,31 +1,31 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
-import { getAllContent } from '@/lib/content';
-import { formatDate } from '@/lib/utils';
+import { getAllContent } from "@/lib/content";
+import { formatDate } from "@/lib/utils";
 
 export default async function TagPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const decodedTag = decodeURIComponent(params.slug.replace(/-/g, ' '));
+  const decodedTag = decodeURIComponent(params.slug.replace(/-/g, " "));
   const [posts, projects] = await Promise.all([
-    getAllContent('posts'),
-    getAllContent('projects'),
+    getAllContent("posts"),
+    getAllContent("projects"),
   ]);
 
   const taggedItems = [
     ...posts.filter((post) =>
       post.frontmatter.tags?.some(
-        (tag: string) => tag.toLowerCase() === decodedTag.toLowerCase()
-      )
+        (tag: string) => tag.toLowerCase() === decodedTag.toLowerCase(),
+      ),
     ),
     ...projects.filter((project) =>
       project.frontmatter.tags?.some(
-        (tag: string) => tag.toLowerCase() === decodedTag.toLowerCase()
-      )
+        (tag: string) => tag.toLowerCase() === decodedTag.toLowerCase(),
+      ),
     ),
   ];
 
@@ -42,7 +42,7 @@ export default async function TagPage({
           </h1>
           <p className="mb-12 text-lg text-gray-600 dark:text-gray-400">
             Showing {taggedItems.length} post
-            {taggedItems.length !== 1 ? 's' : ''} with this tag
+            {taggedItems.length !== 1 ? "s" : ""} with this tag
           </p>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -56,7 +56,7 @@ export default async function TagPage({
                   <Image
                     src={
                       (item.frontmatter.coverImage as string) ||
-                      '/placeholder.svg'
+                      "/placeholder.svg"
                     }
                     alt={item.frontmatter.title as string}
                     fill

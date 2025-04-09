@@ -1,8 +1,7 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
-import { ChevronRight } from 'lucide-react';
-
-import { PostCard } from './PostCard';
+import { PostCard } from "./PostCard";
 
 interface LatestPostsProps {
   posts: {

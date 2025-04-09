@@ -1,7 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
-
-import { ChevronRight } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 interface ExpertiseCardProps {
   topic: {
@@ -17,7 +16,7 @@ interface ExpertiseCardProps {
 export function ExpertiseCard({ topic }: ExpertiseCardProps) {
   return (
     <Link
-      href={`/category/${topic.title.toLowerCase().replace(' ', '-')}`}
+      href={`/category/${topic.title.toLowerCase().replace(" ", "-")}`}
       className="group relative overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-xl sm:rounded-2xl sm:hover:-translate-y-2"
     >
       <div className="relative aspect-video overflow-hidden">

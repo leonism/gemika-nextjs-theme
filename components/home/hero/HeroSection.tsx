@@ -1,19 +1,18 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
-import { ChevronRight } from 'lucide-react';
-
-import { HeroBrands } from '@/components/home/hero/HeroBrands';
+import { HeroBrands } from "@/components/home/hero/HeroBrands";
 
 const BRANDS = [
-  'Apple',
-  'Adobe',
-  'Google',
-  'Microsoft',
-  'Samsung',
-  'Spotify',
-  'Amazon',
-  'Netflix',
+  "Apple",
+  "Adobe",
+  "Google",
+  "Microsoft",
+  "Samsung",
+  "Spotify",
+  "Amazon",
+  "Netflix",
 ];
 
 export function HeroSection() {

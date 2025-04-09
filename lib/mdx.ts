@@ -1,13 +1,13 @@
-import { serialize } from 'next-mdx-remote/serialize';
+import fs from "fs";
+import path from "path";
 
-import fs from 'fs';
-import matter from 'gray-matter';
-import path from 'path';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeSlug from 'rehype-slug';
-import remarkGfm from 'remark-gfm';
+import { serialize } from "next-mdx-remote/serialize";
+import matter from "gray-matter";
+import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 
-const postsDirectory = path.join(process.cwd(), 'content/posts');
+const postsDirectory = path.join(process.cwd(), "content/posts");
 
 export async function getPostSlugs() {
   // Ensure the directory exists
@@ -16,11 +16,11 @@ export async function getPostSlugs() {
     return [];
   }
 
-  return fs.readdirSync(postsDirectory).filter((file) => file.endsWith('.mdx'));
+  return fs.readdirSync(postsDirectory).filter((file) => file.endsWith(".mdx"));
 }
 
 export async function getPostBySlug(slug: string) {
-  const realSlug = slug.replace(/\.mdx$/, '');
+  const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = path.join(postsDirectory, `${realSlug}.mdx`);
 
   // Check if the file exists
@@ -29,7 +29,7 @@ export async function getPostBySlug(slug: string) {
     return null;
   }
 
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
   const mdxSource = await serialize(content, {
@@ -53,7 +53,7 @@ export async function getAllPosts() {
     slugs.map(async (slug) => {
       const post = await getPostBySlug(slug);
       return post;
-    })
+    }),
   );
 
   // Filter out null posts and sort by date

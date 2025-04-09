@@ -1,8 +1,7 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 interface PaginationProps {
   currentPage: number;
@@ -37,7 +36,7 @@ export function Pagination({
       }
 
       if (start > 2) {
-        pageNumbers.push('...');
+        pageNumbers.push("...");
       }
 
       for (let i = start; i <= end; i++) {
@@ -45,7 +44,7 @@ export function Pagination({
       }
 
       if (end < totalPages - 1) {
-        pageNumbers.push('...');
+        pageNumbers.push("...");
       }
 
       pageNumbers.push(totalPages);
@@ -59,7 +58,7 @@ export function Pagination({
   return (
     <nav
       aria-label="Pagination"
-      className={cn('flex items-center justify-center py-12', className)}
+      className={cn("flex items-center justify-center py-12", className)}
     >
       <ul className="flex items-center gap-2">
         {/* Previous page button */}
@@ -83,13 +82,13 @@ export function Pagination({
         {/* Page numbers - keep existing code */}
         {pageNumbers.map((page, index) => (
           <li key={index}>
-            {typeof page === 'number' ? (
+            {typeof page === "number" ? (
               <Link
                 href={`${baseUrl}?page=${page}`}
                 className={`inline-flex h-10 w-10 items-center justify-center px-3 py-3 text-sm font-medium ${
                   page === currentPage
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300'
+                    ? "bg-indigo-600 text-white"
+                    : "bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300"
                 } rounded-full border border-gray-300 shadow-sm transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white dark:border-gray-700`}
               >
                 {page}

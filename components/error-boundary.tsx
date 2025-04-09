@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 
 interface ErrorBoundaryProps {
   error: Error & { digest?: string };
@@ -25,7 +25,7 @@ export function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
         <Button onClick={reset} variant="default">
           Try again
         </Button>
-        <Button onClick={() => (window.location.href = '/')} variant="outline">
+        <Button onClick={() => (window.location.href = "/")} variant="outline">
           Go to homepage
         </Button>
       </div>

@@ -1,11 +1,10 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { Pagination } from '@/components/navigation/pagination';
+import { EmptyState } from "./EmptyState";
+import { PostCard } from "./PostCard";
 
-import { Post } from '@/lib/posts';
-
-import { EmptyState } from './EmptyState';
-import { PostCard } from './PostCard';
+import { Pagination } from "@/components/navigation/pagination";
+import { Post } from "@/lib/posts";
 
 interface PostsGridProps {
   posts: Post[];

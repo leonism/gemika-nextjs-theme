@@ -1,19 +1,18 @@
-import { serialize } from 'next-mdx-remote/serialize';
-import { notFound } from 'next/navigation';
+import { serialize } from "next-mdx-remote/serialize";
+import { notFound } from "next/navigation";
 
-import { MDXProviderClient } from '@/components/mdx-provider-client';
-import ClientOnly from '@/components/utility/client-only';
-
-import { getContent } from '@/lib/content';
+import { MDXProviderClient } from "@/components/mdx-provider-client";
+import ClientOnly from "@/components/utility/client-only";
+import { getContent } from "@/lib/content";
 
 export default async function TermsPage() {
-  const terms = await getContent('pages', 'terms');
+  const terms = await getContent("pages", "terms");
 
   if (!terms) {
     notFound();
   }
 
-  const serializedContent = await serialize(terms.content || '');
+  const serializedContent = await serialize(terms.content || "");
 
   return (
     <div className="min-h-screen">

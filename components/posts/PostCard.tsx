@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
-import { Post } from '@/lib/posts';
-import { TAG_COLORS } from '@/lib/posts';
+import { Tag } from "./Tag";
 
-import { Tag } from './Tag';
+import { Post } from "@/lib/posts";
+import { TAG_COLORS } from "@/lib/posts";
 
 export function PostCard({ post }: { post: Post }) {
   return (

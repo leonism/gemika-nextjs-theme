@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
-import { Breadcrumbs } from '@/components/navigation/breadcrumbs';
-import { Container } from '@/components/ui/container';
+import { Breadcrumbs } from "@/components/navigation/breadcrumbs";
+import { Container } from "@/components/ui/container";
 
 interface CategoryLayoutProps {
   children: ReactNode;

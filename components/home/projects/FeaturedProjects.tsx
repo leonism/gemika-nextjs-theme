@@ -1,8 +1,7 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
-import { ChevronRight } from 'lucide-react';
-
-import ProjectCard from './ProjectCard';
+import ProjectCard from "./ProjectCard";
 
 // Changed from named import to default import
 

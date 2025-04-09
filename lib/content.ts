@@ -1,16 +1,17 @@
-import matter from 'gray-matter';
-import path from 'path';
-import { promisify } from 'util';
+import path from "path";
+import { promisify } from "util";
+
+import matter from "gray-matter";
 
 // lib/content.ts
 
 // Ensure this module only runs on the server
-if (typeof window !== 'undefined') {
-  throw new Error('This module can only be used on the server side');
+if (typeof window !== "undefined") {
+  throw new Error("This module can only be used on the server side");
 }
 
 // Server-side only
-const fs = require('fs');
+const fs = require("fs");
 
 // Promisify fs methods
 const readFile = promisify(fs.readFile);
@@ -19,7 +20,7 @@ const access = promisify(fs.access);
 
 // Ensure server-side usage
 export async function getFileContent(filePath: string) {
-  const fileContent = await readFile(filePath, 'utf8');
+  const fileContent = await readFile(filePath, "utf8");
   return matter(fileContent);
 }
 
@@ -29,17 +30,17 @@ interface ContentError extends Error {
 }
 
 export async function getContent(
-  type: 'posts' | 'projects' | 'pages',
-  slug: string
+  type: "posts" | "projects" | "pages",
+  slug: string,
 ) {
   // Input validation
-  if (!type || !['posts', 'projects', 'pages'].includes(type)) {
-    console.error('Invalid content type:', type);
+  if (!type || !["posts", "projects", "pages"].includes(type)) {
+    console.error("Invalid content type:", type);
     return null;
   }
 
-  if (!slug || typeof slug !== 'string' || slug.trim() === '') {
-    console.error('Error in getContent: slug is empty or invalid', {
+  if (!slug || typeof slug !== "string" || slug.trim() === "") {
+    console.error("Error in getContent: slug is empty or invalid", {
       type,
       slug,
       timestamp: new Date().toISOString(),
@@ -47,10 +48,10 @@ export async function getContent(
     return null;
   }
 
-  const filePath = path.join(process.cwd(), 'content', type, `${slug}.mdx`);
+  const filePath = path.join(process.cwd(), "content", type, `${slug}.mdx`);
 
   try {
-    const fileContent = await readFile(filePath, 'utf-8');
+    const fileContent = await readFile(filePath, "utf-8");
     const { data: frontmatter, content } = matter(fileContent);
 
     if (!frontmatter || !content) {
@@ -61,10 +62,10 @@ export async function getContent(
     return { frontmatter, content };
   } catch (error) {
     const err = error as ContentError;
-    if (err.code === 'ENOENT') {
+    if (err.code === "ENOENT") {
       console.warn(`Content file not found: ${filePath}`);
     } else {
-      console.error('Error in getContent:', err.message || 'Unknown error');
+      console.error("Error in getContent:", err.message || "Unknown error");
     }
     return null;
   }
@@ -72,9 +73,9 @@ export async function getContent(
 
 // Update the getAllContent function to ensure tags are included
 export async function getAllContent(
-  type: 'posts' | 'projects' | 'pages'
+  type: "posts" | "projects" | "pages",
 ): Promise<any[]> {
-  const directoryPath = path.join(process.cwd(), 'content', type);
+  const directoryPath = path.join(process.cwd(), "content", type);
 
   try {
     await access(directoryPath);
@@ -86,8 +87,8 @@ export async function getAllContent(
     const filenames = await readdir(directoryPath);
     const mdxFiles = filenames.filter(
       (filename: string) =>
-        filename.endsWith('.mdx') &&
-        filename.replace(/\.mdx$/, '').trim() !== ''
+        filename.endsWith(".mdx") &&
+        filename.replace(/\.mdx$/, "").trim() !== "",
     );
 
     if (mdxFiles.length === 0) {
@@ -113,9 +114,9 @@ export async function getAllContent(
     const allContent: (ContentItem | null)[] = await Promise.all(
       mdxFiles.map(async (filename: string): Promise<ContentItem | null> => {
         try {
-          const slug: string = filename.replace(/\.mdx$/, '');
+          const slug: string = filename.replace(/\.mdx$/, "");
           const filePath: string = path.join(directoryPath, filename);
-          const fileContent: string = await readFile(filePath, 'utf-8');
+          const fileContent: string = await readFile(filePath, "utf-8");
           const { data: frontmatter, content }: ParsedContent =
             matter(fileContent);
 
@@ -124,12 +125,12 @@ export async function getAllContent(
           console.error(`Error processing ${filename}:`, error);
           return null;
         }
-      })
+      }),
     );
 
     return allContent.filter(Boolean); // Remove null values
   } catch (error) {
-    console.error('Error in getAllContent:', error);
+    console.error("Error in getAllContent:", error);
     return [];
   }
 }

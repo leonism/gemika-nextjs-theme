@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 import {
   Card,
@@ -6,67 +6,67 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from "@/components/ui/card";
 
 export default function BooksResourcesPage() {
   const bookResources = [
     {
-      title: 'UX Design Books',
+      title: "UX Design Books",
       description:
-        'Essential reading for UX designers at all levels, from beginners to advanced practitioners.',
-      link: '#',
-      icon: '📚',
+        "Essential reading for UX designers at all levels, from beginners to advanced practitioners.",
+      link: "#",
+      icon: "📚",
       color:
-        'bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400',
-      gradient: 'from-purple-500 to-violet-600',
+        "bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400",
+      gradient: "from-purple-500 to-violet-600",
     },
     {
-      title: 'Mobile Development Books',
+      title: "Mobile Development Books",
       description:
-        'Recommended books on mobile app development, covering iOS, Android, and cross-platform frameworks.',
-      link: '#',
-      icon: '📱',
-      color: 'bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400',
-      gradient: 'from-blue-500 to-cyan-600',
+        "Recommended books on mobile app development, covering iOS, Android, and cross-platform frameworks.",
+      link: "#",
+      icon: "📱",
+      color: "bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400",
+      gradient: "from-blue-500 to-cyan-600",
     },
     {
-      title: 'Design Thinking',
+      title: "Design Thinking",
       description:
-        'Books that explore design thinking methodologies and their application in product development.',
-      link: '#',
-      icon: '💡',
+        "Books that explore design thinking methodologies and their application in product development.",
+      link: "#",
+      icon: "💡",
       color:
-        'bg-yellow-100 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400',
-      gradient: 'from-yellow-500 to-amber-600',
+        "bg-yellow-100 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400",
+      gradient: "from-yellow-500 to-amber-600",
     },
     {
-      title: 'Web Development',
+      title: "Web Development",
       description:
-        'Resources for modern web development, including JavaScript frameworks and best practices.',
-      link: '#',
-      icon: '🌐',
+        "Resources for modern web development, including JavaScript frameworks and best practices.",
+      link: "#",
+      icon: "🌐",
       color:
-        'bg-green-100 dark:bg-green-900/20 text-green-600 dark:text-green-400',
-      gradient: 'from-green-500 to-emerald-600',
+        "bg-green-100 dark:bg-green-900/20 text-green-600 dark:text-green-400",
+      gradient: "from-green-500 to-emerald-600",
     },
     {
-      title: 'Design Psychology',
+      title: "Design Psychology",
       description:
-        'Books that delve into the psychology behind user behavior and decision-making in digital interfaces.',
-      link: '#',
-      icon: '🧠',
-      color: 'bg-pink-100 dark:bg-pink-900/20 text-pink-600 dark:text-pink-400',
-      gradient: 'from-pink-500 to-rose-600',
+        "Books that delve into the psychology behind user behavior and decision-making in digital interfaces.",
+      link: "#",
+      icon: "🧠",
+      color: "bg-pink-100 dark:bg-pink-900/20 text-pink-600 dark:text-pink-400",
+      gradient: "from-pink-500 to-rose-600",
     },
     {
-      title: 'Industry Articles',
+      title: "Industry Articles",
       description:
-        'A collection of thought-provoking articles on design, development, and digital product strategy.',
-      link: '#',
-      icon: '📄',
+        "A collection of thought-provoking articles on design, development, and digital product strategy.",
+      link: "#",
+      icon: "📄",
       color:
-        'bg-indigo-100 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400',
-      gradient: 'from-indigo-500 to-blue-600',
+        "bg-indigo-100 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400",
+      gradient: "from-indigo-500 to-blue-600",
     },
   ];
 
@@ -93,7 +93,7 @@ export default function BooksResourcesPage() {
               </div>
 
               <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl">
-                Books &{' '}
+                Books &{" "}
                 <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
                   Articles
                 </span>

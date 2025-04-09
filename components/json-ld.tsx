@@ -4,7 +4,7 @@ import type {
   Person,
   WebPage,
   WithContext,
-} from 'schema-dts';
+} from "schema-dts";
 
 interface JsonLdProps {
   data: WithContext<Article | BreadcrumbList | Person | WebPage>;

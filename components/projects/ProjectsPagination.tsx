@@ -1,8 +1,7 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 export function ProjectsPagination({
   currentPage,
@@ -11,7 +10,7 @@ export function ProjectsPagination({
   currentPage: number;
   totalPages: number;
 }) {
-  const baseUrl = '/projects';
+  const baseUrl = "/projects";
 
   // Generate page numbers to display
   const getPageNumbers = () => {
@@ -34,7 +33,7 @@ export function ProjectsPagination({
       }
 
       if (start > 2) {
-        pageNumbers.push('...');
+        pageNumbers.push("...");
       }
 
       for (let i = start; i <= end; i++) {
@@ -42,7 +41,7 @@ export function ProjectsPagination({
       }
 
       if (end < totalPages - 1) {
-        pageNumbers.push('...');
+        pageNumbers.push("...");
       }
 
       pageNumbers.push(totalPages);
@@ -63,8 +62,8 @@ export function ProjectsPagination({
             href={`${baseUrl}?page=${currentPage - 1}`}
             className={`inline-flex items-center px-5 py-2.5 text-sm font-medium ${
               currentPage === 1
-                ? 'cursor-not-allowed text-gray-400'
-                : 'text-gray-700 dark:text-gray-300'
+                ? "cursor-not-allowed text-gray-400"
+                : "text-gray-700 dark:text-gray-300"
             } rounded-full border border-gray-300 bg-white shadow-sm transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white dark:border-gray-700 dark:bg-gray-800`}
             aria-disabled={currentPage === 1}
           >
@@ -76,13 +75,13 @@ export function ProjectsPagination({
         {/* Page numbers */}
         {getPageNumbers().map((page, index) => (
           <li key={index}>
-            {typeof page === 'number' ? (
+            {typeof page === "number" ? (
               <Link
                 href={`${baseUrl}?page=${page}`}
                 className={`inline-flex h-10 w-10 items-center justify-center px-3 py-3 text-sm font-medium ${
                   page === currentPage
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300'
+                    ? "bg-indigo-600 text-white"
+                    : "bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300"
                 } rounded-full border border-gray-300 shadow-sm transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white dark:border-gray-700`}
               >
                 {page}
@@ -101,8 +100,8 @@ export function ProjectsPagination({
             href={`${baseUrl}?page=${currentPage + 1}`}
             className={`inline-flex items-center px-5 py-2.5 text-sm font-medium ${
               currentPage === totalPages
-                ? 'cursor-not-allowed text-gray-400'
-                : 'text-gray-700 dark:text-gray-300'
+                ? "cursor-not-allowed text-gray-400"
+                : "text-gray-700 dark:text-gray-300"
             } rounded-full border border-gray-300 bg-white shadow-sm transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white dark:border-gray-700 dark:bg-gray-800`}
             aria-disabled={currentPage === totalPages}
           >

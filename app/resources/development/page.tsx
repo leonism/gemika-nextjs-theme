@@ -1,6 +1,5 @@
-import Link from 'next/link';
-
-import { ArrowRight, Sparkles } from 'lucide-react';
+import Link from "next/link";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 import {
   Card,
@@ -8,67 +7,67 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from "@/components/ui/card";
 
 // Color palette for subtle gradient accents
 const CARD_GRADIENTS = [
-  'from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20',
-  'from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20',
-  'from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20',
-  'from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/20',
-  'from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20',
-  'from-cyan-50 to-sky-50 dark:from-cyan-900/20 dark:to-sky-900/20',
+  "from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20",
+  "from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20",
+  "from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20",
+  "from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/20",
+  "from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20",
+  "from-cyan-50 to-sky-50 dark:from-cyan-900/20 dark:to-sky-900/20",
 ];
 
 export default function DevelopmentResourcesPage() {
   const developmentResources = [
     {
-      title: 'React Component Libraries',
+      title: "React Component Libraries",
       description:
-        'A collection of high-quality React component libraries and UI kits for faster development.',
-      link: '#',
-      icon: '🧩',
-      emojiBg: 'bg-indigo-100 dark:bg-indigo-900/30',
+        "A collection of high-quality React component libraries and UI kits for faster development.",
+      link: "#",
+      icon: "🧩",
+      emojiBg: "bg-indigo-100 dark:bg-indigo-900/30",
     },
     {
-      title: 'Mobile Development Tools',
+      title: "Mobile Development Tools",
       description:
-        'Essential tools and frameworks for building cross-platform mobile applications.',
-      link: '#',
-      icon: '📱',
-      emojiBg: 'bg-emerald-100 dark:bg-emerald-900/30',
+        "Essential tools and frameworks for building cross-platform mobile applications.",
+      link: "#",
+      icon: "📱",
+      emojiBg: "bg-emerald-100 dark:bg-emerald-900/30",
     },
     {
-      title: 'API Documentation Tools',
+      title: "API Documentation Tools",
       description:
-        'Tools for creating and maintaining comprehensive API documentation.',
-      link: '#',
-      icon: '📄',
-      emojiBg: 'bg-amber-100 dark:bg-amber-900/30',
+        "Tools for creating and maintaining comprehensive API documentation.",
+      link: "#",
+      icon: "📄",
+      emojiBg: "bg-amber-100 dark:bg-amber-900/30",
     },
     {
-      title: 'Performance Optimization',
+      title: "Performance Optimization",
       description:
-        'Resources and techniques for optimizing web and mobile application performance.',
-      link: '#',
-      icon: '⚡',
-      emojiBg: 'bg-violet-100 dark:bg-violet-900/30',
+        "Resources and techniques for optimizing web and mobile application performance.",
+      link: "#",
+      icon: "⚡",
+      emojiBg: "bg-violet-100 dark:bg-violet-900/30",
     },
     {
-      title: 'Testing Frameworks',
+      title: "Testing Frameworks",
       description:
-        'Tools and frameworks for unit testing, integration testing, and end-to-end testing.',
-      link: '#',
-      icon: '🧪',
-      emojiBg: 'bg-rose-100 dark:bg-rose-900/30',
+        "Tools and frameworks for unit testing, integration testing, and end-to-end testing.",
+      link: "#",
+      icon: "🧪",
+      emojiBg: "bg-rose-100 dark:bg-rose-900/30",
     },
     {
-      title: 'Deployment & DevOps',
+      title: "Deployment & DevOps",
       description:
-        'Resources for streamlining deployment processes and implementing DevOps practices.',
-      link: '#',
-      icon: '🚀',
-      emojiBg: 'bg-cyan-100 dark:bg-cyan-900/30',
+        "Resources for streamlining deployment processes and implementing DevOps practices.",
+      link: "#",
+      icon: "🚀",
+      emojiBg: "bg-cyan-100 dark:bg-cyan-900/30",
     },
   ];
 
@@ -94,7 +93,7 @@ export default function DevelopmentResourcesPage() {
             </div>
 
             <h1 className="mb-6 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-              Development{' '}
+              Development{" "}
               <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
                 Resources
               </span>

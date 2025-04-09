@@ -1,5 +1,4 @@
-import Link from 'next/link';
-
+import Link from "next/link";
 import {
   Facebook,
   Github,
@@ -9,10 +8,10 @@ import {
   MapPin,
   Phone,
   Twitter,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { NewsletterForm } from '@/components/forms/newsletter-form';
-import { Container } from '@/components/ui/container';
+import { NewsletterForm } from "@/components/forms/newsletter-form";
+import { Container } from "@/components/ui/container";
 
 interface FooterProps {
   showNewsletter?: boolean;
@@ -34,7 +33,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
         {showNewsletter && (
           <div className="border-b border-gray-200 py-12 dark:border-gray-800">
             <div className="mx-auto max-w-xl px-4 text-center">
-              {' '}
+              {" "}
               {/* Added responsive padding */}
               <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent">
                 Subscribe to our Newsletter
@@ -51,7 +50,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
         {/* Main Footer Content */}
         <div className="py-12">
           <div className="grid grid-cols-1 gap-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
-            {' '}
+            {" "}
             {/* Added responsive padding */}
             {/* Brand/Company Information Column */}
             <div className="space-y-4">
@@ -247,7 +246,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
 
           {/* Copyright and Legal Links Section */}
           <div className="mt-12 border-t border-gray-200 px-4 pt-8 text-center text-gray-600 dark:border-gray-800 dark:text-gray-400 sm:px-6 lg:px-8">
-            {' '}
+            {" "}
             {/* Added responsive padding */}
             <p>© {new Date().getFullYear()} gemika. All rights reserved.</p>
             <div className="mt-2 text-sm">

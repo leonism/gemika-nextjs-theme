@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { MDXRemote } from 'next-mdx-remote';
+import { MDXRemote } from "next-mdx-remote";
 
-import { components } from './mdx-components';
+import { components } from "./mdx-components";
 
 interface ClientMDXRendererProps {
   source: any;

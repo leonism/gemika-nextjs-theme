@@ -1,9 +1,32 @@
 // components/search-client.tsx
-'use client';
+"use client";
 
-import { Suspense } from 'react';
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
-import { useSearchParams } from 'next/navigation';
+// components/search-client.tsx
+
+// components/search-client.tsx
+
+// components/search-client.tsx
+
+// components/search-client.tsx
+
+// components/search-client.tsx
+
+// components/search-client.tsx
+
+// components/search-client.tsx
+
+// components/search-client.tsx
+
+// components/search-client.tsx
+
+// components/search-client.tsx
+
+// components/search-client.tsx
+
+// components/search-client.tsx
 
 // components/search-client.tsx
 

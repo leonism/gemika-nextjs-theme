@@ -1,18 +1,16 @@
-'use client';
+"use client";
 
-import type React from 'react';
-import { useEffect, useRef, useState } from 'react';
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { SearchIcon, X } from "lucide-react";
 
-import { useRouter } from 'next/navigation';
-
-import { SearchIcon, X } from 'lucide-react';
-
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export function Search() {
   const [isOpen, setIsOpen] = useState(false);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const router = useRouter();
   const searchRef = useRef<HTMLDivElement>(null);
   const searchFormRef = useRef<HTMLFormElement>(null);
@@ -29,11 +27,11 @@ export function Search() {
     };
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
 
@@ -41,7 +39,7 @@ export function Search() {
     e.preventDefault();
     if (query.trim()) {
       // Close any open mobile menu by setting body overflow back to normal
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
       // Close the search
       setIsOpen(false);
       router.push(`/search?q=${encodeURIComponent(query)}`);
@@ -50,18 +48,18 @@ export function Search() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         setIsOpen(false);
       }
       // Open search on Cmd+K or Ctrl+K
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         setIsOpen(true);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
@@ -75,7 +73,7 @@ export function Search() {
           role="button"
           tabIndex={0}
           onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === "Enter" || e.key === " ") {
               setIsOpen(true);
             }
           }}

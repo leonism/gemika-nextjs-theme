@@ -1,17 +1,14 @@
-'use client';
+"use client";
 
-import type React from 'react';
-import { useState } from 'react';
+import type React from "react";
+import { useState } from "react";
+import Image from "next/image";
+import { Flag, Reply, ThumbsDown, ThumbsUp } from "lucide-react";
 
-import Image from 'next/image';
-
-import { useToast } from '@/hooks/use-toast';
-import { Flag, Reply, ThumbsDown, ThumbsUp } from 'lucide-react';
-
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-
-import { formatDate } from '@/lib/utils';
+import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { formatDate } from "@/lib/utils";
 
 interface Comment {
   id: string;
@@ -38,7 +35,7 @@ export function CommentSection({
   className,
 }: CommentSectionProps) {
   const [comments, setComments] = useState<Comment[]>(initialComments);
-  const [newComment, setNewComment] = useState('');
+  const [newComment, setNewComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -47,9 +44,9 @@ export function CommentSection({
 
     if (!newComment.trim()) {
       toast({
-        title: 'Error',
-        description: 'Please enter a comment',
-        variant: 'destructive',
+        title: "Error",
+        description: "Please enter a comment",
+        variant: "destructive",
       });
       return;
     }
@@ -63,9 +60,9 @@ export function CommentSection({
       const newCommentObj: Comment = {
         id: Date.now().toString(),
         author: {
-          name: 'You',
+          name: "You",
           imageUrl:
-            'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+            "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
         },
         content: newComment,
         date: new Date().toISOString(),
@@ -74,17 +71,17 @@ export function CommentSection({
       };
 
       setComments([newCommentObj, ...comments]);
-      setNewComment('');
+      setNewComment("");
 
       toast({
-        title: 'Success!',
-        description: 'Your comment has been posted.',
+        title: "Success!",
+        description: "Your comment has been posted.",
       });
     } catch (error) {
       toast({
-        title: 'Error',
-        description: 'Failed to post your comment. Please try again later.',
-        variant: 'destructive',
+        title: "Error",
+        description: "Failed to post your comment. Please try again later.",
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
@@ -98,7 +95,7 @@ export function CommentSection({
           return { ...comment, likes: comment.likes + 1 };
         }
         return comment;
-      })
+      }),
     );
   };
 
@@ -109,19 +106,19 @@ export function CommentSection({
           return { ...comment, dislikes: comment.dislikes + 1 };
         }
         return comment;
-      })
+      }),
     );
   };
 
   const renderComment = (comment: Comment, isReply = false) => (
     <div
       key={comment.id}
-      className={`${isReply ? 'ml-12 mt-4' : 'mb-6 border-b border-gray-200 pb-6 dark:border-gray-800'}`}
+      className={`${isReply ? "ml-12 mt-4" : "mb-6 border-b border-gray-200 pb-6 dark:border-gray-800"}`}
     >
       <div className="flex items-start">
         <div className="relative mr-4 h-10 w-10 flex-shrink-0 overflow-hidden rounded-full">
           <Image
-            src={comment.author.imageUrl || '/placeholder.svg'}
+            src={comment.author.imageUrl || "/placeholder.svg"}
             alt={comment.author.name}
             fill
             className="object-cover"
@@ -189,7 +186,7 @@ export function CommentSection({
           className="mb-3 min-h-[100px]"
         />
         <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Posting...' : 'Post Comment'}
+          {isSubmitting ? "Posting..." : "Post Comment"}
         </Button>
       </form>
 

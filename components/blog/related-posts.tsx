@@ -1,4 +1,4 @@
-import { PostCard } from '@/components/cards/post-card';
+import { PostCard } from "@/components/cards/post-card";
 
 interface RelatedPost {
   title: string;
@@ -17,7 +17,7 @@ interface RelatedPostsProps {
 
 export function RelatedPosts({
   posts,
-  title = 'Related Posts',
+  title = "Related Posts",
   className,
 }: RelatedPostsProps) {
   if (!posts || posts.length === 0) {

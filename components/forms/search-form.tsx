@@ -1,16 +1,13 @@
-'use client';
+"use client";
 
-import type React from 'react';
-import { useCallback, useEffect, useState } from 'react';
+import type React from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Search } from "lucide-react";
 
-import { useRouter, useSearchParams } from 'next/navigation';
-
-import { Search } from 'lucide-react';
-
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-
-import { debounce } from '@/lib/utils';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { debounce } from "@/lib/utils";
 
 interface SearchFormProps {
   placeholder?: string;
@@ -19,13 +16,13 @@ interface SearchFormProps {
 }
 
 export function SearchForm({
-  placeholder = 'Search for content...',
+  placeholder = "Search for content...",
   instant = false,
   className,
 }: SearchFormProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const initialQuery = searchParams.get('q') || '';
+  const initialQuery = searchParams.get("q") || "";
   const [query, setQuery] = useState(initialQuery);
 
   // Debounced search function for instant search
@@ -35,7 +32,7 @@ export function SearchForm({
         router.push(`/search?q=${encodeURIComponent(value)}`);
       }
     }, 500),
-    [router]
+    [router],
   );
 
   // Handle input change
@@ -48,7 +45,7 @@ export function SearchForm({
         debouncedSearch(value);
       }
     },
-    [instant, debouncedSearch]
+    [instant, debouncedSearch],
   );
 
   // Handle form submission
@@ -59,7 +56,7 @@ export function SearchForm({
         router.push(`/search?q=${encodeURIComponent(query)}`);
       }
     },
-    [query, router]
+    [query, router],
   );
 
   // Sync query when searchParams change

@@ -1,13 +1,12 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 
-import { useToast } from '@/hooks/use-toast';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-
-import { Button } from '@/components/ui/button';
+import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -15,19 +14,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
-  email: z.string().email({ message: 'Please enter a valid email address' }),
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+  email: z.string().email({ message: "Please enter a valid email address" }),
   subject: z
     .string()
-    .min(2, { message: 'Subject must be at least 2 characters' }),
+    .min(2, { message: "Subject must be at least 2 characters" }),
   message: z
     .string()
-    .min(10, { message: 'Message must be at least 10 characters' }),
+    .min(10, { message: "Message must be at least 10 characters" }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -39,10 +38,10 @@ export function ContactForm() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
     },
   });
 
@@ -50,10 +49,10 @@ export function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
@@ -61,21 +60,21 @@ export function ContactForm() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || 'Something went wrong');
+        throw new Error(result.error || "Something went wrong");
       }
 
       toast({
-        title: 'Success!',
+        title: "Success!",
         description: result.message,
       });
 
       form.reset();
     } catch (error) {
       toast({
-        title: 'Error',
+        title: "Error",
         description:
-          error instanceof Error ? error.message : 'Failed to send message',
-        variant: 'destructive',
+          error instanceof Error ? error.message : "Failed to send message",
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
@@ -148,7 +147,7 @@ export function ContactForm() {
         />
 
         <Button type="submit" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          {isSubmitting ? "Sending..." : "Send Message"}
         </Button>
       </form>
     </Form>

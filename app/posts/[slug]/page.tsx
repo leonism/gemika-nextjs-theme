@@ -1,24 +1,22 @@
-import type { Metadata } from 'next';
-import { serialize } from 'next-mdx-remote/serialize';
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import type { Metadata } from "next";
+import { serialize } from "next-mdx-remote/serialize";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Calendar, ChevronLeft, ChevronRight, Clock, User } from "lucide-react";
 
-import { Calendar, ChevronLeft, ChevronRight, Clock, User } from 'lucide-react';
-
-import JsonLd from '@/components/json-ld';
-import { MDXProviderClient } from '@/components/mdx-provider-client';
-import { Breadcrumbs } from '@/components/navigation/breadcrumbs';
-import ClientOnly from '@/components/utility/client-only';
-
-import { getAllContent, getContent } from '@/lib/content';
+import JsonLd from "@/components/json-ld";
+import { MDXProviderClient } from "@/components/mdx-provider-client";
+import { Breadcrumbs } from "@/components/navigation/breadcrumbs";
+import ClientOnly from "@/components/utility/client-only";
+import { getAllContent, getContent } from "@/lib/content";
 
 interface PostPageProps {
   params: Promise<{ slug: string }> | { slug: string };
 }
 
 export async function generateStaticParams() {
-  const posts = await getAllContent('posts');
+  const posts = await getAllContent("posts");
   return posts
     .filter((post) => post !== null)
     .map((post) => ({
@@ -30,22 +28,22 @@ export default async function PostPage({ params }: PostPageProps) {
   const resolvedParams = await params;
 
   if (!resolvedParams?.slug) {
-    throw new Error('No slug provided');
+    throw new Error("No slug provided");
   }
 
-  const post = await getContent('posts', resolvedParams.slug);
+  const post = await getContent("posts", resolvedParams.slug);
 
   if (!post || !post.frontmatter || !post.content) {
     notFound();
   }
 
   // Properly serialize the MDX content
-  const serializedContent = await serialize(post.content || '');
+  const serializedContent = await serialize(post.content || "");
 
   // Get all posts for pagination
-  const allPosts = await getAllContent('posts');
+  const allPosts = await getAllContent("posts");
   const currentIndex = allPosts.findIndex(
-    (p) => p?.slug === resolvedParams.slug
+    (p) => p?.slug === resolvedParams.slug,
   );
   const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
   const nextPost =
@@ -53,8 +51,8 @@ export default async function PostPage({ params }: PostPageProps) {
 
   // Create breadcrumbs
   const breadcrumbs = [
-    { href: '/', label: 'Home' },
-    { href: '/posts', label: 'Blog' },
+    { href: "/", label: "Home" },
+    { href: "/posts", label: "Blog" },
     {
       href: `/posts/${resolvedParams.slug}`,
       label: post.frontmatter.title as string,
@@ -100,7 +98,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 {(post.frontmatter.tags as string[]).map((tag) => (
                   <Link
                     key={tag}
-                    href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`}
                     className="inline-flex items-center rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-800 transition-colors hover:bg-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:hover:bg-indigo-800/40"
                   >
                     {tag}

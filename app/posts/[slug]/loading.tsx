@@ -1,4 +1,4 @@
-import { PostLayout } from '@/components/layouts/post-layout';
+import { PostLayout } from "@/components/layouts/post-layout";
 
 export default function Loading() {
   return (

@@ -1,4 +1,4 @@
-import { ExpertiseCard } from '@/components/home/expertise/ExpertiseCard';
+import { ExpertiseCard } from "@/components/home/expertise/ExpertiseCard";
 
 interface ExpertiseSectionProps {
   topics: AreaExpertise[];

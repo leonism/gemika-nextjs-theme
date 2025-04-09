@@ -1,13 +1,12 @@
-import { serialize } from 'next-mdx-remote/serialize';
+import { serialize } from "next-mdx-remote/serialize";
 
 // Import serialize function
-import { ContactForm } from '@/components/contact-form';
-import { MDXProvider } from '@/components/mdx-provider';
-
-import { getContent } from '@/lib/content';
+import { ContactForm } from "@/components/contact-form";
+import { MDXProvider } from "@/components/mdx-provider";
+import { getContent } from "@/lib/content";
 
 export async function getContactContent() {
-  const contact = await getContent('pages', 'contact');
+  const contact = await getContent("pages", "contact");
 
   if (!contact) {
     return <div>Contact content not found.</div>;

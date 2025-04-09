@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
+import { AlertTriangle } from "lucide-react";
 
-import { useToast } from '@/hooks/use-toast';
-import { AlertTriangle } from 'lucide-react';
+import { useToast } from "@/hooks/use-toast";
 
 interface ErrorToastProps {
   message: string;
@@ -14,7 +14,7 @@ interface ErrorToastProps {
 
 export function ErrorToast({
   message,
-  title = 'Error',
+  title = "Error",
   duration = 5000,
   onClose,
 }: ErrorToastProps) {
@@ -24,7 +24,7 @@ export function ErrorToast({
     const { dismiss } = toast({
       title,
       description: message,
-      variant: 'destructive',
+      variant: "destructive",
       icon: <AlertTriangle className="h-5 w-5" />,
     });
 

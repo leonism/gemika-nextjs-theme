@@ -1,24 +1,23 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { ArrowRight, BookOpen, Clock, FileText } from "lucide-react";
 
-import Link from 'next/link';
-
-import { SearchResult } from '@/types/search';
-import { ArrowRight, BookOpen, Clock, FileText } from 'lucide-react';
+import { SearchResult } from "@/types/search";
 
 interface SearchResultsProps {
   query: string;
 }
 
 const formatDate = (dateString: string) => {
-  if (!dateString) return '';
+  if (!dateString) return "";
   try {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     });
   } catch (e) {
     return dateString;
@@ -27,9 +26,9 @@ const formatDate = (dateString: string) => {
 
 const getResultIcon = (type: string) => {
   switch (type.toLowerCase()) {
-    case 'post':
+    case "post":
       return <FileText className="h-4 w-4" />;
-    case 'project':
+    case "project":
       return <BookOpen className="h-4 w-4" />;
     default:
       return <FileText className="h-4 w-4" />;
@@ -45,13 +44,13 @@ export function SearchResults({ query }: SearchResultsProps) {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `/api/search?q=${encodeURIComponent(query)}`
+          `/api/search?q=${encodeURIComponent(query)}`,
         );
-        if (!response.ok) throw new Error('Failed to fetch search results');
+        if (!response.ok) throw new Error("Failed to fetch search results");
         const data = await response.json();
         setResults(data);
       } catch (error) {
-        console.error('Error searching content:', error);
+        console.error("Error searching content:", error);
       } finally {
         setIsLoading(false);
       }

@@ -1,20 +1,18 @@
-import { MDXRemote } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
+import { WithContext } from "schema-dts";
 
-import { ChevronLeft } from 'lucide-react';
-import { WithContext } from 'schema-dts';
-
-import DynamicClientMDXRenderer from '@/components/DynamicClientMDXRenderer';
-import JsonLd from '@/components/json-ld';
-import { MDXProviderClient } from '@/components/mdx-provider-client';
-import { Breadcrumbs } from '@/components/navigation/breadcrumbs';
-import { Button } from '@/components/ui/button';
-import ClientOnly from '@/components/utility/client-only';
-
-import { getAllContent, getContent } from '@/lib/content';
+import DynamicClientMDXRenderer from "@/components/DynamicClientMDXRenderer";
+import JsonLd from "@/components/json-ld";
+import { MDXProviderClient } from "@/components/mdx-provider-client";
+import { Breadcrumbs } from "@/components/navigation/breadcrumbs";
+import { Button } from "@/components/ui/button";
+import ClientOnly from "@/components/utility/client-only";
+import { getAllContent, getContent } from "@/lib/content";
 
 interface ProjectPageProps {
   params: { slug: string };
@@ -23,24 +21,24 @@ interface ProjectPageProps {
 // Constants for tag colors to avoid repetition
 const TAG_COLORS = [
   {
-    bg: 'bg-indigo-100 dark:bg-indigo-900/30',
-    text: 'text-indigo-600 dark:text-indigo-300',
+    bg: "bg-indigo-100 dark:bg-indigo-900/30",
+    text: "text-indigo-600 dark:text-indigo-300",
   },
   {
-    bg: 'bg-emerald-100 dark:bg-emerald-900/30',
-    text: 'text-emerald-600 dark:text-emerald-300',
+    bg: "bg-emerald-100 dark:bg-emerald-900/30",
+    text: "text-emerald-600 dark:text-emerald-300",
   },
   {
-    bg: 'bg-amber-100 dark:bg-amber-900/30',
-    text: 'text-amber-600 dark:text-amber-300',
+    bg: "bg-amber-100 dark:bg-amber-900/30",
+    text: "text-amber-600 dark:text-amber-300",
   },
   {
-    bg: 'bg-rose-100 dark:bg-rose-900/30',
-    text: 'text-rose-600 dark:text-rose-300',
+    bg: "bg-rose-100 dark:bg-rose-900/30",
+    text: "text-rose-600 dark:text-rose-300",
   },
   {
-    bg: 'bg-violet-100 dark:bg-violet-900/30',
-    text: 'text-violet-600 dark:text-violet-300',
+    bg: "bg-violet-100 dark:bg-violet-900/30",
+    text: "text-violet-600 dark:text-violet-300",
   },
 ];
 
@@ -48,7 +46,7 @@ const TAG_COLORS = [
  * Generates static paths for all projects at build time
  */
 export async function generateStaticParams() {
-  const projects = await getAllContent('projects');
+  const projects = await getAllContent("projects");
   return projects
     .filter((project) => project !== null)
     .map((project) => ({
@@ -61,12 +59,12 @@ export async function generateStaticParams() {
  */
 export async function generateMetadata({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = await getContent('projects', slug);
+  const project = await getContent("projects", slug);
 
   if (!project) {
     return {
-      title: 'Project Not Found',
-      description: 'The requested project could not be found.',
+      title: "Project Not Found",
+      description: "The requested project could not be found.",
     };
   }
 
@@ -84,7 +82,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
           alt: project.frontmatter.title as string,
         },
       ],
-      type: 'website',
+      type: "website",
     },
   };
 }
@@ -171,7 +169,7 @@ function ProjectCoverImage({
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         <div className="relative h-full w-full overflow-hidden rounded-[15px] bg-white dark:bg-gray-800">
           <Image
-            src={imageUrl || '/placeholder.svg'}
+            src={imageUrl || "/placeholder.svg"}
             alt={title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -254,7 +252,7 @@ function ProjectGallery({
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <div className="relative h-full w-full overflow-hidden rounded-[15px] bg-white dark:bg-gray-800">
                 <Image
-                  src={image || '/placeholder.svg'}
+                  src={image || "/placeholder.svg"}
                   alt={`${title} gallery image ${index + 1}`}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -305,14 +303,14 @@ function PaginationLink({
   project,
   direction,
   href,
-  className = '',
+  className = "",
 }: {
   project: any;
-  direction: 'prev' | 'next';
+  direction: "prev" | "next";
   href: string;
   className?: string;
 }) {
-  const isPrev = direction === 'prev';
+  const isPrev = direction === "prev";
 
   return (
     <Link
@@ -340,7 +338,7 @@ function PaginationLink({
 
       <div>
         <span className="text-sm text-gray-500 dark:text-gray-400">
-          {isPrev ? 'Previous Project' : 'Next Project'}
+          {isPrev ? "Previous Project" : "Next Project"}
         </span>
         <p className="font-medium">{project.frontmatter.title}</p>
       </div>
@@ -595,16 +593,16 @@ function RelatedProjectsCTA() {
  */
 async function ProjectPageContent({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = await getContent('projects', slug);
+  const project = await getContent("projects", slug);
   if (!project) {
     notFound();
   }
 
   // Properly serialize the MDX content
-  const serializedContent = await serialize(project.content || '');
+  const serializedContent = await serialize(project.content || "");
 
   // Get all projects for pagination
-  const allProjects = await getAllContent('projects');
+  const allProjects = await getAllContent("projects");
   const currentIndex = allProjects.findIndex((p) => p?.slug === slug);
   const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
   const nextProject =
@@ -614,20 +612,20 @@ async function ProjectPageContent({ params }: ProjectPageProps) {
 
   // Create JSON-LD structured data
   const jsonLd: WithContext<any> = {
-    '@context': 'https://schema.org',
-    '@type': 'CreativeWork',
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
     name: project.frontmatter.title as string,
     description: project.frontmatter.excerpt as string,
     image: project.frontmatter.coverImage as string,
     creator: {
-      '@type': 'Person',
-      name: 'Gemika Haziq Nugroho',
+      "@type": "Person",
+      name: "Gemika Haziq Nugroho",
     },
     dateCreated: project.frontmatter.year,
     keywords: project.frontmatter.category,
     mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://gemika.vercel.app/projects/${slug}`,
+      "@type": "WebPage",
+      "@id": `https://gemika.vercel.app/projects/${slug}`,
     },
   };
 
@@ -690,11 +688,11 @@ export default async function ProjectPage({
 }) {
   const resolvedParams = await params; // Ensure params is awaited
   const breadcrumbs = [
-    { href: '/', label: 'Home' },
-    { href: '/projects', label: 'Projects' },
+    { href: "/", label: "Home" },
+    { href: "/projects", label: "Projects" },
     {
       href: `/projects/${resolvedParams.slug}`,
-      label: resolvedParams.slug.replace(/-/g, ' '),
+      label: resolvedParams.slug.replace(/-/g, " "),
     },
   ];
 

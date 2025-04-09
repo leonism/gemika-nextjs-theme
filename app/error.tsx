@@ -1,10 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
+import Link from "next/link";
 
-import Link from 'next/link';
-
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 
 export default function Error({
   error,
@@ -27,7 +26,7 @@ export default function Error({
           Something went wrong!
         </h2>
         <p className="text-gray-600 dark:text-gray-300">
-          {error.message || 'An unexpected error occurred'}
+          {error.message || "An unexpected error occurred"}
         </p>
         <div className="flex justify-center gap-4 pt-6">
           <Button

@@ -1,14 +1,13 @@
-'use client';
+"use client";
 
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from "react";
+import Head from "next/head";
+import { useSearchParams } from "next/navigation";
 
-import Head from 'next/head';
-import { useSearchParams } from 'next/navigation';
+import { ProjectsGrid } from "./ProjectsGrid";
+import { ProjectsPagination } from "./ProjectsPagination";
 
-import { PROJECTS_PER_PAGE } from '@/lib/constants';
-
-import { ProjectsGrid } from './ProjectsGrid';
-import { ProjectsPagination } from './ProjectsPagination';
+import { PROJECTS_PER_PAGE } from "@/lib/constants";
 
 interface Props {
   projects: any[];
@@ -16,12 +15,12 @@ interface Props {
 
 export default function ProjectsClientWrapper({ projects }: Props) {
   const searchParams = useSearchParams();
-  const pageParam = searchParams.get('page');
+  const pageParam = searchParams.get("page");
   const page = pageParam ? parseInt(pageParam, 10) : 1;
   const validatedPage = isNaN(page) || page < 1 ? 1 : page;
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [validatedPage]);
 
   const totalProjects = projects.length;
@@ -29,7 +28,7 @@ export default function ProjectsClientWrapper({ projects }: Props) {
   const startIndex = (validatedPage - 1) * PROJECTS_PER_PAGE;
   const currentProjects = useMemo(
     () => projects.slice(startIndex, startIndex + PROJECTS_PER_PAGE),
-    [projects, startIndex]
+    [projects, startIndex],
   );
 
   return (

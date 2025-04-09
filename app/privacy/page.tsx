@@ -1,19 +1,18 @@
-import { serialize } from 'next-mdx-remote/serialize';
-import { notFound } from 'next/navigation';
+import { serialize } from "next-mdx-remote/serialize";
+import { notFound } from "next/navigation";
 
-import { MDXProviderClient } from '@/components/mdx-provider-client';
-import ClientOnly from '@/components/utility/client-only';
-
-import { getContent } from '@/lib/content';
+import { MDXProviderClient } from "@/components/mdx-provider-client";
+import ClientOnly from "@/components/utility/client-only";
+import { getContent } from "@/lib/content";
 
 export default async function PrivacyPage() {
-  const privacy = await getContent('pages', 'privacy');
+  const privacy = await getContent("pages", "privacy");
 
   if (!privacy) {
     notFound();
   }
 
-  const serializedContent = await serialize(privacy.content || '');
+  const serializedContent = await serialize(privacy.content || "");
 
   return (
     <div className="min-h-screen">

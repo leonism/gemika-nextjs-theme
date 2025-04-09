@@ -1,11 +1,9 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
+import Link from "next/link";
+import { Search } from "lucide-react";
 
-import Link from 'next/link';
-
-import { Search } from 'lucide-react';
-
-import { Button } from '@/components/ui/button';
-import { Container } from '@/components/ui/container';
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
 
 interface NotFoundLayoutProps {
   children?: ReactNode;
@@ -17,8 +15,8 @@ interface NotFoundLayoutProps {
 
 export function NotFoundLayout({
   children,
-  title = '404 - Page Not Found',
-  message = 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.',
+  title = "404 - Page Not Found",
+  message = "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
   image,
   searchBar,
 }: NotFoundLayoutProps) {

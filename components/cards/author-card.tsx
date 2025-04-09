@@ -1,12 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
+import { Facebook, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 
-import { Facebook, Github, Instagram, Linkedin, Twitter } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 interface SocialLink {
-  platform: 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'github';
+  platform: "facebook" | "twitter" | "instagram" | "linkedin" | "github";
   url: string;
 }
 
@@ -18,7 +17,7 @@ interface AuthorCardProps {
   postCount?: number;
   socialLinks?: SocialLink[];
   className?: string;
-  variant?: 'default' | 'compact';
+  variant?: "default" | "compact";
 }
 
 export function AuthorCard({
@@ -29,19 +28,19 @@ export function AuthorCard({
   postCount,
   socialLinks,
   className,
-  variant = 'default',
+  variant = "default",
 }: AuthorCardProps) {
   const renderSocialIcon = (platform: string) => {
     switch (platform) {
-      case 'facebook':
+      case "facebook":
         return <Facebook size={16} />;
-      case 'twitter':
+      case "twitter":
         return <Twitter size={16} />;
-      case 'instagram':
+      case "instagram":
         return <Instagram size={16} />;
-      case 'linkedin':
+      case "linkedin":
         return <Linkedin size={16} />;
-      case 'github':
+      case "github":
         return <Github size={16} />;
       default:
         return null;
@@ -51,18 +50,18 @@ export function AuthorCard({
   return (
     <div
       className={cn(
-        'overflow-hidden rounded-lg border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800',
-        variant === 'compact' ? 'flex items-center p-4' : '',
-        className
+        "overflow-hidden rounded-lg border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800",
+        variant === "compact" ? "flex items-center p-4" : "",
+        className,
       )}
     >
-      {variant === 'default' ? (
+      {variant === "default" ? (
         <>
           <div className="relative aspect-video">
             <Image
               src={
                 imageUrl ||
-                'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
+                "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
               }
               alt={name}
               fill
@@ -83,7 +82,7 @@ export function AuthorCard({
 
             {postCount !== undefined && (
               <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
-                {postCount} {postCount === 1 ? 'post' : 'posts'}
+                {postCount} {postCount === 1 ? "post" : "posts"}
               </p>
             )}
 
@@ -111,7 +110,7 @@ export function AuthorCard({
             <Image
               src={
                 imageUrl ||
-                'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
+                "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
               }
               alt={name}
               fill
@@ -128,7 +127,7 @@ export function AuthorCard({
 
             {postCount !== undefined && (
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                {postCount} {postCount === 1 ? 'post' : 'posts'}
+                {postCount} {postCount === 1 ? "post" : "posts"}
               </p>
             )}
           </div>

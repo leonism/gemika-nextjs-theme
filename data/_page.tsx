@@ -4,84 +4,82 @@
  * Clean, structured layout with minimal nesting and clear section hierarchy.
  * Responsive design maintained with Tailwind viewports (sm, md, lg, xl).
  */
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
+import { WithContext } from "schema-dts";
 
-import { ChevronRight } from 'lucide-react';
-import { WithContext } from 'schema-dts';
-
-import JsonLd from '@/components/json-ld';
-import { HomeLayout } from '@/components/layouts/home-layout';
-import { Breadcrumbs } from '@/components/navigation/breadcrumbs';
-import { Footer } from '@/components/navigation/footer';
-
-import { getAllContent } from '@/lib/content';
+import JsonLd from "@/components/json-ld";
+import { HomeLayout } from "@/components/layouts/home-layout";
+import { Breadcrumbs } from "@/components/navigation/breadcrumbs";
+import { Footer } from "@/components/navigation/footer";
+import { getAllContent } from "@/lib/content";
 
 // Constants - Kept at top for easy reference
 const BRANDS = [
-  'Apple',
-  'Adobe',
-  'Google',
-  'Microsoft',
-  'Samsung',
-  'Spotify',
-  'Amazon',
-  'Netflix',
+  "Apple",
+  "Adobe",
+  "Google",
+  "Microsoft",
+  "Samsung",
+  "Spotify",
+  "Amazon",
+  "Netflix",
 ];
 
 // Trending topics data for the expertise section
 const trendingTopics = [
   {
     image:
-      'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    title: 'UX Design',
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+    title: "UX Design",
     description:
-      'Principles, methods, and tools for creating exceptional user experiences',
+      "Principles, methods, and tools for creating exceptional user experiences",
     count: 8,
-    tags: ['Research', 'Wireframing', 'Prototyping'],
-    color: 'bg-indigo-600',
+    tags: ["Research", "Wireframing", "Prototyping"],
+    color: "bg-indigo-600",
   },
   {
-    title: 'Mobile Development',
-    description: 'Building responsive, cross-platform mobile applications',
+    title: "Mobile Development",
+    description: "Building responsive, cross-platform mobile applications",
     image:
-      'https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     count: 6,
-    tags: ['Flutter', 'React Native', 'Swift'],
-    color: 'bg-emerald-600',
+    tags: ["Flutter", "React Native", "Swift"],
+    color: "bg-emerald-600",
   },
   {
-    title: 'Design Systems',
-    description: 'Creating scalable and consistent design systems for products',
+    title: "Design Systems",
+    description: "Creating scalable and consistent design systems for products",
     image:
-      'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+      "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
     count: 5,
-    tags: ['Figma', 'Storybook', 'Tokens'],
-    color: 'bg-amber-600',
+    tags: ["Figma", "Storybook", "Tokens"],
+    color: "bg-amber-600",
   },
 ];
 
 export default async function Home() {
   const [featuredProjects, latestPosts] = await Promise.all([
-    getAllContent('projects').then((projects) => projects.slice(0, 5)),
-    getAllContent('posts').then((posts) => posts.slice(0, 9)),
+    getAllContent("projects").then((projects) => projects.slice(0, 5)),
+    getAllContent("posts").then((posts) => posts.slice(0, 9)),
   ]);
 
   const jsonLd: WithContext<any> = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Gemika Haziq Nugroho - UX Strategist & Mobile Developer',
-    url: 'https://gemika.vercel.app',
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Gemika Haziq Nugroho - UX Strategist & Mobile Developer",
+    url: "https://gemika.vercel.app",
     description:
-      'Expert user experience strategist and mobile developer portfolio',
+      "Expert user experience strategist and mobile developer portfolio",
     potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://gemika.vercel.app/search?q={search_term_string}',
-      'query-input': 'required name=search_term_string',
+      "@type": "SearchAction",
+      target: "https://gemika.vercel.app/search?q={search_term_string}",
+      "query-input": "required name=search_term_string",
     },
   };
 
-  const breadcrumbs = [{ href: '/', label: 'Home' }];
+  const breadcrumbs = [{ href: "/", label: "Home" }];
 
   return (
     <>
@@ -195,13 +193,13 @@ export default async function Home() {
                 <Link
                   key={project.slug}
                   href={`/projects/${project.slug}`}
-                  className={`group relative overflow-hidden rounded-xl shadow-lg transition-all duration-500 hover:-translate-y-1 sm:rounded-2xl sm:hover:-translate-y-2 ${index === 0 ? 'md:col-span-2' : ''}`}
+                  className={`group relative overflow-hidden rounded-xl shadow-lg transition-all duration-500 hover:-translate-y-1 sm:rounded-2xl sm:hover:-translate-y-2 ${index === 0 ? "md:col-span-2" : ""}`}
                 >
                   <div
-                    className={`relative ${index === 0 ? 'aspect-[16/8]' : 'aspect-[16/9]'} overflow-hidden`}
+                    className={`relative ${index === 0 ? "aspect-[16/8]" : "aspect-[16/9]"} overflow-hidden`}
                   >
                     <Image
-                      src={project.frontmatter.coverImage || '/placeholder.svg'}
+                      src={project.frontmatter.coverImage || "/placeholder.svg"}
                       alt={project.frontmatter.title as string}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -248,7 +246,7 @@ export default async function Home() {
               {trendingTopics.map((topic) => (
                 <Link
                   key={topic.title}
-                  href={`/category/${topic.title.toLowerCase().replace(' ', '-')}`}
+                  href={`/category/${topic.title.toLowerCase().replace(" ", "-")}`}
                   className="group relative overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-xl sm:rounded-2xl sm:hover:-translate-y-2"
                 >
                   <div className="relative aspect-video overflow-hidden">
@@ -346,8 +344,8 @@ export default async function Home() {
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <Image
-                      src={post.frontmatter.coverImage || '/placeholder.svg'}
-                      alt={post.frontmatter.title || 'Untitled Post'}
+                      src={post.frontmatter.coverImage || "/placeholder.svg"}
+                      alt={post.frontmatter.title || "Untitled Post"}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
@@ -357,7 +355,7 @@ export default async function Home() {
                     <div className="relative z-10">
                       <div className="mb-2 flex items-center gap-1 sm:mb-3 sm:gap-2">
                         <span className="rounded-full bg-gradient-to-r from-indigo-100 to-purple-100 px-2 py-0.5 text-xs font-medium text-indigo-600 sm:px-3 sm:py-1 sm:text-sm">
-                          {(post.frontmatter.tags || ['Uncategorized'])[0]}
+                          {(post.frontmatter.tags || ["Uncategorized"])[0]}
                         </span>
                         <span className="flex items-center text-xs text-gray-500 sm:text-sm">
                           <svg
@@ -374,20 +372,20 @@ export default async function Home() {
                             />
                           </svg>
                           {new Date(post.frontmatter.date).toLocaleDateString(
-                            'en-US',
+                            "en-US",
                             {
-                              year: 'numeric',
-                              month: 'short',
-                              day: 'numeric',
-                            }
-                          ) || 'Unknown date'}
+                              year: "numeric",
+                              month: "short",
+                              day: "numeric",
+                            },
+                          ) || "Unknown date"}
                         </span>
                       </div>
                       <h3 className="mb-1 text-base font-bold text-gray-900 transition-colors group-hover:text-indigo-600 sm:mb-2 sm:text-lg md:mb-3 md:text-xl">
-                        {post.frontmatter.title || 'Untitled Post'}
+                        {post.frontmatter.title || "Untitled Post"}
                       </h3>
                       <p className="mb-2 line-clamp-2 text-xs text-gray-600 sm:mb-3 sm:line-clamp-3 sm:text-sm md:mb-4 md:text-base">
-                        {post.frontmatter.excerpt || 'No excerpt available.'}
+                        {post.frontmatter.excerpt || "No excerpt available."}
                       </p>
                       <div className="inline-flex items-center text-xs font-medium text-indigo-600 sm:text-sm md:text-base">
                         Read more

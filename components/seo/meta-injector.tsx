@@ -1,14 +1,13 @@
-import type React from 'react';
-
-import Head from 'next/head';
+import type React from "react";
+import Head from "next/head";
 
 interface MetaInjectorProps {
   title: string;
   description: string;
   keywords?: string[];
   ogImage?: string;
-  ogType?: 'website' | 'article';
-  twitterCard?: 'summary' | 'summary_large_image';
+  ogType?: "website" | "article";
+  twitterCard?: "summary" | "summary_large_image";
   canonicalUrl?: string;
   children?: React.ReactNode;
 }
@@ -18,13 +17,13 @@ export function MetaInjector({
   description,
   keywords,
   ogImage,
-  ogType = 'website',
-  twitterCard = 'summary_large_image',
+  ogType = "website",
+  twitterCard = "summary_large_image",
   canonicalUrl,
   children,
 }: MetaInjectorProps) {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://gemika.netlify.app';
+    process.env.NEXT_PUBLIC_SITE_URL || "https://gemika.netlify.app";
   const fullCanonicalUrl = canonicalUrl
     ? `${siteUrl}${canonicalUrl}`
     : undefined;
@@ -35,7 +34,7 @@ export function MetaInjector({
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && keywords.length > 0 && (
-        <meta name="keywords" content={keywords.join(', ')} />
+        <meta name="keywords" content={keywords.join(", ")} />
       )}
 
       {/* Open Graph Tags */}

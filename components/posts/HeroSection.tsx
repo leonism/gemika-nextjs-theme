@@ -12,7 +12,7 @@ export function HeroSection() {
 
         {/* Main title with gradient */}
         <h1 className="mb-6 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-          Insights &{' '}
+          Insights &{" "}
           <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
             Thoughts
           </span>

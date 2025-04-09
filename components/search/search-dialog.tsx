@@ -1,15 +1,12 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { ArrowRight, SearchIcon, X } from "lucide-react";
 
-import { useRouter } from 'next/navigation';
-
-import { ArrowRight, SearchIcon, X } from 'lucide-react';
-
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-
-import { cn } from '@/lib/utils';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 
 interface SearchResult {
   id: string;
@@ -22,7 +19,7 @@ interface SearchResult {
 }
 
 export function SearchDialog() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,29 +39,29 @@ export function SearchDialog() {
     };
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
 
   // Handle keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         setIsOpen(false);
       }
       // Open search on Cmd+K or Ctrl+K
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         setIsOpen(true);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   // Focus input when dialog opens
@@ -83,15 +80,15 @@ export function SearchDialog() {
         setIsLoading(true);
         try {
           const response = await fetch(
-            `/api/search?q=${encodeURIComponent(query)}`
+            `/api/search?q=${encodeURIComponent(query)}`,
           );
           if (!response.ok) {
-            throw new Error('Search request failed');
+            throw new Error("Search request failed");
           }
           const data = await response.json();
           setResults(data);
         } catch (error) {
-          console.error('Search error:', error);
+          console.error("Search error:", error);
           setResults([]);
         } finally {
           setIsLoading(false);
@@ -136,8 +133,8 @@ export function SearchDialog() {
           <div
             ref={dialogRef}
             className={cn(
-              'mt-20 w-full max-w-xl overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800',
-              'duration-200 animate-in fade-in-75 slide-in-from-left-8'
+              "mt-20 w-full max-w-xl overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800",
+              "duration-200 animate-in fade-in-75 slide-in-from-left-8",
             )}
             role="dialog"
             aria-modal="true"

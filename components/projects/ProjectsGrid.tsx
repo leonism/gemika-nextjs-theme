@@ -1,4 +1,4 @@
-import { ProjectCard } from './ProjectCard';
+import { ProjectCard } from "./ProjectCard";
 
 export function ProjectsGrid({ projects }: { projects: any[] }) {
   return (

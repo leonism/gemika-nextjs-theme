@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
 // Mark this as a Client Component
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
-import { Container } from '@/components/ui/container';
+import { Container } from "@/components/ui/container";
 
 interface PageLayoutProps {
   children: ReactNode;

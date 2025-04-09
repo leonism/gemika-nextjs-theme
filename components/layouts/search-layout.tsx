@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
-import { Container } from '@/components/ui/container';
+import { Container } from "@/components/ui/container";
 
 interface SearchLayoutProps {
   children: ReactNode;
@@ -30,15 +30,15 @@ export function SearchLayout({
           <p className="mb-6 text-base text-gray-600 dark:text-gray-400 sm:mb-8 sm:text-lg">
             {resultsCount !== undefined ? (
               <>
-                Showing {resultsCount} result{resultsCount !== 1 ? 's' : ''}{' '}
-                for:{' '}
+                Showing {resultsCount} result{resultsCount !== 1 ? "s" : ""}{" "}
+                for:{" "}
                 <span className="font-medium text-black dark:text-white">
                   "{searchQuery}"
                 </span>
               </>
             ) : (
               <>
-                Searching for:{' '}
+                Searching for:{" "}
                 <span className="font-medium text-black dark:text-white">
                   "{searchQuery}"
                 </span>
@@ -55,7 +55,7 @@ export function SearchLayout({
           </aside>
         )}
 
-        <main className={filters ? 'lg:col-span-3' : 'lg:col-span-4'}>
+        <main className={filters ? "lg:col-span-3" : "lg:col-span-4"}>
           {children}
         </main>
       </div>
