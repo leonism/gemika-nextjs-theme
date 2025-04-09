@@ -40,30 +40,34 @@ export default function AboutPage() {
           </div>
 
           {/* Expertise Cards with Resources styling */}
+          // Expertise Cards with distinct default colors
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 icon: <Layout className="h-6 w-6" />,
                 title: "User Experience Design",
                 description: "Creating intuitive and engaging digital experiences",
-                gradient: "from-purple-500 to-violet-600"
+                gradient: "from-purple-500 to-violet-600",
+                bgColor: "bg-purple-50 dark:bg-purple-900/20"
               },
               {
                 icon: <Code className="h-6 w-6" />,
                 title: "Mobile Development",
                 description: "Building performant cross-platform applications",
-                gradient: "from-blue-500 to-cyan-600"
+                gradient: "from-blue-500 to-cyan-600",
+                bgColor: "bg-blue-50 dark:bg-blue-900/20"
               },
               {
                 icon: <Eye className="h-6 w-6" />,
                 title: "User Research",
                 description: "Understanding user needs through testing",
-                gradient: "from-emerald-500 to-teal-600"
+                gradient: "from-emerald-500 to-teal-600",
+                bgColor: "bg-emerald-50 dark:bg-emerald-900/20"
               }
             ].map((item, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
+                className={`group relative overflow-hidden rounded-xl border border-gray-200 ${item.bgColor} p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`} />
                 <div className="relative z-10">
@@ -94,18 +98,20 @@ export default function AboutPage() {
                   icon: <Award className="h-5 w-5" />,
                   title: "Award-Winning Work",
                   description: "Recognized by industry leaders for innovative design solutions",
-                  gradient: "from-amber-500 to-orange-500"
+                  gradient: "from-amber-500 to-orange-500",
+                  bgColor: "bg-amber-50 dark:bg-amber-900/20"
                 },
                 {
                   icon: <Users className="h-5 w-5" />,
                   title: "Diverse Clientele",
                   description: "From startups to Fortune 500 companies across multiple industries",
-                  gradient: "from-sky-500 to-blue-500"
+                  gradient: "from-sky-500 to-blue-500",
+                  bgColor: "bg-sky-50 dark:bg-sky-900/20"
                 }
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
+                  className={`group relative overflow-hidden rounded-xl border border-gray-200 ${item.bgColor} p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700`}
                 >
                   <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`} />
                   <div className="relative z-10">
@@ -137,24 +143,27 @@ export default function AboutPage() {
                   icon: <Lightbulb className="h-5 w-5" />,
                   title: "Invisible Design",
                   description: "Great design feels intuitive and natural, letting users focus on their goals",
-                  gradient: "from-violet-500 to-purple-500"
+                  gradient: "from-violet-500 to-purple-500",
+                  bgColor: "bg-violet-50 dark:bg-violet-900/20"
                 },
                 {
                   icon: <Sparkles className="h-5 w-5" />,
                   title: "Beautiful & Functional",
                   description: "Combining aesthetic appeal with technical excellence",
-                  gradient: "from-pink-500 to-rose-500"
+                  gradient: "from-pink-500 to-rose-500",
+                  bgColor: "bg-pink-50 dark:bg-pink-900/20"
                 },
                 {
                   icon: <Users className="h-5 w-5" />,
                   title: "User-Centered",
                   description: "Design decisions rooted in real user needs and behaviors",
-                  gradient: "from-indigo-500 to-blue-500"
+                  gradient: "from-indigo-500 to-blue-500",
+                  bgColor: "bg-indigo-50 dark:bg-indigo-900/20"
                 }
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
+                  className={`group relative overflow-hidden rounded-xl border border-gray-200 ${item.bgColor} p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700`}
                 >
                   <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`} />
                   <div className="relative z-10">
