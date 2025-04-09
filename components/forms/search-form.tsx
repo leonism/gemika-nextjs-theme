@@ -49,13 +49,16 @@ export function SearchForm({
   };
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (query) {
-      router.push(`/search?q=${encodeURIComponent(query)}`);
-    }
-  };
+  // Replace the useCallback with an inline function with explicit dependencies
+  const handleSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      if (query.trim()) {
+        router.push(`/search?q=${encodeURIComponent(query)}`);
+      }
+    },
+    [query, router]
+  );
 
   // Update local state when URL query changes
   useEffect(() => {

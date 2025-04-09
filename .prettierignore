@@ -8,3 +8,6 @@ public/
 out
 dist
 public
+.vercel
+.github
+coverage

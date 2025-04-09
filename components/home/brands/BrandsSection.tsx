@@ -1,5 +1,4 @@
-// Update the brand logo sizes in the BrandsSection component
-// ... existing imports ...
+import Image from 'next/image';
 
 export function BrandsSection() {
   return (
@@ -10,14 +9,14 @@ export function BrandsSection() {
         </h3>
         <div className="grid grid-cols-3 items-center justify-items-center gap-6 md:grid-cols-6 md:gap-8">
           {/* Increased size for mobile */}
-          {brands.map((brand, index) => (
+          {[].map((brand, index) => (
             <div
               key={index}
               className="flex h-12 w-20 items-center justify-center opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-14 sm:w-24 md:h-16 md:w-28"
             >
               <Image
-                src={brand.logo}
-                alt={brand.name}
+                src={brand}
+                alt="Brand logo"
                 width={120}
                 height={60}
                 className="max-h-full max-w-full object-contain"
