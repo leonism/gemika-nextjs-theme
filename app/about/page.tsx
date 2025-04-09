@@ -6,10 +6,9 @@ export default function AboutPage() {
       <main>
         <section className="container mx-auto max-w-4xl px-4 py-16">
           <div className="mb-8">
-            // Replace the img tag (around line 9)
-            <div className="relative mx-auto mb-8 h-64 w-64 overflow-hidden rounded-full">
+            <div className="relative mx-auto overflow-hidden rounded-full border-4 border-white shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl mb-8 h-64 w-64 overflow-hidden rounded-full">
               <Image
-                src="/path/to/profile-image.jpg"
+                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
                 alt="Profile"
                 fill
                 className="object-cover"

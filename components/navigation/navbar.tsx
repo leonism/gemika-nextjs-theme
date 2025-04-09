@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
+
+
 import { usePathname } from "next/navigation";
 
 import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { Search } from "@/components/search";
-import { SearchDialog } from "@/components/search/search-dialog";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -28,7 +29,7 @@ export function Navbar({
   const pathname = usePathname();
 
   return (
-    <header className="md:h-18 sticky top-0 z-50 h-14 w-full border-b border-gray-200/50 bg-white shadow-md dark:border-gray-800/50 dark:bg-gray-900 sm:h-16 lg:h-20">
+    <header className="sticky top-0 z-50 h-16 w-full border-b border-gray-200/50 bg-white shadow-md dark:border-gray-800/50 dark:bg-gray-900 sm:h-16 md:h-18 lg:h-20">
       <div className="container mx-auto flex h-full max-w-7xl items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8">
         {/* Logo */}
         <div className="flex-1">
@@ -117,13 +118,13 @@ function DesktopNav({
   return (
     <nav className="hidden items-center space-x-0.5 sm:space-x-1 md:flex md:space-x-2">
       {items.map((item) => (
-        <NavItem key={item.label} item={item} pathname={pathname} />
+        <NavigationItem key={item.label} item={item} pathname={pathname} />
       ))}
     </nav>
   );
 }
 
-function NavItem({
+function NavigationItem({
   item,
   pathname,
 }: {
@@ -286,7 +287,6 @@ function DropdownMenuItem({
 function DesktopControls({ cta }: { cta: { label: string; href: string } }) {
   return (
     <div className="hidden items-center space-x-3 md:flex md:space-x-4">
-      {/* Search button - removed rounded background, simplified hover */}
       <div className="flex items-center justify-center transition-colors hover:text-indigo-600 dark:hover:text-indigo-400">
         <Search />
       </div>

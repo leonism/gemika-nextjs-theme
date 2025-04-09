@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+// Remove unused import
 
 import { HeroBrands } from "@/components/home/hero/HeroBrands";
 
@@ -21,7 +21,7 @@ export function HeroSection() {
       <div className="container relative z-10 mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
         {/* Profile Image - Increased size for mobile */}
         <div className="mb-6 flex justify-center sm:mb-8 md:mb-10">
-          <div className="group relative h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl sm:h-32 sm:w-32 md:h-36 md:w-36 lg:h-40 lg:w-40">
+          <div className="group relative h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl sm:h-36 sm:w-36 md:h-36 md:w-36 lg:h-40 lg:w-40">
             <Image
               src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
               alt="Gemika Haziq Nugroho"
