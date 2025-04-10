@@ -13,7 +13,7 @@ export default function SearchPage() {
   const query = searchParams.get("q") || "";
 
   // Create JSON-LD structured data
-  const jsonLd: WithContext<SearchResultsPage> = {
+  const jsonLd: WithContext<any> = {
     "@context": "https://schema.org",
     "@type": "SearchResultsPage",
     name: `Search Results for "${query}" | gemika`,
