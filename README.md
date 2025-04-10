@@ -1,15 +1,8 @@
 # 🚀 Gemika Next.js Theme
 
+![Gemika Next.js Theme](public/gemika-nextjs-theme.jpg)
+
 Gemika Next.js Theme is a modern, scalable web application template designed for developers aiming to build high-performance applications. Leveraging Next.js, MDX, Tailwind CSS and Turbopack, this project provides an optimized, forward-thinking development environment complete with robust configurations and up-to-date dependencies. Whether you're starting a new project or looking to enhance an existing one, this theme offers a practical and efficient foundation built with industry best practices in mind.
-
-![Project Banner](public/banner.png)
-
-<div style="text-align: center; background: linear-gradient(135deg, #667eea, #764ba2); padding: 40px 20px; color: #fff; border-radius: 8px;">
-  <h1 style="font-size: 2.5em; margin: 0;">Gemika Next.js Theme</h1>
-  <p style="font-size: 1.2em; max-width: 800px; margin: 20px auto 0;">
-    A modern, scalable web application template built with Next.js and Turbopack. This theme offers an optimized development environment designed to empower you for rapid, efficient, and forward-thinking application building.
-  </p>
-</div>
 
 ## 🌟 Features
 
