@@ -79,6 +79,8 @@ export function ProjectCard({ project }: { project: any }) {
                 {project.frontmatter.client}
               </div>
             )}
+            <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5">
+            </div>
           </div>
         </div>
       </Link>
