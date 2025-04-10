@@ -19,9 +19,9 @@ export function SearchLayout({
 }: SearchLayoutProps) {
   return (
     <Container>
-      <div className="mb-8 px-4 sm:px-6 md:px-0">
-        <h1 className="mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-3xl font-bold text-transparent dark:from-gray-100 dark:to-gray-400 sm:text-4xl">
-          Search Results
+      <div className="mb-8 mt-4 px-4 sm:px-6 md:px-0">
+        <h1 className="mb-6 mt-4 bg-clip-text text-xl font-bold leading-tight text-gray-900 dark:text-white md:text-2xl lg:text-3xl">
+          Search <span class="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">Results</span>
         </h1>
 
         {searchInput && <div className="mb-6">{searchInput}</div>}
@@ -48,7 +48,7 @@ export function SearchLayout({
         )}
       </div>
 
-      <div className="grid grid-cols-1 gap-6 px-4 sm:gap-8 sm:px-6 md:px-0 lg:grid-cols-4 lg:gap-12">
+      <div className="mb-5 grid grid-cols-1 gap-6 px-4 sm:gap-8 sm:px-6 md:px-0 lg:grid-cols-4 lg:gap-12">
         {filters && (
           <aside className="space-y-6 sm:space-y-8 lg:col-span-1">
             {filters}

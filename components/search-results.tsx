@@ -43,7 +43,7 @@ export function SearchResults({ query }: SearchResultsProps) {
     async function fetchResults() {
       setIsLoading(true);
       try {
-        const response = await fetch(
+        const response = await window.fetch(
           `/api/search?q=${encodeURIComponent(query)}`,
         );
         if (!response.ok) throw new Error("Failed to fetch search results");
@@ -126,7 +126,7 @@ export function SearchResults({ query }: SearchResultsProps) {
           className="group rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900/50 dark:hover:border-primary/50"
           aria-labelledby={`result-${result.id}-title`}
         >
-          <Link href={result.url} className="block">
+          <Link href={result.url} className="block mb-4"> {/* Added mb-4 here */}
             <div className="flex items-start gap-5">
               <div className="flex-1">
                 <div className="mb-3 flex items-center gap-3 text-sm">
