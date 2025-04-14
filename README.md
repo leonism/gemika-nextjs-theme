@@ -1,6 +1,12 @@
 # 🚀 Gemika Next.js Theme
 
-![Gemika Next.js Theme](public/gemika-nextjs-theme.jpg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a7d8d2c7-8b6d-4339-b755-b6e6817de183/deploy-status)](https://app.netlify.com/sites/gemika/deploys)
+
+[![Vercel Status](https://vercelbadge.vercel.app/api/leonism/gemika-nextjs-theme?style=for-the-badge)](https://vercel.com/leonism/gemika-nextjs-theme)
+
+[![Cloudflare Pages](https://img.shields.io/endpoint?style=for-the-badge&url=https://cloudflare-pages-badges.xyz.workers.dev/?projectName=gemika)](https://gemika.pages.dev)
+
+![Gemika Next.js Theme](public/gemika-nextjs-theme-splash.jpg)
 
 Gemika Next.js Theme is a modern, scalable web application template designed for developers aiming to build high-performance applications. Leveraging Next.js, MDX, Tailwind CSS and Turbopack, this project provides an optimized, forward-thinking development environment complete with robust configurations and up-to-date dependencies. Whether you're starting a new project or looking to enhance an existing one, this theme offers a practical and efficient foundation built with industry best practices in mind.
 
@@ -90,5 +96,29 @@ For Vercel deployment:
   ```bash
   vercel
   ```
+For Cloudflare Pages deployment:
+
+- Install the Cloudflare Pages CLI:
+  ```bash
+  npm install -g cloudflare-pages-cli
+  ```
+  ```bash
+  npm install --save-dev @cloudflare/next-on-pages
+  ```
+- Built with Cloudflare Pages CLI:
+  ```bash
+  npm run pages:build
+  ```
+
+- Deploy to Cloudflare Pages
+  ```bash
+  npm run pages:deploy
+  ```
+
+- Or do both in one go
+  ```bash
+  npm run deploy
+  ```
+
 
 For more details, refer to the [Next.js deployment documentation](https://nextjs.org/docs/deployment).

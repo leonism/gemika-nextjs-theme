@@ -7,6 +7,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "pages:build": "next build && npx @cloudflare/next-on-pages --experimental-minify",
+    "pages:deploy": "wrangler pages deploy .vercel/output --project-name=gemika",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix && prettier --write .",
     "format": "prettier --write \"*.{js,ts,md}\" \"app/**/*.{js,ts,jsx,tsx,md}\" \"components/**/*.{js,ts,jsx,tsx,md}\" --ignore-path .prettierignore",
@@ -77,6 +79,7 @@
     "zod": "latest"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.12",
     "@eslint/js": "^9.24.0",
     "@next/eslint-plugin-next": "^15.2.5",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
