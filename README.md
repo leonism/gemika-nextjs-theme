@@ -216,6 +216,7 @@ Performance optimizations include:
 ## 📜 Changelog
 
 ### v0.1.0 (Current)
+
 - 🚀 Initial release with core functionality
 - 📝 Complete portfolio sections
 - 📚 Blog with pagination
