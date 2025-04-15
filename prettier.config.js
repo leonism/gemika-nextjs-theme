@@ -1,4 +1,4 @@
-import js from '@eslint/js'
+import js from '@eslint/js';
 import tseslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
 import importPlugin from 'eslint-plugin-import'

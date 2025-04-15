@@ -15,23 +15,23 @@ export function ProjectCard({ project }: { project: any }) {
     <div className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:hover:-translate-y-2">
       <Link href={`/projects/${project.slug}`} className="flex h-full flex-col">
         <div className="relative h-48 w-full overflow-hidden">
-          {/* Category bullet at top left */}
-          {project.frontmatter.category && (
-            <div className="absolute left-3 top-3 z-10">
-              <span
-                className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${colorSet.bg} ${colorSet.text}`}
-              >
-                {project.frontmatter.category}
-              </span>
-            </div>
-          )}
-
           <Image
             src={project.frontmatter.coverImage || "/placeholder.svg"}
             alt={project.frontmatter.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
+
+          {/* Category bullet at bottom right */}
+          {project.frontmatter.category && (
+            <div className="absolute bottom-3 right-3 z-10">
+              <span
+                className={`inline-flex items-center rounded-full border border-white/20 px-3 py-1 text-xs font-medium shadow-sm backdrop-blur-sm ${colorSet.bg} ${colorSet.text}`}
+              >
+                {project.frontmatter.category}
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-grow flex-col p-6">
@@ -81,9 +81,9 @@ export function ProjectCard({ project }: { project: any }) {
                 {project.frontmatter.client}
               </div>
             )}
-            <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5">
-            </div>
           </div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5">
         </div>
       </Link>
     </div>
