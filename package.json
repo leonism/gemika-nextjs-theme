@@ -7,7 +7,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "pages:build": "next build && npx @cloudflare/next-on-pages --experimental-minify",
+    "pages:build": "next build && npx @cloudflare/next-on-pages",
     "pages:deploy": "wrangler pages deploy .vercel/output --project-name=gemika",
     "deploy": "npm run pages:build && npm run pages:deploy",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
