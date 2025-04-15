@@ -9,6 +9,7 @@
     "start": "next start",
     "pages:build": "next build && npx @cloudflare/next-on-pages --experimental-minify",
     "pages:deploy": "wrangler pages deploy .vercel/output --project-name=gemika",
+    "deploy": "npm run pages:build && npm run pages:deploy",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix && prettier --write .",
     "format": "prettier --write \"*.{js,ts,md}\" \"app/**/*.{js,ts,jsx,tsx,md}\" \"components/**/*.{js,ts,jsx,tsx,md}\" --ignore-path .prettierignore",
