@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-
-import { Search } from "@/components/search";
+import { usePathname } from 'next/navigation';
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -59,7 +58,7 @@ function Logo() {
       >
         <LogoIcon />
         <span className="relative text-xs font-bold tracking-wide text-white">
-          BenJo
+          Gemika
         </span>
       </Link>
     </div>
@@ -68,6 +67,7 @@ function Logo() {
 
 export function MobileMenu({ items, cta }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname(); // Add this to get current route
 
   // Close menu when route changes and prevent body scrolling when menu is open
   useEffect(() => {
@@ -141,7 +141,10 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
                   onClick={() => setIsOpen(false)}
                   className={cn(
                     "block rounded-lg px-3 py-1 text-base font-medium transition-colors duration-200",
-                    "text-gray-900 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-indigo-400",
+                    pathname === item.href ||
+                    (item.href !== "/" && pathname?.startsWith(item.href))
+                      ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400"
+                      : "text-gray-900 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-indigo-400"
                   )}
                 >
                   {item.label}
@@ -156,7 +159,9 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
                         onClick={() => setIsOpen(false)}
                         className={cn(
                           "block rounded-lg px-3 py-2 text-sm transition-colors duration-200",
-                          "text-gray-700 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-indigo-400",
+                          pathname === child.href
+                            ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400"
+                            : "text-gray-700 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-indigo-400"
                         )}
                       >
                         {child.label}

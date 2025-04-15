@@ -75,7 +75,7 @@ function Logo() {
       >
         <LogoIcon />
         <span className="relative text-xs font-bold tracking-wide text-white sm:text-sm md:text-base">
-          BenJo
+          Gemika
         </span>
       </Link>
     </div>

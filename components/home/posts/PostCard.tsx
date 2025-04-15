@@ -63,7 +63,7 @@ export function PostCard({ post }: PostCardProps) {
           <h3 className="mb-2 text-lg font-bold text-gray-900 transition-colors group-hover:text-indigo-600 sm:mb-3 sm:text-xl md:mb-4 md:text-2xl">
             {post.frontmatter.title || "Untitled Post"}
           </h3>
-          <p className="mb-3 line-clamp-2 text-sm text-gray-600 sm:mb-4 sm:line-clamp-3 sm:text-base md:mb-5 md:text-lg">
+          <p className="mb-3 line-clamp-2 text-md text-gray-600 sm:mb-4 sm:line-clamp-3 sm:text-base md:mb-5 md:text-lg">
             {post.frontmatter.excerpt || "No excerpt available."}
           </p>
           {/* Read more link */}

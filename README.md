@@ -76,7 +76,7 @@ To start the development server with Turbopack, run:
 npm run dev
 ```
 
-Open http://localhost:3000 in your browser to see the application. The page will automatically update as you make changes to the code. You'll see build errors and lint warnings in the console.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application. The page will automatically update as you make changes to the code. You'll see build errors and lint warnings in the console.
 
 ## 🏗️ Building for Production
 
@@ -238,4 +238,4 @@ We welcome contributions! Please follow these steps:
 
 MIT © [Gemika Haziq Nugroho]
 
-💖 Made with Next.js, TypeScript, and lots of coffee!
+💖 Made with Next.js, TailwindCSS, MDX, TypeScript, and lots of coffee!

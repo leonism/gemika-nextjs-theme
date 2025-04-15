@@ -8,6 +8,7 @@ import {
   MapPin,
   Phone,
   Twitter,
+  RssIcon,
 } from "lucide-react";
 
 import { NewsletterForm } from "@/components/forms/newsletter-form";
@@ -58,7 +59,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
                 href="/"
                 className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent"
               >
-                BenJo Theme
+                Gemika
               </Link>
               <p className="text-gray-600 dark:text-gray-400">
                 Expert user experience strategist and mobile developer creating
@@ -100,6 +101,13 @@ export function Footer({ showNewsletter = true }: FooterProps) {
                   aria-label="GitHub"
                 >
                   <Github size={20} />
+                </Link>
+                <Link
+                  href="#"
+                  className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
+                  aria-label="GitHub"
+                >
+                  <RssIcon size={20} />
                 </Link>
               </div>
             </div>

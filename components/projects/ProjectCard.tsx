@@ -15,28 +15,30 @@ export function ProjectCard({ project }: { project: any }) {
     <div className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:hover:-translate-y-2">
       <Link href={`/projects/${project.slug}`} className="flex h-full flex-col">
         <div className="relative h-48 w-full overflow-hidden">
+          {/* Category bullet at top left */}
+          {project.frontmatter.category && (
+            <div className="absolute left-3 top-3 z-10">
+              <span
+                className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${colorSet.bg} ${colorSet.text}`}
+              >
+                {project.frontmatter.category}
+              </span>
+            </div>
+          )}
+
           <Image
             src={project.frontmatter.coverImage || "/placeholder.svg"}
             alt={project.frontmatter.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          {project.frontmatter.category && (
-            <div className="absolute bottom-3 right-3">
-              <span
-                className={`rounded-full px-3 py-1 text-xs font-medium ${colorSet.bg} ${colorSet.text}`}
-              >
-                {project.frontmatter.category}
-              </span>
-            </div>
-          )}
         </div>
 
         <div className="flex flex-grow flex-col p-6">
           <h3 className="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600">
             {project.frontmatter.title}
           </h3>
-          <p className="mb-4 text-sm text-gray-600 sm:text-base">
+          <p className="mb-4 text-md text-gray-600 sm:text-base">
             {project.frontmatter.excerpt}
           </p>
 
