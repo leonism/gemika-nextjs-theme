@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { usePathname } from 'next/navigation';
+
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
+import Image from "next/image";
 
 interface NavItem {
   label: string;
@@ -22,46 +25,26 @@ interface MobileMenuProps {
   };
 }
 
-function LogoIcon() {
+export function Logo() {
   return (
-    <svg
-      className="mr-1 h-3 w-3 animate-pulse sm:mr-1.5 sm:h-4 sm:w-4 md:mr-2 md:h-5 md:w-5"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="12" cy="12" r="10" fill="url(#logo-gradient)" />
-      <defs>
-        <linearGradient
-          id="logo-gradient"
-          x1="12"
-          y1="2"
-          x2="12"
-          y2="22"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#ffffff" stopOpacity="0.8" />
-          <stop offset="1" stopColor="#ffffff" stopOpacity="0.4" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <div className="flex-shrink-0">
+      <Link href="/" aria-label="Go to homepage">
+        <LogoIcon />
+      </Link>
+    </div>
   );
 }
 
-function Logo() {
+function LogoIcon() {
   return (
-    <div className="flex-shrink-0">
-      <Link
-        href="/"
-        className="relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-2 py-1 font-medium shadow-sm transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-md"
-        aria-label="Go to homepage"
-      >
-        <LogoIcon />
-        <span className="relative text-xs font-bold tracking-wide text-white">
-          Gemika
-        </span>
-      </Link>
-    </div>
+    <Image
+      src="/logo-transbg.png"
+      alt="Gemika Logo"
+      width={28}
+      height={28}
+      className="mr-1 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 filter brightness-0 invert"
+      priority
+    />
   );
 }
 
@@ -77,7 +60,11 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
 
     // Prevent body scrolling when menu is open
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+if (typeof document !== 'undefined') {
+if (typeof window !== 'undefined') {
+  document.body.style.overflow = "hidden";
+  }
+}
     } else {
       document.body.style.overflow = "";
     }
@@ -86,7 +73,11 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
 
     return () => {
       document.body.style.overflow = "";
-      window.removeEventListener("popstate", handleRouteChange);
+      if (typeof window !== 'undefined') {
+        if (typeof window !== 'undefined') {
+          window.removeEventListener("popstate", handleRouteChange);
+        }
+      }
     };
   }, [isOpen]);
 

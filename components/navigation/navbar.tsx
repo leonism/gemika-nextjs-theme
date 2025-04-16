@@ -1,15 +1,13 @@
 "use client";
 
 import Link from "next/link";
-
-
 import { usePathname } from "next/navigation";
-
 import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { Search } from "@/components/search";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface NavItem {
   label: string;
@@ -84,27 +82,14 @@ function Logo() {
 
 function LogoIcon() {
   return (
-    <svg
-      className="mr-1 h-3 w-3 animate-pulse sm:mr-1.5 sm:h-4 sm:w-4 md:mr-2 md:h-5 md:w-5"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="12" cy="12" r="10" fill="url(#logo-gradient)" />
-      <defs>
-        <linearGradient
-          id="logo-gradient"
-          x1="12"
-          y1="2"
-          x2="12"
-          y2="22"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#ffffff" stopOpacity="0.8" />
-          <stop offset="1" stopColor="#ffffff" stopOpacity="0.4" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <Image
+      src="/logo-transbg.png"
+      alt="Gemika Logo"
+      width={28}
+      height={28}
+      className="mr-1 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 filter brightness-0 invert"
+      priority
+    />
   );
 }
 
