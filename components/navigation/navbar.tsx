@@ -83,7 +83,7 @@ function Logo() {
 function LogoIcon() {
   return (
     <Image
-      src="/logo.png"
+      src="/logo-transbg.png"
       alt="Gemika Logo"
       width={28}
       height={28}

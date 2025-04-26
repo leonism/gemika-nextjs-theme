@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
 import Image from "next/image";
 
 interface NavItem {
@@ -24,8 +25,7 @@ interface MobileMenuProps {
   };
 }
 
-// Changed from export to regular function to avoid conflicts
-function Logo() {
+export function Logo() {
   return (
     <div className="flex-shrink-0">
       <Link href="/" aria-label="Go to homepage">
@@ -38,7 +38,7 @@ function Logo() {
 function LogoIcon() {
   return (
     <Image
-      src="/logo.png"
+      src="/logo-transbg.png"
       alt="Gemika Logo"
       width={28}
       height={28}
@@ -50,32 +50,33 @@ function LogoIcon() {
 
 export function MobileMenu({ items, cta }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname(); // Add this to get current route
 
+  // Close menu when route changes and prevent body scrolling when menu is open
   useEffect(() => {
     const handleRouteChange = () => {
       setIsOpen(false);
     };
 
-    // Improved type safety for window and document checks
-    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-      const body = document.body;
-
-      // Prevent body scrolling when menu is open
-      body.style.overflow = isOpen ? "hidden" : "";
-
-      if (isOpen) {
-        window.addEventListener("popstate", handleRouteChange);
-      } else {
-        window.removeEventListener("popstate", handleRouteChange);
-      }
+    // Prevent body scrolling when menu is open
+    if (isOpen) {
+if (typeof document !== 'undefined') {
+if (typeof window !== 'undefined') {
+  document.body.style.overflow = "hidden";
+  }
+}
+    } else {
+      document.body.style.overflow = "";
     }
 
-    // Cleanup function
+    window.addEventListener("popstate", handleRouteChange);
+
     return () => {
-      if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-        document.body.style.overflow = "";
-        window.removeEventListener("popstate", handleRouteChange);
+      document.body.style.overflow = "";
+      if (typeof window !== 'undefined') {
+        if (typeof window !== 'undefined') {
+          window.removeEventListener("popstate", handleRouteChange);
+        }
       }
     };
   }, [isOpen]);
@@ -122,7 +123,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
             </button>
           </div>
 
-          {/* Navigation Items */}
+          {/* Navigation Items - unchanged */}
           <nav className="flex-1 space-y-1 overflow-y-auto p-4">
             {items.map((item) => (
               <div key={item.href} className="py-1">
@@ -139,7 +140,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
                 >
                   {item.label}
                 </Link>
-                {/* Navigation Sub Items */}
+                {/* Navigation Sub Items - unchanged */}
                 {item.children && (
                   <div className="mt-1 space-y-1 pl-4">
                     {item.children.map((child) => (
@@ -163,8 +164,9 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
             ))}
           </nav>
 
-          {/* Bottom Section - Call-to-Action / Contact Button */}
+          {/* Bottom Section - remove duplicate theme toggle */}
           <div className="border-t border-gray-200 p-4 dark:border-gray-800">
+            {/* Call-to-Action / Contact Button */}
             {cta && (
               <Button
                 asChild
