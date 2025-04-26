@@ -13,6 +13,7 @@ import { Breadcrumbs } from "@/components/navigation/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import ClientOnly from "@/components/utility/client-only";
 import { getAllContent, getContent } from "@/lib/content";
+export const runtime = 'edge';
 
 interface ProjectPageProps {
   params: { slug: string };
