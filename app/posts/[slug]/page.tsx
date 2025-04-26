@@ -10,7 +10,6 @@ import { MDXProviderClient } from "@/components/mdx-provider-client";
 import { Breadcrumbs } from "@/components/navigation/breadcrumbs";
 import ClientOnly from "@/components/utility/client-only";
 import { getAllContent, getContent } from "@/lib/content";
-export const runtime = 'edge';
 
 interface PostPageProps {
   params: Promise<{ slug: string }> | { slug: string };

@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getContent } from "@/lib/content";
-export const runtime = 'edge';
 
 export async function GET(
   _: Request,
