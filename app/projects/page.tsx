@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { serialize } from "next-mdx-remote/serialize";
-import { Calendar } from "lucide-react";
 
+import { Calendar } from "lucide-react";
 import JsonLd from "@/components/json-ld";
 import ProjectsClientWrapper from "@/components/projects/ProjectsClientWrapper";
 import { ProjectsHeader } from "@/components/projects/ProjectsHeader";
