@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+
 import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { Search } from "@/components/search";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 
 interface NavItem {
   label: string;
@@ -27,7 +28,7 @@ export function Navbar({
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 h-16 w-full border-b border-gray-200/50 bg-white shadow-md dark:border-gray-800/50 dark:bg-gray-900 sm:h-16 md:h-18 lg:h-20">
+    <header className="md:h-18 sticky top-0 z-50 h-16 w-full border-b border-gray-200/50 bg-white shadow-md dark:border-gray-800/50 dark:bg-gray-900 sm:h-16 lg:h-20">
       <div className="container mx-auto flex h-full max-w-7xl items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8">
         {/* Logo */}
         <div className="flex-1">
@@ -87,7 +88,7 @@ function LogoIcon() {
       alt="Gemika Logo"
       width={28}
       height={28}
-      className="mr-1 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 filter brightness-0 invert"
+      className="mr-1 h-5 w-5 brightness-0 invert filter sm:h-6 sm:w-6 md:h-7 md:w-7"
       priority
     />
   );

@@ -2,6 +2,11 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
+  // Experimental
+  experimental: {
+    serverComponentsExternalPackages: ['fs'],
+  },
+
   // Enable gzip compression via Next.js
   compress: true,
 

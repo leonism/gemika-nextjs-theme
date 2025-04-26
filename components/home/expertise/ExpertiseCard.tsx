@@ -44,7 +44,7 @@ export function ExpertiseCard({ topic }: ExpertiseCardProps) {
               {topic.title}
             </span>
           </h3>
-          <p className="mb-3 text-md text-gray-600 sm:mb-4 sm:text-base">
+          <p className="text-md mb-3 text-gray-600 sm:mb-4 sm:text-base">
             {topic.description}
           </p>
           <div className="flex items-center text-xs text-gray-500 sm:text-sm">
@@ -70,8 +70,7 @@ export function ExpertiseCard({ topic }: ExpertiseCardProps) {
             </span>
           </div>
         </div>
-        <div className="absolute inset-0 rounded-b-xl bg-gradient-to-b from-white/80 to-white/30 opacity-0 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-100 sm:rounded-b-2xl">
-        </div>
+        <div className="absolute inset-0 rounded-b-xl bg-gradient-to-b from-white/80 to-white/30 opacity-0 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-100 sm:rounded-b-2xl"></div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5"></div>
     </Link>

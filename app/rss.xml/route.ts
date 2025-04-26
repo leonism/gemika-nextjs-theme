@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
+
 import { getAllContent } from "@/lib/content";
-export const runtime = 'nodejs';
+export const runtime = "nodejs";
 
 export async function GET() {
   const [posts, projects] = await Promise.all([

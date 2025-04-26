@@ -38,7 +38,7 @@ export function ProjectCard({ project }: { project: any }) {
           <h3 className="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600">
             {project.frontmatter.title}
           </h3>
-          <p className="mb-4 text-md text-gray-600 sm:text-base">
+          <p className="text-md mb-4 text-gray-600 sm:text-base">
             {project.frontmatter.excerpt}
           </p>
 
@@ -83,8 +83,7 @@ export function ProjectCard({ project }: { project: any }) {
             )}
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5">
-        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5"></div>
       </Link>
     </div>
   );

@@ -1,4 +1,5 @@
 import { WithContext } from "schema-dts";
+
 import { ExpertiseSection } from "@/components/home/expertise/ExpertiseSection";
 import { HeroSection } from "@/components/home/hero/HeroSection";
 import { LatestPosts } from "@/components/home/posts/LatestPosts";

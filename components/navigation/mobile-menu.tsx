@@ -3,13 +3,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-import Image from "next/image";
 
 interface NavItem {
   label: string;
@@ -42,7 +41,7 @@ function LogoIcon() {
       alt="Gemika Logo"
       width={28}
       height={28}
-      className="mr-1 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 filter brightness-0 invert"
+      className="mr-1 h-5 w-5 brightness-0 invert filter sm:h-6 sm:w-6 md:h-7 md:w-7"
       priority
     />
   );
@@ -60,11 +59,11 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
 
     // Prevent body scrolling when menu is open
     if (isOpen) {
-if (typeof document !== 'undefined') {
-if (typeof window !== 'undefined') {
-  document.body.style.overflow = "hidden";
-  }
-}
+      if (typeof document !== "undefined") {
+        if (typeof window !== "undefined") {
+          document.body.style.overflow = "hidden";
+        }
+      }
     } else {
       document.body.style.overflow = "";
     }
@@ -73,8 +72,8 @@ if (typeof window !== 'undefined') {
 
     return () => {
       document.body.style.overflow = "";
-      if (typeof window !== 'undefined') {
-        if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
+        if (typeof window !== "undefined") {
           window.removeEventListener("popstate", handleRouteChange);
         }
       }
@@ -133,9 +132,9 @@ if (typeof window !== 'undefined') {
                   className={cn(
                     "block rounded-lg px-3 py-1 text-base font-medium transition-colors duration-200",
                     pathname === item.href ||
-                    (item.href !== "/" && pathname?.startsWith(item.href))
+                      (item.href !== "/" && pathname?.startsWith(item.href))
                       ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400"
-                      : "text-gray-900 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-indigo-400"
+                      : "text-gray-900 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-indigo-400",
                   )}
                 >
                   {item.label}
@@ -152,7 +151,7 @@ if (typeof window !== 'undefined') {
                           "block rounded-lg px-3 py-2 text-sm transition-colors duration-200",
                           pathname === child.href
                             ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400"
-                            : "text-gray-700 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-indigo-400"
+                            : "text-gray-700 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-indigo-400",
                         )}
                       >
                         {child.label}
