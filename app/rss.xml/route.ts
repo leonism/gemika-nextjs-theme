@@ -29,7 +29,7 @@ export async function GET() {
       <link>${baseUrl}/posts/${post.slug}</link>
       <guid>${baseUrl}/posts/${post.slug}</guid>
       <pubDate>${new Date(post.frontmatter.date).toUTCString()}</pubDate>
-      <description>${post.frontmatter.excerpt.replace(/&/g, "&amp;")}</description>
+      <description>${(post.frontmatter.excerpt ?? '').replace(/&/g, "&amp;")}</description>
     </item>
     `,
       )
@@ -43,7 +43,7 @@ export async function GET() {
       <link>${baseUrl}/projects/${project.slug}</link>
       <guid>${baseUrl}/projects/${project.slug}</guid>
       <pubDate>${new Date(project.frontmatter.date).toUTCString()}</pubDate>
-      <description>${project.frontmatter.description.replace(/&/g, "&amp;")}</description>
+      <description>${(project.frontmatter.description ?? '').replace(/&/g, "&amp;")}</description>
     </item>
     `,
       )
