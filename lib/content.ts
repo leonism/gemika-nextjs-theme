@@ -1,7 +1,7 @@
 // lib/content.ts
 "use server";
 
-import { promises as fs, access, readdir, readFile } from "fs";
+import { promises as fs } from "fs";
 import { join } from "path";
 import path from "path";
 
@@ -34,7 +34,7 @@ export async function getContent(
   const filePath = join("content", type, `${slug}.mdx`);
 
   try {
-    const fileContent = await readFile(filePath, "utf-8");
+    const fileContent = await fs.readFile(filePath, "utf-8");
     const { data: frontmatter, content } = matter(fileContent);
 
     if (!frontmatter || !content) {

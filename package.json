@@ -54,6 +54,7 @@
     "cmdk": "1.0.4",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "8.5.1",
+    "feed": "^4.2.2",
     "framer-motion": "^12.6.0",
     "fs": "latest",
     "gray-matter": "latest",

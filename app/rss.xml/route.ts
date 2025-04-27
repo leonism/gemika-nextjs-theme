@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getAllContent } from "@/lib/content";
-export const runtime = "nodejs";
+import { Feed } from "feed";
 
 export async function GET() {
   const [posts, projects] = await Promise.all([

@@ -14,6 +14,8 @@ import { Button } from "@/components/ui/button";
 import ClientOnly from "@/components/utility/client-only";
 import { getAllContent, getContent } from "@/lib/content";
 
+// Removed // export const runtime = 'edge'; due to conflict with generateStaticParams
+
 interface ProjectPageProps {
   params: { slug: string };
 }
@@ -706,3 +708,5 @@ export default async function ProjectPage({
     </>
   );
 }
+
+// export const runtime = 'edge';
