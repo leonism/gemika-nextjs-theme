@@ -2,10 +2,7 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  // Experimental
-  experimental: {
-    serverComponentsExternalPackages: ['fs'],
-  },
+
 
   // Enable gzip compression via Next.js
   compress: true,
@@ -44,6 +41,7 @@ const nextConfig = {
 
   // Experimental features
   experimental: {
+    serverComponentsExternalPackages: ['fs'], // Added from previous block
     serverActions: {}, // Fixed: Enabled server actions with an empty object
     turbo: {
       rules: {
