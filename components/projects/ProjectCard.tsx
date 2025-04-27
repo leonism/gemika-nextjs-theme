@@ -21,13 +21,9 @@ export function ProjectCard({ project }: { project: any }) {
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
-
-          {/* Category bullet at bottom right */}
           {project.frontmatter.category && (
-            <div className="absolute bottom-3 right-3 z-10">
-              <span
-                className={`inline-flex items-center rounded-full border border-white/20 px-3 py-1 text-xs font-medium shadow-sm backdrop-blur-sm ${colorSet.bg} ${colorSet.text}`}
-              >
+            <div className="absolute bottom-3 right-3 flex flex-wrap gap-1 sm:bottom-4 sm:right-4 sm:gap-2">
+              <span className="rounded-full border border-white/20 bg-indigo-600 px-2 py-1 text-xs font-medium text-white shadow-sm backdrop-blur-sm sm:px-3">
                 {project.frontmatter.category}
               </span>
             </div>
@@ -38,7 +34,7 @@ export function ProjectCard({ project }: { project: any }) {
           <h3 className="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600">
             {project.frontmatter.title}
           </h3>
-          <p className="text-md mb-4 text-gray-600 sm:text-base">
+          <p className="mb-4 text-sm text-gray-600 sm:text-base">
             {project.frontmatter.excerpt}
           </p>
 
@@ -81,9 +77,10 @@ export function ProjectCard({ project }: { project: any }) {
                 {project.frontmatter.client}
               </div>
             )}
+            <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5">
+            </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5"></div>
       </Link>
     </div>
   );

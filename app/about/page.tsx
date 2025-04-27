@@ -1,14 +1,5 @@
 import Image from "next/image";
-import {
-  Code,
-  Layout,
-  Eye,
-  Rocket,
-  Award,
-  Sparkles,
-  Lightbulb,
-  Users,
-} from "lucide-react";
+import { Code, Layout, Eye, Rocket, Award, Sparkles, Lightbulb, Users } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -43,9 +34,7 @@ export default function AboutPage() {
             <div className="mx-auto max-w-lg">
               <div className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-100 to-purple-100 px-6 py-2 text-indigo-600 shadow-sm transition-all duration-300 hover:shadow-md">
                 <Rocket className="h-5 w-5" />
-                <span className="text-lg font-medium">
-                  UX Strategist & Mobile Developer
-                </span>
+                <span className="text-lg font-medium">UX Strategist & Mobile Developer</span>
               </div>
             </div>
           </div>
@@ -56,37 +45,32 @@ export default function AboutPage() {
               {
                 icon: <Layout className="h-6 w-6" />,
                 title: "User Experience Design",
-                description:
-                  "Creating intuitive and engaging digital experiences",
+                description: "Creating intuitive and engaging digital experiences",
                 gradient: "from-purple-500 to-violet-600",
-                bgColor: "bg-purple-50 dark:bg-purple-900/20",
+                bgColor: "bg-purple-50 dark:bg-purple-900/20"
               },
               {
                 icon: <Code className="h-6 w-6" />,
                 title: "Mobile Development",
                 description: "Building performant cross-platform applications",
                 gradient: "from-blue-500 to-cyan-600",
-                bgColor: "bg-blue-50 dark:bg-blue-900/20",
+                bgColor: "bg-blue-50 dark:bg-blue-900/20"
               },
               {
                 icon: <Eye className="h-6 w-6" />,
                 title: "User Research",
                 description: "Understanding user needs through testing",
                 gradient: "from-emerald-500 to-teal-600",
-                bgColor: "bg-emerald-50 dark:bg-emerald-900/20",
-              },
+                bgColor: "bg-emerald-50 dark:bg-emerald-900/20"
+              }
             ].map((item, index) => (
               <div
                 key={index}
                 className={`group relative overflow-hidden rounded-xl border border-gray-200 ${item.bgColor} p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700`}
               >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
-                />
+                <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`} />
                 <div className="relative z-10">
-                  <div
-                    className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}
-                  >
+                  <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}>
                     {item.icon}
                   </div>
                   <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
@@ -112,31 +96,25 @@ export default function AboutPage() {
                 {
                   icon: <Award className="h-5 w-5" />,
                   title: "Award-Winning Work",
-                  description:
-                    "Recognized by industry leaders for innovative design solutions",
+                  description: "Recognized by industry leaders for innovative design solutions",
                   gradient: "from-amber-500 to-orange-500",
-                  bgColor: "bg-amber-50 dark:bg-amber-900/20",
+                  bgColor: "bg-amber-50 dark:bg-amber-900/20"
                 },
                 {
                   icon: <Users className="h-5 w-5" />,
                   title: "Diverse Clientele",
-                  description:
-                    "From startups to Fortune 500 companies across multiple industries",
+                  description: "From startups to Fortune 500 companies across multiple industries",
                   gradient: "from-sky-500 to-blue-500",
-                  bgColor: "bg-sky-50 dark:bg-sky-900/20",
-                },
+                  bgColor: "bg-sky-50 dark:bg-sky-900/20"
+                }
               ].map((item, index) => (
                 <div
                   key={index}
                   className={`group relative overflow-hidden rounded-xl border border-gray-200 ${item.bgColor} p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700`}
                 >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
-                  />
+                  <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`} />
                   <div className="relative z-10">
-                    <div
-                      className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}
-                    >
+                    <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}>
                       {item.icon}
                     </div>
                     <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
@@ -163,39 +141,32 @@ export default function AboutPage() {
                 {
                   icon: <Lightbulb className="h-5 w-5" />,
                   title: "Invisible Design",
-                  description:
-                    "Great design feels intuitive and natural, letting users focus on their goals",
+                  description: "Great design feels intuitive and natural, letting users focus on their goals",
                   gradient: "from-violet-500 to-purple-500",
-                  bgColor: "bg-violet-50 dark:bg-violet-900/20",
+                  bgColor: "bg-violet-50 dark:bg-violet-900/20"
                 },
                 {
                   icon: <Sparkles className="h-5 w-5" />,
                   title: "Beautiful & Functional",
-                  description:
-                    "Combining aesthetic appeal with technical excellence",
+                  description: "Combining aesthetic appeal with technical excellence",
                   gradient: "from-pink-500 to-rose-500",
-                  bgColor: "bg-pink-50 dark:bg-pink-900/20",
+                  bgColor: "bg-pink-50 dark:bg-pink-900/20"
                 },
                 {
                   icon: <Users className="h-5 w-5" />,
                   title: "User-Centered",
-                  description:
-                    "Design decisions rooted in real user needs and behaviors",
+                  description: "Design decisions rooted in real user needs and behaviors",
                   gradient: "from-indigo-500 to-blue-500",
-                  bgColor: "bg-indigo-50 dark:bg-indigo-900/20",
-                },
+                  bgColor: "bg-indigo-50 dark:bg-indigo-900/20"
+                }
               ].map((item, index) => (
                 <div
                   key={index}
                   className={`group relative overflow-hidden rounded-xl border border-gray-200 ${item.bgColor} p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700`}
                 >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
-                  />
+                  <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`} />
                   <div className="relative z-10">
-                    <div
-                      className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}
-                    >
+                    <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}>
                       {item.icon}
                     </div>
                     <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">

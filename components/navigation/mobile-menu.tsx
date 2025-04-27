@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
 
+import { Search } from "@/components/search";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -24,32 +23,51 @@ interface MobileMenuProps {
   };
 }
 
-export function Logo() {
+function LogoIcon() {
+  return (
+    <svg
+      className="mr-1 h-3 w-3 animate-pulse sm:mr-1.5 sm:h-4 sm:w-4 md:mr-2 md:h-5 md:w-5"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="12" cy="12" r="10" fill="url(#logo-gradient)" />
+      <defs>
+        <linearGradient
+          id="logo-gradient"
+          x1="12"
+          y1="2"
+          x2="12"
+          y2="22"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#ffffff" stopOpacity="0.8" />
+          <stop offset="1" stopColor="#ffffff" stopOpacity="0.4" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+function Logo() {
   return (
     <div className="flex-shrink-0">
-      <Link href="/" aria-label="Go to homepage">
+      <Link
+        href="/"
+        className="relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-2 py-1 font-medium shadow-sm transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-md"
+        aria-label="Go to homepage"
+      >
         <LogoIcon />
+        <span className="relative text-xs font-bold tracking-wide text-white">
+          BenJo
+        </span>
       </Link>
     </div>
   );
 }
 
-function LogoIcon() {
-  return (
-    <Image
-      src="/logo-transbg.png"
-      alt="Gemika Logo"
-      width={28}
-      height={28}
-      className="mr-1 h-5 w-5 brightness-0 invert filter sm:h-6 sm:w-6 md:h-7 md:w-7"
-      priority
-    />
-  );
-}
-
 export function MobileMenu({ items, cta }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname(); // Add this to get current route
 
   // Close menu when route changes and prevent body scrolling when menu is open
   useEffect(() => {
@@ -59,11 +77,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
 
     // Prevent body scrolling when menu is open
     if (isOpen) {
-      if (typeof document !== "undefined") {
-        if (typeof window !== "undefined") {
-          document.body.style.overflow = "hidden";
-        }
-      }
+      document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
@@ -72,11 +86,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
 
     return () => {
       document.body.style.overflow = "";
-      if (typeof window !== "undefined") {
-        if (typeof window !== "undefined") {
-          window.removeEventListener("popstate", handleRouteChange);
-        }
-      }
+      window.removeEventListener("popstate", handleRouteChange);
     };
   }, [isOpen]);
 
@@ -131,10 +141,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
                   onClick={() => setIsOpen(false)}
                   className={cn(
                     "block rounded-lg px-3 py-1 text-base font-medium transition-colors duration-200",
-                    pathname === item.href ||
-                      (item.href !== "/" && pathname?.startsWith(item.href))
-                      ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400"
-                      : "text-gray-900 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-indigo-400",
+                    "text-gray-900 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-indigo-400",
                   )}
                 >
                   {item.label}
@@ -149,9 +156,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
                         onClick={() => setIsOpen(false)}
                         className={cn(
                           "block rounded-lg px-3 py-2 text-sm transition-colors duration-200",
-                          pathname === child.href
-                            ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400"
-                            : "text-gray-700 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-indigo-400",
+                          "text-gray-700 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-indigo-400",
                         )}
                       >
                         {child.label}

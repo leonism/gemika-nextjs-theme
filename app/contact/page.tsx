@@ -1,6 +1,5 @@
 // app/contact/page.tsx
 import { Mail, MessageSquare, Phone } from "lucide-react";
-
 import { ContactForm } from "@/components/contact-form";
 
 export default function ContactPage() {
@@ -21,8 +20,7 @@ export default function ContactPage() {
               </span>
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-              We'd love to hear from you! Whether you have a question, feedback,
-              or a business inquiry, feel free to reach out.
+              We'd love to hear from you! Whether you have a question, feedback, or a business inquiry, feel free to reach out.
             </p>
           </div>
 
@@ -33,32 +31,28 @@ export default function ContactPage() {
                 icon: <Mail className="h-6 w-6" />,
                 title: "Email",
                 description: "hello@gemika.com",
-                gradient: "from-blue-500 to-cyan-500",
+                gradient: "from-blue-500 to-cyan-500"
               },
               {
                 icon: <Phone className="h-6 w-6" />,
                 title: "Phone",
                 description: "+1 (555) 123-4567",
-                gradient: "from-purple-500 to-violet-500",
+                gradient: "from-purple-500 to-violet-500"
               },
               {
                 icon: <MessageSquare className="h-6 w-6" />,
                 title: "Social Media",
                 description: "@gemika_design",
-                gradient: "from-pink-500 to-rose-500",
-              },
+                gradient: "from-pink-500 to-rose-500"
+              }
             ].map((item, index) => (
               <div
                 key={index}
                 className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
               >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
-                />
+                <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`} />
                 <div className="relative z-10">
-                  <div
-                    className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}
-                  >
+                  <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}>
                     {item.icon}
                   </div>
                   <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">

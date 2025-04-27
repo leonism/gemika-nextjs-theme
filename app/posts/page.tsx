@@ -8,8 +8,6 @@ import { PostsGrid } from "@/components/posts/PostsGrid";
 import { getAllContent } from "@/lib/content";
 import { POSTS_PER_PAGE } from "@/lib/posts";
 
-export const runtime = 'edge';
-
 // Tell Next.js that this route should be dynamically rendered
 export const dynamic = "force-dynamic";
 

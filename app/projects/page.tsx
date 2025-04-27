@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { serialize } from "next-mdx-remote/serialize";
-import { Calendar } from "lucide-react";
 
 import JsonLd from "@/components/json-ld";
 import ProjectsClientWrapper from "@/components/projects/ProjectsClientWrapper";
@@ -18,14 +17,10 @@ export default async function ProjectsPage() {
 
   const sortedProjects = allProjects.sort((a, b) => {
     const dateA = new Date(
-      (a?.frontmatter?.date as string) ||
-        (a?.frontmatter?.year as string) ||
-        "2000-01-01",
+      a.frontmatter.date || a.frontmatter.year || "2000-01-01",
     );
     const dateB = new Date(
-      (b?.frontmatter?.date as string) ||
-        (b?.frontmatter?.year as string) ||
-        "2000-01-01",
+      b.frontmatter.date || b.frontmatter.year || "2000-01-01",
     );
     return dateB.getTime() - dateA.getTime();
   });

@@ -21,10 +21,7 @@ export function SearchLayout({
     <Container>
       <div className="mb-8 mt-4 px-4 sm:px-6 md:px-0">
         <h1 className="mb-6 mt-4 bg-clip-text text-xl font-bold leading-tight text-gray-900 dark:text-white md:text-2xl lg:text-3xl">
-          Search{" "}
-          <span class="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
-            Results
-          </span>
+          Search <span class="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">Results</span>
         </h1>
 
         {searchInput && <div className="mb-6">{searchInput}</div>}

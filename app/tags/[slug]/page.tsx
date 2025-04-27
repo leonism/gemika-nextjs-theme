@@ -3,8 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { getAllContent } from "@/lib/content";
-
-export const runtime = 'edge';
+import { formatDate } from "@/lib/utils";
 
 export default async function TagPage({
   params,

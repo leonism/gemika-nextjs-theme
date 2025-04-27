@@ -57,10 +57,7 @@ export function ContactForm() {
         body: JSON.stringify(data),
       });
 
-      const result = (await response.json()) as {
-        message: string;
-        error?: string;
-      };
+      const result = await response.json() as { message: string; error?: string };
 
       if (!response.ok) {
         throw new Error(result.error || "Something went wrong");
@@ -86,10 +83,7 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={(e) => void form.handleSubmit(onSubmit)(e)}
-        className="space-y-6"
-      >
+      <form onSubmit={(e) => void form.handleSubmit(onSubmit)(e)} className="space-y-6">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <FormField
             control={form.control}
@@ -152,11 +146,7 @@ export function ContactForm() {
           )}
         />
 
-        <Button
-          type="submit"
-          className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 font-bold tracking-wide text-white hover:from-indigo-700 hover:to-purple-700"
-          disabled={isSubmitting}
-        >
+        <Button type="submit" className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 font-bold tracking-wide text-white" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send Message"}
         </Button>
       </form>

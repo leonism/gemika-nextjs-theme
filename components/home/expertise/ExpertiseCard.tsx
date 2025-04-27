@@ -44,7 +44,7 @@ export function ExpertiseCard({ topic }: ExpertiseCardProps) {
               {topic.title}
             </span>
           </h3>
-          <p className="text-md mb-3 text-gray-600 sm:mb-4 sm:text-base">
+          <p className="mb-3 text-sm text-gray-600 sm:mb-4 sm:text-base">
             {topic.description}
           </p>
           <div className="flex items-center text-xs text-gray-500 sm:text-sm">

@@ -1,13 +1,30 @@
-// lib/content.ts
-"use server";
-
-import { promises as fs } from "fs";
-import { join } from "path";
 import path from "path";
+import { promisify } from "util";
 
 import matter from "gray-matter";
 
+// lib/content.ts
+
+// Ensure this module only runs on the server
+if (typeof window !== "undefined") {
+  throw new Error("This module can only be used on the server side");
+}
+
 // Server-side only
+const fs = require("fs");
+
+// Promisify fs methods
+const readFile = promisify(fs.readFile);
+const readdir = promisify(fs.readdir);
+const access = promisify(fs.access);
+
+// Ensure server-side usage
+export async function getFileContent(filePath: string) {
+  const fileContent = await readFile(filePath, "utf8");
+  return matter(fileContent);
+}
+
+// Add type definitions
 interface ContentError extends Error {
   code?: string;
 }
@@ -18,7 +35,7 @@ export async function getContent(
 ) {
   // Input validation
   if (!type || !["posts", "projects", "pages"].includes(type)) {
-    throw new Error(`Invalid content type: ${type}`);
+    console.error("Invalid content type:", type);
     return null;
   }
 
@@ -31,10 +48,10 @@ export async function getContent(
     return null;
   }
 
-  const filePath = join("content", type, `${slug}.mdx`);
+  const filePath = path.join(process.cwd(), "content", type, `${slug}.mdx`);
 
   try {
-    const fileContent = await fs.readFile(filePath, "utf-8");
+    const fileContent = await readFile(filePath, "utf-8");
     const { data: frontmatter, content } = matter(fileContent);
 
     if (!frontmatter || !content) {
@@ -117,3 +134,5 @@ export async function getAllContent(
     return [];
   }
 }
+
+// Removed conflicting export statement
