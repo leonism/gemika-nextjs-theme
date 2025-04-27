@@ -12,3 +12,6 @@ components.json
 *.eslintrc.*
 *.prettierrc*
 tailwind.config.*
+next-env.d.ts
+prettier.config.js
+README.md

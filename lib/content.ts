@@ -1,9 +1,9 @@
 // lib/content.ts
-'use server';
+"use server";
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import path from 'path';
+import { promises as fs, access, readdir, readFile } from "fs";
+import { join } from "path";
+import path from "path";
 
 import matter from "gray-matter";
 
