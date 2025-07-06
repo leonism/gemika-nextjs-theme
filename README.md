@@ -2,13 +2,19 @@
 
 <div align="center">
 
+[![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white&style=for-the-badge)](#)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-gray?logo=tailwind-css&logoColor=38B2AC&style=for-the-badge)](#)
+[![MDX](https://img.shields.io/badge/MDX-000000?logo=mdx&logoColor=white&style=for-the-badge)](#)
+[![Turbopack](https://img.shields.io/badge/Turbopack-222222?logo=webpack&logoColor=blue&style=for-the-badge)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge)](#)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a7d8d2c7-8b6d-4339-b755-b6e6817de183/deploy-status)](https://app.netlify.com/sites/gemika/deploys)
 [![Vercel Status](https://vercelbadge.vercel.app/api/leonism/gemika-nextjs-theme?style=for-the-badge)](https://vercel.com/leonism/gemika-nextjs-theme)
-[![Cloudflare Pages](https://img.shields.io/endpoint?url=https://cloudflare-pages-badges.xyz.workers.dev/?projectName=gemika)](https://gemika.pages.dev)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://github.com/leonism/gemika-nextjs-theme/actions/workflows/ci.yml/badge.svg)](https://github.com/leonism/gemika-nextjs-theme/actions)
 ![Gemika Next.js Theme](public/gemika-nextjs-theme-splash.jpg)
-
 </div>
+
 
 ## 📖 Overview
 
