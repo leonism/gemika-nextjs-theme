@@ -58,7 +58,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
                 href="/"
                 className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent"
               >
-                BenJo Theme
+                Gemika Theme
               </Link>
               <p className="text-gray-600 dark:text-gray-400">
                 Expert user experience strategist and mobile developer creating
