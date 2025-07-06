@@ -1,0 +1,68 @@
+{
+  // General Prettier settings
+  "trailingComma": "es5", // Add trailing commas where valid in ES5 (e.g., in objects and arrays)
+  "tabWidth": 2, // Use 2 spaces for indentation
+  "semi": false, // Do not use semicolons at the end of statements
+  "singleQuote": true, // Use single quotes instead of double quotes
+  "quoteProps": "as-needed", // Only add quotes around object properties where required
+  "bracketSpacing": true, // Add spaces between brackets in object literals
+  "bracketSameLine": false, // Place closing brackets on a new line
+  "arrowParens": "always", // Always include parentheses around arrow function parameters
+  "endOfLine": "lf", // Use LF as the line-ending character
+  "printWidth": 100, // Specify the line length where Prettier will wrap code
+  "htmlWhitespaceSensitivity": "css", // Respect CSS whitespace rules in HTML
+  "proseWrap": "always", // Wrap prose if it exceeds the print width
+  "embeddedLanguageFormatting": "off", // Disable formatting for embedded languages
+  "jsonRecursiveSort": true, // Sort JSON keys recursively
+
+  // File-specific overrides
+  "overrides": [
+    {
+      // JSON files
+      "files": "*.json",
+      "options": {
+        "tabWidth": 2 // Use 2 spaces for indentation in JSON files
+      }
+    },
+    {
+      // YAML files
+      "files": "*.yml",
+      "options": {
+        "tabWidth": 2, // Use 2 spaces for indentation in YAML files
+        "proseWrap": "preserve", // Preserve line breaks in YAML files
+        "yamlBracketSpacing": false, // Do not add spaces inside brackets in YAML
+        "yamlQuoteProps": "preserve" // Preserve quotes around YAML properties
+      }
+    },
+    {
+      // Markdown files
+      "files": "*.md",
+      "options": {
+        "tabWidth": 4, // Use 4 spaces for indentation in Markdown files
+        "printWidth": 80, // Limit line length to 80 characters in Markdown files
+        "proseWrap": "always" // Always wrap prose in Markdown files
+      }
+    },
+    {
+      // TypeScript and JavaScript files
+      "files": ["*.ts","*.tsx", "*.js"],
+      "options": {
+        "semi": false, // Do not use semicolons in TypeScript and JavaScript files
+        "singleQuote": true, // Use single quotes in TypeScript and JavaScript files
+        "trailingComma": "es5" // Add trailing commas in TypeScript and JavaScript files
+      }
+    },
+    {
+      // HTML files
+      "files": "*.html",
+      "options": {
+        "tabWidth": 4, // Use 4 spaces for indentation in HTML files
+        "singleQuote": false, // Use double quotes in HTML files
+        "htmlWhitespaceSensitivity": "ignore", // Ignore whitespace sensitivity in HTML
+        "bracketSpacing": true, // Add spaces between brackets in HTML tags
+        "endOfLine": "lf", // Use LF as the line-ending character in HTML files
+        "printWidth": 120 // Limit line length to 120 characters in HTML files
+      }
+    }
+  ]
+}
