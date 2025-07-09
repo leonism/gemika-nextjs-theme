@@ -131,7 +131,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 <Link
                   key={tag}
                   href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
+                  className="inline-flex items-center rounded-full px-3 py-1 text-sm bg-blue-100 text-blue-700 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +143,7 @@ export default async function PostPage({ params }: PostPageProps) {
                     strokeWidth={2}
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="mr-1 h-4 w-4 lucide lucide-tag"
+                    className="h-4 w-4 mr-1 lucide lucide-tag"
                   >
                     <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2 0 0 0 3.42 0l6.58-6.58a2.426 2 0 0 0 0-3.42z"></path>
                     <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
@@ -178,7 +178,7 @@ export default async function PostPage({ params }: PostPageProps) {
             {prevPost && (
               <Link
                 href={`/posts/${prevPost.slug}`}
-                className="group flex items-center no-underline text-gray-700 transition-colors hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
+                className="group flex items-center no-underline text-gray-700 dark:text-gray-300 transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
               >
                 <div className="mr-4 rounded-full bg-gray-100 p-2 transition-colors group-hover:bg-indigo-100 dark:bg-gray-800 dark:group-hover:bg-indigo-900/30">
                   <ChevronLeft className="h-5 w-5" />
@@ -195,7 +195,7 @@ export default async function PostPage({ params }: PostPageProps) {
             {nextPost && (
               <Link
                 href={`/posts/${nextPost.slug}`}
-                className="group flex items-center text-right no-underline mt-4 sm:mt-0 sm:ml-auto text-gray-700 transition-colors hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
+                className="group flex items-center text-right no-underline mt-4 sm:mt-0 sm:ml-auto text-gray-700 dark:text-gray-300 transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
               >
                 <div>
                   <div className="text-sm text-gray-500 dark:text-gray-500">Next</div>
