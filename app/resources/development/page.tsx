@@ -3,8 +3,6 @@ import { ArrowRight, Sparkles } from 'lucide-react'
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
-
-
 export default function DevelopmentResourcesPage() {
   const developmentResources = [
     {
@@ -93,9 +91,7 @@ export default function DevelopmentResourcesPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {developmentResources.map((resource, index) => (
               <Link href={resource.link} key={index} className="group">
-                <Card
-                  className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80"
-                >
+                <Card className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80">
                   <CardHeader className="pb-0">
                     {/* Floating emoji icon */}
                     <div

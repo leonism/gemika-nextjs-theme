@@ -82,9 +82,7 @@ export default function AboutPage() {
                   </h3>
                 </div>
                 <div className="pt-0">
-                  <p className="mb-4 text-gray-600 dark:text-gray-300">
-                    {item.description}
-                  </p>
+                  <p className="mb-4 text-gray-600 dark:text-gray-300">{item.description}</p>
                 </div>
 
                 {/* Hover border animation */}
@@ -137,9 +135,7 @@ export default function AboutPage() {
                     </h3>
                   </div>
                   <div className="pt-0">
-                    <p className="mb-4 text-gray-600 dark:text-gray-300">
-                      {item.description}
-                    </p>
+                    <p className="mb-4 text-gray-600 dark:text-gray-300">{item.description}</p>
                   </div>
 
                   {/* Hover border animation */}
@@ -201,9 +197,7 @@ export default function AboutPage() {
                     </h3>
                   </div>
                   <div className="pt-0">
-                    <p className="mb-4 text-gray-600 dark:text-gray-300">
-                      {item.description}
-                    </p>
+                    <p className="mb-4 text-gray-600 dark:text-gray-300">{item.description}</p>
                   </div>
 
                   {/* Hover border animation */}

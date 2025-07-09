@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getAllContent } from '@/lib/content'
 
-export const runtime = 'edge'
 export async function GET() {
   const [posts, projects] = await Promise.all([getAllContent('posts'), getAllContent('projects')])
 
