@@ -53,10 +53,10 @@ export default async function PostsIndexPage({
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <>
       <JsonLd data={jsonLd} />
       <HeroSection />
       <PostsGrid posts={paginatedPosts} currentPage={currentPage} totalPages={totalPages} />
-    </div>
+    </>
   )
 }

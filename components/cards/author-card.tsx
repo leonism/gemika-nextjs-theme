@@ -50,7 +50,7 @@ export function AuthorCard({
   return (
     <div
       className={cn(
-        'overflow-hidden rounded-lg border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800',
+        'overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80',
         variant === 'compact' ? 'flex items-center p-4' : '',
         className
       )}
@@ -71,12 +71,12 @@ export function AuthorCard({
 
           <div className="p-6">
             <Link href={`/authors/${slug}`}>
-              <h3 className="mb-2 text-xl font-bold transition-colors hover:text-primary">
+              <h3 className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                 {name}
               </h3>
             </Link>
 
-            <p className="mb-4 line-clamp-3 text-gray-700 dark:text-gray-300">{bio}</p>
+            <p className="mb-4 text-gray-600 dark:text-gray-300">{bio}</p>
 
             {postCount !== undefined && (
               <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">

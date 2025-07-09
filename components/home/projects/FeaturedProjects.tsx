@@ -33,10 +33,9 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
           </div>
           <Link
             href="/projects"
-            className="group relative flex items-center gap-1 text-xs font-medium text-gray-500 transition-colors hover:text-gray-900 sm:gap-2 sm:text-sm md:text-base"
+            className="group flex items-center gap-1 text-xs font-medium text-gray-500 transition-colors hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-300 sm:gap-2 sm:text-sm md:text-base"
           >
             View all projects
-            <span className="absolute bottom-0 left-0 h-px w-0 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
             <ChevronRight className="h-3 w-3 text-gray-400 sm:h-4 sm:w-4" />
           </Link>
         </div>

@@ -18,7 +18,7 @@ export function PostsGrid({ posts, currentPage, totalPages }: PostsGridProps) {
   }
 
   return (
-    <section className="container mx-auto max-w-7xl bg-gray-50 px-4 py-12 dark:bg-gray-900 md:py-20">
+    <section className="container mx-auto max-w-7xl px-4 py-12 md:py-20">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />

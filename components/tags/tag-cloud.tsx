@@ -37,7 +37,7 @@ export function TagCloud() {
         <Link
           key={tag.name}
           href={`/tags/${encodeURIComponent(tag.name.toLowerCase().replace(/\s+/g, '-'))}`}
-          className="rounded-full bg-gray-100 px-3 py-1 text-sm transition-colors hover:bg-gray-200"
+          className="inline-flex items-center rounded-md bg-indigo-50 px-3 py-1.5 text-sm font-medium text-indigo-700 transition-colors hover:bg-indigo-100 dark:bg-indigo-900/50 dark:text-indigo-300 dark:hover:bg-indigo-800/50"
         >
           {tag.name} ({tag.count})
         </Link>

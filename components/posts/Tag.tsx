@@ -5,7 +5,7 @@ export function Tag({ tag, colorIndex }: { tag: string; colorIndex: number }) {
 
   return (
     <span
-      className={`inline-block rounded-full px-2 py-1 text-xs font-medium ${colors.bg} ${colors.text}`}
+      className={`inline-flex items-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors hover:bg-opacity-80 ${colors.bg} ${colors.text}`}
     >
       {tag}
     </span>

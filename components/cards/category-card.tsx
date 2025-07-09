@@ -24,7 +24,7 @@ export function CategoryCard({
     <Link
       href={`/categories/${slug}`}
       className={cn(
-        'group block overflow-hidden rounded-lg bg-gray-100 transition-shadow hover:shadow-md dark:bg-gray-800',
+        'group block overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80',
         className
       )}
     >

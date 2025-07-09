@@ -128,7 +128,7 @@ export function SearchDialog() {
           <div
             ref={dialogRef}
             className={cn(
-              'mt-20 w-full max-w-xl overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800',
+              'mt-20 w-full max-w-xl overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-xl backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/80',
               'duration-200 animate-in fade-in-75 slide-in-from-left-8'
             )}
             role="dialog"
@@ -148,7 +148,7 @@ export function SearchDialog() {
                   autoComplete="off"
                 />
                 <div className="absolute right-2 top-2 flex space-x-1">
-                  <Button type="submit" size="sm" className="px-3 py-1" disabled={query.length < 2}>
+                  <Button type="submit" size="sm" className="px-6 py-3" disabled={query.length < 2}>
                     <span className="mr-1">Go</span>
                     <ArrowRight className="h-3 w-3" />
                   </Button>
@@ -206,9 +206,8 @@ export function SearchDialog() {
                   <p className="text-gray-500 dark:text-gray-400">No results found for "{query}"</p>
                   <Button
                     onClick={() => router.push(`/search?q=${encodeURIComponent(query)}`)}
-                    className="mt-3"
+                    className="mt-3 inline-flex items-center rounded-full bg-gradient-to-r from-indigo-600 to-emerald-600 px-6 py-3 font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:from-indigo-700 hover:to-emerald-700 hover:shadow-lg"
                     size="sm"
-                    variant="outline"
                   >
                     View all search results
                   </Button>
