@@ -107,8 +107,7 @@ export default function DevelopmentResourcesPage() {
                     <CardDescription className="mb-4 text-gray-600 dark:text-gray-300">
                       {resource.description}
                     </CardDescription>
-                    <Link
-                      href={resource.link}
+                    <span
                       className="inline-flex items-center font-medium text-indigo-600 transition-colors hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300"
                     >
                       Explore resources
@@ -126,7 +125,7 @@ export default function DevelopmentResourcesPage() {
                           d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                         />
                       </svg>
-                    </Link>
+                    </span>
                   </CardContent>
 
                   {/* Hover border animation */}
