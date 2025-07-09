@@ -8,7 +8,7 @@ const BRANDS = ['Apple', 'Adobe', 'Google', 'Microsoft', 'Samsung', 'Spotify', '
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative my-10 overflow-hidden">
       <div className="container relative z-10 mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
         {/* Profile Image - Increased size for mobile */}
         <div className="mb-6 flex justify-center sm:mb-8 md:mb-10">
@@ -57,8 +57,11 @@ export function HeroSection() {
             href="/contact"
             className="group relative overflow-hidden rounded-full border-2 border-gray-900 px-5 py-2 text-sm font-medium text-gray-900 transition-all duration-300 hover:bg-gray-100 hover:shadow-lg sm:px-6 sm:py-2.5 sm:text-base md:px-8 md:py-3 md:text-lg"
           >
-            <span className="absolute inset-0 bg-gray-100 opacity-0 transition-opacity duration-300 group-hover:opacity-10"></span>
-            Get In Touch
+            <span className="absolute inset-0 h-full w-full translate-x-0 -skew-x-12 transform bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300 ease-out group-hover:translate-x-12 group-hover:skew-x-12"></span>
+            <span className="absolute inset-0 h-full w-full -translate-x-12 -skew-x-12 transform bg-gradient-to-r from-indigo-700 to-purple-700 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:skew-x-12"></span>
+            <span className="relative text-sm font-medium text-white sm:text-base md:text-lg">
+              Get In Touch
+            </span>
           </Link>
         </div>
 
