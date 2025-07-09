@@ -17,7 +17,7 @@ interface FooterProps {
  */
 export function Footer({ showNewsletter = true }: FooterProps) {
   return (
-    <footer className="py-12 sm:py-16">
+    <footer className="z-60 border-b border-gray-200 bg-white py-12 dark:border-gray-800 dark:bg-gray-900 sm:py-16">
       {/* mt-10 sm:mt-12 md:mt-14 lg:mt-16 */}
       <Container>
         {/* Newsletter Section - Optional based on showNewsletter prop */}
