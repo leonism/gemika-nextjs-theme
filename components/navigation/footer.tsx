@@ -26,7 +26,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
             <div className="mx-auto max-w-xl px-4 text-center">
               {' '}
               {/* Added responsive padding */}
-              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent">
+              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-3xl font-bold text-transparent">
                 Subscribe to our Newsletter
               </h3>
               <p className="mb-6 text-gray-600 dark:text-gray-400">

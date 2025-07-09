@@ -73,16 +73,16 @@ export default function AboutPage() {
                 <div className="pb-0">
                   {/* Floating emoji icon */}
                   <div
-                    className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
+                    className={`mx-4 my-2 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
                   >
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
+                  <h3 className="mx-4 my-2 text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                     {item.title}
                   </h3>
                 </div>
                 <div className="pt-0">
-                  <p className="mb-4 text-gray-600 dark:text-gray-300">{item.description}</p>
+                  <p className="mx-4 my-2 text-gray-600 dark:text-gray-300">{item.description}</p>
                 </div>
 
                 {/* Hover border animation */}
@@ -126,16 +126,16 @@ export default function AboutPage() {
                   <div className="pb-0">
                     {/* Floating emoji icon */}
                     <div
-                      className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
+                      className={`mx-4 my-2 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
                     >
                       {item.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
+                    <h3 className="mx-4 my-2 text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                       {item.title}
                     </h3>
                   </div>
                   <div className="pt-0">
-                    <p className="mb-4 text-gray-600 dark:text-gray-300">{item.description}</p>
+                    <p className="mx-4 my-2 text-gray-600 dark:text-gray-300">{item.description}</p>
                   </div>
 
                   {/* Hover border animation */}
@@ -188,16 +188,16 @@ export default function AboutPage() {
                   <div className="pb-0">
                     {/* Floating emoji icon */}
                     <div
-                      className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
+                      className={`mx-4 my-2 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
                     >
                       {item.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
+                    <h3 className="mx-4 my-2 text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                       {item.title}
                     </h3>
                   </div>
                   <div className="pt-0">
-                    <p className="mb-4 text-gray-600 dark:text-gray-300">{item.description}</p>
+                    <p className="mx-4 my-2 text-gray-600 dark:text-gray-300">{item.description}</p>
                   </div>
 
                   {/* Hover border animation */}
