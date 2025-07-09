@@ -61,15 +61,7 @@ export default function BooksResourcesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      {/* Animated background elements */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden opacity-10 dark:opacity-5">
-        <div className="animate-blob animation-delay-2000 absolute left-10 top-1/4 h-64 w-64 rounded-full bg-purple-300 opacity-70 mix-blend-multiply blur-3xl filter"></div>
-        <div className="animate-blob animation-delay-4000 absolute right-20 top-1/3 h-64 w-64 rounded-full bg-amber-300 opacity-70 mix-blend-multiply blur-3xl filter"></div>
-        <div className="animate-blob absolute bottom-1/4 left-1/3 h-64 w-64 rounded-full bg-blue-300 opacity-70 mix-blend-multiply blur-3xl filter"></div>
-      </div>
-
-      <main className="relative z-10">
+    <main className="relative z-10">
         {/* Hero Section */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto max-w-6xl px-4 backdrop-blur-lg">
@@ -82,9 +74,9 @@ export default function BooksResourcesPage() {
                 <span className="ml-2 h-2 w-2 animate-pulse rounded-full bg-indigo-400"></span>
               </div>
 
-              <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl">
+              <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
                 Books &{' '}
-                <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
                   Articles
                 </span>
               </h1>
@@ -104,50 +96,49 @@ export default function BooksResourcesPage() {
                 key={index}
                 className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80"
               >
-                {/* Gradient highlight on hover */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${resource.gradient} transition-opacity duration-500`}
-                ></div>
-
-                <CardHeader className="pb-0">
-                  {/* Floating emoji icon */}
+                {/* Icon with colored background */}
+                <CardHeader className="flex flex-row items-start gap-4 pb-0">
                   <div
-                    className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${resource.color} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
+                    className={`rounded-xl p-3 ${resource.color} transition-all duration-300 group-hover:rotate-6 group-hover:scale-110`}
                   >
                     {resource.icon}
                   </div>
-                  <CardTitle className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
-                    {resource.title}
-                  </CardTitle>
+                  <div>
+                    <CardTitle className="text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
+                      {resource.title}
+                    </CardTitle>
+                    <CardDescription className="text-gray-600 dark:text-gray-400">
+                      {resource.description}
+                    </CardDescription>
+                  </div>
                 </CardHeader>
-                <CardContent className="pt-0">
-                  <CardDescription className="mb-4 text-gray-600 dark:text-gray-300">
-                    {resource.description}
-                  </CardDescription>
+
+                <CardContent className="pt-4">
                   <Link
                     href={resource.link}
-                    className="inline-flex items-center font-medium text-indigo-600 transition-colors hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300"
+                    className="group/link inline-flex items-center text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300"
                   >
                     Explore resources
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
+                      width="16"
+                      height="16"
                       viewBox="0 0 24 24"
-                      strokeWidth={2}
+                      fill="none"
                       stroke="currentColor"
-                      className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:scale-110"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="ml-1 transition-transform group-hover/link:translate-x-1"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                      />
+                      <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                   </Link>
                 </CardContent>
 
-                {/* Hover border animation */}
-                <div className="pointer-events-none absolute inset-0 rounded-2xl border-2 border-transparent transition-all duration-500 group-hover:border-indigo-500/10 dark:group-hover:border-indigo-400/10"></div>
+                {/* Hover effect elements */}
+                <div className="pointer-events-none absolute inset-0 rounded-2xl border-2 border-transparent transition-all duration-500 group-hover:border-indigo-500/10 dark:group-hover:border-indigo-400/10" />
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-gray-800/50" />
               </Card>
             ))}
           </div>

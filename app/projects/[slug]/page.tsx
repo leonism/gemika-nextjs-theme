@@ -636,21 +636,9 @@ async function ProjectPageContent({ params }: ProjectPageProps) {
 
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const resolvedParams = await params // Ensure params is awaited
-  const breadcrumbs = [
-    { href: '/', label: 'Home' },
-    { href: '/projects', label: 'Projects' },
-    {
-      href: `/projects/${resolvedParams.slug}`,
-      label: resolvedParams.slug.replace(/-/g, ' '),
-    },
-  ]
 
   return (
     <>
-      <Breadcrumbs
-        items={breadcrumbs}
-        className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"
-      />
       <ProjectPageContent params={resolvedParams} />
     </>
   )

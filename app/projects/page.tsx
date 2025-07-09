@@ -29,7 +29,7 @@ export default async function ProjectsPage() {
   )
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div>
       <JsonLd
         data={{
           '@context': 'https://schema.org',

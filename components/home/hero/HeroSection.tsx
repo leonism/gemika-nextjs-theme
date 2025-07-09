@@ -8,7 +8,7 @@ const BRANDS = ['Apple', 'Adobe', 'Google', 'Microsoft', 'Samsung', 'Spotify', '
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gray-50 py-8 sm:py-12 md:py-24 lg:py-28 xl:py-32">
+    <section className="relative overflow-hidden">
       <div className="container relative z-10 mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
         {/* Profile Image - Increased size for mobile */}
         <div className="mb-6 flex justify-center sm:mb-8 md:mb-10">

@@ -3,7 +3,7 @@ import { Code, Layout, Eye, Rocket, Award, Sparkles, Lightbulb, Users } from 'lu
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
+    <div>
       <main>
         <section className="container mx-auto max-w-4xl px-4 py-16">
           {/* Profile Image */}
@@ -20,7 +20,7 @@ export default function AboutPage() {
           </div>
 
           {/* Header with Projects page styling */}
-          <div className="mb-12 text-center">
+          <div className="mb-16 text-center">
             <div className="mb-6 inline-flex items-center justify-center rounded-full border border-gray-200 bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
               <span className="text-sm font-medium text-indigo-600">ABOUT ME</span>
             </div>
@@ -64,22 +64,31 @@ export default function AboutPage() {
             ].map((item, index) => (
               <div
                 key={index}
-                className={`group relative overflow-hidden rounded-xl border border-gray-200 ${item.bgColor} p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700`}
+                className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80"
               >
                 <div
-                  className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
-                />
-                <div className="relative z-10">
+                  className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.gradient} transition-opacity duration-500`}
+                ></div>
+
+                <div className="pb-0">
+                  {/* Floating emoji icon */}
                   <div
-                    className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}
+                    className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
                   >
                     {item.icon}
                   </div>
-                  <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
                 </div>
+                <div className="pt-0">
+                  <p className="mb-4 text-gray-600 dark:text-gray-300">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Hover border animation */}
+                <div className="pointer-events-none absolute inset-0 rounded-2xl border-2 border-transparent transition-all duration-500 group-hover:border-indigo-500/10 dark:group-hover:border-indigo-400/10"></div>
               </div>
             ))}
           </div>
@@ -110,22 +119,31 @@ export default function AboutPage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className={`group relative overflow-hidden rounded-xl border border-gray-200 ${item.bgColor} p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700`}
+                  className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80"
                 >
                   <div
-                    className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
-                  />
-                  <div className="relative z-10">
+                    className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.gradient} transition-opacity duration-500`}
+                  ></div>
+
+                  <div className="pb-0">
+                    {/* Floating emoji icon */}
                     <div
-                      className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}
+                      className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
                     >
                       {item.icon}
                     </div>
-                    <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
                   </div>
+                  <div className="pt-0">
+                    <p className="mb-4 text-gray-600 dark:text-gray-300">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  {/* Hover border animation */}
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl border-2 border-transparent transition-all duration-500 group-hover:border-indigo-500/10 dark:group-hover:border-indigo-400/10"></div>
                 </div>
               ))}
             </div>
@@ -165,22 +183,31 @@ export default function AboutPage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className={`group relative overflow-hidden rounded-xl border border-gray-200 ${item.bgColor} p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700`}
+                  className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80"
                 >
                   <div
-                    className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
-                  />
-                  <div className="relative z-10">
+                    className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.gradient} transition-opacity duration-500`}
+                  ></div>
+
+                  <div className="pb-0">
+                    {/* Floating emoji icon */}
                     <div
-                      className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}
+                      className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
                     >
                       {item.icon}
                     </div>
-                    <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
                   </div>
+                  <div className="pt-0">
+                    <p className="mb-4 text-gray-600 dark:text-gray-300">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  {/* Hover border animation */}
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl border-2 border-transparent transition-all duration-500 group-hover:border-indigo-500/10 dark:group-hover:border-indigo-400/10"></div>
                 </div>
               ))}
             </div>

@@ -18,7 +18,7 @@ interface FeaturedProjectsProps {
 
 export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   return (
-    <section className="mb-2.5 rounded-[12px] bg-white py-8 sm:py-10 md:py-14 lg:py-16 xl:py-20">
+    <section>
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 flex flex-col items-start justify-between gap-3 sm:mb-8 sm:gap-4 md:mb-10 md:flex-row md:items-center lg:mb-12">
           <div>

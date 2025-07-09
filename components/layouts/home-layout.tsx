@@ -48,11 +48,11 @@ export function HomeLayout({
   )
 
   return (
-    <div className="min-h-screen">
+    <div>
       {/* Hero Section - Only rendered if provided */}
       {heroSection && (
         <div className="relative overflow-hidden">
-          <SectionWrapper className="bg-gradient-to-r from-gray-100 to-gray-200 px-4 py-5 md:py-24">
+          <SectionWrapper className="px-4 py-5 md:py-24">
             <div className="container mx-auto">{heroSection}</div>
           </SectionWrapper>
         </div>
