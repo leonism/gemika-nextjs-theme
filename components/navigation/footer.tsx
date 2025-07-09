@@ -17,16 +17,16 @@ interface FooterProps {
  */
 export function Footer({ showNewsletter = true }: FooterProps) {
   return (
-    <footer className="bg-white py-0 shadow-md dark:bg-gray-900 sm:py-0">
+    <footer className="z-60 border-b border-gray-200 bg-white py-12 dark:border-gray-800 dark:bg-gray-900 sm:py-16">
       {/* mt-10 sm:mt-12 md:mt-14 lg:mt-16 */}
       <Container>
         {/* Newsletter Section - Optional based on showNewsletter prop */}
         {showNewsletter && (
-          <div className="border-b border-gray-200 py-12">
+          <div className="border-b border-gray-200 py-12 dark:border-gray-800">
             <div className="mx-auto max-w-xl px-4 text-center">
               {' '}
               {/* Added responsive padding */}
-              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-4xl font-bold text-transparent">
+              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-3xl font-bold text-transparent">
                 Subscribe to our Newsletter
               </h3>
               <p className="mb-6 text-gray-600 dark:text-gray-400">
@@ -38,8 +38,8 @@ export function Footer({ showNewsletter = true }: FooterProps) {
         )}
 
         {/* Main Footer Content */}
-        <div className="inline-grid py-12">
-          <div className="grid grid-cols-1 gap-4 px-4 sm:px-6 md:grid-cols-5 lg:px-8">
+        <div className="py-12">
+          <div className="grid grid-cols-1 gap-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
             {' '}
             {/* Added responsive padding */}
             {/* Brand/Company Information Column */}
@@ -189,38 +189,6 @@ export function Footer({ showNewsletter = true }: FooterProps) {
                 </li>
               </ul>
             </div>
-            {/* Legal Column */}
-            <div>
-              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-lg font-semibold text-transparent">
-                Legal
-              </h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/privacy"
-                    className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/terms"
-                    className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
-                  >
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/resources/books"
-                    className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
-                  >
-                    Cookies Consent
-                  </Link>
-                </li>
-              </ul>
-            </div>
             {/* Contact Information Column */}
             <div>
               <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-lg font-semibold text-transparent">
@@ -256,6 +224,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
               </ul>
             </div>
           </div>
+
           {/* Copyright and Legal Links Section */}
           <div className="mt-12 border-t border-gray-200 px-4 pt-8 text-center text-gray-600 dark:border-gray-800 dark:text-gray-400 sm:px-6 lg:px-8">
             {' '}
