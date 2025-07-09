@@ -1,14 +1,13 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server'
 
-import { getAllContent } from "@/lib/content";
+import { getAllContent } from '@/lib/content'
 
 export async function GET() {
-  const posts = await getAllContent("posts");
-  const projects = await getAllContent("projects");
-  const pages = await getAllContent("pages");
+  const posts = await getAllContent('posts')
+  const projects = await getAllContent('projects')
+  const pages = await getAllContent('pages')
 
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://gemika.netlify.app";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gemika.netlify.app'
 
   // Create sitemap XML
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -43,12 +42,12 @@ export async function GET() {
       (post) => `
   <url>
     <loc>${baseUrl}/posts/${post.slug}</loc>
-    <lastmod>${new Date(post.frontmatter.date as string).toISOString().split("T")[0]}</lastmod>
+    <lastmod>${new Date(post.frontmatter.date as string).toISOString().split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>`,
+  </url>`
     )
-    .join("")}
+    .join('')}
   ${projects
     .map(
       (project) => `
@@ -56,9 +55,9 @@ export async function GET() {
     <loc>${baseUrl}/projects/${project.slug}</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>`,
+  </url>`
     )
-    .join("")}
+    .join('')}
   ${pages
     .map(
       (page) => `
@@ -66,15 +65,15 @@ export async function GET() {
     <loc>${baseUrl}/${page.slug}</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>`,
+  </url>`
     )
-    .join("")}
-</urlset>`;
+    .join('')}
+</urlset>`
 
   return new NextResponse(sitemap, {
     headers: {
-      "Content-Type": "application/xml",
-      "Cache-Control": "public, max-age=3600, s-maxage=3600",
+      'Content-Type': 'application/xml',
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
     },
-  });
+  })
 }

@@ -1,7 +1,7 @@
-import { Suspense } from "react";
-import Link from "next/link";
+import { Suspense } from 'react'
+import Link from 'next/link'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 export default function NotFound() {
   return (
@@ -10,9 +10,7 @@ export default function NotFound() {
         <h1 className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-6xl font-bold tracking-tight text-transparent">
           404
         </h1>
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-          Page Not Found
-        </h2>
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Page Not Found</h2>
         <p className="text-gray-600 dark:text-gray-300">
           The page you're looking for doesn't exist or has been moved.
         </p>
@@ -28,5 +26,5 @@ export default function NotFound() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,36 +1,26 @@
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { getAllContent } from "@/lib/content";
-import { formatDate } from "@/lib/utils";
+import Image from 'next/image'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import { getAllContent } from '@/lib/content'
+import { formatDate } from '@/lib/utils'
 
-export const runtime = 'edge';
-export default async function TagPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const decodedTag = decodeURIComponent(params.slug.replace(/-/g, " "));
-  const [posts, projects] = await Promise.all([
-    getAllContent("posts"),
-    getAllContent("projects"),
-  ]);
+export default async function TagPage({ params }: { params: { slug: string } }) {
+  const decodedTag = decodeURIComponent(params.slug.replace(/-/g, ' '))
+  const [posts, projects] = await Promise.all([getAllContent('posts'), getAllContent('projects')])
 
   const taggedItems = [
     ...posts.filter((post) =>
-      post.frontmatter.tags?.some(
-        (tag: string) => tag.toLowerCase() === decodedTag.toLowerCase(),
-      ),
+      post.frontmatter.tags?.some((tag: string) => tag.toLowerCase() === decodedTag.toLowerCase())
     ),
     ...projects.filter((project) =>
       project.frontmatter.tags?.some(
-        (tag: string) => tag.toLowerCase() === decodedTag.toLowerCase(),
-      ),
+        (tag: string) => tag.toLowerCase() === decodedTag.toLowerCase()
+      )
     ),
-  ];
+  ]
 
   if (taggedItems.length === 0) {
-    return notFound();
+    return notFound()
   }
 
   return (
@@ -42,22 +32,15 @@ export default async function TagPage({
           </h1>
           <p className="mb-12 text-lg text-gray-600 dark:text-gray-400">
             Showing {taggedItems.length} post
-            {taggedItems.length !== 1 ? "s" : ""} with this tag
+            {taggedItems.length !== 1 ? 's' : ''} with this tag
           </p>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {taggedItems.map((item) => (
-              <Link
-                key={item.slug}
-                href={`/${item.type}/${item.slug}`}
-                className="group"
-              >
+              <Link key={item.slug} href={`/${item.type}/${item.slug}`} className="group">
                 <div className="relative mb-4 aspect-video overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
                   <Image
-                    src={
-                      (item.frontmatter.coverImage as string) ||
-                      "/placeholder.svg"
-                    }
+                    src={(item.frontmatter.coverImage as string) || '/placeholder.svg'}
                     alt={item.frontmatter.title as string}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -78,5 +61,5 @@ export default async function TagPage({
         </section>
       </main>
     </div>
-  );
+  )
 }

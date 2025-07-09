@@ -1,37 +1,35 @@
-"use client";
+'use client'
 
-import { useSearchParams } from "next/navigation";
-import type { WithContext } from "schema-dts";
+import { useSearchParams } from 'next/navigation'
+import type { WithContext } from 'schema-dts'
 
-import { SearchForm } from "@/components/forms/search-form";
-import JsonLd from "@/components/json-ld";
-import { SearchLayout } from "@/components/layouts/search-layout";
-import { SearchResults } from "@/components/search-results";
+import { SearchForm } from '@/components/forms/search-form'
+import JsonLd from '@/components/json-ld'
+import { SearchLayout } from '@/components/layouts/search-layout'
+import { SearchResults } from '@/components/search-results'
 
 export default function SearchPage() {
-  const searchParams = useSearchParams();
-  const query = searchParams.get("q") || "";
+  const searchParams = useSearchParams()
+  const query = searchParams.get('q') || ''
 
   // Create JSON-LD structured data
   const jsonLd: WithContext<any> = {
-    "@context": "https://schema.org",
-    "@type": "SearchResultsPage",
+    '@context': 'https://schema.org',
+    '@type': 'SearchResultsPage',
     name: `Search Results for "${query}" | gemika`,
     url: `https://gemika.netlify.app/search?q=${encodeURIComponent(query)}`,
     isPartOf: {
-      "@type": "WebSite",
-      name: "gemika",
-      url: "https://gemika.netlify.app",
+      '@type': 'WebSite',
+      name: 'gemika',
+      url: 'https://gemika.netlify.app',
     },
-  };
+  }
 
   return (
     <>
       <JsonLd data={jsonLd} />
       <SearchLayout
-        searchInput={
-          <SearchForm placeholder="Search again..." instant={true} />
-        }
+        searchInput={<SearchForm placeholder="Search again..." instant={true} />}
         searchQuery={query}
       >
         {query ? (
@@ -46,5 +44,5 @@ export default function SearchPage() {
         )}
       </SearchLayout>
     </>
-  );
+  )
 }

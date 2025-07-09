@@ -1,26 +1,20 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import Image from "next/image";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useState } from 'react'
+import Image from 'next/image'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 
-export function GalleryViewer({
-  images,
-  title,
-}: {
-  images: string[];
-  title: string;
-}) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
+export function GalleryViewer({ images, title }: { images: string[]; title: string }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isOpen, setIsOpen] = useState(false)
 
   const nextImage = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+  }
 
   const prevImage = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+  }
 
   return (
     <>
@@ -29,8 +23,8 @@ export function GalleryViewer({
           <div
             key={i}
             onClick={() => {
-              setCurrentIndex(i);
-              setIsOpen(true);
+              setCurrentIndex(i)
+              setIsOpen(true)
             }}
             className="relative aspect-square cursor-pointer"
           >
@@ -51,10 +45,7 @@ export function GalleryViewer({
 
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4">
-          <button
-            onClick={() => setIsOpen(false)}
-            className="absolute right-4 top-4 text-white"
-          >
+          <button onClick={() => setIsOpen(false)} className="absolute right-4 top-4 text-white">
             <X className="h-8 w-8" />
           </button>
 
@@ -84,5 +75,5 @@ export function GalleryViewer({
         </div>
       )}
     </>
-  );
+  )
 }

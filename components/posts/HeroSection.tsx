@@ -12,7 +12,7 @@ export function HeroSection() {
 
         {/* Main title with gradient */}
         <h1 className="mb-6 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-          Insights &{" "}
+          Insights &{' '}
           <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
             Thoughts
           </span>
@@ -20,10 +20,9 @@ export function HeroSection() {
 
         {/* Subtitle */}
         <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-300 md:text-xl">
-          Explore my latest writings on UX design, development, and creative
-          processes.
+          Explore my latest writings on UX design, development, and creative processes.
         </p>
       </div>
     </section>
-  );
+  )
 }

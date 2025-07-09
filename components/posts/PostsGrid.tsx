@@ -1,20 +1,20 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-import { EmptyState } from "./EmptyState";
-import { PostCard } from "./PostCard";
+import { EmptyState } from './EmptyState'
+import { PostCard } from './PostCard'
 
-import { Pagination } from "@/components/navigation/pagination";
-import { Post } from "@/lib/posts";
+import { Pagination } from '@/components/navigation/pagination'
+import { Post } from '@/lib/posts'
 
 interface PostsGridProps {
-  posts: Post[];
-  currentPage: number;
-  totalPages: number;
+  posts: Post[]
+  currentPage: number
+  totalPages: number
 }
 
 export function PostsGrid({ posts, currentPage, totalPages }: PostsGridProps) {
   if (posts.length === 0) {
-    return <EmptyState />;
+    return <EmptyState />
   }
 
   return (
@@ -37,5 +37,5 @@ export function PostsGrid({ posts, currentPage, totalPages }: PostsGridProps) {
         </div>
       )}
     </section>
-  );
+  )
 }

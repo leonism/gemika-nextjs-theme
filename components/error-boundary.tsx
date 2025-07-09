@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 interface ErrorBoundaryProps {
-  error: Error & { digest?: string };
-  reset: () => void;
+  error: Error & { digest?: string }
+  reset: () => void
 }
 
 export function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error(error);
-  }, [error]);
+    console.error(error)
+  }, [error])
 
   return (
     <div className="flex min-h-[400px] flex-col items-center justify-center px-4 text-center">
@@ -25,10 +25,10 @@ export function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
         <Button onClick={reset} variant="default">
           Try again
         </Button>
-        <Button onClick={() => (window.location.href = "/")} variant="outline">
+        <Button onClick={() => (window.location.href = '/')} variant="outline">
           Go to homepage
         </Button>
       </div>
     </div>
-  );
+  )
 }

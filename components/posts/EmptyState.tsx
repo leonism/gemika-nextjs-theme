@@ -17,13 +17,10 @@ export function EmptyState() {
           />
         </svg>
       </div>
-      <h3 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
-        No posts found
-      </h3>
+      <h3 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">No posts found</h3>
       <p className="mx-auto max-w-md text-gray-600 dark:text-gray-400">
-        There are no blog posts available at the moment. Please check back
-        later.
+        There are no blog posts available at the moment. Please check back later.
       </p>
     </div>
-  );
+  )
 }

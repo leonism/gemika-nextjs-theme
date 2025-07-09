@@ -1,22 +1,16 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
-import { Container } from "@/components/ui/container";
+import { Container } from '@/components/ui/container'
 
 interface BlogLayoutProps {
-  children: ReactNode;
-  sidebar?: ReactNode;
-  pagination?: ReactNode;
-  title?: string;
-  description?: string;
+  children: ReactNode
+  sidebar?: ReactNode
+  pagination?: ReactNode
+  title?: string
+  description?: string
 }
 
-export function BlogLayout({
-  children,
-  sidebar,
-  pagination,
-  title,
-  description,
-}: BlogLayoutProps) {
+export function BlogLayout({ children, sidebar, pagination, title, description }: BlogLayoutProps) {
   return (
     <Container>
       {(title || description) && (
@@ -26,11 +20,7 @@ export function BlogLayout({
               {title}
             </h1>
           )}
-          {description && (
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-              {description}
-            </p>
-          )}
+          {description && <p className="text-lg text-gray-600 dark:text-gray-400">{description}</p>}
         </div>
       )}
 
@@ -44,5 +34,5 @@ export function BlogLayout({
         {sidebar && <aside className="space-y-8">{sidebar}</aside>}
       </div>
     </Container>
-  );
+  )
 }

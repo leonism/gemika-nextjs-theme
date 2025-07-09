@@ -1,10 +1,10 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import Link from "next/link";
-import type { MDXComponents } from "mdx/types";
+import Image from 'next/image'
+import Link from 'next/link'
+import type { MDXComponents } from 'mdx/types'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
 export const components: MDXComponents = {
   h1: (props) => <h1 className="mb-4 mt-8 text-3xl font-bold" {...props} />,
@@ -13,12 +13,6 @@ export const components: MDXComponents = {
   p: (props) => <p className="my-4" {...props} />,
   a: (props) => <Link {...props} className="text-blue-600 hover:underline" />,
   img: (props) => (
-    <Image
-      {...props}
-      width={800}
-      height={400}
-      className="my-6 rounded-lg"
-      alt={props.alt || ""}
-    />
+    <Image {...props} width={800} height={400} className="my-6 rounded-lg" alt={props.alt || ''} />
   ),
-};
+}

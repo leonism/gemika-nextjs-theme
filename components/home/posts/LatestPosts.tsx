@@ -1,19 +1,19 @@
-import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import Link from 'next/link'
+import { ChevronRight } from 'lucide-react'
 
-import { PostCard } from "./PostCard";
+import { PostCard } from './PostCard'
 
 interface LatestPostsProps {
   posts: {
-    slug: string;
+    slug: string
     frontmatter: {
-      title: string;
-      coverImage?: string;
-      tags?: string[];
-      date?: string;
-      excerpt?: string;
-    };
-  }[];
+      title: string
+      coverImage?: string
+      tags?: string[]
+      date?: string
+      excerpt?: string
+    }
+  }[]
 }
 
 export function LatestPosts({ posts }: LatestPostsProps) {
@@ -30,8 +30,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
             </span>
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-gray-600">
-            Insights, tutorials, and thoughts on UX design, mobile development,
-            and digital strategy
+            Insights, tutorials, and thoughts on UX design, mobile development, and digital strategy
           </p>
         </div>
 
@@ -42,5 +41,5 @@ export function LatestPosts({ posts }: LatestPostsProps) {
         </div>
       </div>
     </section>
-  );
+  )
 }

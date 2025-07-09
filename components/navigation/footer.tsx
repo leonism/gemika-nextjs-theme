@@ -1,20 +1,11 @@
-import Link from "next/link";
-import {
-  Facebook,
-  Github,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Twitter,
-} from "lucide-react";
+import Link from 'next/link'
+import { Facebook, Github, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react'
 
-import { NewsletterForm } from "@/components/forms/newsletter-form";
-import { Container } from "@/components/ui/container";
+import { NewsletterForm } from '@/components/forms/newsletter-form'
+import { Container } from '@/components/ui/container'
 
 interface FooterProps {
-  showNewsletter?: boolean;
+  showNewsletter?: boolean
 }
 
 /**
@@ -33,14 +24,13 @@ export function Footer({ showNewsletter = true }: FooterProps) {
         {showNewsletter && (
           <div className="border-b border-gray-200 py-12 dark:border-gray-800">
             <div className="mx-auto max-w-xl px-4 text-center">
-              {" "}
+              {' '}
               {/* Added responsive padding */}
               <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent">
                 Subscribe to our Newsletter
               </h3>
               <p className="mb-6 text-gray-600 dark:text-gray-400">
-                Stay updated with the latest design trends, development tips,
-                and industry news.
+                Stay updated with the latest design trends, development tips, and industry news.
               </p>
               <NewsletterForm />
             </div>
@@ -50,7 +40,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
         {/* Main Footer Content */}
         <div className="py-12">
           <div className="grid grid-cols-1 gap-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
-            {" "}
+            {' '}
             {/* Added responsive padding */}
             {/* Brand/Company Information Column */}
             <div className="space-y-4">
@@ -61,8 +51,8 @@ export function Footer({ showNewsletter = true }: FooterProps) {
                 Gemika Theme
               </Link>
               <p className="text-gray-600 dark:text-gray-400">
-                Expert user experience strategist and mobile developer creating
-                intuitive digital experiences.
+                Expert user experience strategist and mobile developer creating intuitive digital
+                experiences.
               </p>
               {/* Social Media Links */}
               <div className="flex space-x-4">
@@ -206,10 +196,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-center">
-                  <Mail
-                    size={16}
-                    className="mr-2 text-gray-600 dark:text-gray-400"
-                  />
+                  <Mail size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
                   <a
                     href="mailto:hello@gemika.com"
                     className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
@@ -218,10 +205,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
                   </a>
                 </li>
                 <li className="flex items-center">
-                  <Phone
-                    size={16}
-                    className="mr-2 text-gray-600 dark:text-gray-400"
-                  />
+                  <Phone size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
                   <a
                     href="tel:+1234567890"
                     className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
@@ -230,10 +214,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
                   </a>
                 </li>
                 <li className="flex items-start">
-                  <MapPin
-                    size={16}
-                    className="mr-2 mt-1 text-gray-600 dark:text-gray-400"
-                  />
+                  <MapPin size={16} className="mr-2 mt-1 text-gray-600 dark:text-gray-400" />
                   <span className="text-gray-600 dark:text-gray-400">
                     123 Design Street
                     <br />
@@ -246,7 +227,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
 
           {/* Copyright and Legal Links Section */}
           <div className="mt-12 border-t border-gray-200 px-4 pt-8 text-center text-gray-600 dark:border-gray-800 dark:text-gray-400 sm:px-6 lg:px-8">
-            {" "}
+            {' '}
             {/* Added responsive padding */}
             <p>© {new Date().getFullYear()} gemika. All rights reserved.</p>
             <div className="mt-2 text-sm">
@@ -261,5 +242,5 @@ export function Footer({ showNewsletter = true }: FooterProps) {
         </div>
       </Container>
     </footer>
-  );
+  )
 }

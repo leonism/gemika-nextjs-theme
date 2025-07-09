@@ -1,26 +1,26 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { Menu, X } from 'lucide-react'
 
-import { Search } from "@/components/search";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Search } from '@/components/search'
+import { ThemeToggle } from '@/components/theme-toggle'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 interface NavItem {
-  label: string;
-  href: string;
-  children?: NavItem[];
+  label: string
+  href: string
+  children?: NavItem[]
 }
 
 interface MobileMenuProps {
-  items: NavItem[];
+  items: NavItem[]
   cta?: {
-    label: string;
-    href: string;
-  };
+    label: string
+    href: string
+  }
 }
 
 function LogoIcon() {
@@ -46,7 +46,7 @@ function LogoIcon() {
         </linearGradient>
       </defs>
     </svg>
-  );
+  )
 }
 
 function Logo() {
@@ -58,37 +58,35 @@ function Logo() {
         aria-label="Go to homepage"
       >
         <LogoIcon />
-        <span className="relative text-xs font-bold tracking-wide text-white">
-          BenJo
-        </span>
+        <span className="relative text-xs font-bold tracking-wide text-white">BenJo</span>
       </Link>
     </div>
-  );
+  )
 }
 
 export function MobileMenu({ items, cta }: MobileMenuProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   // Close menu when route changes and prevent body scrolling when menu is open
   useEffect(() => {
     const handleRouteChange = () => {
-      setIsOpen(false);
-    };
+      setIsOpen(false)
+    }
 
     // Prevent body scrolling when menu is open
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = ''
     }
 
-    window.addEventListener("popstate", handleRouteChange);
+    window.addEventListener('popstate', handleRouteChange)
 
     return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("popstate", handleRouteChange);
-    };
-  }, [isOpen]);
+      document.body.style.overflow = ''
+      window.removeEventListener('popstate', handleRouteChange)
+    }
+  }, [isOpen])
 
   return (
     <div className="md:hidden">
@@ -104,7 +102,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
       {/* Mobile Menu Overlay with transition */}
       <div
         className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${
-          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
+          isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}
         onClick={() => setIsOpen(false)}
       />
@@ -112,7 +110,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
       {/* Mobile Menu Panel with slide-in animation */}
       <div
         className={`fixed inset-y-0 right-0 z-50 w-full max-w-xs overflow-y-auto bg-white shadow-xl transition-transform duration-300 ease-in-out dark:bg-gray-900 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex h-full flex-col">
@@ -140,8 +138,8 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "block rounded-lg px-3 py-1 text-base font-medium transition-colors duration-200",
-                    "text-gray-900 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-indigo-400",
+                    'block rounded-lg px-3 py-1 text-base font-medium transition-colors duration-200',
+                    'text-gray-900 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-indigo-400'
                   )}
                 >
                   {item.label}
@@ -155,8 +153,8 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
                         href={child.href}
                         onClick={() => setIsOpen(false)}
                         className={cn(
-                          "block rounded-lg px-3 py-2 text-sm transition-colors duration-200",
-                          "text-gray-700 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-indigo-400",
+                          'block rounded-lg px-3 py-2 text-sm transition-colors duration-200',
+                          'text-gray-700 hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-indigo-400'
                         )}
                       >
                         {child.label}
@@ -185,5 +183,5 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }

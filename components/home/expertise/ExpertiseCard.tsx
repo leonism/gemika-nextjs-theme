@@ -1,22 +1,22 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import Image from 'next/image'
+import Link from 'next/link'
+import { ChevronRight } from 'lucide-react'
 
 interface ExpertiseCardProps {
   topic: {
-    title: string;
-    image: string;
-    tags: string[];
-    color: string;
-    description: string;
-    count: number;
-  };
+    title: string
+    image: string
+    tags: string[]
+    color: string
+    description: string
+    count: number
+  }
 }
 
 export function ExpertiseCard({ topic }: ExpertiseCardProps) {
   return (
     <Link
-      href={`/category/${topic.title.toLowerCase().replace(" ", "-")}`}
+      href={`/category/${topic.title.toLowerCase().replace(' ', '-')}`}
       className="group relative overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-xl sm:rounded-2xl sm:hover:-translate-y-2"
     >
       <div className="relative aspect-video overflow-hidden">
@@ -44,9 +44,7 @@ export function ExpertiseCard({ topic }: ExpertiseCardProps) {
               {topic.title}
             </span>
           </h3>
-          <p className="mb-3 text-sm text-gray-600 sm:mb-4 sm:text-base">
-            {topic.description}
-          </p>
+          <p className="mb-3 text-sm text-gray-600 sm:mb-4 sm:text-base">{topic.description}</p>
           <div className="flex items-center text-xs text-gray-500 sm:text-sm">
             <span className="mr-3 flex items-center sm:mr-4">
               <svg
@@ -74,5 +72,5 @@ export function ExpertiseCard({ topic }: ExpertiseCardProps) {
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5"></div>
     </Link>
-  );
+  )
 }

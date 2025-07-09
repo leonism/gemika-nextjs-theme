@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 export function BrandsSection() {
   return (
@@ -26,5 +26,5 @@ export function BrandsSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

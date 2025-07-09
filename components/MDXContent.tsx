@@ -1,16 +1,13 @@
-"use client";
+'use client'
 
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic'
 
-const MDXClientRenderer = dynamic(
-  () => import("@/components/MDXClientRenderer"),
-  { ssr: false },
-);
+const MDXClientRenderer = dynamic(() => import('@/components/MDXClientRenderer'), { ssr: false })
 
 interface MDXContentProps {
-  source: any;
+  source: any
 }
 
 export function MDXContent({ source }: MDXContentProps) {
-  return <MDXClientRenderer source={source} />;
+  return <MDXClientRenderer source={source} />
 }

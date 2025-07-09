@@ -1,67 +1,65 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { ArrowRight, BookOpen, Clock, FileText } from "lucide-react";
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { ArrowRight, BookOpen, Clock, FileText } from 'lucide-react'
 
-import { SearchResult } from "@/types/search";
+import { SearchResult } from '@/types/search'
 
 interface SearchResultsProps {
-  query: string;
+  query: string
 }
 
 const formatDate = (dateString: string) => {
-  if (!dateString) return "";
+  if (!dateString) return ''
   try {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    })
   } catch (e) {
-    return dateString;
+    return dateString
   }
-};
+}
 
 const getResultIcon = (type: string) => {
   switch (type.toLowerCase()) {
-    case "post":
-      return <FileText className="h-4 w-4" />;
-    case "project":
-      return <BookOpen className="h-4 w-4" />;
+    case 'post':
+      return <FileText className="h-4 w-4" />
+    case 'project':
+      return <BookOpen className="h-4 w-4" />
     default:
-      return <FileText className="h-4 w-4" />;
+      return <FileText className="h-4 w-4" />
   }
-};
+}
 
 export function SearchResults({ query }: SearchResultsProps) {
-  const [results, setResults] = useState<SearchResult[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [results, setResults] = useState<SearchResult[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     async function fetchResults() {
-      setIsLoading(true);
+      setIsLoading(true)
       try {
-        const response = await window.fetch(
-          `/api/search?q=${encodeURIComponent(query)}`,
-        );
-        if (!response.ok) throw new Error("Failed to fetch search results");
-        const data = await response.json();
-        setResults(data);
+        const response = await window.fetch(`/api/search?q=${encodeURIComponent(query)}`)
+        if (!response.ok) throw new Error('Failed to fetch search results')
+        const data = await response.json()
+        setResults(data)
       } catch (error) {
-        console.error("Error searching content:", error);
+        console.error('Error searching content:', error)
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
     }
 
-    if (query) fetchResults();
+    if (query) fetchResults()
     else {
-      setResults([]);
-      setIsLoading(false);
+      setResults([])
+      setIsLoading(false)
     }
-  }, [query]);
+  }, [query])
 
   if (isLoading) {
     return (
@@ -84,7 +82,7 @@ export function SearchResults({ query }: SearchResultsProps) {
           </div>
         ))}
       </div>
-    );
+    )
   }
 
   if (results.length === 0 && query) {
@@ -115,7 +113,7 @@ export function SearchResults({ query }: SearchResultsProps) {
           </Link>
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -126,7 +124,9 @@ export function SearchResults({ query }: SearchResultsProps) {
           className="group rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900/50 dark:hover:border-primary/50"
           aria-labelledby={`result-${result.id}-title`}
         >
-          <Link href={result.url} className="block mb-4"> {/* Added mb-4 here */}
+          <Link href={result.url} className="block mb-4">
+            {' '}
+            {/* Added mb-4 here */}
             <div className="flex items-start gap-5">
               <div className="flex-1">
                 <div className="mb-3 flex items-center gap-3 text-sm">
@@ -163,5 +163,5 @@ export function SearchResults({ query }: SearchResultsProps) {
         </article>
       ))}
     </div>
-  );
+  )
 }

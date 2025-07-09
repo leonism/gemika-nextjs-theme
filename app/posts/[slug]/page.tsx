@@ -1,63 +1,60 @@
-import type { Metadata } from "next";
-import { serialize } from "next-mdx-remote/serialize";
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { Calendar, ChevronLeft, ChevronRight, Clock, User } from "lucide-react";
+import type { Metadata } from 'next'
+import { serialize } from 'next-mdx-remote/serialize'
+import Image from 'next/image'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import { Calendar, ChevronLeft, ChevronRight, Clock, User } from 'lucide-react'
 
-import JsonLd from "@/components/json-ld";
-import { MDXProviderClient } from "@/components/mdx-provider-client";
-import { Breadcrumbs } from "@/components/navigation/breadcrumbs";
-import ClientOnly from "@/components/utility/client-only";
-import { getAllContent, getContent } from "@/lib/content";
+import JsonLd from '@/components/json-ld'
+import { MDXProviderClient } from '@/components/mdx-provider-client'
+import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
+import ClientOnly from '@/components/utility/client-only'
+import { getAllContent, getContent } from '@/lib/content'
 
 interface PostPageProps {
-  params: Promise<{ slug: string }> | { slug: string };
+  params: Promise<{ slug: string }> | { slug: string }
 }
 
 export async function generateStaticParams() {
-  const posts = await getAllContent("posts");
+  const posts = await getAllContent('posts')
   return posts
     .filter((post) => post !== null)
     .map((post) => ({
       slug: post.slug,
-    }));
+    }))
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const resolvedParams = await params;
+  const resolvedParams = await params
 
   if (!resolvedParams?.slug) {
-    throw new Error("No slug provided");
+    throw new Error('No slug provided')
   }
 
-  const post = await getContent("posts", resolvedParams.slug);
+  const post = await getContent('posts', resolvedParams.slug)
 
   if (!post || !post.frontmatter || !post.content) {
-    notFound();
+    notFound()
   }
 
   // Properly serialize the MDX content
-  const serializedContent = await serialize(post.content || "");
+  const serializedContent = await serialize(post.content || '')
 
   // Get all posts for pagination
-  const allPosts = await getAllContent("posts");
-  const currentIndex = allPosts.findIndex(
-    (p) => p?.slug === resolvedParams.slug,
-  );
-  const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
-  const nextPost =
-    currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+  const allPosts = await getAllContent('posts')
+  const currentIndex = allPosts.findIndex((p) => p?.slug === resolvedParams.slug)
+  const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
+  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
 
   // Create breadcrumbs
   const breadcrumbs = [
-    { href: "/", label: "Home" },
-    { href: "/posts", label: "Blog" },
+    { href: '/', label: 'Home' },
+    { href: '/posts', label: 'Blog' },
     {
       href: `/posts/${resolvedParams.slug}`,
       label: post.frontmatter.title as string,
     },
-  ];
+  ]
 
   return (
     <>
@@ -98,7 +95,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 {(post.frontmatter.tags as string[]).map((tag) => (
                   <Link
                     key={tag}
-                    href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
                     className="inline-flex items-center rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-800 transition-colors hover:bg-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:hover:bg-indigo-800/40"
                   >
                     {tag}
@@ -138,9 +135,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   <ChevronLeft className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500 dark:text-gray-500">
-                    Previous
-                  </div>
+                  <div className="text-sm text-gray-500 dark:text-gray-500">Previous</div>
                   <div className="max-w-[200px] truncate font-medium">
                     {prevPost.frontmatter.title}
                   </div>
@@ -154,9 +149,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 className="group ml-auto flex items-center text-right text-gray-700 no-underline transition-colors hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
               >
                 <div>
-                  <div className="text-sm text-gray-500 dark:text-gray-500">
-                    Next
-                  </div>
+                  <div className="text-sm text-gray-500 dark:text-gray-500">Next</div>
                   <div className="max-w-[200px] truncate font-medium">
                     {nextPost.frontmatter.title}
                   </div>
@@ -170,5 +163,5 @@ export default async function PostPage({ params }: PostPageProps) {
         </article>
       </div>
     </>
-  );
+  )
 }

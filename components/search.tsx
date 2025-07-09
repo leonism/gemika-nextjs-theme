@@ -1,66 +1,63 @@
-"use client";
+'use client'
 
-import type React from "react";
-import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import { SearchIcon, X } from "lucide-react";
+import type React from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { SearchIcon, X } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 export function Search() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [query, setQuery] = useState("");
-  const router = useRouter();
-  const searchRef = useRef<HTMLDivElement>(null);
-  const searchFormRef = useRef<HTMLFormElement>(null);
+  const [isOpen, setIsOpen] = useState(false)
+  const [query, setQuery] = useState('')
+  const router = useRouter()
+  const searchRef = useRef<HTMLDivElement>(null)
+  const searchFormRef = useRef<HTMLFormElement>(null)
 
   // Handle click outside to close search
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        searchFormRef.current &&
-        !searchFormRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
+      if (searchFormRef.current && !searchFormRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
       }
-    };
+    }
 
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside)
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen])
 
   const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     if (query.trim()) {
       // Close any open mobile menu by setting body overflow back to normal
-      document.body.style.overflow = "";
+      document.body.style.overflow = ''
       // Close the search
-      setIsOpen(false);
-      router.push(`/search?q=${encodeURIComponent(query)}`);
+      setIsOpen(false)
+      router.push(`/search?q=${encodeURIComponent(query)}`)
     }
-  };
+  }
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsOpen(false);
+      if (e.key === 'Escape') {
+        setIsOpen(false)
       }
       // Open search on Cmd+K or Ctrl+K
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        setIsOpen(true);
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        setIsOpen(true)
       }
-    };
+    }
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
 
   return (
     <div ref={searchRef} className="relative">
@@ -73,8 +70,8 @@ export function Search() {
           role="button"
           tabIndex={0}
           onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              setIsOpen(true);
+            if (e.key === 'Enter' || e.key === ' ') {
+              setIsOpen(true)
             }
           }}
         >
@@ -103,8 +100,8 @@ export function Search() {
               <div
                 className="absolute right-0 top-0 flex h-full cursor-pointer items-center justify-center px-3 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
                 onClick={(e) => {
-                  e.stopPropagation();
-                  setIsOpen(false);
+                  e.stopPropagation()
+                  setIsOpen(false)
                 }}
               >
                 <X className="h-5 w-5" />
@@ -115,5 +112,5 @@ export function Search() {
         </div>
       )}
     </div>
-  );
+  )
 }

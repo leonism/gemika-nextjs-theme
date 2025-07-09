@@ -1,19 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 // Remove unused import
 
-import { HeroBrands } from "@/components/home/hero/HeroBrands";
+import { HeroBrands } from '@/components/home/hero/HeroBrands'
 
-const BRANDS = [
-  "Apple",
-  "Adobe",
-  "Google",
-  "Microsoft",
-  "Samsung",
-  "Spotify",
-  "Amazon",
-  "Netflix",
-];
+const BRANDS = ['Apple', 'Adobe', 'Google', 'Microsoft', 'Samsung', 'Spotify', 'Amazon', 'Netflix']
 
 export function HeroSection() {
   return (
@@ -48,8 +39,8 @@ export function HeroSection() {
 
         {/* Description */}
         <p className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-gray-500 sm:mb-10 sm:max-w-2xl sm:text-lg md:mb-12 md:max-w-3xl md:text-xl lg:text-2xl">
-          Crafting exceptional digital experiences through thoughtful design and
-          cutting-edge development.
+          Crafting exceptional digital experiences through thoughtful design and cutting-edge
+          development.
         </p>
 
         {/* Buttons */}
@@ -77,5 +68,5 @@ export function HeroSection() {
         <HeroBrands brands={BRANDS} />
       </div>
     </section>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-import { Container } from "@/components/ui/container";
+import { Container } from '@/components/ui/container'
 
 interface PostLayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export function PostLayout({ children }: PostLayoutProps) {
@@ -11,5 +11,5 @@ export function PostLayout({ children }: PostLayoutProps) {
         <main className="flex-1">{children}</main>
       </div>
     </Container>
-  );
+  )
 }

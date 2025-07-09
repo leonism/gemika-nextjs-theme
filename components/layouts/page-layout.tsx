@@ -1,23 +1,18 @@
-"use client";
+'use client'
 
 // Mark this as a Client Component
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
-import { Container } from "@/components/ui/container";
+import { Container } from '@/components/ui/container'
 
 interface PageLayoutProps {
-  children: ReactNode;
-  title?: string;
-  subtitle?: string;
-  hero?: ReactNode;
+  children: ReactNode
+  title?: string
+  subtitle?: string
+  hero?: ReactNode
 }
 
-export function PageLayout({
-  children,
-  title,
-  subtitle,
-  hero,
-}: PageLayoutProps) {
+export function PageLayout({ children, title, subtitle, hero }: PageLayoutProps) {
   return (
     <Container>
       {hero && <div className="mb-12">{hero}</div>}
@@ -29,17 +24,11 @@ export function PageLayout({
               {title}
             </h1>
           )}
-          {subtitle && (
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              {subtitle}
-            </p>
-          )}
+          {subtitle && <p className="text-xl text-gray-600 dark:text-gray-400">{subtitle}</p>}
         </header>
       )}
 
-      <main className="prose prose-lg max-w-none dark:prose-invert">
-        {children}
-      </main>
+      <main className="prose prose-lg max-w-none dark:prose-invert">{children}</main>
     </Container>
-  );
+  )
 }

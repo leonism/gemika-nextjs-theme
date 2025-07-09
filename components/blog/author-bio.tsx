@@ -1,45 +1,38 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Facebook, Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import Image from 'next/image'
+import Link from 'next/link'
+import { Facebook, Github, Instagram, Linkedin, Twitter } from 'lucide-react'
 
 interface SocialLink {
-  platform: "facebook" | "twitter" | "instagram" | "linkedin" | "github";
-  url: string;
+  platform: 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'github'
+  url: string
 }
 
 interface AuthorBioProps {
-  name: string;
-  bio: string;
-  imageUrl: string;
-  slug: string;
-  socialLinks?: SocialLink[];
-  className?: string;
+  name: string
+  bio: string
+  imageUrl: string
+  slug: string
+  socialLinks?: SocialLink[]
+  className?: string
 }
 
-export function AuthorBio({
-  name,
-  bio,
-  imageUrl,
-  slug,
-  socialLinks,
-  className,
-}: AuthorBioProps) {
+export function AuthorBio({ name, bio, imageUrl, slug, socialLinks, className }: AuthorBioProps) {
   const renderSocialIcon = (platform: string) => {
     switch (platform) {
-      case "facebook":
-        return <Facebook size={18} />;
-      case "twitter":
-        return <Twitter size={18} />;
-      case "instagram":
-        return <Instagram size={18} />;
-      case "linkedin":
-        return <Linkedin size={18} />;
-      case "github":
-        return <Github size={18} />;
+      case 'facebook':
+        return <Facebook size={18} />
+      case 'twitter':
+        return <Twitter size={18} />
+      case 'instagram':
+        return <Instagram size={18} />
+      case 'linkedin':
+        return <Linkedin size={18} />
+      case 'github':
+        return <Github size={18} />
       default:
-        return null;
+        return null
     }
-  };
+  }
 
   return (
     <div className={`flex items-center ${className}`}>
@@ -48,7 +41,7 @@ export function AuthorBio({
           <Image
             src={
               imageUrl ||
-              "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+              'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
             }
             alt={name}
             fill
@@ -58,10 +51,7 @@ export function AuthorBio({
       </Link>
 
       <div>
-        <Link
-          href={`/authors/${slug}`}
-          className="transition-colors hover:text-primary"
-        >
+        <Link href={`/authors/${slug}`} className="transition-colors hover:text-primary">
           <h4 className="text-lg font-medium">{name}</h4>
         </Link>
 
@@ -85,5 +75,5 @@ export function AuthorBio({
         )}
       </div>
     </div>
-  );
+  )
 }

@@ -1,15 +1,15 @@
-"use client";
+'use client'
 
-import { MDXRemote } from "next-mdx-remote";
-import type { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXRemote } from 'next-mdx-remote'
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
-import { components } from "./mdx-components";
+import { components } from './mdx-components'
 
 interface MDXProviderProps {
-  source: MDXRemoteSerializeResult;
+  source: MDXRemoteSerializeResult
 }
 
 export function MDXProvider({ source }: MDXProviderProps) {
-  if (!source) return null;
-  return <MDXRemote {...source} components={components} />;
+  if (!source) return null
+  return <MDXRemote {...source} components={components} />
 }

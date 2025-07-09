@@ -1,22 +1,22 @@
-import type { ReactNode } from "react";
-import Link from "next/link";
-import { Search } from "lucide-react";
+import type { ReactNode } from 'react'
+import Link from 'next/link'
+import { Search } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
-import { Container } from "@/components/ui/container";
+import { Button } from '@/components/ui/button'
+import { Container } from '@/components/ui/container'
 
 interface NotFoundLayoutProps {
-  children?: ReactNode;
-  title?: string;
-  message?: string;
-  image?: ReactNode;
-  searchBar?: ReactNode;
+  children?: ReactNode
+  title?: string
+  message?: string
+  image?: ReactNode
+  searchBar?: ReactNode
 }
 
 export function NotFoundLayout({
   children,
-  title = "404 - Page Not Found",
-  message = "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+  title = '404 - Page Not Found',
+  message = 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.',
   image,
   searchBar,
 }: NotFoundLayoutProps) {
@@ -29,9 +29,7 @@ export function NotFoundLayout({
 
         {image && <div className="my-8">{image}</div>}
 
-        <p className="mb-8 max-w-md text-gray-600 dark:text-gray-400">
-          {message}
-        </p>
+        <p className="mb-8 max-w-md text-gray-600 dark:text-gray-400">{message}</p>
 
         {searchBar ? (
           <div className="mb-8 w-full max-w-md">{searchBar}</div>
@@ -61,5 +59,5 @@ export function NotFoundLayout({
         {children}
       </div>
     </Container>
-  );
+  )
 }

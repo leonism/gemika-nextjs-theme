@@ -1,124 +1,120 @@
-"use client";
+'use client'
 
-import type React from "react";
-import { useState } from "react";
-import Image from "next/image";
-import { Flag, Reply, ThumbsDown, ThumbsUp } from "lucide-react";
+import type React from 'react'
+import { useState } from 'react'
+import Image from 'next/image'
+import { Flag, Reply, ThumbsDown, ThumbsUp } from 'lucide-react'
 
-import { useToast } from "@/hooks/use-toast";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { formatDate } from "@/lib/utils";
+import { useToast } from '@/hooks/use-toast'
+import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
+import { formatDate } from '@/lib/utils'
 
 interface Comment {
-  id: string;
+  id: string
   author: {
-    name: string;
-    imageUrl: string;
-  };
-  content: string;
-  date: string;
-  likes: number;
-  dislikes: number;
-  replies?: Comment[];
+    name: string
+    imageUrl: string
+  }
+  content: string
+  date: string
+  likes: number
+  dislikes: number
+  replies?: Comment[]
 }
 
 interface CommentSectionProps {
-  postSlug: string;
-  initialComments?: Comment[];
-  className?: string;
+  postSlug: string
+  initialComments?: Comment[]
+  className?: string
 }
 
-export function CommentSection({
-  postSlug,
-  initialComments = [],
-  className,
-}: CommentSectionProps) {
-  const [comments, setComments] = useState<Comment[]>(initialComments);
-  const [newComment, setNewComment] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
+export function CommentSection({ postSlug, initialComments = [], className }: CommentSectionProps) {
+  const [comments, setComments] = useState<Comment[]>(initialComments)
+  const [newComment, setNewComment] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { toast } = useToast()
 
   const handleSubmitComment = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (!newComment.trim()) {
       toast({
-        title: "Error",
-        description: "Please enter a comment",
-        variant: "destructive",
-      });
-      return;
+        title: 'Error',
+        description: 'Please enter a comment',
+        variant: 'destructive',
+      })
+      return
     }
 
-    setIsSubmitting(true);
+    setIsSubmitting(true)
 
     try {
       // In a real application, you would send this to your API
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000))
 
       const newCommentObj: Comment = {
         id: Date.now().toString(),
         author: {
-          name: "You",
+          name: 'You',
           imageUrl:
-            "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+            'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
         },
         content: newComment,
         date: new Date().toISOString(),
         likes: 0,
         dislikes: 0,
-      };
+      }
 
-      setComments([newCommentObj, ...comments]);
-      setNewComment("");
+      setComments([newCommentObj, ...comments])
+      setNewComment('')
 
       toast({
-        title: "Success!",
-        description: "Your comment has been posted.",
-      });
+        title: 'Success!',
+        description: 'Your comment has been posted.',
+      })
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to post your comment. Please try again later.",
-        variant: "destructive",
-      });
+        title: 'Error',
+        description: 'Failed to post your comment. Please try again later.',
+        variant: 'destructive',
+      })
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
-  };
+  }
 
   const handleLike = (commentId: string) => {
     setComments(
       comments.map((comment) => {
         if (comment.id === commentId) {
-          return { ...comment, likes: comment.likes + 1 };
+          return { ...comment, likes: comment.likes + 1 }
         }
-        return comment;
-      }),
-    );
-  };
+        return comment
+      })
+    )
+  }
 
   const handleDislike = (commentId: string) => {
     setComments(
       comments.map((comment) => {
         if (comment.id === commentId) {
-          return { ...comment, dislikes: comment.dislikes + 1 };
+          return { ...comment, dislikes: comment.dislikes + 1 }
         }
-        return comment;
-      }),
-    );
-  };
+        return comment
+      })
+    )
+  }
 
   const renderComment = (comment: Comment, isReply = false) => (
     <div
       key={comment.id}
-      className={`${isReply ? "ml-12 mt-4" : "mb-6 border-b border-gray-200 pb-6 dark:border-gray-800"}`}
+      className={`${isReply ? 'ml-12 mt-4' : 'mb-6 border-b border-gray-200 pb-6 dark:border-gray-800'}`}
     >
       <div className="flex items-start">
         <div className="relative mr-4 h-10 w-10 flex-shrink-0 overflow-hidden rounded-full">
           <Image
-            src={comment.author.imageUrl || "/placeholder.svg"}
+            src={comment.author.imageUrl || '/placeholder.svg'}
             alt={comment.author.name}
             fill
             className="object-cover"
@@ -133,9 +129,7 @@ export function CommentSection({
             </span>
           </div>
 
-          <p className="mb-3 text-gray-700 dark:text-gray-300">
-            {comment.content}
-          </p>
+          <p className="mb-3 text-gray-700 dark:text-gray-300">{comment.content}</p>
 
           <div className="flex items-center space-x-4 text-sm">
             <button
@@ -167,10 +161,9 @@ export function CommentSection({
         </div>
       </div>
 
-      {comment.replies &&
-        comment.replies.map((reply) => renderComment(reply, true))}
+      {comment.replies && comment.replies.map((reply) => renderComment(reply, true))}
     </div>
-  );
+  )
 
   return (
     <div className={className}>
@@ -186,7 +179,7 @@ export function CommentSection({
           className="mb-3 min-h-[100px]"
         />
         <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Posting..." : "Post Comment"}
+          {isSubmitting ? 'Posting...' : 'Post Comment'}
         </Button>
       </form>
 
@@ -200,5 +193,5 @@ export function CommentSection({
         )}
       </div>
     </div>
-  );
+  )
 }

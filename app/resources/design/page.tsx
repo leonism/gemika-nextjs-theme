@@ -1,20 +1,14 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function DesignResourcesPage() {
   const designResources = [
     {
-      title: "Figma UI Kits",
+      title: 'Figma UI Kits',
       description:
-        "A collection of premium and free UI kits for Figma to jumpstart your design projects.",
-      link: "#",
+        'A collection of premium and free UI kits for Figma to jumpstart your design projects.',
+      link: '#',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,14 +28,13 @@ export default function DesignResourcesPage() {
           <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" />
         </svg>
       ),
-      color:
-        "bg-indigo-100 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-300",
+      color: 'bg-indigo-100 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-300',
     },
     {
-      title: "Color Palette Generators",
+      title: 'Color Palette Generators',
       description:
-        "Tools and resources for creating harmonious color schemes for your digital products.",
-      link: "#",
+        'Tools and resources for creating harmonious color schemes for your digital products.',
+      link: '#',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -57,14 +50,13 @@ export default function DesignResourcesPage() {
           <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
         </svg>
       ),
-      color:
-        "bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-300",
+      color: 'bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-300',
     },
     {
-      title: "Typography Resources",
+      title: 'Typography Resources',
       description:
-        "Font pairing tools, typography guidelines, and resources for better text design.",
-      link: "#",
+        'Font pairing tools, typography guidelines, and resources for better text design.',
+      link: '#',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -82,14 +74,12 @@ export default function DesignResourcesPage() {
           <line x1="12" y1="4" x2="12" y2="20" />
         </svg>
       ),
-      color:
-        "bg-amber-100 dark:bg-amber-900/20 text-amber-600 dark:text-amber-300",
+      color: 'bg-amber-100 dark:bg-amber-900/20 text-amber-600 dark:text-amber-300',
     },
     {
-      title: "Icon Libraries",
-      description:
-        "Curated collections of high-quality icons for various design needs and styles.",
-      link: "#",
+      title: 'Icon Libraries',
+      description: 'Curated collections of high-quality icons for various design needs and styles.',
+      link: '#',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -111,14 +101,12 @@ export default function DesignResourcesPage() {
           <line x1="4.93" y1="19.07" x2="9.17" y2="14.83" />
         </svg>
       ),
-      color:
-        "bg-violet-100 dark:bg-violet-900/20 text-violet-600 dark:text-violet-300",
+      color: 'bg-violet-100 dark:bg-violet-900/20 text-violet-600 dark:text-violet-300',
     },
     {
-      title: "UX Research Templates",
-      description:
-        "Ready-to-use templates for user interviews, surveys, and usability testing.",
-      link: "#",
+      title: 'UX Research Templates',
+      description: 'Ready-to-use templates for user interviews, surveys, and usability testing.',
+      link: '#',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -138,13 +126,13 @@ export default function DesignResourcesPage() {
           <polyline points="10 9 9 9 8 9" />
         </svg>
       ),
-      color: "bg-rose-100 dark:bg-rose-900/20 text-rose-600 dark:text-rose-300",
+      color: 'bg-rose-100 dark:bg-rose-900/20 text-rose-600 dark:text-rose-300',
     },
     {
-      title: "Design System Examples",
+      title: 'Design System Examples',
       description:
-        "Inspiration from well-crafted design systems by leading companies and organizations.",
-      link: "#",
+        'Inspiration from well-crafted design systems by leading companies and organizations.',
+      link: '#',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -162,9 +150,9 @@ export default function DesignResourcesPage() {
           <line x1="12" y1="17" x2="12" y2="21" />
         </svg>
       ),
-      color: "bg-sky-100 dark:bg-sky-900/20 text-sky-600 dark:text-sky-300",
+      color: 'bg-sky-100 dark:bg-sky-900/20 text-sky-600 dark:text-sky-300',
     },
-  ];
+  ]
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
@@ -187,15 +175,15 @@ export default function DesignResourcesPage() {
             </div>
 
             <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-              Curated{" "}
+              Curated{' '}
               <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
                 Design Resources
               </span>
             </h1>
 
             <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-600 dark:text-gray-300">
-              My handpicked collection of tools, assets, and references to
-              elevate your design workflow and creativity.
+              My handpicked collection of tools, assets, and references to elevate your design
+              workflow and creativity.
             </p>
           </div>
 
@@ -259,8 +247,8 @@ export default function DesignResourcesPage() {
               Have a resource to recommend?
             </h3>
             <p className="mx-auto mb-6 max-w-2xl text-gray-600 dark:text-gray-400">
-              I'm always looking for great design tools to add to this
-              collection. Share your favorites with me!
+              I'm always looking for great design tools to add to this collection. Share your
+              favorites with me!
             </p>
             <Link
               href="/contact"
@@ -288,5 +276,5 @@ export default function DesignResourcesPage() {
         </section>
       </main>
     </div>
-  );
+  )
 }

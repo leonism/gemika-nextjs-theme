@@ -1,14 +1,14 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
-import { Container } from "@/components/ui/container";
+import { Container } from '@/components/ui/container'
 
 interface HomeLayoutProps {
-  children: ReactNode;
-  heroSection?: ReactNode;
-  featuredPostsSection?: ReactNode;
-  areaExpertiseSection?: ReactNode;
-  latestPostsSection?: ReactNode;
-  newsletterSection?: ReactNode;
+  children: ReactNode
+  heroSection?: ReactNode
+  featuredPostsSection?: ReactNode
+  areaExpertiseSection?: ReactNode
+  latestPostsSection?: ReactNode
+  newsletterSection?: ReactNode
 }
 
 /**
@@ -34,18 +34,18 @@ export function HomeLayout({
   // Helper component for consistent section styling
   const SectionWrapper = ({
     children,
-    className = "",
+    className = '',
   }: {
-    children: ReactNode;
-    className?: string;
-  }) => <section className={`py-12 ${className}`}>{children}</section>;
+    children: ReactNode
+    className?: string
+  }) => <section className={`py-12 ${className}`}>{children}</section>
 
   // Helper component for special background sections
   const HighlightSection = ({ children }: { children: ReactNode }) => (
     <SectionWrapper className="my-12 rounded-lg bg-gray-50 dark:bg-gray-900">
       {children}
     </SectionWrapper>
-  );
+  )
 
   return (
     <div className="min-h-screen">
@@ -61,28 +61,20 @@ export function HomeLayout({
       {/* Main Content Area */}
       <Container>
         {/* Featured Posts Section */}
-        {featuredPostsSection && (
-          <SectionWrapper>{featuredPostsSection}</SectionWrapper>
-        )}
+        {featuredPostsSection && <SectionWrapper>{featuredPostsSection}</SectionWrapper>}
 
         {/* Area Expertise Section */}
-        {areaExpertiseSection && (
-          <HighlightSection>{areaExpertiseSection}</HighlightSection>
-        )}
+        {areaExpertiseSection && <HighlightSection>{areaExpertiseSection}</HighlightSection>}
 
         {/* Latest Posts Section */}
-        {latestPostsSection && (
-          <SectionWrapper>{latestPostsSection}</SectionWrapper>
-        )}
+        {latestPostsSection && <SectionWrapper>{latestPostsSection}</SectionWrapper>}
 
         {/* Newsletter Section */}
-        {newsletterSection && (
-          <HighlightSection>{newsletterSection}</HighlightSection>
-        )}
+        {newsletterSection && <HighlightSection>{newsletterSection}</HighlightSection>}
 
         {/* Main Children Content */}
         {children}
       </Container>
     </div>
-  );
+  )
 }

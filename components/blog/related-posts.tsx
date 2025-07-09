@@ -1,27 +1,23 @@
-import { PostCard } from "@/components/cards/post-card";
+import { PostCard } from '@/components/cards/post-card'
 
 interface RelatedPost {
-  title: string;
-  excerpt: string;
-  date: string;
-  imageUrl: string;
-  slug: string;
-  category?: string;
+  title: string
+  excerpt: string
+  date: string
+  imageUrl: string
+  slug: string
+  category?: string
 }
 
 interface RelatedPostsProps {
-  posts: RelatedPost[];
-  title?: string;
-  className?: string;
+  posts: RelatedPost[]
+  title?: string
+  className?: string
 }
 
-export function RelatedPosts({
-  posts,
-  title = "Related Posts",
-  className,
-}: RelatedPostsProps) {
+export function RelatedPosts({ posts, title = 'Related Posts', className }: RelatedPostsProps) {
   if (!posts || posts.length === 0) {
-    return null;
+    return null
   }
 
   return (
@@ -45,5 +41,5 @@ export function RelatedPosts({
         ))}
       </div>
     </div>
-  );
+  )
 }

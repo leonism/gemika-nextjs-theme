@@ -1,8 +1,8 @@
 // components/search-client.tsx
-"use client";
+'use client'
 
-import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 // components/search-client.tsx
 
@@ -33,9 +33,9 @@ import { useSearchParams } from "next/navigation";
 // components/search-client.tsx
 
 function SearchComponent() {
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams()
   // Your search logic here
-  return <div className="relative">{/* Your search input and UI */}</div>;
+  return <div className="relative">{/* Your search input and UI */}</div>
 }
 
 export function Search() {
@@ -43,5 +43,5 @@ export function Search() {
     <Suspense fallback={<div className="h-5 w-5" />}>
       <SearchComponent />
     </Suspense>
-  );
+  )
 }

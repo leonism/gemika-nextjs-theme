@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 interface HeroBrandsProps {
-  brands: string[];
+  brands: string[]
 }
 
 export function HeroBrands({ brands }: HeroBrandsProps) {
@@ -22,5 +22,5 @@ export function HeroBrands({ brands }: HeroBrandsProps) {
         </div>
       ))}
     </div>
-  );
+  )
 }

@@ -1,22 +1,22 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { CATEGORY_COLORS } from "@/lib/constants";
+import { CATEGORY_COLORS } from '@/lib/constants'
 
 export function ProjectCard({ project }: { project: any }) {
   const categoryKey = project.frontmatter.category
     ? project.frontmatter.category.toLowerCase()
-    : "default";
+    : 'default'
   const colorSet = Object.keys(CATEGORY_COLORS).includes(categoryKey)
     ? CATEGORY_COLORS[categoryKey]
-    : CATEGORY_COLORS.default;
+    : CATEGORY_COLORS.default
 
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:hover:-translate-y-2">
       <Link href={`/projects/${project.slug}`} className="flex h-full flex-col">
         <div className="relative h-48 w-full overflow-hidden">
           <Image
-            src={project.frontmatter.coverImage || "/placeholder.svg"}
+            src={project.frontmatter.coverImage || '/placeholder.svg'}
             alt={project.frontmatter.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -34,9 +34,7 @@ export function ProjectCard({ project }: { project: any }) {
           <h3 className="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600">
             {project.frontmatter.title}
           </h3>
-          <p className="mb-4 text-sm text-gray-600 sm:text-base">
-            {project.frontmatter.excerpt}
-          </p>
+          <p className="mb-4 text-sm text-gray-600 sm:text-base">{project.frontmatter.excerpt}</p>
 
           {/* Year and Client info with icons, aligned horizontally */}
           <div className="mt-auto flex flex-wrap gap-4">
@@ -77,11 +75,10 @@ export function ProjectCard({ project }: { project: any }) {
                 {project.frontmatter.client}
               </div>
             )}
-            <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5">
-            </div>
+            <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5"></div>
           </div>
         </div>
       </Link>
     </div>
-  );
+  )
 }

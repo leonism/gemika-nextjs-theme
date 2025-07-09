@@ -3,9 +3,7 @@ export function ProjectsHeader() {
     <section className="relative overflow-hidden py-20 md:py-28">
       <div className="container relative z-10 mx-auto max-w-6xl px-4">
         <div className="mb-6 inline-flex items-center justify-center rounded-full border border-gray-200 bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-          <span className="text-sm font-medium text-indigo-600">
-            PORTFOLIO SHOWCASE
-          </span>
+          <span className="text-sm font-medium text-indigo-600">PORTFOLIO SHOWCASE</span>
         </div>
 
         <div className="max-w-3xl">
@@ -21,5 +19,5 @@ export function ProjectsHeader() {
         </div>
       </div>
     </section>
-  );
+  )
 }

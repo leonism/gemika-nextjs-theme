@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Post } from "@/lib/posts";
-import { TAG_COLORS } from "@/lib/posts";
+import Image from 'next/image'
+import Link from 'next/link'
+import { Post } from '@/lib/posts'
+import { TAG_COLORS } from '@/lib/posts'
 
 export function PostCard({ post }: { post: Post }) {
   return (
@@ -50,9 +50,7 @@ export function PostCard({ post }: { post: Post }) {
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            <time dateTime={post.frontmatter.date}>
-              {post.frontmatter.date}
-            </time>
+            <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
           </div>
 
           {post.frontmatter.readingTime && (
@@ -75,8 +73,7 @@ export function PostCard({ post }: { post: Post }) {
           )}
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5">
-      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5"></div>
     </Link>
-  );
+  )
 }

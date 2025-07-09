@@ -1,19 +1,19 @@
-import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import Link from 'next/link'
+import { ChevronRight } from 'lucide-react'
 
-import ProjectCard from "./ProjectCard";
+import ProjectCard from './ProjectCard'
 
 // Changed from named import to default import
 
 interface FeaturedProjectsProps {
   projects: {
-    slug: string;
+    slug: string
     frontmatter: {
-      title: string;
-      coverImage?: string;
-      category: string;
-    };
-  }[];
+      title: string
+      coverImage?: string
+      category: string
+    }
+  }[]
 }
 
 export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
@@ -23,9 +23,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
         <div className="mb-6 flex flex-col items-start justify-between gap-3 sm:mb-8 sm:gap-4 md:mb-10 md:flex-row md:items-center lg:mb-12">
           <div>
             <div className="mb-6 inline-flex items-center justify-center rounded-full border border-gray-200 bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-              <span className="text-sm font-medium text-indigo-600">
-                PORTFOLIO
-              </span>
+              <span className="text-sm font-medium text-indigo-600">PORTFOLIO</span>
             </div>
             <h2 className="mb-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
@@ -45,14 +43,10 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
 
         <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
           {projects.map((project, index) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-              isFeatured={index === 0}
-            />
+            <ProjectCard key={project.slug} project={project} isFeatured={index === 0} />
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }

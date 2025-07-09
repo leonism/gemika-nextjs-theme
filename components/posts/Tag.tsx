@@ -1,7 +1,7 @@
-import { TAG_COLORS } from "@/lib/posts";
+import { TAG_COLORS } from '@/lib/posts'
 
 export function Tag({ tag, colorIndex }: { tag: string; colorIndex: number }) {
-  const colors = TAG_COLORS[colorIndex % TAG_COLORS.length];
+  const colors = TAG_COLORS[colorIndex % TAG_COLORS.length]
 
   return (
     <span
@@ -9,5 +9,5 @@ export function Tag({ tag, colorIndex }: { tag: string; colorIndex: number }) {
     >
       {tag}
     </span>
-  );
+  )
 }

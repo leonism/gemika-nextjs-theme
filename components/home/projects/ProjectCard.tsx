@@ -1,34 +1,29 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
 interface ProjectCardProps {
   project: {
-    slug: string;
+    slug: string
     frontmatter: {
-      title: string;
-      coverImage?: string;
-      category: string;
-    };
-  };
-  isFeatured?: boolean;
+      title: string
+      coverImage?: string
+      category: string
+    }
+  }
+  isFeatured?: boolean
 }
 
-export default function ProjectCard({
-  project,
-  isFeatured = false,
-}: ProjectCardProps) {
+export default function ProjectCard({ project, isFeatured = false }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
       className={`group relative overflow-hidden rounded-xl shadow-lg transition-all duration-500 hover:-translate-y-1 sm:rounded-2xl sm:hover:-translate-y-2 ${
-        isFeatured ? "md:col-span-2" : ""
+        isFeatured ? 'md:col-span-2' : ''
       }`}
     >
-      <div
-        className={`relative ${isFeatured ? "aspect-[16/8]" : "aspect-[16/9]"} overflow-hidden`}
-      >
+      <div className={`relative ${isFeatured ? 'aspect-[16/8]' : 'aspect-[16/9]'} overflow-hidden`}>
         <Image
-          src={project.frontmatter.coverImage || "/placeholder.svg"}
+          src={project.frontmatter.coverImage || '/placeholder.svg'}
           alt={project.frontmatter.title}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -48,5 +43,5 @@ export default function ProjectCard({
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5"></div>
     </Link>
-  );
+  )
 }

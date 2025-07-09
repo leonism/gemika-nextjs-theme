@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
 
-import { useToast } from "@/hooks/use-toast";
-import { Button } from "@/components/ui/button";
+import { useToast } from '@/hooks/use-toast'
+import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
@@ -14,70 +14,65 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
-  subject: z
-    .string()
-    .min(2, { message: "Subject must be at least 2 characters" }),
-  message: z
-    .string()
-    .min(10, { message: "Message must be at least 10 characters" }),
-});
+  name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
+  email: z.string().email({ message: 'Please enter a valid email address' }),
+  subject: z.string().min(2, { message: 'Subject must be at least 2 characters' }),
+  message: z.string().min(10, { message: 'Message must be at least 10 characters' }),
+})
 
-type FormValues = z.infer<typeof formSchema>;
+type FormValues = z.infer<typeof formSchema>
 
 export function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { toast } = useToast()
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
     },
-  });
+  })
 
   async function onSubmit(data: FormValues) {
-    setIsSubmitting(true);
+    setIsSubmitting(true)
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
+      const response = await fetch('/api/contact', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-      });
+      })
 
-      const result = await response.json() as { message: string; error?: string };
+      const result = (await response.json()) as { message: string; error?: string }
 
       if (!response.ok) {
-        throw new Error(result.error || "Something went wrong");
+        throw new Error(result.error || 'Something went wrong')
       }
 
       toast({
-        title: "Success!",
+        title: 'Success!',
         description: (result as { message: string }).message,
-      });
+      })
 
-      form.reset();
+      form.reset()
     } catch (error) {
       toast({
-        title: "Error",
-        description:
-          error instanceof Error ? error.message : "Failed to send message",
-        variant: "destructive",
-      });
+        title: 'Error',
+        description: error instanceof Error ? error.message : 'Failed to send message',
+        variant: 'destructive',
+      })
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
   }
 
@@ -135,21 +130,21 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
-                <Textarea
-                  placeholder="Your message"
-                  className="min-h-[150px]"
-                  {...field}
-                />
+                <Textarea placeholder="Your message" className="min-h-[150px]" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <Button type="submit" className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 font-bold tracking-wide text-white" disabled={isSubmitting}>
-          {isSubmitting ? "Sending..." : "Send Message"}
+        <Button
+          type="submit"
+          className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 font-bold tracking-wide text-white"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
       </form>
     </Form>
-  );
+  )
 }

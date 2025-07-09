@@ -1,31 +1,28 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
-import { MobileMenu } from "@/components/navigation/mobile-menu";
-import { Search } from "@/components/search";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { MobileMenu } from '@/components/navigation/mobile-menu'
+import { Search } from '@/components/search'
+import { ThemeToggle } from '@/components/theme-toggle'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 interface NavItem {
-  label: string;
-  href: string;
-  children?: NavItem[];
+  label: string
+  href: string
+  children?: NavItem[]
 }
 
 interface NavbarProps {
-  items: NavItem[];
-  cta?: { label: string; href: string };
+  items: NavItem[]
+  cta?: { label: string; href: string }
 }
 
-export function Navbar({
-  items,
-  cta = { label: "Contact", href: "/contact" },
-}: NavbarProps) {
-  const pathname = usePathname();
+export function Navbar({ items, cta = { label: 'Contact', href: '/contact' } }: NavbarProps) {
+  const pathname = usePathname()
 
   return (
     <header className="md:h-18 sticky top-0 z-50 h-16 w-full border-b border-gray-200/50 bg-white shadow-md dark:border-gray-800/50 dark:bg-gray-900 sm:h-16 lg:h-20">
@@ -60,7 +57,7 @@ export function Navbar({
         </div>
       </div>
     </header>
-  );
+  )
 }
 
 // Sub-components for better organization
@@ -78,7 +75,7 @@ function Logo() {
         </span>
       </Link>
     </div>
-  );
+  )
 }
 
 function LogoIcon() {
@@ -91,111 +88,76 @@ function LogoIcon() {
       className="mr-1 h-5 w-5 brightness-0 invert filter sm:h-6 sm:w-6 md:h-7 md:w-7"
       priority
     />
-  );
+  )
 }
 
-function DesktopNav({
-  items,
-  pathname,
-}: {
-  items: NavItem[];
-  pathname: string | null;
-}) {
+function DesktopNav({ items, pathname }: { items: NavItem[]; pathname: string | null }) {
   return (
     <nav className="hidden items-center space-x-0.5 sm:space-x-1 md:flex md:space-x-2">
       {items.map((item) => (
         <NavigationItem key={item.label} item={item} pathname={pathname} />
       ))}
     </nav>
-  );
+  )
 }
 
-function NavigationItem({
-  item,
-  pathname,
-}: {
-  item: NavItem;
-  pathname: string | null;
-}) {
+function NavigationItem({ item, pathname }: { item: NavItem; pathname: string | null }) {
   return item.children ? (
     <DropdownNavItem item={item} pathname={pathname} />
   ) : (
     <SimpleNavItem item={item} pathname={pathname} />
-  );
+  )
 }
 
-function DropdownNavItem({
-  item,
-  pathname,
-}: {
-  item: NavItem;
-  pathname: string | null;
-}) {
+function DropdownNavItem({ item, pathname }: { item: NavItem; pathname: string | null }) {
   return (
     <div className="group relative">
       <button
         className={cn(
-          "flex items-center px-3 py-1.5 text-sm font-medium transition-all duration-300 sm:px-4 sm:py-2 sm:text-base",
+          'flex items-center px-3 py-1.5 text-sm font-medium transition-all duration-300 sm:px-4 sm:py-2 sm:text-base',
           pathname?.startsWith(item.href)
-            ? "font-semibold text-indigo-600 dark:text-[#C4F468]"
-            : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white",
+            ? 'font-semibold text-indigo-600 dark:text-[#C4F468]'
+            : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
         )}
       >
-        <NavLinkContent
-          label={item.label}
-          active={pathname?.startsWith(item.href)}
-        />
+        <NavLinkContent label={item.label} active={pathname?.startsWith(item.href)} />
         <DropdownIcon active={pathname?.startsWith(item.href)} />
       </button>
       <DropdownMenu item={item} pathname={pathname} />
     </div>
-  );
+  )
 }
 
-function SimpleNavItem({
-  item,
-  pathname,
-}: {
-  item: NavItem;
-  pathname: string | null;
-}) {
-  const isActive =
-    pathname === item.href ||
-    (item.href !== "/" && pathname?.startsWith(item.href));
+function SimpleNavItem({ item, pathname }: { item: NavItem; pathname: string | null }) {
+  const isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href))
 
   return (
     <Link
       href={item.href}
       className={cn(
-        "group relative px-2 py-1 text-xs font-medium transition-all duration-300 sm:px-3 sm:py-1.5 sm:text-sm md:px-4 md:py-2 md:text-base",
+        'group relative px-2 py-1 text-xs font-medium transition-all duration-300 sm:px-3 sm:py-1.5 sm:text-sm md:px-4 md:py-2 md:text-base',
         isActive
-          ? "font-semibold text-indigo-600"
-          : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white",
+          ? 'font-semibold text-indigo-600'
+          : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
       )}
     >
       <NavLinkContent label={item.label} active={isActive} />
     </Link>
-  );
+  )
 }
 
-function NavLinkContent({
-  label,
-  active,
-}: {
-  label: string;
-  active?: boolean;
-}) {
+function NavLinkContent({ label, active }: { label: string; active?: boolean }) {
   return (
     <>
       {label}
       <span
         className={cn(
-          "absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300",
-          active ? "w-full" : "w-0 group-hover:w-full",
+          'absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300',
+          active ? 'w-full' : 'w-0 group-hover:w-full'
         )}
       ></span>
     </>
-  );
+  )
 }
 
 function DropdownIcon({ active }: { active?: boolean }) {
@@ -211,63 +173,49 @@ function DropdownIcon({ active }: { active?: boolean }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={cn(
-        "ml-0.5 h-2 w-2 transition-transform sm:ml-1 sm:h-3 sm:w-3 md:h-4 md:w-4",
-        active
-          ? "rotate-180 text-indigo-500 dark:text-[#C4F468]"
-          : "group-hover:rotate-180",
+        'ml-0.5 h-2 w-2 transition-transform sm:ml-1 sm:h-3 sm:w-3 md:h-4 md:w-4',
+        active ? 'rotate-180 text-indigo-500 dark:text-[#C4F468]' : 'group-hover:rotate-180'
       )}
     >
       <polyline points="6 9 12 15 18 9"></polyline>
     </svg>
-  );
+  )
 }
 
-function DropdownMenu({
-  item,
-  pathname,
-}: {
-  item: NavItem;
-  pathname: string | null;
-}) {
+function DropdownMenu({ item, pathname }: { item: NavItem; pathname: string | null }) {
   return (
     <div className="transform-translate-x-1/2 invisible absolute left-1/2 z-50 mt-1 w-36 rounded-lg border border-gray-200 bg-white/90 py-1 opacity-0 shadow-lg backdrop-blur-sm transition-all duration-200 group-hover:visible group-hover:opacity-100 dark:border-[#313F55] dark:bg-[#141D2B]/90 sm:w-40 md:w-48">
       {item.children?.map((child) => (
         <DropdownMenuItem key={child.label} item={child} pathname={pathname} />
       ))}
     </div>
-  );
+  )
 }
 
-function DropdownMenuItem({
-  item,
-  pathname,
-}: {
-  item: NavItem;
-  pathname: string | null;
-}) {
-  const isActive = pathname === item.href;
+function DropdownMenuItem({ item, pathname }: { item: NavItem; pathname: string | null }) {
+  const isActive = pathname === item.href
 
   return (
     <Link
       href={item.href}
       className={cn(
-        "group relative block px-3 py-1.5 text-xs transition-colors sm:px-4 sm:py-2 sm:text-sm",
+        'group relative block px-3 py-1.5 text-xs transition-colors sm:px-4 sm:py-2 sm:text-sm',
         isActive
-          ? "font-medium text-indigo-600"
-          : "text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white",
+          ? 'font-medium text-indigo-600'
+          : 'text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
       )}
     >
       {item.label}
       <span
         className={cn(
-          "absolute bottom-1 left-3 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 sm:left-4",
+          'absolute bottom-1 left-3 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 sm:left-4',
           isActive
-            ? "w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)]"
-            : "w-0 group-hover:w-[calc(100%-1.5rem)] sm:group-hover:w-[calc(100%-2rem)]",
+            ? 'w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)]'
+            : 'w-0 group-hover:w-[calc(100%-1.5rem)] sm:group-hover:w-[calc(100%-2rem)]'
         )}
       ></span>
     </Link>
-  );
+  )
 }
 
 function DesktopControls({ cta }: { cta: { label: string; href: string } }) {
@@ -295,21 +243,21 @@ function DesktopControls({ cta }: { cta: { label: string; href: string } }) {
         </Link>
       )}
     </div>
-  );
+  )
 }
 
 function MobileMenuButton({
   items,
   cta,
 }: {
-  items: NavItem[];
-  cta: { label: string; href: string };
+  items: NavItem[]
+  cta: { label: string; href: string }
 }) {
   return (
     <div className="flex items-center md:hidden">
       <MobileMenu items={items} cta={cta} />
     </div>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

@@ -1,122 +1,117 @@
-"use client";
+'use client'
 
-import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import { ArrowRight, SearchIcon, X } from "lucide-react";
+import { useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { ArrowRight, SearchIcon, X } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { cn } from '@/lib/utils'
 
 interface SearchResult {
-  id: string;
-  type: string;
-  url: string;
+  id: string
+  type: string
+  url: string
   frontmatter: {
-    title: string;
-    excerpt: string;
-  };
+    title: string
+    excerpt: string
+  }
 }
 
 export function SearchDialog() {
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState<SearchResult[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
-  const inputRef = useRef<HTMLInputElement>(null);
-  const dialogRef = useRef<HTMLDivElement>(null);
+  const [query, setQuery] = useState('')
+  const [results, setResults] = useState<SearchResult[]>([])
+  const [isOpen, setIsOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
+  const inputRef = useRef<HTMLInputElement>(null)
+  const dialogRef = useRef<HTMLDivElement>(null)
 
   // Handle click outside to close dialog
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dialogRef.current &&
-        !dialogRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
+      if (dialogRef.current && !dialogRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
       }
-    };
+    }
 
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside)
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen])
 
   // Handle keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsOpen(false);
+      if (e.key === 'Escape') {
+        setIsOpen(false)
       }
       // Open search on Cmd+K or Ctrl+K
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        setIsOpen(true);
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        setIsOpen(true)
       }
-    };
+    }
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
 
   // Focus input when dialog opens
   useEffect(() => {
     if (isOpen && inputRef.current) {
       setTimeout(() => {
-        inputRef.current?.focus();
-      }, 100);
+        inputRef.current?.focus()
+      }, 100)
     }
-  }, [isOpen]);
+  }, [isOpen])
 
   // Fetch search results
   useEffect(() => {
     const fetchResults = async () => {
       if (query.length > 2) {
-        setIsLoading(true);
+        setIsLoading(true)
         try {
-          const response = await fetch(
-            `/api/search?q=${encodeURIComponent(query)}`,
-          );
+          const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`)
           if (!response.ok) {
-            throw new Error("Search request failed");
+            throw new Error('Search request failed')
           }
-          const data = await response.json();
-          setResults(data);
+          const data = await response.json()
+          setResults(data)
         } catch (error) {
-          console.error("Search error:", error);
-          setResults([]);
+          console.error('Search error:', error)
+          setResults([])
         } finally {
-          setIsLoading(false);
+          setIsLoading(false)
         }
       } else {
-        setResults([]);
+        setResults([])
       }
-    };
+    }
 
     const timeoutId = setTimeout(() => {
-      fetchResults();
-    }, 300);
+      fetchResults()
+    }, 300)
 
-    return () => clearTimeout(timeoutId);
-  }, [query]);
+    return () => clearTimeout(timeoutId)
+  }, [query])
 
   const handleResultClick = (item: SearchResult) => {
-    router.push(item.url);
-    setIsOpen(false);
-  };
+    router.push(item.url)
+    setIsOpen(false)
+  }
 
   const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     if (query.trim()) {
-      router.push(`/search?q=${encodeURIComponent(query)}`);
-      setIsOpen(false);
+      router.push(`/search?q=${encodeURIComponent(query)}`)
+      setIsOpen(false)
     }
-  };
+  }
 
   return (
     <>
@@ -133,8 +128,8 @@ export function SearchDialog() {
           <div
             ref={dialogRef}
             className={cn(
-              "mt-20 w-full max-w-xl overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800",
-              "duration-200 animate-in fade-in-75 slide-in-from-left-8",
+              'mt-20 w-full max-w-xl overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800',
+              'duration-200 animate-in fade-in-75 slide-in-from-left-8'
             )}
             role="dialog"
             aria-modal="true"
@@ -153,12 +148,7 @@ export function SearchDialog() {
                   autoComplete="off"
                 />
                 <div className="absolute right-2 top-2 flex space-x-1">
-                  <Button
-                    type="submit"
-                    size="sm"
-                    className="px-3 py-1"
-                    disabled={query.length < 2}
-                  >
+                  <Button type="submit" size="sm" className="px-3 py-1" disabled={query.length < 2}>
                     <span className="mr-1">Go</span>
                     <ArrowRight className="h-3 w-3" />
                   </Button>
@@ -213,13 +203,9 @@ export function SearchDialog() {
                 </div>
               ) : query.length > 2 ? (
                 <div className="p-6 text-center">
-                  <p className="text-gray-500 dark:text-gray-400">
-                    No results found for "{query}"
-                  </p>
+                  <p className="text-gray-500 dark:text-gray-400">No results found for "{query}"</p>
                   <Button
-                    onClick={() =>
-                      router.push(`/search?q=${encodeURIComponent(query)}`)
-                    }
+                    onClick={() => router.push(`/search?q=${encodeURIComponent(query)}`)}
                     className="mt-3"
                     size="sm"
                     variant="outline"
@@ -235,9 +221,7 @@ export function SearchDialog() {
                 </div>
               ) : (
                 <div className="p-6 text-center">
-                  <p className="text-gray-500 dark:text-gray-400">
-                    Start typing to search
-                  </p>
+                  <p className="text-gray-500 dark:text-gray-400">Start typing to search</p>
                 </div>
               )}
             </div>
@@ -245,5 +229,5 @@ export function SearchDialog() {
         </div>
       )}
     </>
-  );
+  )
 }
