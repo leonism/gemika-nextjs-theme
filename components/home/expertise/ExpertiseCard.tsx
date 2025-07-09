@@ -57,8 +57,7 @@ export function ExpertiseCard({ topic }: ExpertiseCardProps) {
               </svg>
               <span>{topic.count} projects</span>
             </div>
-            <Link
-              href={`/category/${topic.title.toLowerCase().replace(' ', '-')}`}
+            <span
               className="inline-flex items-center font-medium text-indigo-600 transition-colors hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300"
             >
               Explore
@@ -76,7 +75,7 @@ export function ExpertiseCard({ topic }: ExpertiseCardProps) {
                   d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                 />
               </svg>
-            </Link>
+            </span>
           </div>
         </div>
       </div>
