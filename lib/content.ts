@@ -2,6 +2,7 @@ import path from "path";
 import { promisify } from "util";
 
 import matter from "gray-matter";
+import type { Post } from "@/types/post";
 
 // lib/content.ts
 
@@ -32,7 +33,7 @@ interface ContentError extends Error {
 export async function getContent(
   type: "posts" | "projects" | "pages",
   slug: string,
-) {
+): Promise<Post | null> {
   // Input validation
   if (!type || !["posts", "projects", "pages"].includes(type)) {
     console.error("Invalid content type:", type);
@@ -59,7 +60,7 @@ export async function getContent(
       return null;
     }
 
-    return { frontmatter, content };
+    return { slug, frontmatter, content };
   } catch (error) {
     const err = error as ContentError;
     if (err.code === "ENOENT") {
@@ -74,7 +75,7 @@ export async function getContent(
 // Update the getAllContent function to ensure tags are included
 export async function getAllContent(
   type: "posts" | "projects" | "pages",
-): Promise<any[]> {
+): Promise<Post[]> {
   const directoryPath = path.join(process.cwd(), "content", type);
 
   try {
@@ -128,7 +129,7 @@ export async function getAllContent(
       }),
     );
 
-    return allContent.filter(Boolean); // Remove null values
+    return allContent.filter(Boolean) as Post[]; // Remove null values and cast to Post[]
   } catch (error) {
     console.error("Error in getAllContent:", error);
     return [];
