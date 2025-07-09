@@ -17,7 +17,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string }
 }): Promise<Metadata> {
-  const post: Post | null = await getContent('posts', params.slug)
+  const post: Post | null = await getContent('posts', (await params).slug)
 
   if (!post || !post.frontmatter) {
     return {
@@ -46,7 +46,7 @@ export async function generateStaticParams() {
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const resolvedParams = params
+  const resolvedParams = await params
 
   if (!resolvedParams?.slug) {
     throw new Error('No slug provided')
@@ -158,7 +158,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <div className="relative mb-8 aspect-[16/9] overflow-hidden rounded-xl">
               <Image
                 src={post.frontmatter.coverImage}
-                alt={post.frontmatter.title as string}
+                alt={post.frontmatter.title}
                 fill
                 className="object-cover"
                 priority
