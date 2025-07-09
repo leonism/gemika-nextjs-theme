@@ -261,7 +261,7 @@ function ProjectGallery({ images, title }: { images: string[]; title: string }) 
 
 function ProjectPagination({ prevProject, nextProject }: { prevProject: any; nextProject: any }) {
   return (
-    <div className="mt-16 flex items-center justify-between border-t border-gray-200 pt-8 dark:border-gray-700">
+    <div className="mt-16 flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-gray-200 pt-8 dark:border-gray-700 gap-4">
       {prevProject && (
         <PaginationLink
           project={prevProject}
@@ -275,7 +275,7 @@ function ProjectPagination({ prevProject, nextProject }: { prevProject: any; nex
           project={nextProject}
           direction="next"
           href={`/projects/${nextProject.slug}`}
-          className="ml-auto"
+          className="mt-4 sm:mt-0 sm:ml-auto"
         />
       )}
     </div>
@@ -301,7 +301,7 @@ function PaginationLink({
   return (
     <Link
       href={href}
-      className={`group inline-flex items-center text-gray-600 transition-all duration-300 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 ${className}`}
+      className={`group inline-flex items-center text-gray-700 no-underline transition-colors hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 ${className}`}
     >
       {isPrev && (
         <div className="relative mr-2 h-10 w-10 rounded-full border border-gray-200 bg-white p-2 shadow-sm transition-colors group-hover:bg-indigo-50 dark:border-gray-700 dark:bg-gray-800 dark:group-hover:bg-indigo-900/20">
@@ -323,7 +323,7 @@ function PaginationLink({
       )}
 
       <div>
-        <span className="text-sm text-gray-500 dark:text-gray-400">
+        <span className="text-sm text-gray-500 dark:text-gray-500">
           {isPrev ? 'Previous Project' : 'Next Project'}
         </span>
         <p className="font-medium">{project.frontmatter.title}</p>
@@ -341,7 +341,7 @@ function PaginationLink({
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={1}
+              strokeWidth={2}
               d="M14 5l7 7m0 0l-7 7m7-7H3"
             />
           </svg>

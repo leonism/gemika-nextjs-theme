@@ -57,9 +57,7 @@ export function ExpertiseCard({ topic }: ExpertiseCardProps) {
               </svg>
               <span>{topic.count} projects</span>
             </div>
-            <span
-              className="inline-flex items-center font-medium text-indigo-600 transition-colors hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300"
-            >
+            <span className="inline-flex items-center font-medium text-indigo-600 transition-colors hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300">
               Explore
               <svg
                 xmlns="http://www.w3.org/2000/svg"

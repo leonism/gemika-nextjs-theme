@@ -1,41 +1,42 @@
-"use client";
+'use client'
 
-import React, { useState, useEffect } from "react";
-import { X } from "lucide-react"; // Import X icon for close button
+import React, { useState, useEffect } from 'react'
+import { X } from 'lucide-react' // Import X icon for close button
 
 export function CookieConsent() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookie_consent");
+    const consent = localStorage.getItem('cookie_consent')
     // Only show if consent has not been given (neither accepted nor rejected)
     if (!consent) {
-      setIsOpen(true);
+      setIsOpen(true)
     }
-  }, []);
+  }, [])
 
   const handleAccept = () => {
-    localStorage.setItem("cookie_consent", "accepted");
-    setIsOpen(false);
-  };
+    localStorage.setItem('cookie_consent', 'accepted')
+    setIsOpen(false)
+  }
 
   const handleReject = () => {
-    localStorage.setItem("cookie_consent", "rejected");
-    setIsOpen(false);
-  };
+    localStorage.setItem('cookie_consent', 'rejected')
+    setIsOpen(false)
+  }
 
   const handleClose = () => {
-    setIsOpen(false);
-  };
+    setIsOpen(false)
+  }
 
   if (!isOpen) {
-    return null; // Don't render if not open
+    return null // Don't render if not open
   }
 
   return (
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-xl p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg flex items-center justify-between space-x-4 border border-gray-200 dark:border-gray-700">
       <p className="text-sm text-gray-700 dark:text-gray-300 flex-grow">
-        This website uses cookies to ensure you get the best experience. By continuing to use our site, you accept our use of cookies.
+        This website uses cookies to ensure you get the best experience. By continuing to use our
+        site, you accept our use of cookies.
       </p>
       <div className="flex items-center space-x-2">
         <button
@@ -59,5 +60,5 @@ export function CookieConsent() {
         </button>
       </div>
     </div>
-  );
+  )
 }
