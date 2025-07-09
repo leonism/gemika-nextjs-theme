@@ -25,7 +25,7 @@ export function HeroSection() {
 
         {/* Headings */}
         <div className="mb-6 space-y-3 sm:mb-8 sm:space-y-4 md:mb-10 md:space-y-5">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl xl:text-7xl">
             <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
               Gemika Haziq Nugroho
             </span>
