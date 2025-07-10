@@ -4,7 +4,8 @@ export const AREA_EXPERTISE = [
     image:
       'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
     title: 'UX Design',
-    description: 'Principles, methods, and tools for creating exceptional user experiences',
+    description:
+      'Principles, methods, and tools for creating exceptional user experiences',
     count: 8,
     tags: ['Research', 'Wireframing', 'Prototyping'],
     color: 'bg-indigo-600',

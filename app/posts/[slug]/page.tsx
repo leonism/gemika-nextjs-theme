@@ -1,49 +1,4 @@
-import type { Metadata } from 'next'
-import { serialize } from 'next-mdx-remote/serialize'
-import Image from 'next/image'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { Calendar, ChevronLeft, ChevronRight, Clock, User } from 'lucide-react'
-import type { WithContext, Article } from 'schema-dts'
-
-import JsonLd from '@/components/json-ld'
-import { MDXProviderClient } from '@/components/mdx-provider-client'
-import ClientOnly from '@/components/utility/client-only'
-import { getAllContent, getContent } from '@/lib/content'
-import type { Post } from '@/types/post'
-
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string }
-}): Promise<Metadata> {
-  const post: Post | null = await getContent('posts', (await params).slug)
-
-  if (!post || !post.frontmatter) {
-    return {
-      title: 'Post Not Found',
-      description: 'The requested post could not be found.',
-    }
-  }
-
-  return {
-    title: post.frontmatter.title,
-    description: post.frontmatter.description,
-  }
-}
-
-interface PostPageProps {
-  params: { slug: string }
-}
-
-export async function generateStaticParams() {
-  const posts = await getAllContent('posts')
-  return posts
-    .filter((post): post is Post => post !== null)
-    .map((post: Post) => ({
-      slug: post.slug,
-    }))
-}
+import { PaginationLink } from '@/components/navigation/pagination-link'
 
 export default async function PostPage({ params }: PostPageProps) {
   const resolvedParams = await params
@@ -176,37 +131,20 @@ export default async function PostPage({ params }: PostPageProps) {
           {/* Post navigation - similar to project pagination */}
           <div className="mt-16 flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-gray-200 pt-8 dark:border-gray-700 gap-4">
             {prevPost && (
-              <Link
+              <PaginationLink
+                item={prevPost}
+                direction="prev"
                 href={`/posts/${prevPost.slug}`}
-                className="group flex items-center no-underline text-gray-700 dark:text-gray-300 transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
-              >
-                <div className="mr-4 rounded-full bg-gray-100 p-2 transition-colors group-hover:bg-indigo-100 dark:bg-gray-800 dark:group-hover:bg-indigo-900/30">
-                  <ChevronLeft className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-sm text-gray-500 dark:text-gray-500">Previous</div>
-                  <div className="max-w-[200px] truncate font-medium">
-                    {prevPost.frontmatter.title}
-                  </div>
-                </div>
-              </Link>
+              />
             )}
 
             {nextPost && (
-              <Link
+              <PaginationLink
+                item={nextPost}
+                direction="next"
                 href={`/posts/${nextPost.slug}`}
-                className="group flex items-center text-right no-underline mt-4 sm:mt-0 sm:ml-auto text-gray-700 dark:text-gray-300 transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
-              >
-                <div>
-                  <div className="text-sm text-gray-500 dark:text-gray-500">Next</div>
-                  <div className="max-w-[200px] truncate font-medium">
-                    {nextPost.frontmatter.title}
-                  </div>
-                </div>
-                <div className="ml-4 rounded-full bg-gray-100 p-2 transition-colors group-hover:bg-indigo-100 dark:bg-gray-800 dark:group-hover:bg-indigo-900/30">
-                  <ChevronRight className="h-5 w-5" />
-                </div>
-              </Link>
+                className="mt-4 sm:mt-0 sm:ml-auto"
+              />
             )}
           </div>
         </article>
