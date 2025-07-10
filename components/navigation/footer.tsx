@@ -17,7 +17,7 @@ interface FooterProps {
  */
 export function Footer({ showNewsletter = true }: FooterProps) {
   return (
-    <footer className="z-60 border-b border-gray-200 bg-white py-12 dark:border-gray-800 dark:bg-gray-900 sm:py-16">
+    <footer className="z-60 border-t border-gray-600 bg-white py-12 dark:border-gray-800 dark:bg-gray-900 sm:py-16">
       {/* mt-10 sm:mt-12 md:mt-14 lg:mt-16 */}
       <Container>
         {/* Newsletter Section - Optional based on showNewsletter prop */}
@@ -26,7 +26,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
             <div className="mx-auto max-w-xl px-4 text-center">
               {' '}
               {/* Added responsive padding */}
-              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-3xl font-bold text-transparent">
+              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-4xl font-bold text-transparent">
                 Subscribe to our Newsletter
               </h3>
               <p className="mb-6 text-gray-600 dark:text-gray-400">
