@@ -2,6 +2,7 @@ import './styles/globals.css'
 import React from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 
 import { Footer } from '@/components/navigation/footer'
 import { Navbar } from '@/components/navigation/navbar'
@@ -17,6 +18,7 @@ const inter = Inter({
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gemika.vercel.app'
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -95,9 +97,38 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Google Tag Manager */}
+        {gtmId && (
+          <Script
+            id="gtm-script"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','${gtmId}');
+              `,
+            }}
+          />
+        )}
+      </head>
       <body
         className={`${inter.variable} min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800`}
       >
+        {/* Google Tag Manager (noscript) */}
+        {gtmId && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        )}
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SkipNav />
           <Navbar items={navItems} />
