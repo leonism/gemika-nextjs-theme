@@ -85,7 +85,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
                   <Linkedin size={20} />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://github.com/leonism/gemika-nextjs-theme"
                   className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
                   aria-label="GitHub"
                 >

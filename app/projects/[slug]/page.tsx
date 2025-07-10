@@ -257,6 +257,8 @@ function ProjectGallery({ images, title }: { images: string[]; title: string }) 
   )
 }
 
+import { PaginationLink } from '@/components/navigation/pagination-link'
+
 function ProjectPagination({
   prevProject,
   nextProject,
@@ -268,7 +270,7 @@ function ProjectPagination({
     <div className="mt-16 flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-gray-200 pt-8 dark:border-gray-700 gap-4">
       {prevProject && (
         <PaginationLink
-          project={prevProject}
+          item={prevProject}
           direction="prev"
           href={`/projects/${prevProject.slug}`}
         />
@@ -276,82 +278,13 @@ function ProjectPagination({
 
       {nextProject && (
         <PaginationLink
-          project={nextProject}
+          item={nextProject}
           direction="next"
           href={`/projects/${nextProject.slug}`}
           className="mt-4 sm:mt-0 sm:ml-auto"
         />
       )}
     </div>
-  )
-}
-
-/**
- * Renders a single pagination link
- */
-function PaginationLink({
-  project,
-  direction,
-  href,
-  className = '',
-}: {
-  project: Post
-  direction: 'prev' | 'next'
-  href: string
-  className?: string
-}) {
-  const isPrev = direction === 'prev'
-
-  return (
-    <Link
-      href={href}
-      className={`group inline-flex items-center text-gray-700 no-underline transition-colors hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 ${className}`}
-    >
-      {isPrev && (
-        <div className="relative mr-2 h-10 w-10 rounded-full border border-gray-200 bg-white p-2 shadow-sm transition-colors group-hover:bg-indigo-50 dark:border-gray-700 dark:bg-gray-800 dark:group-hover:bg-indigo-900/20">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="h-6 w-6 text-gray-500 transition-colors group-hover:text-indigo-600 dark:text-gray-400 dark:group-hover:text-indigo-400"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1}
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"
-            />
-          </svg>
-        </div>
-      )}
-
-      <div>
-        <span className="text-sm text-gray-500 dark:text-gray-500">
-          {isPrev ? 'Previous Project' : 'Next Project'}
-        </span>
-        <p className="font-medium">{project.frontmatter.title}</p>
-      </div>
-
-      {!isPrev && (
-        <div className="relative ml-2 h-10 w-10 rounded-full border border-gray-200 bg-white p-2 shadow-sm transition-colors group-hover:bg-indigo-50 dark:border-gray-700 dark:bg-gray-800 dark:group-hover:bg-indigo-900/20">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="h-6 w-6 text-gray-500 transition-colors group-hover:text-indigo-600 dark:text-gray-400 dark:group-hover:text-indigo-400"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
-          </svg>
-        </div>
-      )}
-    </Link>
   )
 }
 

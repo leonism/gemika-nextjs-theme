@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
+// import { ChevronRight } from 'lucide-react'
 
 interface ExpertiseCardProps {
   topic: {
@@ -10,13 +10,14 @@ interface ExpertiseCardProps {
     color: string
     description: string
     count: number
+    categorySlug: string
   }
 }
 
 export function ExpertiseCard({ topic }: ExpertiseCardProps) {
   return (
     <Link
-      href={`/category/${topic.title.toLowerCase().replace(' ', '-')}`}
+      href={`/projects/category/${topic.categorySlug}`}
       className="group flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:border-gray-700 dark:bg-gray-800 sm:hover:-translate-y-2"
     >
       <div className="relative h-48 w-full overflow-hidden">

@@ -11,6 +11,7 @@ interface AreaExpertise {
   count: number
   tags: string[]
   color: string
+  categorySlug: string
 }
 
 export function ExpertiseSection({ topics }: ExpertiseSectionProps) {
