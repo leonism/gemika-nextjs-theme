@@ -1,4 +1,4 @@
-import { WithContext } from 'schema-dts'
+import { WithContext, WebSite } from 'schema-dts'
 
 import { ExpertiseSection } from '@/components/home/expertise/ExpertiseSection'
 import { HeroSection } from '@/components/home/hero/HeroSection'
@@ -15,7 +15,7 @@ export default async function Home() {
     getAllContent('posts').then((posts) => posts.slice(0, 9)),
   ])
 
-  const jsonLd: WithContext<any> = {
+  const jsonLd: WithContext<WebSite> = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Gemika Haziq Nugroho - UX Strategist & Mobile Developer',
@@ -24,7 +24,7 @@ export default async function Home() {
     potentialAction: {
       '@type': 'SearchAction',
       target: 'https://gemika.vercel.app/search?q={search_term_string}',
-      'query-input': 'required name=search_term_string',
+      query: 'search_term_string',
     },
   }
 

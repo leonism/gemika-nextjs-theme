@@ -24,10 +24,11 @@ export const metadata: Metadata = {
     default: 'Gemika Haziq Nugroho | Creative Technologist & UX Designer',
     template: '%s | Gemika Haziq Nugroho',
   },
-  description: 'Digital garden of thoughts on design, code and creative processes. Expert in UX/UI design, frontend development, and creative technology solutions.',
+  description:
+    'Digital garden of thoughts on design, code and creative processes. Expert in UX/UI design, frontend development, and creative technology solutions.',
   keywords: [
     'UX Designer',
-    'Creative Technologist', 
+    'Creative Technologist',
     'Frontend Developer',
     'UI/UX Design',
     'Web Development',
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     'Design Systems',
     'React Developer',
     'Next.js',
-    'TypeScript'
+    'TypeScript',
   ],
   authors: [{ name: 'Gemika Haziq Nugroho' }],
   creator: 'Gemika Haziq Nugroho',
@@ -57,7 +58,8 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: 'Gemika Haziq Nugroho',
     title: 'Gemika Haziq Nugroho | Creative Technologist & UX Designer',
-    description: 'Digital garden of thoughts on design, code and creative processes. Expert in UX/UI design, frontend development, and creative technology solutions.',
+    description:
+      'Digital garden of thoughts on design, code and creative processes. Expert in UX/UI design, frontend development, and creative technology solutions.',
     images: [
       {
         url: '/og-image.jpg',
@@ -73,7 +75,8 @@ export const metadata: Metadata = {
     site: '@gemika',
     creator: '@gemika',
     title: 'Gemika Haziq Nugroho | Creative Technologist & UX Designer',
-    description: 'Digital garden of thoughts on design, code and creative processes. Expert in UX/UI design, frontend development, and creative technology solutions.',
+    description:
+      'Digital garden of thoughts on design, code and creative processes. Expert in UX/UI design, frontend development, and creative technology solutions.',
     images: ['/og-image.jpg'],
   },
   verification: {
