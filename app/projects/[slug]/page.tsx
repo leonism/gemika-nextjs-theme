@@ -303,28 +303,33 @@ function ProjectPagination({
   prevProject,
   nextProject,
 }: {
-  prevProject: Project
-  nextProject: Project
+  prevProject: Project | null
+  nextProject: Project | null
 }) {
   return (
-    <div className="mt-16 flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-gray-200 pt-8 dark:border-gray-700 gap-4">
-      {prevProject && (
-        <PaginationLink
-          item={prevProject}
-          direction="prev"
-          href={`/projects/${prevProject.slug}`}
-        />
-      )}
+    <nav className="mt-16 border-t border-gray-200/60 pt-8 dark:border-gray-700/60" aria-label="Project navigation">
+      <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+        {prevProject && (
+          <div className="flex-1">
+            <PaginationLink
+              item={prevProject}
+              direction="prev"
+              href={`/projects/${prevProject.slug}`}
+            />
+          </div>
+        )}
 
-      {nextProject && (
-        <PaginationLink
-          item={nextProject}
-          direction="next"
-          href={`/projects/${nextProject.slug}`}
-          className="mt-4 sm:mt-0 sm:ml-auto"
-        />
-      )}
-    </div>
+        {nextProject && (
+          <div className="flex-1">
+            <PaginationLink
+              item={nextProject}
+              direction="next"
+              href={`/projects/${nextProject.slug}`}
+            />
+          </div>
+        )}
+      </div>
+    </nav>
   )
 }
 

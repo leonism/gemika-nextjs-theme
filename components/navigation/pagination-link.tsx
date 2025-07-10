@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Post } from '@/types/post'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface PaginationLinkProps {
   item: Post
@@ -19,52 +20,31 @@ export function PaginationLink({
   return (
     <Link
       href={href}
-      className={`group inline-flex items-center text-gray-700 no-underline transition-colors hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 ${className}`}
+      className={`group relative flex w-full max-w-sm min-w-0 items-center rounded-xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/80 dark:hover:border-indigo-600 dark:hover:bg-gray-800 dark:hover:shadow-xl sm:max-w-md ${isPrev ? 'justify-start text-left' : 'justify-end text-right ml-auto'} ${className}`}
     >
-      {isPrev && (
-        <div className="relative mr-2 h-10 w-10 rounded-full border border-gray-200 bg-white p-2 shadow-sm transition-colors group-hover:bg-indigo-50 dark:border-gray-700 dark:bg-gray-800 dark:group-hover:bg-indigo-900/20">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="h-6 w-6 text-gray-500 transition-colors group-hover:text-indigo-600 dark:text-gray-400 dark:group-hover:text-indigo-400"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1}
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"
-            />
-          </svg>
+      {/* Gradient border effect on hover */}
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
+      
+      <div className={`relative flex items-center gap-3 ${isPrev ? 'flex-row' : 'flex-row-reverse'}`}>
+        {/* Icon */}
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-gradient-to-br from-indigo-50 to-purple-50 transition-all duration-300 group-hover:border-indigo-300 group-hover:from-indigo-100 group-hover:to-purple-100 dark:border-gray-600 dark:from-indigo-900/30 dark:to-purple-900/30 dark:group-hover:border-indigo-500 dark:group-hover:from-indigo-900/50 dark:group-hover:to-purple-900/50">
+          {isPrev ? (
+            <ChevronLeft className="h-5 w-5 text-indigo-600 transition-transform duration-300 group-hover:-translate-x-0.5 dark:text-indigo-400" />
+          ) : (
+            <ChevronRight className="h-5 w-5 text-indigo-600 transition-transform duration-300 group-hover:translate-x-0.5 dark:text-indigo-400" />
+          )}
         </div>
-      )}
-
-      <div>
-        <span className="text-sm text-gray-500 dark:text-gray-500">
-          {isPrev ? 'Previous' : 'Next'}
-        </span>
-        <p className="font-medium">{item.frontmatter.title}</p>
+        
+        {/* Content */}
+        <div className={`min-w-0 flex-1 ${isPrev ? 'text-left' : 'text-right'}`}>
+          <div className="text-xs font-medium uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+            {isPrev ? 'Previous' : 'Next'}
+          </div>
+          <div className="mt-1 line-clamp-2 text-sm font-semibold text-gray-900 transition-colors duration-300 group-hover:text-indigo-700 dark:text-gray-100 dark:group-hover:text-indigo-300">
+            {item.frontmatter.title}
+          </div>
+        </div>
       </div>
-
-      {!isPrev && (
-        <div className="relative ml-2 h-10 w-10 rounded-full border border-gray-200 bg-white p-2 shadow-sm transition-colors group-hover:bg-indigo-50 dark:border-gray-700 dark:bg-gray-800 dark:group-hover:bg-indigo-900/20">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="h-6 w-6 text-gray-500 transition-colors group-hover:text-indigo-600 dark:text-gray-400 dark:group-hover:text-indigo-400"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
-          </svg>
-        </div>
-      )}
     </Link>
   )
 }

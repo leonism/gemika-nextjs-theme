@@ -221,25 +221,30 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
         </article>
 
-        {/* Post navigation - moved outside article to match projects page styling */}
-        <div className="mt-16 flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-gray-200 pt-8 dark:border-gray-700 gap-4">
-          {prevPost && (
-            <PaginationLink
-              item={prevPost}
-              direction="prev"
-              href={`/posts/${prevPost.slug}`}
-            />
-          )}
+        {/* Post navigation - enhanced with better spacing and responsive design */}
+        <nav className="mt-16 border-t border-gray-200/60 pt-8 dark:border-gray-700/60" aria-label="Post navigation">
+          <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+            {prevPost && (
+              <div className="flex-1">
+                <PaginationLink
+                  item={prevPost}
+                  direction="prev"
+                  href={`/posts/${prevPost.slug}`}
+                />
+              </div>
+            )}
 
-          {nextPost && (
-            <PaginationLink
-              item={nextPost}
-              direction="next"
-              href={`/posts/${nextPost.slug}`}
-              className="mt-4 sm:mt-0 sm:ml-auto"
-            />
-          )}
-        </div>
+            {nextPost && (
+              <div className="flex-1">
+                <PaginationLink
+                  item={nextPost}
+                  direction="next"
+                  href={`/posts/${nextPost.slug}`}
+                />
+              </div>
+            )}
+          </div>
+        </nav>
       </div>
     </>
   )
