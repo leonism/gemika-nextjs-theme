@@ -1,15 +1,10 @@
-import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ChevronLeft } from 'lucide-react'
 import { WithContext } from 'schema-dts'
 
-import DynamicClientMDXRenderer from '@/components/DynamicClientMDXRenderer'
 import JsonLd from '@/components/json-ld'
 import { MDXProviderClient } from '@/components/mdx-provider-client'
-import { Breadcrumbs } from '@/components/navigation/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import ClientOnly from '@/components/utility/client-only'
 import { getAllContent, getContent } from '@/lib/content'
@@ -70,10 +65,10 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 
   return {
     title: `${project.frontmatter.title} | Gemika Haziq Nugroho Projects`,
-    description: project.frontmatter.excerpt,
+    description: project.frontmatter.description,
     openGraph: {
       title: project.frontmatter.title,
-      description: project.frontmatter.excerpt,
+      description: project.frontmatter.description,
       images: [
         {
           url: project.frontmatter.coverImage as string,
@@ -200,7 +195,7 @@ function ProjectCoverImage({
 /**
  * Renders the project content section
  */
-function ProjectContent({ content }: { content: any }) {
+function ProjectContent({ content }: { content: string }) {
   return (
     <div className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 prose-a:text-indigo-600 hover:prose-a:text-indigo-700 prose-img:rounded-xl prose-img:shadow-md dark:prose-headings:text-white dark:prose-a:text-indigo-400 dark:hover:prose-a:text-indigo-300">
       <ClientOnly>
@@ -259,7 +254,13 @@ function ProjectGallery({ images, title }: { images: string[]; title: string }) 
   )
 }
 
-function ProjectPagination({ prevProject, nextProject }: { prevProject: any; nextProject: any }) {
+function ProjectPagination({
+  prevProject,
+  nextProject,
+}: {
+  prevProject: Project
+  nextProject: Project
+}) {
   return (
     <div className="mt-16 flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-gray-200 pt-8 dark:border-gray-700 gap-4">
       {prevProject && (
@@ -291,7 +292,7 @@ function PaginationLink({
   href,
   className = '',
 }: {
-  project: any
+  project: Project
   direction: 'prev' | 'next'
   href: string
   className?: string
@@ -354,7 +355,7 @@ function PaginationLink({
 /**
  * Renders the project details sidebar card
  */
-function ProjectDetailsCard({ project }: { project: any }) {
+function ProjectDetailsCard({ project }: { project: Project }) {
   return (
     <div className="rounded-2xl border border-gray-200 bg-white bg-opacity-70 p-6 shadow-xl backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800 dark:bg-opacity-70">
       <h2 className="mb-6 flex items-center text-xl font-bold text-gray-900 dark:text-white">

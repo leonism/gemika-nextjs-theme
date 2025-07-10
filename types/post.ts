@@ -6,6 +6,12 @@ export interface Frontmatter {
   readingTime?: string;
   tags?: string[];
   coverImage?: string;
+  excerpt?: string;
+  year?: string;
+  category?: string;
+  gallery?: string[];
+  website?: string;
+  client?: string;
 }
 
 export interface Post {
