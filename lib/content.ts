@@ -1,8 +1,9 @@
-import path from "path";
-import { promisify } from "util";
+"use server";
 
+import path from "path";
 import matter from "gray-matter";
 import type { Post } from "@/types/post";
+import fs from "fs/promises";
 
 // lib/content.ts
 
@@ -12,12 +13,7 @@ if (typeof window !== "undefined") {
 }
 
 // Server-side only
-const fs = require("fs");
-
-// Promisify fs methods
-const readFile = promisify(fs.readFile);
-const readdir = promisify(fs.readdir);
-const access = promisify(fs.access);
+const { readFile, readdir, access } = fs;
 
 // Ensure server-side usage
 export async function getFileContent(filePath: string) {
@@ -137,3 +133,4 @@ export async function getAllContent(
 }
 
 // Removed conflicting export statement
+// Minor change to trigger re-compilation
