@@ -1,4 +1,96 @@
 import { PaginationLink } from '@/components/navigation/pagination-link'
+import { getContent, getAllContent } from '@/lib/content'
+import { notFound } from 'next/navigation'
+import { serialize } from 'next-mdx-remote/serialize'
+import { Post } from '@/types/post'
+import { WithContext, Article } from 'schema-dts'
+import JsonLd from '@/components/utility/json-ld'
+import { Calendar, User, Clock } from 'lucide-react'
+import Link from 'next/link'
+import Image from 'next/image'
+import ClientOnly from '@/components/utility/client-only'
+import { MDXProviderClient } from '@/components/mdx-provider-client'
+import type { Metadata } from 'next'
+
+interface PostPageProps {
+  params: Promise<{ slug: string }>
+}
+
+/**
+ * Generates metadata for the post page
+ */
+export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
+  const resolvedParams = await params
+  const { slug } = resolvedParams
+  const post = await getContent('posts', slug)
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+      description: 'The requested post could not be found.',
+    }
+  }
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gemika.vercel.app'
+  const postUrl = `${siteUrl}/posts/${slug}`
+  const imageUrl = post.frontmatter.coverImage || '/og-post.jpg'
+  const keywords = [
+    ...(post.frontmatter.tags as string[] || []),
+    'UX Design',
+    'Frontend Development',
+    'Design Systems',
+    'User Experience',
+    'Web Development'
+  ]
+
+  return {
+    title: `${post.frontmatter.title} | Blog`,
+    description: post.frontmatter.description || post.frontmatter.excerpt || `Read ${post.frontmatter.title} - insights on design and development.`,
+    keywords,
+    authors: [{ name: post.frontmatter.author || 'Gemika Haziq Nugroho' }],
+    creator: post.frontmatter.author || 'Gemika Haziq Nugroho',
+    publisher: 'Gemika Haziq Nugroho',
+    openGraph: {
+      title: post.frontmatter.title as string,
+      description: post.frontmatter.description || post.frontmatter.excerpt || `Read ${post.frontmatter.title} - insights on design and development.`,
+      type: 'article',
+      url: postUrl,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.frontmatter.title as string,
+        },
+      ],
+      publishedTime: post.frontmatter.date,
+      modifiedTime: post.frontmatter.updatedDate || post.frontmatter.date,
+      authors: [post.frontmatter.author || 'Gemika Haziq Nugroho'],
+      tags: post.frontmatter.tags as string[],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.frontmatter.title as string,
+      description: post.frontmatter.description || post.frontmatter.excerpt || `Read ${post.frontmatter.title} - insights on design and development.`,
+      images: [imageUrl],
+      creator: '@gemika',
+    },
+    alternates: {
+      canonical: postUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  }
+}
 
 export default async function PostPage({ params }: PostPageProps) {
   const resolvedParams = await params
@@ -127,27 +219,27 @@ export default async function PostPage({ params }: PostPageProps) {
               <MDXProviderClient source={serializedContent} />
             </ClientOnly>
           </div>
-
-          {/* Post navigation - similar to project pagination */}
-          <div className="mt-16 flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-gray-200 pt-8 dark:border-gray-700 gap-4">
-            {prevPost && (
-              <PaginationLink
-                item={prevPost}
-                direction="prev"
-                href={`/posts/${prevPost.slug}`}
-              />
-            )}
-
-            {nextPost && (
-              <PaginationLink
-                item={nextPost}
-                direction="next"
-                href={`/posts/${nextPost.slug}`}
-                className="mt-4 sm:mt-0 sm:ml-auto"
-              />
-            )}
-          </div>
         </article>
+
+        {/* Post navigation - moved outside article to match projects page styling */}
+        <div className="mt-16 flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-gray-200 pt-8 dark:border-gray-700 gap-4">
+          {prevPost && (
+            <PaginationLink
+              item={prevPost}
+              direction="prev"
+              href={`/posts/${prevPost.slug}`}
+            />
+          )}
+
+          {nextPost && (
+            <PaginationLink
+              item={nextPost}
+              direction="next"
+              href={`/posts/${nextPost.slug}`}
+              className="mt-4 sm:mt-0 sm:ml-auto"
+            />
+          )}
+        </div>
       </div>
     </>
   )

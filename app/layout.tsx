@@ -16,12 +16,77 @@ const inter = Inter({
   display: 'swap',
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gemika.vercel.app'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: 'Gemika | Creative Technologist',
-    template: '%s | Gemika',
+    default: 'Gemika Haziq Nugroho | Creative Technologist & UX Designer',
+    template: '%s | Gemika Haziq Nugroho',
   },
-  description: 'Digital garden of thoughts on design, code and creative processes',
+  description: 'Digital garden of thoughts on design, code and creative processes. Expert in UX/UI design, frontend development, and creative technology solutions.',
+  keywords: [
+    'UX Designer',
+    'Creative Technologist', 
+    'Frontend Developer',
+    'UI/UX Design',
+    'Web Development',
+    'Portfolio',
+    'Design Systems',
+    'React Developer',
+    'Next.js',
+    'TypeScript'
+  ],
+  authors: [{ name: 'Gemika Haziq Nugroho' }],
+  creator: 'Gemika Haziq Nugroho',
+  publisher: 'Gemika Haziq Nugroho',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteUrl,
+    siteName: 'Gemika Haziq Nugroho',
+    title: 'Gemika Haziq Nugroho | Creative Technologist & UX Designer',
+    description: 'Digital garden of thoughts on design, code and creative processes. Expert in UX/UI design, frontend development, and creative technology solutions.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Gemika Haziq Nugroho - Creative Technologist & UX Designer',
+        type: 'image/jpeg',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@gemika',
+    creator: '@gemika',
+    title: 'Gemika Haziq Nugroho | Creative Technologist & UX Designer',
+    description: 'Digital garden of thoughts on design, code and creative processes. Expert in UX/UI design, frontend development, and creative technology solutions.',
+    images: ['/og-image.jpg'],
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    yandex: process.env.YANDEX_VERIFICATION,
+    yahoo: process.env.YAHOO_VERIFICATION,
+  },
+  alternates: {
+    canonical: siteUrl,
+    types: {
+      'application/rss+xml': '/feed.xml',
+    },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

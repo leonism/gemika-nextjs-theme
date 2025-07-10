@@ -7,9 +7,42 @@ import { ProjectsHeader } from '@/components/projects/ProjectsHeader'
 import { getAllContent } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: 'Projects',
-  description:
-    'A showcase of my recent work across UX design, mobile development, and branding projects.',
+  title: 'Projects | UX Design & Development Portfolio',
+  description: 'A showcase of my recent work across UX design, mobile development, and branding projects. Explore case studies, design systems, and creative technology solutions.',
+  keywords: [
+    'UX Design Portfolio',
+    'Mobile App Development',
+    'Web Development Projects',
+    'Design Systems',
+    'UI/UX Case Studies',
+    'Frontend Development',
+    'Creative Technology',
+    'Branding Projects',
+    'React Projects',
+    'Next.js Portfolio'
+  ],
+  openGraph: {
+    title: 'Projects | UX Design & Development Portfolio',
+    description: 'A showcase of my recent work across UX design, mobile development, and branding projects. Explore case studies, design systems, and creative technology solutions.',
+    type: 'website',
+    images: [
+      {
+        url: '/og-projects.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Gemika Haziq Nugroho Projects Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Projects | UX Design & Development Portfolio',
+    description: 'A showcase of my recent work across UX design, mobile development, and branding projects.',
+    images: ['/og-projects.jpg'],
+  },
+  alternates: {
+    canonical: '/projects',
+  },
 }
 
 export default async function ProjectsPage() {

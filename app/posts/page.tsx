@@ -12,8 +12,45 @@ import { POSTS_PER_PAGE } from '@/lib/posts'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Blog | Insights & Thoughts',
-  description: 'Explore my latest writings on UX design, development, and creative processes.',
+  title: 'Blog | Insights & Thoughts on Design and Development',
+  description: 'Explore my latest writings on UX design, development, and creative processes. In-depth articles about design systems, frontend development, user experience, and creative technology.',
+  keywords: [
+    'UX Design Blog',
+    'Design Systems',
+    'Frontend Development',
+    'User Experience',
+    'Creative Technology',
+    'Web Development',
+    'Design Process',
+    'React',
+    'Next.js',
+    'TypeScript'
+  ],
+  openGraph: {
+    title: 'Blog | Insights & Thoughts on Design and Development',
+    description: 'Explore my latest writings on UX design, development, and creative processes. In-depth articles about design systems, frontend development, user experience, and creative technology.',
+    type: 'website',
+    images: [
+      {
+        url: '/og-blog.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Gemika Haziq Nugroho Blog - Design and Development Insights',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog | Insights & Thoughts on Design and Development',
+    description: 'Explore my latest writings on UX design, development, and creative processes.',
+    images: ['/og-blog.jpg'],
+  },
+  alternates: {
+    canonical: '/posts',
+    types: {
+      'application/rss+xml': '/posts/feed.xml',
+    },
+  },
 }
 
 export default async function PostsIndexPage({

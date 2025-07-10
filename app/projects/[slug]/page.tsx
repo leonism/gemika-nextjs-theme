@@ -64,21 +64,61 @@ export async function generateMetadata({ params }: ProjectPageProps) {
     }
   }
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gemika.vercel.app'
+  const projectUrl = `${siteUrl}/projects/${slug}`
+  const imageUrl = project.frontmatter.coverImage || '/og-project.jpg'
+  const keywords = [
+    ...(project.frontmatter.tags as string[] || []),
+    project.frontmatter.category as string,
+    'UX Design',
+    'Project Portfolio',
+    'Case Study',
+    'Design Process',
+    'Creative Technology'
+  ].filter(Boolean)
+
   return {
-    title: `${project.frontmatter.title} | Gemika Haziq Nugroho Projects`,
-    description: project.frontmatter.description,
+    title: `${project.frontmatter.title} | Projects Portfolio`,
+    description: project.frontmatter.description || project.frontmatter.excerpt || `Explore the ${project.frontmatter.title} project case study and design process.`,
+    keywords,
+    authors: [{ name: 'Gemika Haziq Nugroho' }],
+    creator: 'Gemika Haziq Nugroho',
+    publisher: 'Gemika Haziq Nugroho',
     openGraph: {
-      title: project.frontmatter.title,
-      description: project.frontmatter.description,
+      title: project.frontmatter.title as string,
+      description: project.frontmatter.description || project.frontmatter.excerpt || `Explore the ${project.frontmatter.title} project case study and design process.`,
+      type: 'website',
+      url: projectUrl,
       images: [
         {
-          url: project.frontmatter.coverImage as string,
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: project.frontmatter.title as string,
         },
       ],
-      type: 'website',
+      tags: project.frontmatter.tags as string[],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.frontmatter.title as string,
+      description: project.frontmatter.description || project.frontmatter.excerpt || `Explore the ${project.frontmatter.title} project case study and design process.`,
+      images: [imageUrl],
+      creator: '@gemika',
+    },
+    alternates: {
+      canonical: projectUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   }
 }
