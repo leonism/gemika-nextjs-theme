@@ -11,7 +11,7 @@ interface FeaturedProjectsProps {
     frontmatter: {
       title: string
       coverImage?: string
-      category: string
+      category?: string
     }
   }[]
 }
