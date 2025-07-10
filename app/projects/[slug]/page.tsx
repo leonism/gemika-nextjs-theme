@@ -8,6 +8,7 @@ import { MDXProviderClient } from '@/components/mdx-provider-client'
 import { Button } from '@/components/ui/button'
 import ClientOnly from '@/components/utility/client-only'
 import { getAllContent, getContent } from '@/lib/content'
+import { serialize } from 'next-mdx-remote/serialize'
 
 interface ProjectPageProps {
   params: { slug: string }
@@ -195,7 +196,9 @@ function ProjectCoverImage({
 /**
  * Renders the project content section
  */
-function ProjectContent({ content }: { content: string }) {
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+
+function ProjectContent({ content }: { content: MDXRemoteSerializeResult }) {
   return (
     <div className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 prose-a:text-indigo-600 hover:prose-a:text-indigo-700 prose-img:rounded-xl prose-img:shadow-md dark:prose-headings:text-white dark:prose-a:text-indigo-400 dark:hover:prose-a:text-indigo-300">
       <ClientOnly>
@@ -292,7 +295,7 @@ function PaginationLink({
   href,
   className = '',
 }: {
-  project: Project
+  project: Post
   direction: 'prev' | 'next'
   href: string
   className?: string
@@ -355,7 +358,7 @@ function PaginationLink({
 /**
  * Renders the project details sidebar card
  */
-function ProjectDetailsCard({ project }: { project: Project }) {
+function ProjectDetailsCard({ project }: { project: Post }) {
   return (
     <div className="rounded-2xl border border-gray-200 bg-white bg-opacity-70 p-6 shadow-xl backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800 dark:bg-opacity-70">
       <h2 className="mb-6 flex items-center text-xl font-bold text-gray-900 dark:text-white">
