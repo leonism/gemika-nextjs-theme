@@ -11,7 +11,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a7d8d2c7-8b6d-4339-b755-b6e6817de183/deploy-status)](https://app.netlify.com/sites/gemika/deploys)
 [![Vercel Status](https://vercelbadge.vercel.app/api/leonism/gemika-nextjs-theme?style=for-the-badge)](https://vercel.com/leonism/gemika-nextjs-theme)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://github.com/leonism/gemika-nextjs-theme/actions/workflows/ci.yml/badge.svg)](https://github.com/leonism/gemika-nextjs-theme/actions)
 ![Gemika Next.js Theme](public/gemika-nextjs-theme-splash.jpg)
 
 </div>
