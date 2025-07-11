@@ -5,6 +5,7 @@ import { WithContext } from 'schema-dts'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
+import type { Post } from '@/types/post'
 import JsonLd from '@/components/json-ld'
 import { MDXProviderClient } from '@/components/mdx-provider-client'
 import { Button } from '@/components/ui/button'
@@ -55,7 +56,7 @@ export async function generateStaticParams() {
  * Generates metadata for the project page
  */
 export async function generateMetadata({ params }: ProjectPageProps) {
-  const { slug } = await params
+  const { slug } = params
   const project = await getContent('projects', slug)
 
   if (!project) {
@@ -312,8 +313,8 @@ function ProjectPagination({
   prevProject,
   nextProject,
 }: {
-  prevProject: Project | null
-  nextProject: Project | null
+  prevProject: Post | null
+  nextProject: Post | null
 }) {
   return (
     <nav
@@ -544,8 +545,8 @@ function RelatedProjectsCTA() {
 /**
  * Main project page component
  */
-async function ProjectPageContent({ params }: ProjectPageProps) {
-  const { slug } = await params
+async function ProjectPageContent({ params }: { params: { slug: string } }) {
+  const { slug } = params
   const project = await getContent('projects', slug)
   if (!project) {
     notFound()
@@ -629,11 +630,9 @@ async function ProjectPageContent({ params }: ProjectPageProps) {
 }
 
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
-  const resolvedParams = await params // Ensure params is awaited
-
   return (
     <>
-      <ProjectPageContent params={resolvedParams} />
-    </>
+      <ProjectPageContent params={params} />
+    </> 
   )
 }
