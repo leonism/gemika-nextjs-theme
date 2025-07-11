@@ -61,11 +61,36 @@
     }
   }
 
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
   .animate-float {
     animation: float 8s ease-in-out infinite;
   }
   .animate-float[data-delay='2s'] {
     animation-delay: 2s;
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
   }
 
   * {
@@ -85,6 +110,15 @@
 
   .dark .prose a:hover {
     color: #c084fc;
+  }
+
+  /* Remove underlines from tag buttons and other non-prose links */
+  .prose a.inline-flex {
+    text-decoration: none;
+  }
+
+  .prose a.inline-flex:hover {
+    text-decoration: none;
   }
 
   /* For category text in dark mode */

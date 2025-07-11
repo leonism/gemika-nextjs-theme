@@ -12,14 +12,13 @@
 [![Vercel Status](https://vercelbadge.vercel.app/api/leonism/gemika-nextjs-theme?style=for-the-badge)](https://vercel.com/leonism/gemika-nextjs-theme)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://github.com/leonism/gemika-nextjs-theme/actions/workflows/ci.yml/badge.svg)](https://github.com/leonism/gemika-nextjs-theme/actions)
-[![Build Status](https://github.com/leonism/gemika-nextjs-theme/actions/workflows/static.yml/badge.svg)](https://github.com/leonism/gemika-nextjs-theme/actions)
 ![Gemika Next.js Theme](public/gemika-nextjs-theme-splash.jpg)
-</div>
 
+</div>
 
 ## 📖 Overview
 
-Gemika Next.js Theme is a modern, scalable web application template designed for developers aiming to build high-performance applications. Leveraging Next.js, MDX, Tailwind CSS and Turbopack, this project provides an optimized, forward-thinking development environment complete with robust configurations and up-to-date dependencies. Whether you're starting a new project or looking to enhance an existing one, this theme offers a practical and efficient foundation built with industry best practices in mind.
+Gemika Next.js Theme is a dynamic web application template built for developers looking to build high-performance apps using cutting-edge technologies. This project leverages Next.js, MDX, Tailwind CSS, and Turbopack, providing an efficient, modern development environment with robust configurations and up-to-date dependencies. Whether starting a new project or enhancing an existing one, this theme offers an efficient foundation adhering to industry best practices.
 
 ## 📋 Table of Contents
 
@@ -27,6 +26,7 @@ Gemika Next.js Theme is a modern, scalable web application template designed for
   - [📖 Overview](#-overview)
   - [📋 Table of Contents](#-table-of-contents)
   - [✨ Features](#-features)
+  - [🔄 Recent Updates](#-recent-updates)
   - [🛠️ Installation](#-installation)
   - [🏃 Development](#-development)
   - [🏗️ Building for Production](#-building-for-production)
@@ -47,18 +47,34 @@ Gemika Next.js Theme is a modern, scalable web application template designed for
 
 ## ✨ Features
 
-- ⚡ Turbocharged development with Turbopack
-- 🌙 Dark/light mode toggle with smooth transitions
-- 📱 Fully responsive design for all device sizes
-- 🔍 Advanced search functionality with relevance scoring
-- 📝 MDX-powered content system for rich content
-- 🎨 Gradient-heavy UI with smooth animations
-- 📊 SEO optimized with JSON-LD structured data
-- 📱 Mobile-first approach with touch-friendly interactions
-- 🧩 Modular component architecture
-- 🔄 API routes for dynamic content
-- 🌐 Internationalization support
-- 🔒 Security best practices implemented
+- ⚡ **Turbocharged development** with Turbopack for rapid build times
+- 🌙 **Dark/light mode toggle** for a customizable user experience
+- 📱 **Responsive design** optimized for all devices
+- 🔍 **Advanced search** with intelligent relevance scoring
+- 📝 **MDX-powered content** for rich, interactive documents
+- 🎨 **Gradient-heavy UI** with smooth animations
+- 📊 **SEO optimized** using JSON-LD structured data
+- 🌐 **Internationalization** support for global reach
+- 🔒 **Security best practices** implemented to safeguard data
+- 📧 **Contact forms** with modern validation
+- 📚 **Resource libraries** for development and design tools
+- 🎯 **Project showcases** with dynamic categories
+- 📖 **Blog system** with pagination and tags
+- 🍪 **Cookie consent** management
+- 📊 **Analytics integration** with Google Tag Manager
+
+## 🔄 Recent Updates
+
+- Added Google Tag Manager integration for enhanced analytics
+- Expanded the Frontmatter interface in Types for richer content metadata
+- Optimized responsive layout with improved pagination components
+- Enhanced SEO metadata for better search engine visibility
+- Updated theme naming from BenJo to Gemika to reflect branding changes
+- Included legal and responsive updates to the footer component
+- Added comprehensive resource pages for design and development tools
+- Implemented cookie consent management system
+- Enhanced project gallery with dynamic category filtering
+- Improved code formatting and linting configurations
 
 ## 🛠️ Installation
 
@@ -68,47 +84,63 @@ Get started with these simple steps:
 # Clone the repository
 git clone https://github.com/leonism/gemika-nextjs-theme.git
 
-# Change directory
+# Change into the project directory
 cd gemika-nextjs-theme
 
 # Install dependencies
 npm install
 ```
 
-## 🏃 Running the Development Server
+## 🏃 Development
 
-To start the development server with Turbopack, run:
+Launch the development server using Turbopack:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application. The page will automatically update as you make changes to the code. You'll see build errors and lint warnings in the console.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view your progress. The page auto-refreshes for changes, showing any build errors and lint warnings in the console.
+
+### Additional Development Commands
+
+```bash
+# Run linting
+npm run lint
+
+# Fix linting issues and format code
+npm run lint:fix
+
+# Format code only
+npm run format
+
+# Run all code quality checks
+npm run check:code
+```
 
 ## 🏗️ Building for Production
 
-To create an optimized production build, run:
+Create an optimized production-ready build:
 
 ```bash
 npm run build
 ```
 
-After building the project, you can start the production server with:
+To start the production server:
 
 ```bash
 npm run start
 ```
 
-The server will run on [http://localhost:3000](http://localhost:3000).
+Access the server on [http://localhost:3000](http://localhost:3000).
 
 ## 🌍 Deployment Options
 
 ### Vercel Deployment
 
-The easiest way to deploy your Next.js app is to use the Vercel Platform .
+Quickly deploy your app using Vercel:
 
 ```bash
-# Install Vercel CLI
+# Install the Vercel CLI
 npm install -g vercel
 
 # Deploy
@@ -117,25 +149,22 @@ vercel
 
 ### Cloudflare Pages Deployment
 
-Deploy to Cloudflare Pages for global edge network distribution:
+Deploy on Cloudflare Pages for fast, global edge delivery:
 
 ```bash
-# Install dependencies
-npm install --save-dev @cloudflare/next-on-pages
-
 # Build for Cloudflare Pages
 npm run pages:build
 
-# Deploy to Cloudflare Pages
+# Deploy
 npm run pages:deploy
 
-# Or do both in one go
+# Or handle it all in one step
 npm run deploy
 ```
 
 ### Netlify Deployment
 
-Deploy to Netlify for continuous deployment:
+Deploy on Netlify for seamless continuous deployment:
 
 ```bash
 # Install Netlify CLI
@@ -149,80 +178,123 @@ netlify deploy
 
 ```text
 gemika-nextjs-theme/
-├── app/               # App router directory
-│   ├── about/         # About page
-│   ├── api/           # API routes
-│   ├── contact/       # Contact form
-│   ├── posts/         # Blog posts
-│   ├── projects/      # Project showcase
-│   └── resources/     # Resource library
-├── components/        # Reusable components
-├── content/           # MDX content
-├── lib/               # Utility functions
-├── public/            # Static assets
-└── styles/            # Global styles
+├── app/                    # App router directory
+│   ├── about/             # About page
+│   ├── api/               # API routes
+│   ├── contact/           # Contact form
+│   ├── posts/             # Blog posts with dynamic routing
+│   ├── projects/          # Project showcase with categories
+│   ├── resources/         # Resource libraries
+│   │   ├── design/        # Design resources
+│   │   ├── development/   # Development tools
+│   │   └── books-articles/ # Educational content
+│   ├── search/            # Search functionality
+│   ├── tags/              # Tag-based filtering
+│   └── styles/            # Global styles
+├── components/            # Reusable components
+│   ├── ui/                # UI components
+│   ├── forms/             # Form components
+│   ├── navigation/        # Navigation components
+│   ├── home/              # Homepage sections
+│   └── utility/           # Utility components
+├── content/               # MDX content
+│   ├── posts/             # Blog posts
+│   ├── projects/          # Project descriptions
+│   └── pages/             # Static pages
+├── lib/                   # Utility functions
+├── public/                # Static assets
+└── .github/               # GitHub workflows
 ```
 
 ## 🧩 Components
 
 Gemika includes a rich set of pre-built components:
 
-- 🎯 UI components (buttons, cards, forms)
-- 📊 Layout components (containers, grids)
-- 🧭 Navigation components (navbar, sidebar)
-- 📱 Responsive components (adapting to different screen sizes)
-- 🎭 Animation components (transitions, effects)
+- 🎯 **UI components** (buttons, cards, forms)
+- 📊 **Layout components** (containers, grids)
+- 🧭 **Navigation components** (navbar, sidebar, pagination)
+- 📱 **Responsive components** (adapting to different screen sizes)
+- 🎭 **Animation components** (transitions, effects)
+- 🔍 **Search components** (search forms, results)
+- 📧 **Form components** (contact forms, newsletter signup)
+- 🍪 **Utility components** (cookie consent, theme toggle)
 
 ## 📝 Content Management
 
-Content is managed through MDX files in the content/ directory:
+Content is managed through MDX files in the `content/` directory:
 
-- 📄 Blog posts
-- 🖼️ Projects
-- 📚 Resources
-- 📋 Pages
+- 📄 **Blog posts** with frontmatter metadata
+- 🖼️ **Projects** with gallery support
+- 📚 **Resources** categorized by type
+- 📋 **Pages** for static content
+- 🏷️ **Tags** for content organization
+
+### Content Features
+
+- Rich text formatting with MDX
+- Syntax highlighting for code blocks
+- Image optimization and galleries
+- Automatic table of contents generation
+- SEO-friendly URLs and metadata
 
 ## 🎨 Styling
 
 Styling is powered by:
 
-- 🎨 Tailwind CSS for utility-first styling
-- 🌈 CSS variables for theming
-- 🌙 Dark mode support
-- 📱 Responsive design utilities
+- 🎨 **Tailwind CSS** for utility-first styling
+- 🌈 **CSS variables** for theming
+- 🌙 **Dark mode** support with smooth transitions
+- 📱 **Responsive design** utilities
+- 🎭 **Custom animations** and transitions
+- 🎯 **Design system** with consistent spacing and typography
 
 ## 📱 Responsive Design
 
 The theme is built with a mobile-first approach:
 
-- 📱 Optimized for mobile devices
-- 💻 Responsive on tablets
-- 🖥️ Fully functional on desktop
-- 📺 Support for large screens
+- 📱 **Mobile optimized** with touch-friendly interactions
+- 💻 **Tablet responsive** with adaptive layouts
+- 🖥️ **Desktop functional** with enhanced features
+- 📺 **Large screen support** with proper scaling
 
 ## 🔍 SEO Optimization
 
 Built-in SEO features include:
 
-- 📊 JSON-LD structured data
-- 🏷️ Meta tags
-- 🔗 Canonical URLs
-- 🗺️ Sitemap generation
-- 🤖 robots.txt configuration
+- 📊 **JSON-LD structured data** for rich snippets
+- 🏷️ **Meta tags** for social media sharing
+- 🔗 **Canonical URLs** to prevent duplicate content
+- 🗺️ **Sitemap generation** for search engines
+- 🤖 **robots.txt** configuration
+- 🖼️ **Open Graph** images and metadata
+- 🐦 **Twitter Cards** for social sharing
 
 ## 📈 Performance
 
 Performance optimizations include:
 
-- ⚡ Code splitting
-- 🖼️ Image optimization
-- 🔄 Incremental Static Regeneration
-- 📦 Bundle size optimization
-- 🚀 Server-side rendering where appropriate
+- ⚡ **Code splitting** for faster page loads
+- 🖼️ **Image optimization** with Next.js Image component
+- 🔄 **Incremental Static Regeneration** for dynamic content
+- 📦 **Bundle size optimization** with tree shaking
+- 🚀 **Server-side rendering** where appropriate
+- 💾 **Caching strategies** for improved performance
+- 🔧 **Turbopack** for lightning-fast development builds
 
 ## 📜 Changelog
 
-### v0.1.0 (Current)
+### v0.2.0 (Current)
+
+- Enhanced component styling for better UI consistency
+- Improved SEO setup and performance optimizations
+- Added new resources and updated the project gallery
+- Integrated Google Tag Manager for analytics
+- Added cookie consent management
+- Enhanced typography and spacing consistency
+- Improved responsive design across all components
+- Added comprehensive resource libraries
+
+### v0.1.0
 
 - 🚀 Initial release with core functionality
 - 📝 Complete portfolio sections
@@ -233,16 +305,25 @@ Performance optimizations include:
 
 ## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
+We welcome contributions—please follow these steps:
 
 1. Fork the repository
-2. Create your feature branch ( git checkout -b feature/amazing-feature )
-3. Commit your changes ( git commit -m 'Add some amazing feature' )
-4. Push to the branch ( git push origin feature/amazing-feature )
+2. Create a feature branch: `git checkout -b feature/awesome-feature`
+3. Commit your improvements: `git commit -m 'Add awesome feature'`
+4. Push your changes: `git push origin feature/awesome-feature`
 5. Open a Pull Request
+
+### Development Guidelines
+
+- Follow the existing code style and formatting
+- Run `npm run check:code` before submitting
+- Add appropriate tests for new features
+- Update documentation as needed
 
 ## 📄 License
 
 MIT © [Gemika Haziq Nugroho]
 
-💖 Made with Next.js, TailwindCSS, MDX, TypeScript, and lots of coffee!
+---
+
+💖 Crafted with Next.js, TailwindCSS, MDX, TypeScript, and lots of coffee!

@@ -38,7 +38,7 @@ export function PaginationLink({ item, direction, href, className = '' }: Pagina
           <div className="text-xs font-medium uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
             {isPrev ? 'Previous' : 'Next'}
           </div>
-          <div className="mt-1 line-clamp-2 text-sm font-semibold text-gray-900 transition-colors duration-300 group-hover:text-indigo-700 dark:text-gray-100 dark:group-hover:text-indigo-300">
+          <div className="mt-1 line-clamp-1 text-sm font-semibold text-gray-900 transition-colors duration-300 group-hover:text-indigo-700 dark:text-gray-100 dark:group-hover:text-indigo-300">
             {item.frontmatter.title}
           </div>
         </div>

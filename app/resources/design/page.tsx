@@ -155,14 +155,7 @@ export default function DesignResourcesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      {/* Animated background elements */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="animate-blob absolute -left-20 top-1/4 h-72 w-72 rounded-full bg-indigo-200 opacity-20 mix-blend-multiply blur-3xl filter dark:opacity-10"></div>
-        <div className="animate-blob animation-delay-2000 absolute -right-20 top-1/2 h-72 w-72 rounded-full bg-emerald-200 opacity-20 mix-blend-multiply blur-3xl filter dark:opacity-10"></div>
-        <div className="animate-blob animation-delay-4000 absolute bottom-1/4 left-1/4 h-72 w-72 rounded-full bg-amber-200 opacity-20 mix-blend-multiply blur-3xl filter dark:opacity-10"></div>
-      </div>
-
+    <div className="min-h-screen">
       <main className="relative z-10">
         <section className="container mx-auto max-w-6xl px-4 py-16 md:py-24">
           {/* Header Section with floating badge */}
