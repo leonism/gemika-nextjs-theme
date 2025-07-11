@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
         },
       ],
       publishedTime: post.frontmatter.date,
-      modifiedTime: post.frontmatter.updatedDate || post.frontmatter.date,
+      modifiedTime: (post.frontmatter.updatedDate || post.frontmatter.date) as string,
       authors: [post.frontmatter.author || 'Gemika Haziq Nugroho'],
       tags: post.frontmatter.tags as string[],
     },
@@ -141,7 +141,7 @@ export default async function PostPage({ params }: PostPageProps) {
       name: 'Gemika Haziq Nugroho',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://gemika.vercel.app/logo.png',
+        url: 'https://gemika.vercel.app/logo-transbg.png',
       },
     },
     mainEntityOfPage: {
@@ -152,7 +152,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <>
-      <JsonLd data={jsonLd} />
+      <JsonLd data={jsonLd as unknown as Record<string, unknown>} />
       <div className="container mx-auto max-w-4xl px-4 py-8">
         <article className="prose mx-auto rounded-xl bg-white p-8 shadow-sm dark:prose-invert lg:prose-lg dark:bg-gray-800">
           <h1 className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-5xl font-bold leading-tight text-transparent dark:from-indigo-500 dark:to-emerald-500 md:text-5xl lg:text-6xl">

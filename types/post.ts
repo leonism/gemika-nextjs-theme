@@ -12,6 +12,7 @@ export interface Frontmatter {
   gallery?: string[]
   website?: string
   client?: string
+  updatedDate?: string
 }
 
 export interface Post {
