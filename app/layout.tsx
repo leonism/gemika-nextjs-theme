@@ -9,6 +9,7 @@ import { Navbar } from '@/components/navigation/navbar'
 import { SkipNav } from '@/components/navigation/skip-nav'
 import { ThemeProvider } from '@/components/utility/theme-provider'
 import { CookieConsent } from '@/components/cookie-consent'
+import { DebugGTM } from '@/components/debug-gtm'
 import { navItems } from '@/data/nav-items'
 
 const inter = Inter({
@@ -137,6 +138,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
           <Footer />
           <CookieConsent />
+          <DebugGTM />
         </ThemeProvider>
         {/* Animated background elements from design page */}
         <div className="pointer-events-none fixed inset-0 z-[-1] overflow-hidden">
