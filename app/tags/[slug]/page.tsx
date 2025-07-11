@@ -35,10 +35,9 @@ export default async function TagPage({ params }: { params: { slug: string } }) 
             Showing {taggedItems.length} post
             {taggedItems.length !== 1 ? 's' : ''} with this tag
           </p>
-
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {taggedItems.map((item) => (
-              <Link key={item.slug} href={`/${item.type}/${item.slug}`} className="group">
+              <Link key={item.slug} href={`/posts/${item.slug}`} className="group">
                 <div className="relative mb-4 aspect-video overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
                   <Image
                     src={(item.frontmatter.coverImage as string) || '/placeholder.svg'}
