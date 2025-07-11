@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production'
 
 const nextConfig = {
   // Enable gzip compression via Next.js
@@ -18,7 +18,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
-    // Image configuration
+  // Image configuration
   images: {
     remotePatterns: [
       {
@@ -63,8 +63,8 @@ const nextConfig = {
             ],
           },
         ]
-      : [];
+      : []
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

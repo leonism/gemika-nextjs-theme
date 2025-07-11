@@ -25,15 +25,15 @@ export default [
         tsconfigRootDir: process.cwd(),
       },
       globals: {
-        process: 'readonly',
+        window: 'readonly',
+        document: 'readonly',
+        localStorage: 'readonly',
         console: 'readonly',
-        Buffer: 'readonly',
-        __dirname: 'readonly',
-        __filename: 'readonly',
-        global: 'readonly',
+        process: 'readonly',
         module: 'readonly',
         require: 'readonly',
         exports: 'readonly',
+        // Add more browser or Node globals if needed
       },
     },
     plugins: {
@@ -47,9 +47,13 @@ export default [
       ...tsRules,
       ...tsTypeCheckedRules,
 
-      // Custom
+      // Formatting
       'prettier/prettier': 'warn',
+
+      // Import sorting
       'import/order': ['warn', { 'newlines-between': 'always' }],
+
+      // Tailwind CSS
       'tailwindcss/classnames-order': 'warn',
       'tailwindcss/no-custom-classname': 'off',
     },

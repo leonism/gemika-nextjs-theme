@@ -12,7 +12,7 @@
   "htmlWhitespaceSensitivity": "css",
   "proseWrap": "always",
   "embeddedLanguageFormatting": "off",
-  
+  "plugins": ["prettier-plugin-tailwindcss"],
 
   "overrides": [
     {
@@ -25,9 +25,7 @@
       "files": "*.yml",
       "options": {
         "tabWidth": 2,
-        "proseWrap": "preserve",
-        "yamlBracketSpacing": false,
-        "yamlQuoteProps": "preserve"
+        "proseWrap": "preserve"
       }
     },
     {
@@ -39,7 +37,7 @@
       }
     },
     {
-      "files": ["*.ts","*.tsx", "*.js"],
+      "files": ["*.ts", "*.tsx", "*.js"],
       "options": {
         "semi": false,
         "singleQuote": true,
