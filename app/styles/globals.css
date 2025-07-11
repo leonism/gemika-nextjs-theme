@@ -4,7 +4,12 @@
 
 @layer base {
   p {
-    @apply text-crisp;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
   }
   :root {
     --background: 0 0% 100%;
@@ -94,14 +99,14 @@
   }
 
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    background-color: rgb(249, 250, 251); /* Corrected from bg-gray-50 to the actual color value */
   }
   /* For dark mode links */
   .dark .prose a {
@@ -128,18 +133,28 @@
 
   /* Add these new styles */
   .gradient-text {
-    @apply bg-gradient-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent;
+    background-image: linear-gradient(to right, #4f46e5, #9333ea);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 
   .dark .gradient-text {
-    @apply bg-gradient-to-r from-purple-400 to-indigo-300;
+    background-image: linear-gradient(to right, #c084fc, #a5b4fc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 
   .dark .text-link {
-    @apply text-purple-400 hover:text-purple-300;
+    color: #c084fc;
+  }
+
+  .dark .text-link:hover {
+    color: #d8b4fe;
   }
 
   .dark .category-badge {
-    @apply text-purple-400;
+    color: #c084fc;
   }
 }

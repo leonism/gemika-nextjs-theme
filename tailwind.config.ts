@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import plugin from "tailwindcss/plugin";
 
 const config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -10,7 +10,6 @@ const config = {
     "./src/**/*.{js,ts,jsx,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
