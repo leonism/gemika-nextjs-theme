@@ -42,7 +42,7 @@ export async function GET() {
       (post) => `
   <url>
     <loc>${baseUrl}/posts/${post.slug}</loc>
-    <lastmod>${new Date(post.frontmatter.date as string).toISOString().split('T')[0]}</lastmod>
+    <lastmod>${new Date(post.frontmatter.date).toISOString().split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`

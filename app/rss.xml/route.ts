@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+
 import { getAllContent } from '@/lib/content'
 
 export async function GET() {
@@ -20,7 +21,7 @@ export async function GET() {
       .map(
         (post) => `
     <item>
-      <title>${(post.frontmatter.title as string).replace(/&/g, '&amp;')}</title>
+      <title>${post.frontmatter.title.replace(/&/g, '&amp;')}</title>
       <link>${baseUrl}/posts/${post.slug}</link>
       <guid>${baseUrl}/posts/${post.slug}</guid>
       <pubDate>${new Date(post.frontmatter.date).toUTCString()}</pubDate>
@@ -34,7 +35,7 @@ export async function GET() {
       .map(
         (project) => `
     <item>
-      <title>Project: ${(project.frontmatter.title as string).replace(/&/g, '&amp;')}</title>
+      <title>Project: ${project.frontmatter.title.replace(/&/g, '&amp;')}</title>
       <link>${baseUrl}/projects/${project.slug}</link>
       <guid>${baseUrl}/projects/${project.slug}</guid>
       <pubDate>${new Date(project.frontmatter.date).toUTCString()}</pubDate>

@@ -2,13 +2,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { WithContext } from 'schema-dts'
+import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 import JsonLd from '@/components/json-ld'
 import { MDXProviderClient } from '@/components/mdx-provider-client'
 import { Button } from '@/components/ui/button'
 import ClientOnly from '@/components/utility/client-only'
 import { getAllContent, getContent } from '@/lib/content'
-import { serialize } from 'next-mdx-remote/serialize'
 
 interface ProjectPageProps {
   params: { slug: string }
@@ -68,25 +69,31 @@ export async function generateMetadata({ params }: ProjectPageProps) {
   const projectUrl = `${siteUrl}/projects/${slug}`
   const imageUrl = project.frontmatter.coverImage || '/og-project.jpg'
   const keywords = [
-    ...(project.frontmatter.tags as string[] || []),
+    ...((project.frontmatter.tags as string[]) || []),
     project.frontmatter.category as string,
     'UX Design',
     'Project Portfolio',
     'Case Study',
     'Design Process',
-    'Creative Technology'
+    'Creative Technology',
   ].filter(Boolean)
 
   return {
     title: `${project.frontmatter.title} | Projects Portfolio`,
-    description: project.frontmatter.description || project.frontmatter.excerpt || `Explore the ${project.frontmatter.title} project case study and design process.`,
+    description:
+      project.frontmatter.description ||
+      project.frontmatter.excerpt ||
+      `Explore the ${project.frontmatter.title} project case study and design process.`,
     keywords,
     authors: [{ name: 'Gemika Haziq Nugroho' }],
     creator: 'Gemika Haziq Nugroho',
     publisher: 'Gemika Haziq Nugroho',
     openGraph: {
-      title: project.frontmatter.title as string,
-      description: project.frontmatter.description || project.frontmatter.excerpt || `Explore the ${project.frontmatter.title} project case study and design process.`,
+      title: project.frontmatter.title,
+      description:
+        project.frontmatter.description ||
+        project.frontmatter.excerpt ||
+        `Explore the ${project.frontmatter.title} project case study and design process.`,
       type: 'website',
       url: projectUrl,
       images: [
@@ -94,15 +101,18 @@ export async function generateMetadata({ params }: ProjectPageProps) {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: project.frontmatter.title as string,
+          alt: project.frontmatter.title,
         },
       ],
       tags: project.frontmatter.tags as string[],
     },
     twitter: {
       card: 'summary_large_image',
-      title: project.frontmatter.title as string,
-      description: project.frontmatter.description || project.frontmatter.excerpt || `Explore the ${project.frontmatter.title} project case study and design process.`,
+      title: project.frontmatter.title,
+      description:
+        project.frontmatter.description ||
+        project.frontmatter.excerpt ||
+        `Explore the ${project.frontmatter.title} project case study and design process.`,
       images: [imageUrl],
       creator: '@gemika',
     },
@@ -236,7 +246,6 @@ function ProjectCoverImage({
 /**
  * Renders the project content section
  */
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 function ProjectContent({ content }: { content: MDXRemoteSerializeResult }) {
   return (
@@ -307,7 +316,10 @@ function ProjectPagination({
   nextProject: Project | null
 }) {
   return (
-    <nav className="mt-16 border-t border-gray-200/60 pt-8 dark:border-gray-700/60" aria-label="Project navigation">
+    <nav
+      className="mt-16 border-t border-gray-200/60 pt-8 dark:border-gray-700/60"
+      aria-label="Project navigation"
+    >
       <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
         {prevProject && (
           <div className="flex-1">
@@ -552,7 +564,7 @@ async function ProjectPageContent({ params }: ProjectPageProps) {
   const jsonLd: WithContext<any> = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
-    name: project.frontmatter.title as string,
+    name: project.frontmatter.title,
     description: project.frontmatter.excerpt as string,
     image: project.frontmatter.coverImage as string,
     creator: {
@@ -578,13 +590,13 @@ async function ProjectPageContent({ params }: ProjectPageProps) {
             {/* Main Content */}
             <div className="space-y-12 lg:col-span-3">
               <ProjectHeader
-                title={project.frontmatter.title as string}
+                title={project.frontmatter.title}
                 excerpt={project.frontmatter.excerpt as string}
               />
 
               <ProjectCoverImage
                 imageUrl={project.frontmatter.coverImage as string}
-                title={project.frontmatter.title as string}
+                title={project.frontmatter.title}
                 category={project.frontmatter.category as string}
                 tags={project.frontmatter.tags as string[]}
               />
@@ -594,7 +606,7 @@ async function ProjectPageContent({ params }: ProjectPageProps) {
 
               <ProjectGallery
                 images={project.frontmatter.gallery as string[]}
-                title={project.frontmatter.title as string}
+                title={project.frontmatter.title}
               />
             </div>
 

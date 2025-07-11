@@ -8,7 +8,8 @@ import { getAllContent } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Projects | UX Design & Development Portfolio',
-  description: 'A showcase of my recent work across UX design, mobile development, and branding projects. Explore case studies, design systems, and creative technology solutions.',
+  description:
+    'A showcase of my recent work across UX design, mobile development, and branding projects. Explore case studies, design systems, and creative technology solutions.',
   keywords: [
     'UX Design Portfolio',
     'Mobile App Development',
@@ -19,11 +20,12 @@ export const metadata: Metadata = {
     'Creative Technology',
     'Branding Projects',
     'React Projects',
-    'Next.js Portfolio'
+    'Next.js Portfolio',
   ],
   openGraph: {
     title: 'Projects | UX Design & Development Portfolio',
-    description: 'A showcase of my recent work across UX design, mobile development, and branding projects. Explore case studies, design systems, and creative technology solutions.',
+    description:
+      'A showcase of my recent work across UX design, mobile development, and branding projects. Explore case studies, design systems, and creative technology solutions.',
     type: 'website',
     images: [
       {
@@ -37,7 +39,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Projects | UX Design & Development Portfolio',
-    description: 'A showcase of my recent work across UX design, mobile development, and branding projects.',
+    description:
+      'A showcase of my recent work across UX design, mobile development, and branding projects.',
     images: ['/og-projects.jpg'],
   },
   alternates: {

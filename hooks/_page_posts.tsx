@@ -1,83 +1,79 @@
-import { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { WebPage, WithContext } from "schema-dts";
+import { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import { WebPage, WithContext } from 'schema-dts'
 
-import JsonLd from "@/components/json-ld";
-import { Pagination } from "@/components/navigation/pagination";
-import { getAllContent } from "@/lib/content";
+import JsonLd from '@/components/json-ld'
+import { Pagination } from '@/components/navigation/pagination'
+import { getAllContent } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: "Blog | Insights & Thoughts",
-  description:
-    "Explore my latest writings on UX design, development, and creative processes.",
-};
+  title: 'Blog | Insights & Thoughts',
+  description: 'Explore my latest writings on UX design, development, and creative processes.',
+}
 
 // Color palette for tags to ensure visual consistency
 const TAG_COLORS = [
   {
-    bg: "bg-indigo-100 dark:bg-indigo-900/30",
-    text: "text-indigo-600 dark:text-indigo-300",
+    bg: 'bg-indigo-100 dark:bg-indigo-900/30',
+    text: 'text-indigo-600 dark:text-indigo-300',
   },
   {
-    bg: "bg-emerald-100 dark:bg-emerald-900/30",
-    text: "text-emerald-600 dark:text-emerald-300",
+    bg: 'bg-emerald-100 dark:bg-emerald-900/30',
+    text: 'text-emerald-600 dark:text-emerald-300',
   },
   {
-    bg: "bg-amber-100 dark:bg-amber-900/30",
-    text: "text-amber-600 dark:text-amber-300",
+    bg: 'bg-amber-100 dark:bg-amber-900/30',
+    text: 'text-amber-600 dark:text-amber-300',
   },
   {
-    bg: "bg-rose-100 dark:bg-rose-900/30",
-    text: "text-rose-600 dark:text-rose-300",
+    bg: 'bg-rose-100 dark:bg-rose-900/30',
+    text: 'text-rose-600 dark:text-rose-300',
   },
   {
-    bg: "bg-violet-100 dark:bg-violet-900/30",
-    text: "text-violet-600 dark:text-violet-300",
+    bg: 'bg-violet-100 dark:bg-violet-900/30',
+    text: 'text-violet-600 dark:text-violet-300',
   },
-];
+]
 
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 6
 
 export default async function PostsIndexPage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string }> | { page?: string };
+  searchParams: Promise<{ page?: string }> | { page?: string }
 }) {
   // Get all posts and sort by date (newest first)
-  const allPosts = await getAllContent("posts");
+  const allPosts = await getAllContent('posts')
   const sortedPosts = allPosts.sort((a, b) => {
-    const dateA = new Date(a.frontmatter.date || "2000-01-01");
-    const dateB = new Date(b.frontmatter.date || "2000-01-01");
-    return dateB.getTime() - dateA.getTime();
-  });
+    const dateA = new Date(a.frontmatter.date || '2000-01-01')
+    const dateB = new Date(b.frontmatter.date || '2000-01-01')
+    return dateB.getTime() - dateA.getTime()
+  })
 
   // Pagination logic - properly await searchParams
-  const resolvedSearchParams = await searchParams;
-  const page = resolvedSearchParams?.page
-    ? parseInt(resolvedSearchParams.page)
-    : 1;
-  const validatedPage = isNaN(page) || page < 1 ? 1 : page;
+  const resolvedSearchParams = await searchParams
+  const page = resolvedSearchParams?.page ? parseInt(resolvedSearchParams.page) : 1
+  const validatedPage = isNaN(page) || page < 1 ? 1 : page
 
-  const totalPosts = sortedPosts.length;
-  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
-  const startIndex = (validatedPage - 1) * POSTS_PER_PAGE;
-  const posts = sortedPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+  const totalPosts = sortedPosts.length
+  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE)
+  const startIndex = (validatedPage - 1) * POSTS_PER_PAGE
+  const posts = sortedPosts.slice(startIndex, startIndex + POSTS_PER_PAGE)
 
   // JSON-LD structured data
   const jsonLd: WithContext<WebPage> = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Blog | Insights & Thoughts",
-    description:
-      "Explore my latest writings on UX design, development, and creative processes.",
-    url: "https://gemika.vercel.app/posts",
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Blog | Insights & Thoughts',
+    description: 'Explore my latest writings on UX design, development, and creative processes.',
+    url: 'https://gemika.vercel.app/posts',
     isPartOf: {
-      "@type": "WebSite",
-      name: "Gemika Haziq Nugroho",
-      url: "https://gemika.vercel.app",
+      '@type': 'WebSite',
+      name: 'Gemika Haziq Nugroho',
+      url: 'https://gemika.vercel.app',
     },
-  };
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -94,15 +90,14 @@ export default async function PostsIndexPage({
           </div>
 
           <h1 className="mb-6 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-            Insights &{" "}
+            Insights &{' '}
             <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
               Thoughts
             </span>
           </h1>
 
           <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-300 md:text-xl">
-            Explore my latest writings on UX design, development, and creative
-            processes.
+            Explore my latest writings on UX design, development, and creative processes.
           </p>
         </div>
       </section>
@@ -132,8 +127,7 @@ export default async function PostsIndexPage({
               No posts found
             </h3>
             <p className="mx-auto max-w-md text-gray-600 dark:text-gray-400">
-              There are no blog posts available at the moment. Please check back
-              later.
+              There are no blog posts available at the moment. Please check back later.
             </p>
           </div>
         ) : (
@@ -142,8 +136,8 @@ export default async function PostsIndexPage({
               {posts.map((post, index) => {
                 // Get a color for each tag based on its index
                 const getTagColor = (tagIndex: number) => {
-                  return TAG_COLORS[tagIndex % TAG_COLORS.length];
-                };
+                  return TAG_COLORS[tagIndex % TAG_COLORS.length]
+                }
 
                 return (
                   <Link
@@ -154,8 +148,8 @@ export default async function PostsIndexPage({
                     {post.frontmatter.coverImage && (
                       <div className="relative h-48 w-full overflow-hidden">
                         <Image
-                          src={post.frontmatter.coverImage as string}
-                          alt={post.frontmatter.title as string}
+                          src={post.frontmatter.coverImage}
+                          alt={post.frontmatter.title}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
@@ -168,9 +162,7 @@ export default async function PostsIndexPage({
                     )}
                     <div className="flex flex-grow flex-col p-6">
                       <div className="mb-3 flex items-center text-sm text-gray-500 dark:text-gray-400">
-                        <time dateTime={post.frontmatter.date as string}>
-                          {post.frontmatter.date}
-                        </time>
+                        <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
                         {post.frontmatter.readingTime && (
                           <>
                             <span className="mx-2">•</span>
@@ -186,29 +178,26 @@ export default async function PostsIndexPage({
                       </p>
                       {post.frontmatter.tags && (
                         <div className="mt-auto flex flex-wrap gap-2">
-                          {(post.frontmatter.tags as string[])
-                            .slice(0, 3)
-                            .map((tag, tagIndex) => (
-                              <span
-                                key={tag}
-                                className={`inline-block rounded-full px-2 py-1 text-xs font-medium ${
-                                  getTagColor(tagIndex).bg
-                                } ${getTagColor(tagIndex).text}`}
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          {(post.frontmatter.tags as string[]).length > 3 && (
+                          {post.frontmatter.tags.slice(0, 3).map((tag, tagIndex) => (
+                            <span
+                              key={tag}
+                              className={`inline-block rounded-full px-2 py-1 text-xs font-medium ${
+                                getTagColor(tagIndex).bg
+                              } ${getTagColor(tagIndex).text}`}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                          {post.frontmatter.tags.length > 3 && (
                             <span className="inline-block rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-                              +{(post.frontmatter.tags as string[]).length - 3}{" "}
-                              more
+                              +{post.frontmatter.tags.length - 3} more
                             </span>
                           )}
                         </div>
                       )}
                     </div>
                   </Link>
-                );
+                )
               })}
             </div>
 
@@ -227,5 +216,5 @@ export default async function PostsIndexPage({
         )}
       </section>
     </div>
-  );
+  )
 }

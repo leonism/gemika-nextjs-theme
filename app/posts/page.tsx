@@ -13,7 +13,8 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Blog | Insights & Thoughts on Design and Development',
-  description: 'Explore my latest writings on UX design, development, and creative processes. In-depth articles about design systems, frontend development, user experience, and creative technology.',
+  description:
+    'Explore my latest writings on UX design, development, and creative processes. In-depth articles about design systems, frontend development, user experience, and creative technology.',
   keywords: [
     'UX Design Blog',
     'Design Systems',
@@ -24,11 +25,12 @@ export const metadata: Metadata = {
     'Design Process',
     'React',
     'Next.js',
-    'TypeScript'
+    'TypeScript',
   ],
   openGraph: {
     title: 'Blog | Insights & Thoughts on Design and Development',
-    description: 'Explore my latest writings on UX design, development, and creative processes. In-depth articles about design systems, frontend development, user experience, and creative technology.',
+    description:
+      'Explore my latest writings on UX design, development, and creative processes. In-depth articles about design systems, frontend development, user experience, and creative technology.',
     type: 'website',
     images: [
       {

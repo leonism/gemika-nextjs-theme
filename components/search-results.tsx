@@ -124,7 +124,7 @@ export function SearchResults({ query }: SearchResultsProps) {
           className="group rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900/50 dark:hover:border-primary/50"
           aria-labelledby={`result-${result.id}-title`}
         >
-          <Link href={result.url} className="block mb-4">
+          <Link href={result.url} className="mb-4 block">
             {' '}
             {/* Added mb-4 here */}
             <div className="flex items-start gap-5">

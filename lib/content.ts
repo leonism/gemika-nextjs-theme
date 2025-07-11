@@ -1,134 +1,132 @@
-"use server";
+'use server'
 
-import path from "path";
-import matter from "gray-matter";
-import type { Post } from "@/types/post";
-import fs from "fs/promises";
+import path from 'path'
+import fs from 'fs/promises'
+
+import matter from 'gray-matter'
+
+import type { Post } from '@/types/post'
 
 // lib/content.ts
 
 // Ensure this module only runs on the server
-if (typeof window !== "undefined") {
-  throw new Error("This module can only be used on the server side");
+if (typeof window !== 'undefined') {
+  throw new Error('This module can only be used on the server side')
 }
 
 // Server-side only
-const { readFile, readdir, access } = fs;
+const { readFile, readdir, access } = fs
 
 // Ensure server-side usage
 export async function getFileContent(filePath: string) {
-  const fileContent = await readFile(filePath, "utf8");
-  return matter(fileContent);
+  const fileContent = await readFile(filePath, 'utf8')
+  return matter(fileContent)
 }
 
 // Add type definitions
 interface ContentError extends Error {
-  code?: string;
+  code?: string
 }
 
 export async function getContent(
-  type: "posts" | "projects" | "pages",
-  slug: string,
+  type: 'posts' | 'projects' | 'pages',
+  slug: string
 ): Promise<Post | null> {
   // Input validation
-  if (!type || !["posts", "projects", "pages"].includes(type)) {
-    console.error("Invalid content type:", type);
-    return null;
+  if (!type || !['posts', 'projects', 'pages'].includes(type)) {
+    console.error('Invalid content type:', type)
+    return null
   }
 
-  if (!slug || typeof slug !== "string" || slug.trim() === "") {
-    console.error("Error in getContent: slug is empty or invalid", {
+  if (!slug || typeof slug !== 'string' || slug.trim() === '') {
+    console.error('Error in getContent: slug is empty or invalid', {
       type,
       slug,
       timestamp: new Date().toISOString(),
-    });
-    return null;
+    })
+    return null
   }
 
-  const filePath = path.join(process.cwd(), "content", type, `${slug}.mdx`);
+  const filePath = path.join(process.cwd(), 'content', type, `${slug}.mdx`)
 
   try {
-    const fileContent = await readFile(filePath, "utf-8");
-    const { data: frontmatter, content } = matter(fileContent);
+    const fileContent = await readFile(filePath, 'utf-8')
+    const { data: frontmatter, content } = matter(fileContent)
 
     if (!frontmatter || !content) {
-      console.warn(`Invalid MDX file structure: ${filePath}`);
-      return null;
+      console.warn(`Invalid MDX file structure: ${filePath}`)
+      return null
     }
 
-    return { slug, frontmatter, content };
+    return { slug, frontmatter, content }
   } catch (error) {
-    const err = error as ContentError;
-    if (err.code === "ENOENT") {
-      console.warn(`Content file not found: ${filePath}`);
+    const err = error as ContentError
+    if (err.code === 'ENOENT') {
+      console.warn(`Content file not found: ${filePath}`)
     } else {
-      console.error("Error in getContent:", err.message || "Unknown error");
+      console.error('Error in getContent:', err.message || 'Unknown error')
     }
-    return null;
+    return null
   }
 }
 
 // Update the getAllContent function to ensure tags are included
-export async function getAllContent(
-  type: "posts" | "projects" | "pages",
-): Promise<Post[]> {
-  const directoryPath = path.join(process.cwd(), "content", type);
+export async function getAllContent(type: 'posts' | 'projects' | 'pages'): Promise<Post[]> {
+  const directoryPath = path.join(process.cwd(), 'content', type)
 
   try {
-    await access(directoryPath);
+    await access(directoryPath)
   } catch {
-    return []; // Directory doesn't exist
+    return [] // Directory doesn't exist
   }
 
   try {
-    const filenames = await readdir(directoryPath);
+    const filenames = await readdir(directoryPath)
     const mdxFiles = filenames.filter(
       (filename: string) =>
-        filename.endsWith(".mdx") &&
-        filename.replace(/\.mdx$/, "").trim() !== "",
-    );
+        filename.endsWith('.mdx') && filename.replace(/\.mdx$/, '').trim() !== ''
+    )
 
     if (mdxFiles.length === 0) {
-      console.warn(`No .mdx files found in ${directoryPath}`);
-      return [];
+      console.warn(`No .mdx files found in ${directoryPath}`)
+      return []
     }
 
     interface ContentItem {
-      slug: string;
-      frontmatter: Record<string, any>;
-      content: string;
+      slug: string
+      frontmatter: Record<string, any>
+      content: string
     }
 
     interface Frontmatter {
-      [key: string]: any;
+      [key: string]: any
     }
 
     interface ParsedContent {
-      data: Frontmatter;
-      content: string;
+      data: Frontmatter
+      content: string
     }
 
     const allContent: (ContentItem | null)[] = await Promise.all(
       mdxFiles.map(async (filename: string): Promise<ContentItem | null> => {
         try {
-          const slug: string = filename.replace(/\.mdx$/, "");
-          const filePath: string = path.join(directoryPath, filename);
-          const fileContent: string = await readFile(filePath, "utf-8");
-          const { data: frontmatter, content }: ParsedContent =
-            matter(fileContent);
+          const slug: string = filename.replace(/\.mdx$/, '')
+          const filePath: string = path.join(directoryPath, filename)
+          const fileContent: string = await readFile(filePath, 'utf-8')
+          const { data: frontmatter, content }: ParsedContent = matter(fileContent)
 
-          return frontmatter && content ? { slug, frontmatter, content } : null;
+          return frontmatter && content ? { slug, frontmatter, content } : null
         } catch (error) {
-          console.error(`Error processing ${filename}:`, error);
-          return null;
+          console.error(`Error processing ${filename}:`, error)
+          return null
         }
-      }),
-    );
+      })
+    )
 
-    return allContent.filter(Boolean) as Post[]; // Remove null values and cast to Post[]
+    return allContent.filter(Boolean) as Post[] // Remove null values and cast to Post[]
   } catch (error) {
-    console.error("Error in getAllContent:", error);
-    return [];
+    console.error('Error in getAllContent:', error)
+    return []
   }
 }
 

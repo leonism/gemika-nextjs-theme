@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+
 import { getAllContent } from '@/lib/content'
 import { formatDate } from '@/lib/utils'
 
@@ -41,16 +42,16 @@ export default async function TagPage({ params }: { params: { slug: string } }) 
                 <div className="relative mb-4 aspect-video overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
                   <Image
                     src={(item.frontmatter.coverImage as string) || '/placeholder.svg'}
-                    alt={item.frontmatter.title as string}
+                    alt={item.frontmatter.title}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">
-                  {formatDate(item.frontmatter.date as string)}
+                  {formatDate(item.frontmatter.date)}
                 </p>
                 <h3 className="mb-2 text-xl font-semibold transition-colors group-hover:text-primary">
-                  {item.frontmatter.title as string}
+                  {item.frontmatter.title}
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300">
                   {item.frontmatter.excerpt as string}

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+
 import { Post } from '@/lib/posts'
 import { TAG_COLORS } from '@/lib/posts'
 

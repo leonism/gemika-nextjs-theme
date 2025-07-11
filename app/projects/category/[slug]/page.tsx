@@ -17,7 +17,7 @@ export async function generateStaticParams() {
   const categories = new Set<string>()
   projects.forEach((project) => {
     if (project.frontmatter.category) {
-      categories.add(slugify(project.frontmatter.category as string))
+      categories.add(slugify(project.frontmatter.category))
     }
   })
   return Array.from(categories).map((slug) => ({
