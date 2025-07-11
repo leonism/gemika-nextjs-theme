@@ -1,5 +1,5 @@
 {
-  // Tailwind-specific optimizations
+  // Tailwind CSS IntelliSense settings
   "tailwindCSS.includeLanguages": {
     "html": "html",
     "javascript": "javascript",
@@ -15,15 +15,55 @@
   "tailwindCSS.hoverPreview": true,
   "tailwindCSS.colorDecorators": true,
   "tailwindCSS.showPixelEquivalents": true,
-  "tailwindCSS.trace.server": "off",
+  "tailwindCSS.validate": true,
+  "tailwindCSS.lint.cssConflict": "warning",
+  "tailwindCSS.lint.invalidApply": "error",
+  "tailwindCSS.lint.invalidScreen": "error",
+  "tailwindCSS.lint.invalidTailwindDirective": "error",
+  "tailwindCSS.lint.invalidVariant": "error",
+  "tailwindCSS.lint.recommendedVariantOrder": "warning",
+  "tailwindCSS.experimental.configFile": null,
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?\"|className\\s*:\\s*[\"'`]([^\"'`]*)[\"'`]\"]", "[\"'`]([^\"'`]*)[\"'`]"]
+  ],
+
+  // Editor settings for better autocomplete
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.autoClosingQuotes": "always",
+  "css.validate": false,
+  "scss.validate": false,
+  "less.validate": false,
 
   // Formatter settings
   "[html]": {
-    "editor.defaultFormatter": "bradlc.vscode-tailwindcss",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "bradlc.vscode-tailwindcss"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   // File associations
