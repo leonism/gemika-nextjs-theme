@@ -46,8 +46,7 @@ export default function DevelopmentResourcesPage() {
     },
     {
       title: 'Deployment & DevOps',
-      description:
-        'Resources for streamlining deployment processes and implementing DevOps practices.',
+      description: 'Resources for deployment processes & implementing DevOps practices.',
       link: '#',
       icon: '🚀',
       emojiBg: 'bg-cyan-100 dark:bg-cyan-900/30',
