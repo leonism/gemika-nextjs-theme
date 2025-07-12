@@ -12,9 +12,9 @@
     "pages:deploy": "wrangler pages deploy .vercel/output --project-name=gemika",
     "wrangler:deploy": "wrangler deploy",
     "deploy": "npm run pages:build && npm run pages:deploy && npm run wrangler:deploy --project-name=gemika",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix && prettier --write .",
-    "format": "prettier --write \"*.{js,ts,jsx,tsx,md}\" \"app/**/*.{js,ts,jsx,tsx,md}\" \"components/**/*.{js,ts,jsx,tsx,md}\" --ignore-path .prettierignore",
+    "lint": "eslint . --ext .css,.js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .css,.js,.jsx,.ts,.tsx --fix && prettier --write .",
+    "format": "prettier --write \"*.{css,js,ts,jsx,tsx,md}\" \"app/**/*.{css,js,ts,jsx,tsx,md}\" \"components/**/*.{css,js,ts,jsx,tsx,md}\" --ignore-path .prettierignore",
     "check:code": "npm run format && npm run lint:fix"
   },
   "engines": {

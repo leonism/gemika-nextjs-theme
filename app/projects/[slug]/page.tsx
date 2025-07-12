@@ -633,6 +633,6 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   return (
     <>
       <ProjectPageContent params={params} />
-    </> 
+    </>
   )
 }
