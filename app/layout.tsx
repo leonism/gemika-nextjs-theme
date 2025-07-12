@@ -9,6 +9,7 @@ import { Navbar } from '@/components/navigation/navbar'
 import { SkipNav } from '@/components/navigation/skip-nav'
 import { ThemeProvider } from '@/components/utility/theme-provider'
 import { CookieConsent } from '@/components/cookie-consent'
+import BackToTop from '@/components/ui/back-to-top'
 import { navItems } from '@/data/nav-items'
 
 const inter = Inter({
@@ -144,6 +145,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="animate-blob animation-delay-2000 absolute -right-20 top-1/2 h-72 w-72 rounded-full bg-emerald-200 opacity-20 mix-blend-multiply blur-3xl filter dark:opacity-10"></div>
           <div className="animate-blob animation-delay-4000 absolute bottom-1/4 left-1/4 h-72 w-72 rounded-full bg-amber-200 opacity-20 mix-blend-multiply blur-3xl filter dark:opacity-10"></div>
         </div>
+        <BackToTop />
       </body>
     </html>
   )
