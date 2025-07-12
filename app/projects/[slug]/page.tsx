@@ -56,7 +56,7 @@ export async function generateStaticParams() {
  * Generates metadata for the project page
  */
 export async function generateMetadata({ params }: ProjectPageProps) {
-  const { slug } = params
+  const { slug } = await params
   const project = await getContent('projects', slug)
 
   if (!project) {
@@ -546,7 +546,7 @@ function RelatedProjectsCTA() {
  * Main project page component
  */
 async function ProjectPageContent({ params }: { params: { slug: string } }) {
-  const { slug } = params
+  const { slug } = await params
   const project = await getContent('projects', slug)
   if (!project) {
     notFound()
