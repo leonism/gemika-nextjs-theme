@@ -12,6 +12,7 @@ import JsonLd from '@/components/utility/json-ld'
 import { Post } from '@/types/post'
 import { getContent, getAllContent } from '@/lib/content'
 import { PaginationLink } from '@/components/navigation/pagination-link'
+import { ShareButtons } from '@/components/blog/share-buttons'
 
 interface PostPageProps {
   params: Promise<{ slug: string }>
@@ -229,6 +230,8 @@ export default async function PostPage({ params }: PostPageProps) {
               <MDXProviderClient source={serializedContent} />
             </ClientOnly>
           </div>
+
+          <ShareButtons title={post.frontmatter.title} slug={post.slug} />
         </article>
 
         {/* Post navigation - enhanced with better spacing and responsive design */}
