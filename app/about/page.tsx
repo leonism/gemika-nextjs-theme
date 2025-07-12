@@ -41,25 +41,22 @@ export default function AboutPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                icon: <Layout className="h-6 w-6" />,
+                icon: '💡',
                 title: 'User Experience Design',
                 description: 'Creating intuitive and engaging digital experiences',
-                gradient: 'from-purple-500 to-violet-600',
-                bgColor: 'bg-purple-50 dark:bg-purple-900/20',
+                emojiBg: 'bg-indigo-100 dark:bg-indigo-900/30',
               },
               {
-                icon: <Code className="h-6 w-6" />,
+                icon: '💻',
                 title: 'Mobile Development',
                 description: 'Building performant cross-platform applications',
-                gradient: 'from-blue-500 to-cyan-600',
-                bgColor: 'bg-blue-50 dark:bg-blue-900/20',
+                emojiBg: 'bg-emerald-100 dark:bg-emerald-900/30',
               },
               {
-                icon: <Eye className="h-6 w-6" />,
+                icon: '🔍',
                 title: 'User Research',
                 description: 'Understanding user needs through testing',
-                gradient: 'from-emerald-500 to-teal-600',
-                bgColor: 'bg-emerald-50 dark:bg-emerald-900/20',
+                emojiBg: 'bg-amber-100 dark:bg-amber-900/30',
               },
             ].map((item, index) => (
               <div
@@ -67,13 +64,13 @@ export default function AboutPage() {
                 className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80"
               >
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.gradient} transition-opacity duration-500`}
+                  className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.emojiBg} transition-opacity duration-500`}
                 ></div>
 
                 <div className="pb-0">
                   {/* Floating emoji icon */}
                   <div
-                    className={`mx-4 my-2 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
+                    className={`mb-4 ml-4 mt-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.emojiBg} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
                   >
                     {item.icon}
                   </div>
@@ -101,18 +98,16 @@ export default function AboutPage() {
             <div className="grid gap-6 sm:grid-cols-2">
               {[
                 {
-                  icon: <Award className="h-5 w-5" />,
+                  icon: '🏆',
                   title: 'Award-Winning Work',
                   description: 'Recognized by industry leaders for innovative design solutions',
-                  gradient: 'from-amber-500 to-orange-500',
-                  bgColor: 'bg-amber-50 dark:bg-amber-900/20',
+                  emojiBg: 'bg-rose-100 dark:bg-rose-900/30',
                 },
                 {
-                  icon: <Users className="h-5 w-5" />,
+                  icon: '🤝',
                   title: 'Diverse Clientele',
                   description: 'From startups to Fortune 500 companies across multiple industries',
-                  gradient: 'from-sky-500 to-blue-500',
-                  bgColor: 'bg-sky-50 dark:bg-sky-900/20',
+                  emojiBg: 'bg-violet-100 dark:bg-violet-900/30',
                 },
               ].map((item, index) => (
                 <div
@@ -120,13 +115,13 @@ export default function AboutPage() {
                   className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80"
                 >
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.gradient} transition-opacity duration-500`}
+                    className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.emojiBg} transition-opacity duration-500`}
                   ></div>
 
                   <div className="pb-0">
                     {/* Floating emoji icon */}
                     <div
-                      className={`mx-4 my-2 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
+                      className={`mb-4 ml-4 mt-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.emojiBg} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
                     >
                       {item.icon}
                     </div>
@@ -155,26 +150,23 @@ export default function AboutPage() {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 {
-                  icon: <Lightbulb className="h-5 w-5" />,
+                  icon: '✨',
                   title: 'Invisible Design',
                   description:
                     'Great design feels intuitive and natural, letting users focus on their goals',
-                  gradient: 'from-violet-500 to-purple-500',
-                  bgColor: 'bg-violet-50 dark:bg-violet-900/20',
+                  emojiBg: 'bg-purple-100 dark:bg-purple-900/30',
                 },
                 {
-                  icon: <Sparkles className="h-5 w-5" />,
+                  icon: '🎨',
                   title: 'Beautiful & Functional',
                   description: 'Combining aesthetic appeal with technical excellence',
-                  gradient: 'from-pink-500 to-rose-500',
-                  bgColor: 'bg-pink-50 dark:bg-pink-900/20',
+                  emojiBg: 'bg-pink-100 dark:bg-pink-900/30',
                 },
                 {
-                  icon: <Users className="h-5 w-5" />,
+                  icon: '💖',
                   title: 'User-Centered',
                   description: 'Design decisions rooted in real user needs and behaviors',
-                  gradient: 'from-indigo-500 to-blue-500',
-                  bgColor: 'bg-indigo-50 dark:bg-indigo-900/20',
+                  emojiBg: 'bg-blue-100 dark:bg-blue-900/30',
                 },
               ].map((item, index) => (
                 <div
@@ -182,13 +174,13 @@ export default function AboutPage() {
                   className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80"
                 >
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.gradient} transition-opacity duration-500`}
+                    className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.emojiBg} transition-opacity duration-500`}
                   ></div>
 
                   <div className="pb-0">
                     {/* Floating emoji icon */}
                     <div
-                      className={`mx-4 my-2 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.bgColor} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
+                      className={`mb-4 ml-4 mt-4 flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${item.emojiBg} shadow-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110`}
                     >
                       {item.icon}
                     </div>
