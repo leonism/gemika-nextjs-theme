@@ -12,7 +12,8 @@ export function HeroBrands({ brands }: HeroBrandsProps) {
           key={index}
           className="group relative h-8 w-8 transition-all duration-300 hover:scale-110 sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16"
         >
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-100 to-purple-100 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-100 to-purple-100 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+		  </div>
           <Image
             src={`https://logo.clearbit.com/${brand.toLowerCase()}.com`}
             alt={brand}

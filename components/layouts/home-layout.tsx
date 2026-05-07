@@ -53,7 +53,9 @@ export function HomeLayout({
       {heroSection && (
         <div className="relative overflow-hidden">
           <SectionWrapper className="px-4 py-5 md:py-24">
-            <div className="container mx-auto">{heroSection}</div>
+            <div className="container mx-auto">
+				{heroSection}
+			</div>
           </SectionWrapper>
         </div>
       )}

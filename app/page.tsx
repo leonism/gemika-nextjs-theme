@@ -1,13 +1,12 @@
 import { WithContext, WebSite } from 'schema-dts'
-
-import { ExpertiseSection } from '@/components/home/expertise/ExpertiseSection'
 import { HeroSection } from '@/components/home/hero/HeroSection'
+import { ExpertiseSection } from '@/components/home/expertise/ExpertiseSection'
 import { LatestPosts } from '@/components/home/posts/LatestPosts'
 import { FeaturedProjects } from '@/components/home/projects/FeaturedProjects'
-import JsonLd from '@/components/json-ld'
 import { HomeLayout } from '@/components/layouts/home-layout'
 import { AREA_EXPERTISE } from '@/lib/constants'
 import { getAllContent } from '@/lib/content'
+import JsonLd from '@/components/json-ld'
 
 export default async function Home() {
   const [featuredProjects, latestPosts] = await Promise.all([

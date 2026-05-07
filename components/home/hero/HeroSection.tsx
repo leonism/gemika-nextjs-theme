@@ -66,7 +66,7 @@ export function HeroSection() {
         </div>
 
         {/* Brand Logos (Extracted to HeroBrands.tsx) */}
-        <HeroBrands brands={BRANDS} />
+        {/* <HeroBrands brands={BRANDS} /> */}
       </div>
     </section>
   )
