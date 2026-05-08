@@ -13,6 +13,9 @@ const tsTypeCheckedRules = tseslint.configs?.['recommended-type-checked']?.rules
 
 export default [
   {
+    ignores: ['.next/', 'node_modules/', 'public/', 'dist/', '.vercel/'],
+  },
+  {
     files: ['**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
       parser: tsParser,
@@ -40,6 +43,12 @@ export default [
       tailwindcss,
       prettier: prettierPlugin,
     },
+    settings: {
+      tailwindcss: {
+        cssFiles: ['app/styles/globals.css'],
+        callees: ['cn', 'cva'],
+      },
+    },
     rules: {
       ...jsRules,
       ...tsRules,
@@ -49,7 +58,8 @@ export default [
       'prettier/prettier': 'warn',
 
       // Import sorting
-      'import/order': ['warn', { 'newlines-between': 'always' }],
+      // Import sorting - Temporarily disabled due to crash in eslint-plugin-import with ESLint 10
+      'import/order': 'off',
 
       // Tailwind CSS
       'tailwindcss/classnames-order': 'warn',

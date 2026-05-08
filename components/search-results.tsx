@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight, BookOpen, Clock, FileText } from 'lucide-react'
+import { FaArrowRight, FaBookOpen, FaClock, FaFileAlt } from 'react-icons/fa'
 
 import { SearchResult } from '@/types/search'
 
@@ -23,11 +23,11 @@ const formatDate = (dateString: string) => {
 const getResultIcon = (type: string) => {
   switch (type.toLowerCase()) {
     case 'post':
-      return <FileText className="h-4 w-4" />
+      return <FaFileAlt className="h-4 w-4" />
     case 'project':
-      return <BookOpen className="h-4 w-4" />
+      return <FaBookOpen className="h-4 w-4" />
     default:
-      return <FileText className="h-4 w-4" />
+      return <FaFileAlt className="h-4 w-4" />
   }
 }
 
@@ -97,14 +97,14 @@ export function SearchResults({ query }: SearchResultsProps) {
             href="/posts"
             className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-primary/90"
           >
-            <BookOpen className="h-4 w-4" />
+            <FaBookOpen className="h-4 w-4" />
             Browse all posts
           </Link>
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
           >
-            <FileText className="h-4 w-4" />
+            <FaFileAlt className="h-4 w-4" />
             View projects
           </Link>
         </div>
@@ -135,7 +135,7 @@ export function SearchResults({ query }: SearchResultsProps) {
                       dateTime={result.date}
                       className="inline-flex items-center gap-1 text-gray-500 transition-colors group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300"
                     >
-                      <Clock className="h-3.5 w-3.5" />
+                      <FaClock className="h-3.5 w-3.5" />
                       {formatDate(result.date)}
                     </time>
                   )}
@@ -151,7 +151,7 @@ export function SearchResults({ query }: SearchResultsProps) {
                 </p>
                 <div className="mt-4 inline-flex items-center gap-2 rounded-lg bg-gray-50 px-4 py-2 font-medium text-primary transition-colors hover:bg-gray-100 group-hover:shadow-sm dark:bg-gray-800 dark:hover:bg-gray-700">
                   Read more
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
             </div>

@@ -1,19 +1,9 @@
 import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
-
 import { PostCard } from '@/components/posts/PostCard'
+import type { Post } from '@/types/post'
 
 interface LatestPostsProps {
-  posts: {
-    slug: string
-    frontmatter: {
-      title: string
-      coverImage?: string
-      tags?: string[]
-      date?: string
-      excerpt?: string
-    }
-  }[]
+  posts: Post[]
 }
 
 export function LatestPosts({ posts }: LatestPostsProps) {

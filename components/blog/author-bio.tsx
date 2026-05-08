@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Facebook, Github, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 interface SocialLink {
   platform: 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'github'
@@ -20,15 +20,15 @@ export function AuthorBio({ name, bio, imageUrl, slug, socialLinks, className }:
   const renderSocialIcon = (platform: string) => {
     switch (platform) {
       case 'facebook':
-        return <Facebook size={18} />
+        return <FaFacebook size={18} />
       case 'twitter':
-        return <Twitter size={18} />
+        return <FaTwitter size={18} />
       case 'instagram':
-        return <Instagram size={18} />
+        return <FaInstagram size={18} />
       case 'linkedin':
-        return <Linkedin size={18} />
+        return <FaLinkedin size={18} />
       case 'github':
-        return <Github size={18} />
+        return <FaGithub size={18} />
       default:
         return null
     }

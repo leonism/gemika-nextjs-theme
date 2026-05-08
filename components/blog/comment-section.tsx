@@ -3,7 +3,7 @@
 import type React from 'react'
 import { useState } from 'react'
 import Image from 'next/image'
-import { Flag, Reply, ThumbsDown, ThumbsUp } from 'lucide-react'
+import { FaFlag, FaReply, FaThumbsDown, FaThumbsUp } from 'react-icons/fa'
 
 import { useToast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
@@ -136,7 +136,7 @@ export function CommentSection({ postSlug, initialComments = [], className }: Co
               onClick={() => handleLike(comment.id)}
               className="flex items-center text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
             >
-              <ThumbsUp className="mr-1 h-4 w-4" />
+              <FaThumbsUp className="mr-1 h-4 w-4" />
               {comment.likes > 0 && <span>{comment.likes}</span>}
             </button>
 
@@ -144,17 +144,17 @@ export function CommentSection({ postSlug, initialComments = [], className }: Co
               onClick={() => handleDislike(comment.id)}
               className="flex items-center text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
             >
-              <ThumbsDown className="mr-1 h-4 w-4" />
+              <FaThumbsDown className="mr-1 h-4 w-4" />
               {comment.dislikes > 0 && <span>{comment.dislikes}</span>}
             </button>
 
             <button className="flex items-center text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
-              <Reply className="mr-1 h-4 w-4" />
+              <FaReply className="mr-1 h-4 w-4" />
               Reply
             </button>
 
             <button className="flex items-center text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
-              <Flag className="mr-1 h-4 w-4" />
+              <FaFlag className="mr-1 h-4 w-4" />
               Report
             </button>
           </div>

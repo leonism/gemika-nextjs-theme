@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 import { cn } from '@/lib/utils'
 
@@ -64,7 +64,7 @@ export function ProjectsPagination({
             } rounded-full border border-gray-300 bg-white shadow-sm transition-all duration-300 hover:border-transparent hover:bg-linear-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white dark:border-gray-700 dark:bg-gray-800`}
             aria-disabled={currentPage === 1}
           >
-            <ChevronLeft className="mr-2 h-4 w-4" />
+            <FaChevronLeft className="mr-2 h-4 w-4" />
             Previous
           </Link>
         </li>
@@ -103,7 +103,7 @@ export function ProjectsPagination({
             aria-disabled={currentPage === totalPages}
           >
             Next
-            <ChevronRight className="ml-2 h-4 w-4" />
+            <FaChevronRight className="ml-2 h-4 w-4" />
           </Link>
         </li>
       </ul>

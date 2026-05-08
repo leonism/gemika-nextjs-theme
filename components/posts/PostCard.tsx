@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { FaCalendarAlt, FaClock } from 'react-icons/fa'
 import type { Post } from '@/types/post'
 import { TAG_COLORS } from '@/lib/constants'
 
@@ -38,37 +39,13 @@ export function PostCard({ post }: { post: Post }) {
         {/* Date and Reading Time with Icons */}
         <div className="mt-auto flex items-center text-sm text-gray-500 dark:text-gray-400">
           <div className="mr-4 flex items-center">
-            <svg
-              className="mr-1.5 h-4 w-4 text-indigo-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
+            <FaCalendarAlt className="mr-1.5 h-4 w-4 text-indigo-500" />
             <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
           </div>
 
           {post.frontmatter.readingTime && (
             <div className="flex items-center">
-              <svg
-                className="mr-1.5 h-4 w-4 text-indigo-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+              <FaClock className="mr-1.5 h-4 w-4 text-indigo-500" />
               <span>{post.frontmatter.readingTime} read</span>
             </div>
           )}

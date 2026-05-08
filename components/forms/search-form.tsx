@@ -3,7 +3,7 @@
 import type React from 'react'
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { Search } from 'lucide-react'
+import { FaSearch } from 'react-icons/fa'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -75,7 +75,7 @@ export function SearchForm({
           className="pr-10"
         />
         <Button type="submit" variant="ghost" size="icon" className="absolute right-0 top-0 h-full">
-          <Search className="h-4 w-4" />
+          <FaSearch className="h-4 w-4" />
           <span className="sr-only">Search</span>
         </Button>
       </div>

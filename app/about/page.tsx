@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Code, Layout, Eye, Rocket, Award, Sparkles, Lightbulb, Users } from 'lucide-react'
+import { FaRocket } from 'react-icons/fa'
 
 export default function AboutPage() {
   return (
@@ -31,7 +31,7 @@ export default function AboutPage() {
             </h1>
             <div className="mx-auto max-w-lg">
               <div className="inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-indigo-100 to-purple-100 px-6 py-2 text-indigo-600 shadow-sm transition-all duration-300 hover:shadow-md">
-                <Rocket className="h-5 w-5" />
+                <FaRocket className="h-5 w-5" />
                 <span className="text-lg font-medium">UX Strategist & Mobile Developer</span>
               </div>
             </div>

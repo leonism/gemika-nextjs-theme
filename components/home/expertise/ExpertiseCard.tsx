@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-// import { ChevronRight } from 'lucide-react'
+import { FaArrowRight } from 'react-icons/fa'
 
 interface ExpertiseCardProps {
   topic: {
@@ -60,20 +60,7 @@ export function ExpertiseCard({ topic }: ExpertiseCardProps) {
             </div>
             <span className="inline-flex items-center font-medium text-indigo-600 transition-colors hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300">
               Explore
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:scale-110"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
+              <FaArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:scale-110" />
             </span>
           </div>
         </div>

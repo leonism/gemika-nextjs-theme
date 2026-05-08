@@ -3,7 +3,7 @@
 import type React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { SearchIcon, X } from 'lucide-react'
+import { FaSearch, FaTimes } from 'react-icons/fa'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -75,7 +75,7 @@ export function Search() {
             }
           }}
         >
-          <SearchIcon className="h-5 w-5" />
+          <FaSearch className="h-5 w-5" />
         </div>
       ) : (
         <div
@@ -104,7 +104,7 @@ export function Search() {
                   setIsOpen(false)
                 }}
               >
-                <X className="h-5 w-5" />
+                <FaTimes className="h-5 w-5" />
                 <span className="sr-only">Close</span>
               </div>
             </div>

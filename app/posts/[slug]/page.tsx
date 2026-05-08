@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { serialize } from 'next-mdx-remote/serialize'
 import { WithContext, Article } from 'schema-dts'
-import { Calendar, User, Clock } from 'lucide-react'
+import { FaCalendarAlt, FaUser, FaClock, FaTag } from 'react-icons/fa'
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
@@ -163,20 +163,20 @@ export default async function PostPage({ params }: PostPageProps) {
           {/* Post metadata with icons */}
           <div className="mb-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-gray-700 dark:text-gray-300">
             <div className="flex items-center text-sm font-medium">
-              <Calendar className="mr-2 h-4 w-4 text-indigo-500" />
+              <FaCalendarAlt className="mr-2 h-4 w-4 text-indigo-500" />
               <time>{post.frontmatter.date}</time>
             </div>
 
             {post.frontmatter.author && (
               <div className="flex items-center text-sm font-medium">
-                <User className="mr-2 h-4 w-4 text-indigo-500" />
+                <FaUser className="mr-2 h-4 w-4 text-indigo-500" />
                 <span>{post.frontmatter.author}</span>
               </div>
             )}
 
             {post.frontmatter.readingTime && (
               <div className="flex items-center text-sm font-medium">
-                <Clock className="mr-2 h-4 w-4 text-indigo-500" />
+                <FaClock className="mr-2 h-4 w-4 text-indigo-500" />
                 <span>{post.frontmatter.readingTime} read</span>
               </div>
             )}
@@ -191,21 +191,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
                   className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-tag mr-1 h-4 w-4"
-                  >
-                    <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2 0 0 0 3.42 0l6.58-6.58a2.426 2 0 0 0 0-3.42z"></path>
-                    <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                  </svg>
+                  <FaTag className="mr-1 h-4 w-4" />
                   {tag}
                 </Link>
               ))}

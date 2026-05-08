@@ -7,7 +7,7 @@ interface ProjectCardProps {
     frontmatter: {
       title: string
       coverImage?: string
-      category: string
+      category?: string
     }
   }
   isFeatured?: boolean

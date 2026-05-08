@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
+import { FaChevronDown } from 'react-icons/fa'
 
 import { MobileMenu } from '@/components/navigation/mobile-menu'
 import { Search } from '@/components/search'
@@ -116,7 +117,7 @@ function DropdownNavItem({ item, pathname }: { item: NavItem; pathname: string |
         className={cn(
           'flex items-center px-3 py-1.5 text-sm font-medium transition-all duration-300 sm:px-4 sm:py-2 sm:text-base',
           pathname?.startsWith(item.href)
-            ? 'font-semibold text-indigo-600 dark:text-[#C4F468]'
+            ? 'font-semibold text-indigo-600 dark:text-dark-accent'
             : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
         )}
       >
@@ -162,29 +163,18 @@ function NavLinkContent({ label, active }: { label: string; active?: boolean }) 
 
 function DropdownIcon({ active }: { active?: boolean }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+    <FaChevronDown
       className={cn(
         'ml-0.5 h-2 w-2 transition-transform sm:ml-1 sm:h-3 sm:w-3 md:h-4 md:w-4',
-        active ? 'rotate-180 text-indigo-500 dark:text-[#C4F468]' : 'group-hover:rotate-180'
+        active ? 'rotate-180 text-indigo-500 dark:text-dark-accent' : 'group-hover:rotate-180'
       )}
-    >
-      <polyline points="6 9 12 15 18 9"></polyline>
-    </svg>
+    />
   )
 }
 
 function DropdownMenu({ item, pathname }: { item: NavItem; pathname: string | null }) {
   return (
-    <div className="transform-translate-x-1/2 invisible absolute left-1/2 z-50 mt-1 w-36 rounded-lg border border-gray-200 bg-white/90 py-1 opacity-0 shadow-lg backdrop-blur-sm transition-all duration-200 group-hover:visible group-hover:opacity-100 dark:border-[#313F55] dark:bg-[#141D2B]/90 sm:w-40 md:w-48">
+    <div className="transform-translate-x-1/2 invisible absolute left-1/2 z-50 mt-1 w-36 rounded-lg border border-gray-200 bg-white/90 py-1 opacity-0 shadow-lg backdrop-blur-sm transition-all duration-200 group-hover:visible group-hover:opacity-100 dark:border-dark-4 dark:bg-dark-1/90 sm:w-40 md:w-48">
       {item.children?.map((child) => (
         <DropdownMenuItem key={child.label} item={child} pathname={pathname} />
       ))}

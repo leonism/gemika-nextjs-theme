@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { serialize } from 'next-mdx-remote/serialize'
 
 import JsonLd from '@/components/json-ld'
 import ProjectsClientWrapper from '@/components/projects/ProjectsClientWrapper'
@@ -55,13 +54,6 @@ export default async function ProjectsCategoryPage({ params }: CategoryPageProps
     return dateB.getTime() - dateA.getTime()
   })
 
-  const serializedProjects = await Promise.all(
-    sortedProjects.map(async (project) => ({
-      ...project,
-      content: await serialize(project.content || ''),
-    }))
-  )
-
   return (
     <div>
       <JsonLd
@@ -74,7 +66,7 @@ export default async function ProjectsCategoryPage({ params }: CategoryPageProps
       />
       <main>
         <ProjectsHeader title={`Projects in ${categoryName}`} />
-        <ProjectsClientWrapper projects={serializedProjects} />
+        <ProjectsClientWrapper projects={sortedProjects} />
       </main>
     </div>
   )

@@ -1,5 +1,5 @@
 // app/contact/page.tsx
-import { Mail, MessageSquare, Phone } from 'lucide-react'
+import { FaEnvelope, FaPhone, FaRegComments } from 'react-icons/fa'
 
 import { ContactForm } from '@/components/contact-form'
 
@@ -30,19 +30,19 @@ export default function ContactPage() {
           <div className="mb-16 grid gap-6 sm:grid-cols-3">
             {[
               {
-                icon: <Mail className="h-6 w-6" />,
+                icon: <FaEnvelope className="h-6 w-6" />,
                 title: 'Email',
                 description: 'hello@gemika.com',
                 gradient: 'from-blue-500 to-cyan-500',
               },
               {
-                icon: <Phone className="h-6 w-6" />,
+                icon: <FaPhone className="h-6 w-6" />,
                 title: 'Phone',
                 description: '+1 (555) 123-4567',
                 gradient: 'from-purple-500 to-violet-500',
               },
               {
-                icon: <MessageSquare className="h-6 w-6" />,
+                icon: <FaRegComments className="h-6 w-6" />,
                 title: 'Social Media',
                 description: '@gemika_design',
                 gradient: 'from-pink-500 to-rose-500',

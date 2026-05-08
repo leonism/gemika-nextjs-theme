@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa'
 
 export function GalleryViewer({ images, title }: { images: string[]; title: string }) {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -46,7 +46,7 @@ export function GalleryViewer({ images, title }: { images: string[]; title: stri
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4">
           <button onClick={() => setIsOpen(false)} className="absolute right-4 top-4 text-white">
-            <X className="h-8 w-8" />
+            <FaTimes className="h-8 w-8" />
           </button>
 
           <div className="relative w-full max-w-4xl">
@@ -62,14 +62,14 @@ export function GalleryViewer({ images, title }: { images: string[]; title: stri
               onClick={prevImage}
               className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white"
             >
-              <ChevronLeft className="h-6 w-6" />
+              <FaChevronLeft className="h-6 w-6" />
             </button>
 
             <button
               onClick={nextImage}
               className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white"
             >
-              <ChevronRight className="h-6 w-6" />
+              <FaChevronRight className="h-6 w-6" />
             </button>
           </div>
         </div>

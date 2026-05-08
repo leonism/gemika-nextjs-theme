@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
+import { FaBars, FaTimes } from 'react-icons/fa'
 
 import { Search } from '@/components/search'
 import { ThemeToggle } from '@/components/theme-toggle'
@@ -96,7 +96,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
         className="relative z-50 cursor-pointer rounded-full p-2 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
         aria-label="Open mobile menu"
       >
-        <Menu className="h-6 w-6 text-gray-900 dark:text-gray-100" />
+        <FaBars className="h-6 w-6 text-gray-900 dark:text-gray-100" />
       </button>
 
       {/* Mobile Menu Overlay with transition */}
@@ -126,7 +126,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
               className="rounded-full p-2 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
               aria-label="Close mobile menu"
             >
-              <X className="h-6 w-6 text-gray-900 dark:text-gray-100" />
+              <FaTimes className="h-6 w-6 text-gray-900 dark:text-gray-100" />
             </button>
           </div>
 

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { X } from 'lucide-react'
+import { FaTimes } from 'react-icons/fa'
 import clsx from 'clsx'
 
 export function CookieConsent() {
@@ -60,7 +60,7 @@ export function CookieConsent() {
             className="shrink-0 rounded-full bg-gray-100 p-2 text-gray-600 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
             aria-label="Close cookie consent"
           >
-            <X className="h-4 w-4" />
+            <FaTimes className="h-4 w-4" />
           </button>
         </div>
 

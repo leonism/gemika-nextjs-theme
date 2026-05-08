@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { Mail, MapPin, Phone } from 'lucide-react'
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa'
 import { NewsletterForm } from '@/components/forms/newsletter-form'
 import { Container } from '@/components/ui/container'
 
@@ -225,7 +224,7 @@ export function MainFooterContent() {
           </h3>
           <ul className="space-y-2">
             <li className="flex items-center">
-              <Mail size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
+              <FaEnvelope size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
               <a
                 href="mailto:hello@gemika.com"
                 className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
@@ -234,7 +233,7 @@ export function MainFooterContent() {
               </a>
             </li>
             <li className="flex items-center">
-              <Phone size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
+              <FaPhone size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
               <a
                 href="tel:+1234567890"
                 className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
@@ -243,7 +242,7 @@ export function MainFooterContent() {
               </a>
             </li>
             <li className="flex items-start">
-              <MapPin size={16} className="mr-2 mt-1 text-gray-600 dark:text-gray-400" />
+              <FaMapMarkerAlt size={16} className="mr-2 mt-1 text-gray-600 dark:text-gray-400" />
               <span className="text-gray-600 dark:text-gray-400">
                 123 Design Street
                 <br />

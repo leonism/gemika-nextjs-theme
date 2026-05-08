@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 import type { Post } from '@/types/post'
 
@@ -27,9 +27,9 @@ export function PaginationLink({ item, direction, href, className = '' }: Pagina
         {/* Icon */}
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-linear-to-br from-indigo-50 to-purple-50 transition-all duration-300 group-hover:border-indigo-300 group-hover:from-indigo-100 group-hover:to-purple-100 dark:border-gray-600 dark:from-indigo-900/30 dark:to-purple-900/30 dark:group-hover:border-indigo-500 dark:group-hover:from-indigo-900/50 dark:group-hover:to-purple-900/50">
           {isPrev ? (
-            <ChevronLeft className="h-5 w-5 text-indigo-600 transition-transform duration-300 group-hover:-translate-x-0.5 dark:text-indigo-400" />
+            <FaChevronLeft className="h-5 w-5 text-indigo-600 transition-transform duration-300 group-hover:-translate-x-0.5 dark:text-indigo-400" />
           ) : (
-            <ChevronRight className="h-5 w-5 text-indigo-600 transition-transform duration-300 group-hover:translate-x-0.5 dark:text-indigo-400" />
+            <FaChevronRight className="h-5 w-5 text-indigo-600 transition-transform duration-300 group-hover:translate-x-0.5 dark:text-indigo-400" />
           )}
         </div>
 

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { serialize } from 'next-mdx-remote/serialize'
 
 import JsonLd from '@/components/json-ld'
 import ProjectsClientWrapper from '@/components/projects/ProjectsClientWrapper'
@@ -57,13 +56,6 @@ export default async function ProjectsPage() {
     return dateB.getTime() - dateA.getTime()
   })
 
-  const serializedProjects = await Promise.all(
-    sortedProjects.map(async (project) => ({
-      ...project,
-      content: await serialize(project.content || ''),
-    }))
-  )
-
   return (
     <div>
       <JsonLd
@@ -77,7 +69,7 @@ export default async function ProjectsPage() {
       />
       <main>
         <ProjectsHeader />
-        <ProjectsClientWrapper projects={serializedProjects} />
+        <ProjectsClientWrapper projects={sortedProjects} />
       </main>
     </div>
   )

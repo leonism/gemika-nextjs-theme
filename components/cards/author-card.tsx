@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Facebook, Github, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 import { cn } from '@/lib/utils'
 
@@ -33,15 +33,15 @@ export function AuthorCard({
   const renderSocialIcon = (platform: string) => {
     switch (platform) {
       case 'facebook':
-        return <Facebook size={16} />
+        return <FaFacebook size={16} />
       case 'twitter':
-        return <Twitter size={16} />
+        return <FaTwitter size={16} />
       case 'instagram':
-        return <Instagram size={16} />
+        return <FaInstagram size={16} />
       case 'linkedin':
-        return <Linkedin size={16} />
+        return <FaLinkedin size={16} />
       case 'github':
-        return <Github size={16} />
+        return <FaGithub size={16} />
       default:
         return null
     }
