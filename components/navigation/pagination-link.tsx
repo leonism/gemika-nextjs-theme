@@ -16,7 +16,7 @@ export function PaginationLink({ item, direction, href, className = '' }: Pagina
   return (
     <Link
       href={href}
-      className={`group relative flex w-full min-w-0 max-w-sm items-center rounded-xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/80 dark:hover:border-indigo-600 dark:hover:bg-gray-800 dark:hover:shadow-xl sm:max-w-md ${isPrev ? 'justify-start text-left' : 'ml-auto justify-end text-right'} ${className}`}
+      className={`group relative flex w-full min-w-0 items-center rounded-xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/80 dark:hover:border-indigo-600 dark:hover:bg-gray-800 dark:hover:shadow-xl ${isPrev ? 'justify-start text-left' : 'justify-end text-right'} ${className}`}
     >
       {/* Gradient border effect on hover */}
       <div className="absolute inset-0 rounded-xl bg-linear-to-r from-indigo-500 to-purple-600 opacity-0 transition-opacity duration-300 group-hover:opacity-10" />

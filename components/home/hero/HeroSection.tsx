@@ -23,12 +23,12 @@ export function HeroSection() {
 
         {/* Headings */}
         <div className="mb-6 space-y-3 sm:mb-8 sm:space-y-4 md:mb-10 md:space-y-5">
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="text-4xl font-extrabold tracking-tighter md:text-5xl lg:text-6xl xl:text-7xl">
             <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
               Gemika Haziq Nugroho
             </span>
           </h1>
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+          <h2 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
             UX Strategist & Mobile Developer
           </h2>
         </div>

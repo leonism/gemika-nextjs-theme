@@ -207,11 +207,23 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground selection:bg-indigo-100 selection:text-indigo-900 dark:selection:bg-indigo-900 dark:selection:text-indigo-100;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;	
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01", "ss02", "ss03", "calt", "kern";
+    font-variation-settings: "opsz" 32;
+    letter-spacing: -0.011em;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tighter text-foreground;
+    text-wrap: balance;
+  }
+
+  h1 { line-height: 1.1; }
+  h2 { line-height: 1.2; }
+  h3 { line-height: 1.3; }
   /* For dark mode links */
   .dark .prose a {
     color: #a855f7;
