@@ -37,14 +37,11 @@ const nextConfig = {
     unoptimized: true, // Keep this if you still need it
   },
 
-  // Experimental features
-  experimental: {
-    serverActions: {}, // Fixed: Enabled server actions with an empty object
-    turbo: {
-      rules: {
-        '*.mdx': {
-          loaders: ['@next/mdx'], // From next.config.mjs
-        },
+  // Turbopack configuration
+  turbopack: {
+    rules: {
+      '*.mdx': {
+        loaders: ['@next/mdx'], // From next.config.mjs
       },
     },
   },

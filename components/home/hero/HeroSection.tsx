@@ -1,7 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-// Remove unused import
-
 import { HeroBrands } from '@/components/home/hero/HeroBrands'
 
 const BRANDS = ['Apple', 'Adobe', 'Google', 'Microsoft', 'Samsung', 'Spotify', 'Amazon', 'Netflix']

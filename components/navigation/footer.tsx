@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { Facebook, Github, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react'
-
 import { NewsletterForm } from '@/components/forms/newsletter-form'
 import { Container } from '@/components/ui/container'
 
