@@ -6,6 +6,7 @@ import { FaArrowRight, FaSearch, FaTimes } from 'react-icons/fa'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 
 interface SearchResult {
@@ -168,13 +169,16 @@ export function SearchDialog() {
 
             <div className="max-h-[60vh] overflow-y-auto">
               {isLoading ? (
-                <div className="p-4 text-center">
-                  <div
-                    className="inline-block h-6 w-6 animate-spin rounded-full border-2 border-solid border-current border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                    role="status"
-                  >
-                    <span className="sr-only">Loading...</span>
-                  </div>
+                <div className="space-y-4 p-4">
+                  {Array.from({ length: 3 }).map((_, i) => (
+                    <div key={i} className="flex gap-4">
+                      <Skeleton className="h-12 w-12 rounded-lg" />
+                      <div className="flex-1 space-y-2">
+                        <Skeleton className="h-4 w-3/4" />
+                        <Skeleton className="h-3 w-1/2" />
+                      </div>
+                    </div>
+                  ))}
                 </div>
               ) : results.length > 0 ? (
                 <div className="divide-y divide-gray-100 dark:divide-gray-700">
