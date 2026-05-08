@@ -12,7 +12,7 @@ interface ThemeToggleProps {
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   // Ensure we only render after mounting to avoid hydration mismatch
   useEffect(() => {
@@ -29,27 +29,33 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     )
   }
 
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
+  }
+
   return (
     <div
-      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      onClick={toggleTheme}
       className={cn('relative inline-flex cursor-pointer items-center justify-center', className)}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
-          setTheme(theme === 'light' ? 'dark' : 'light')
+          toggleTheme()
         }
       }}
     >
       <FaSun
-        className={`h-5 w-5 text-gray-600 transition-all duration-300 dark:text-gray-400 ${
-          theme === 'dark' ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
-        }`}
+        className={cn(
+          'h-5 w-5 text-gray-600 transition-all duration-300 dark:text-gray-400',
+          resolvedTheme === 'dark' ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
+        )}
       />
       <FaMoon
-        className={`absolute h-5 w-5 text-gray-600 transition-all duration-300 dark:text-gray-400 ${
-          theme === 'light' ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
-        }`}
+        className={cn(
+          'absolute h-5 w-5 text-gray-600 transition-all duration-300 dark:text-gray-400',
+          resolvedTheme === 'light' ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
+        )}
       />
       <span className="sr-only">Toggle theme</span>
     </div>

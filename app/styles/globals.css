@@ -2,6 +2,8 @@
 @plugin 'tailwindcss-animate';
 @plugin '@tailwindcss/typography';
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
@@ -209,8 +211,6 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;	
-	/* Corrected from bg-gray-50 to the actual color value */
-    background-color: rgb(249, 250, 251); 
   }
   /* For dark mode links */
   .dark .prose a {
