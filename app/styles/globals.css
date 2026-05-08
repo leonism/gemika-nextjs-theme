@@ -98,10 +98,11 @@
   }
   body {
     @apply bg-background text-foreground;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    background-color: rgb(249, 250, 251); /* Corrected from bg-gray-50 to the actual color value */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;	
+	/* Corrected from bg-gray-50 to the actual color value */
+    background-color: rgb(249, 250, 251); 
   }
   /* For dark mode links */
   .dark .prose a {
