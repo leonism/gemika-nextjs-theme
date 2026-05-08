@@ -7,7 +7,7 @@ import { PostCard } from '@/components/posts/PostCard'
 import { getAllContent } from '@/lib/content'
 import { formatDate } from '@/lib/utils'
 
-export default async function TagPage({ params }: { params: { slug: string } }) {
+export default async function TagPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const decodedTag = decodeURIComponent(slug.replace(/-/g, ' '))
   const [posts, projects] = await Promise.all([getAllContent('posts'), getAllContent('projects')])

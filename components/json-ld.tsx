@@ -1,7 +1,17 @@
-import type { Article, BreadcrumbList, Person, WebPage, WebSite, WithContext } from 'schema-dts'
+import type {
+  Article,
+  BreadcrumbList,
+  CreativeWork,
+  Person,
+  WebPage,
+  WebSite,
+  WithContext,
+} from 'schema-dts'
+
+type SchemaType = Article | BreadcrumbList | CreativeWork | Person | WebPage | WebSite
 
 interface JsonLdProps {
-  data: WithContext<Article | BreadcrumbList | Person | WebPage | WebSite>
+  data: WithContext<SchemaType> | Record<string, unknown>
 }
 
 export default function JsonLd({ data }: JsonLdProps) {

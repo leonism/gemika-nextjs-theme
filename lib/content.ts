@@ -5,130 +5,90 @@ import fs from 'fs/promises'
 
 import matter from 'gray-matter'
 
-import type { Post } from '@/types/post'
+import type { Frontmatter, Post } from '@/types/post'
 
-// lib/content.ts
+const VALID_CONTENT_TYPES = ['posts', 'projects', 'pages'] as const
+type ContentType = (typeof VALID_CONTENT_TYPES)[number]
 
-// Ensure this module only runs on the server
-if (typeof window !== 'undefined') {
-  throw new Error('This module can only be used on the server side')
-}
-
-// Server-side only
-const { readFile, readdir, access } = fs
-
-// Ensure server-side usage
-export async function getFileContent(filePath: string) {
-  const fileContent = await readFile(filePath, 'utf8')
-  return matter(fileContent)
-}
-
-// Add type definitions
-interface ContentError extends Error {
-  code?: string
-}
-
-export async function getContent(
-  type: 'posts' | 'projects' | 'pages',
-  slug: string
-): Promise<Post | null> {
-  // Input validation
-  if (!type || !['posts', 'projects', 'pages'].includes(type)) {
+/**
+ * Reads and parses a single MDX file by slug within a content directory.
+ * Returns null when the file doesn't exist, letting callers decide how to handle missing content.
+ */
+export async function getContent(type: ContentType, slug: string): Promise<Post | null> {
+  if (!VALID_CONTENT_TYPES.includes(type)) {
     console.error('Invalid content type:', type)
     return null
   }
 
-  if (!slug || typeof slug !== 'string' || slug.trim() === '') {
-    console.error('Error in getContent: slug is empty or invalid', {
-      type,
-      slug,
-      timestamp: new Date().toISOString(),
-    })
+  if (!slug || slug.trim() === '') {
+    console.error('getContent called with empty slug for type:', type)
     return null
   }
 
   const filePath = path.join(process.cwd(), 'content', type, `${slug}.mdx`)
 
   try {
-    const fileContent = await readFile(filePath, 'utf-8')
-    const { data: frontmatter, content } = matter(fileContent)
+    const fileContent = await fs.readFile(filePath, 'utf-8')
+    const { data, content } = matter(fileContent)
+    const frontmatter = data as Frontmatter
 
-    if (!frontmatter || !content) {
-      console.warn(`Invalid MDX file structure: ${filePath}`)
+    if (!frontmatter.title || !content) {
+      console.warn(`Invalid MDX file structure (missing title or content): ${filePath}`)
       return null
     }
 
     return { slug, frontmatter, content }
-  } catch (error) {
-    const err = error as ContentError
+  } catch (error: unknown) {
+    const err = error as NodeJS.ErrnoException
     if (err.code === 'ENOENT') {
       console.warn(`Content file not found: ${filePath}`)
     } else {
-      console.error('Error in getContent:', err.message || 'Unknown error')
+      console.error(`Error reading content file ${filePath}:`, err.message)
     }
     return null
   }
 }
 
-// Update the getAllContent function to ensure tags are included
-export async function getAllContent(type: 'posts' | 'projects' | 'pages'): Promise<Post[]> {
+/**
+ * Reads all MDX files from a content directory and returns them as Post[].
+ * Silently returns an empty array when the directory doesn't exist.
+ */
+export async function getAllContent(type: ContentType): Promise<Post[]> {
   const directoryPath = path.join(process.cwd(), 'content', type)
 
   try {
-    await access(directoryPath)
+    await fs.access(directoryPath)
   } catch {
-    return [] // Directory doesn't exist
-  }
-
-  try {
-    const filenames = await readdir(directoryPath)
-    const mdxFiles = filenames.filter(
-      (filename: string) =>
-        filename.endsWith('.mdx') && filename.replace(/\.mdx$/, '').trim() !== ''
-    )
-
-    if (mdxFiles.length === 0) {
-      console.warn(`No .mdx files found in ${directoryPath}`)
-      return []
-    }
-
-    interface ContentItem {
-      slug: string
-      frontmatter: Record<string, any>
-      content: string
-    }
-
-    interface Frontmatter {
-      [key: string]: any
-    }
-
-    interface ParsedContent {
-      data: Frontmatter
-      content: string
-    }
-
-    const allContent: (ContentItem | null)[] = await Promise.all(
-      mdxFiles.map(async (filename: string): Promise<ContentItem | null> => {
-        try {
-          const slug: string = filename.replace(/\.mdx$/, '')
-          const filePath: string = path.join(directoryPath, filename)
-          const fileContent: string = await readFile(filePath, 'utf-8')
-          const { data: frontmatter, content }: ParsedContent = matter(fileContent)
-
-          return frontmatter && content ? { slug, frontmatter, content } : null
-        } catch (error) {
-          console.error(`Error processing ${filename}:`, error)
-          return null
-        }
-      })
-    )
-
-    return allContent.filter(Boolean) as Post[] // Remove null values and cast to Post[]
-  } catch (error) {
-    console.error('Error in getAllContent:', error)
     return []
   }
-}
 
-// Removed conflicting export statement
-// Minor change to trigger re-compilation
+  const filenames = await fs.readdir(directoryPath)
+  const mdxFiles = filenames.filter(
+    (filename) => filename.endsWith('.mdx') && filename.replace(/\.mdx$/, '').trim() !== ''
+  )
+
+  if (mdxFiles.length === 0) {
+    return []
+  }
+
+  const results = await Promise.all(
+    mdxFiles.map(async (filename): Promise<Post | null> => {
+      const slug = filename.replace(/\.mdx$/, '')
+      const filePath = path.join(directoryPath, filename)
+
+      try {
+        const fileContent = await fs.readFile(filePath, 'utf-8')
+        const { data, content } = matter(fileContent)
+        const frontmatter = data as Frontmatter
+
+        return frontmatter.title && content ? { slug, frontmatter, content } : null
+      } catch (error: unknown) {
+        const err = error as NodeJS.ErrnoException
+        console.error(`Error processing ${filename}:`, err.message)
+        return null
+      }
+    })
+  )
+
+  return results.filter((item): item is Post => item !== null)
+}

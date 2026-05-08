@@ -1,16 +1,16 @@
 'use client'
 
 import { useEffect, useMemo } from 'react'
-import Head from 'next/head'
 import { useSearchParams } from 'next/navigation'
 
 import { ProjectsGrid } from './ProjectsGrid'
 import { ProjectsPagination } from './ProjectsPagination'
 
+import type { Post } from '@/types/post'
 import { PROJECTS_PER_PAGE } from '@/lib/constants'
 
 interface Props {
-  projects: any[]
+  projects: Post[]
 }
 
 export default function ProjectsClientWrapper({ projects }: Props) {

@@ -12,16 +12,12 @@ interface SearchResultsProps {
 
 const formatDate = (dateString: string) => {
   if (!dateString) return ''
-  try {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    })
-  } catch (e) {
-    return dateString
-  }
+  const date = new Date(dateString)
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  })
 }
 
 const getResultIcon = (type: string) => {

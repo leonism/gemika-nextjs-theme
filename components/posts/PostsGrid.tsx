@@ -4,7 +4,7 @@ import { EmptyState } from './EmptyState'
 import { PostCard } from './PostCard'
 
 import { Pagination } from '@/components/navigation/pagination'
-import { Post } from '@/lib/posts'
+import type { Post } from '@/types/post'
 
 interface PostsGridProps {
   posts: Post[]

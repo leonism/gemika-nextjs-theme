@@ -6,8 +6,6 @@ import importPlugin from 'eslint-plugin-import'
 import tailwindcss from 'eslint-plugin-tailwindcss'
 import prettierPlugin from 'eslint-plugin-prettier'
 
-console.log('👀 DEBUGGING: js.configs.recommended:', js.configs?.recommended)
-console.log('👀 DEBUGGING: tseslint.configs:', tseslint.configs)
 
 const jsRules = js.configs?.recommended?.rules ?? {}
 const tsRules = tseslint.configs?.recommended?.rules ?? {}

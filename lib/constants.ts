@@ -1,4 +1,31 @@
-// these are the constant for the AREA_EXPERTISE section in the homepage
+// Pagination
+export const POSTS_PER_PAGE = 6
+
+// Color mapping for post tags — ensures consistent styling across card components
+export const TAG_COLORS = [
+  {
+    bg: 'bg-indigo-100 dark:bg-indigo-900/30',
+    text: 'text-indigo-600 dark:text-indigo-300',
+  },
+  {
+    bg: 'bg-emerald-100 dark:bg-emerald-900/30',
+    text: 'text-emerald-600 dark:text-emerald-300',
+  },
+  {
+    bg: 'bg-amber-100 dark:bg-amber-900/30',
+    text: 'text-amber-600 dark:text-amber-300',
+  },
+  {
+    bg: 'bg-rose-100 dark:bg-rose-900/30',
+    text: 'text-rose-600 dark:text-rose-300',
+  },
+  {
+    bg: 'bg-violet-100 dark:bg-violet-900/30',
+    text: 'text-violet-600 dark:text-violet-300',
+  },
+] as const
+
+// Homepage expertise section data
 export const AREA_EXPERTISE = [
   {
     image:
@@ -32,10 +59,10 @@ export const AREA_EXPERTISE = [
   },
 ]
 
-// these are the constant for the PROJECTS_PER_PAGE at project page
+// Projects pagination
 export const PROJECTS_PER_PAGE = 6
 
-// these are the constant for the CATEGORY_COLORS at post page
+// Category badge colors for project cards
 export const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
   design: { bg: 'bg-indigo-100/80', text: 'text-indigo-600' },
   'web development': { bg: 'bg-emerald-100/80', text: 'text-emerald-600' },

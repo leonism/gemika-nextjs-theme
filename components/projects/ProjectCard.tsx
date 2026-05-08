@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import type { Post } from '@/types/post'
 import { CATEGORY_COLORS } from '@/lib/constants'
 
-export function ProjectCard({ project }: { project: any }) {
+export function ProjectCard({ project }: { project: Post }) {
   const categoryKey = project.frontmatter.category
     ? project.frontmatter.category.toLowerCase()
     : 'default'

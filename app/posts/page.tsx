@@ -6,7 +6,7 @@ import { Pagination } from '@/components/navigation/pagination'
 import { HeroSection } from '@/components/posts/HeroSection'
 import { PostsGrid } from '@/components/posts/PostsGrid'
 import { getAllContent } from '@/lib/content'
-import { POSTS_PER_PAGE } from '@/lib/posts'
+import { POSTS_PER_PAGE } from '@/lib/constants'
 
 // Tell Next.js that this route should be dynamically rendered
 export const dynamic = 'force-dynamic'

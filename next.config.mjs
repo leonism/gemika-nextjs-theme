@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production'
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   // Enable gzip compression via Next.js
   compress: true,
@@ -8,14 +8,9 @@ const nextConfig = {
   // Disable the "X-Powered-By" header for security
   poweredByHeader: false,
 
-  // ESLint configuration
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-
   // TypeScript configuration
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
 
   // Image configuration

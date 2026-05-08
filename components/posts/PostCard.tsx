@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Post } from '@/lib/posts'
-import { TAG_COLORS } from '@/lib/posts'
+import type { Post } from '@/types/post'
+import { TAG_COLORS } from '@/lib/constants'
 
 export function PostCard({ post }: { post: Post }) {
   return (

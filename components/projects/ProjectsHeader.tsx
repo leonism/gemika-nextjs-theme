@@ -1,4 +1,4 @@
-export function ProjectsHeader() {
+export function ProjectsHeader({ title, description }: { title?: string; description?: string }) {
   return (
     <section className="relative overflow-hidden py-20 md:py-28">
       <div className="container relative z-10 mx-auto max-w-6xl px-4">
@@ -8,13 +8,21 @@ export function ProjectsHeader() {
 
         <div className="max-w-3xl">
           <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl lg:text-6xl">
-            My
-            <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
-              Projects
-            </span>
+            {title ? (
+              <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
+                {title}
+              </span>
+            ) : (
+              <>
+                My{' '}
+                <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
+                  Projects
+                </span>
+              </>
+            )}
           </h1>
           <p className="text-lg leading-relaxed text-gray-600 md:text-xl">
-            A curated collection of my recent work.
+            {description || 'A curated collection of my recent work.'}
           </p>
         </div>
       </div>

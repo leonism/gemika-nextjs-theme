@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 
 import ClientOnly from '@/components/utility/client-only'
 import { MDXProviderClient } from '@/components/mdx-provider-client'
-import JsonLd from '@/components/utility/json-ld'
+import JsonLd from '@/components/json-ld'
 import { Post } from '@/types/post'
 import { getContent, getAllContent } from '@/lib/content'
 import { PaginationLink } from '@/components/navigation/pagination-link'
@@ -153,7 +153,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <>
-      <JsonLd data={jsonLd as unknown as Record<string, unknown>} />
+      <JsonLd data={jsonLd} />
       <div className="container mx-auto max-w-4xl px-4 py-8">
         <article className="prose mx-auto rounded-xl bg-white p-8 shadow-sm dark:prose-invert lg:prose-lg dark:bg-gray-800">
           <h1 className="bg-linear-to-r from-indigo-500 to-purple-600 bg-clip-text text-5xl font-bold leading-tight text-transparent dark:from-indigo-500 dark:to-emerald-500 md:text-5xl lg:text-6xl">

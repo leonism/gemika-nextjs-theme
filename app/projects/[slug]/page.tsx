@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { WithContext } from 'schema-dts'
+import { WithContext, CreativeWork } from 'schema-dts'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
@@ -13,7 +13,7 @@ import ClientOnly from '@/components/utility/client-only'
 import { getAllContent, getContent } from '@/lib/content'
 
 interface ProjectPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 // Constants for tag colors to avoid repetition
@@ -545,7 +545,7 @@ function RelatedProjectsCTA() {
 /**
  * Main project page component
  */
-async function ProjectPageContent({ params }: { params: { slug: string } }) {
+async function ProjectPageContent({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const project = await getContent('projects', slug)
   if (!project) {
@@ -562,7 +562,7 @@ async function ProjectPageContent({ params }: { params: { slug: string } }) {
   const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null
 
   // Create JSON-LD structured data
-  const jsonLd: WithContext<any> = {
+  const jsonLd: WithContext<CreativeWork> = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
     name: project.frontmatter.title,
@@ -629,7 +629,7 @@ async function ProjectPageContent({ params }: { params: { slug: string } }) {
   )
 }
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   return (
     <>
       <ProjectPageContent params={params} />

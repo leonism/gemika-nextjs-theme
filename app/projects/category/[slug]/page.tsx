@@ -9,7 +9,7 @@ import { getAllContent } from '@/lib/content'
 import { slugify } from '@/lib/utils'
 
 interface CategoryPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -26,7 +26,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-  const { slug } = params
+  const { slug } = await params
   const categoryName = slug.replace(/-/g, ' ')
 
   return {
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 }
 
 export default async function ProjectsCategoryPage({ params }: CategoryPageProps) {
-  const { slug } = params
+  const { slug } = await params
   const categoryName = slug.replace(/-/g, ' ')
 
   const allProjects = await getAllContent('projects')
