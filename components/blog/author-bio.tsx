@@ -36,7 +36,7 @@ export function AuthorBio({ name, bio, imageUrl, slug, socialLinks, className }:
 
   return (
     <div className={`flex items-center ${className}`}>
-      <Link href={`/authors/${slug}`} className="flex-shrink-0">
+      <Link href={`/authors/${slug}`} className="shrink-0">
         <div className="relative mr-4 h-16 w-16 overflow-hidden rounded-full">
           <Image
             src={

@@ -1,0 +1,138 @@
+≈ tailwindcss v4.2.4
+
+│ ↳ Upgrading from Tailwind CSS `v4.2.4` 
+
+│ Searching for CSS files in the current directory and its subdirectories… 
+
+│ Migrating stylesheets… 
+
+│ ↳ Migrated stylesheet: `./app/styles/globals.css` 
+
+│ Updating dependencies… 
+
+│ ↳ Updated package: `tailwindcss` 
+
+│ ↳ Updated package: `prettier-plugin-tailwindcss` 
+
+│ Migrating templates… 
+
+│ ↳ Git ignored, skipping: `./next-env.d.ts` 
+
+│ ↳ Migrated `./components/forms/newsletter-form.tsx` 
+
+│ ↳ Migrated `./components/blog/comment-section.tsx` 
+
+│ ↳ Migrated `./app/not-found.tsx` 
+
+│ ↳ Migrated `./app/layout.tsx` 
+
+│ ↳ Migrated `./components/home/projects/ProjectCard.tsx` 
+
+│ ↳ Migrated `./app/projects/[slug]/page.tsx` 
+
+│ ↳ Migrated `./components/cards/author-card.tsx` 
+
+│ ↳ Migrated `./components/ui/toast.tsx` 
+
+│ ↳ Migrated `./components/home/hero/HeroBrands.tsx` 
+
+│ ↳ Migrated `./app/error.tsx` 
+
+│ ↳ Migrated `./app/resources/books-articles/page.tsx` 
+
+│ ↳ Migrated `./components/projects/ProjectCard.tsx` 
+
+│ ↳ Migrated `./components/navigation/pagination.tsx` 
+
+│ ↳ Migrated `./components/ui/chart.tsx` 
+
+│ ↳ Migrated `./components/ui/menubar.tsx` 
+
+│ ↳ Migrated `./components/ui/dropdown-menu.tsx` 
+
+│ ↳ Migrated `./components/layouts/not-found-layout.tsx` 
+
+│ ↳ Migrated `./components/blog/author-bio.tsx` 
+
+│ ↳ Migrated `./components/ui/input-otp.tsx` 
+
+│ ↳ Migrated `./components/posts/HeroSection.tsx` 
+
+│ ↳ Migrated `./app/resources/development/page.tsx` 
+
+│ ↳ Migrated `./components/projects/ProjectsHeader.tsx` 
+
+│ ↳ Migrated `./app/tags/[slug]/page.tsx` 
+
+│ ↳ Migrated `./components/search/search-dialog.tsx` 
+
+│ ↳ Migrated `./components/ui/breadcrumb.tsx` 
+
+│ ↳ Migrated `./components/layouts/blog-layout.tsx` 
+
+│ ↳ Migrated `./components/navigation/breadcrumbs.tsx` 
+
+│ ↳ Migrated `./components/layouts/page-layout.tsx` 
+
+│ ↳ Migrated `./components/contact-form.tsx` 
+
+│ ↳ Migrated `./components/ui/scroll-area.tsx` 
+
+│ ↳ Migrated `./components/images/responsive-image.tsx` 
+
+│ ↳ Migrated `./components/ui/context-menu.tsx` 
+
+│ ↳ Migrated `./components/navigation/mobile-menu.tsx` 
+
+│ ↳ Migrated `./components/home/expertise/ExpertiseSection.tsx` 
+
+│ ↳ Migrated `./components/navigation/footer.tsx` 
+
+│ ↳ Migrated `./components/ui/command.tsx` 
+
+│ ↳ Migrated `./app/about/page.tsx` 
+
+│ ↳ Migrated `./components/layouts/search-layout.tsx` 
+
+│ ↳ Migrated `./components/home/projects/FeaturedProjects.tsx` 
+
+│ ↳ Migrated `./components/projects/ProjectsPagination.tsx` 
+
+│ ↳ Migrated `./components/layouts/category-layout.tsx` 
+
+│ ↳ Migrated `./components/home/posts/LatestPosts.tsx` 
+
+│ ↳ Migrated `./components/posts/PostCard.tsx` 
+
+│ ↳ Migrated `./components/navigation/pagination-link.tsx` 
+
+│ ↳ Migrated `./app/resources/design/page.tsx` 
+
+│ ↳ Migrated `./components/ui/navigation-menu.tsx` 
+
+│ ↳ Migrated `./components/home/expertise/ExpertiseCard.tsx` 
+
+│ ↳ Migrated `./hooks/_page_posts.tsx` 
+
+│ ↳ Migrated `./components/ui/separator.tsx` 
+
+│ ↳ Migrated `./app/posts/[slug]/page.tsx` 
+
+│ ↳ Migrated `./components/blog/related-posts.tsx` 
+
+│ ↳ Migrated `./components/search.tsx` 
+
+│ ↳ Migrated `./components/navigation/navbar.tsx` 
+
+│ ↳ Migrated `./components/home/hero/HeroSection.tsx` 
+
+│ ↳ Migrated `./app/contact/page.tsx` 
+
+│ ↳ Migrated `./components/ui/select.tsx` 
+
+│ ↳ Migrated `./components/ui/sidebar.tsx` 
+
+│ ↳ Migrated templates for: `./app/styles/globals.css` (57 files changed) 
+
+│ Verify the changes and commit them to your repository. 
+

@@ -1,0 +1,61 @@
+
+> gemika@0.1.0 build
+> next build
+
+   ▲ Next.js 15.4.11
+   - Environments: .env.local, .env.production
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 23.0s
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+ ⚠ Using edge runtime on a page currently disables static generation for that page
+   Generating static pages (0/32) ...
+   Generating static pages (8/32) 
+   Generating static pages (16/32) 
+   Generating static pages (24/32) 
+ ✓ Generating static pages (32/32)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                          Size  First Load JS
+┌ ○ /                                               177 B         109 kB
+├ ○ /_not-found                                     156 B         100 kB
+├ ○ /about                                          652 B         106 kB
+├ ƒ /api/contact                                    156 B         100 kB
+├ ƒ /api/posts/[slug]                               156 B         100 kB
+├ ƒ /api/search                                     156 B         100 kB
+├ ○ /contact                                      30.1 kB         138 kB
+├ ƒ /posts                                          177 B         109 kB
+├ ƒ /posts/[slug]                                 3.84 kB         113 kB
+├ ○ /privacy                                      1.54 kB         111 kB
+├ ○ /projects                                       127 B         112 kB
+├ ● /projects/[slug]                              1.56 kB         111 kB
+├   ├ /projects/ai-powered-dream-weaver
+├   ├ /projects/e-commerce-platform
+├   ├ /projects/echoes-of-the-mind
+├   └ [+7 more paths]
+├ ● /projects/category/[slug]                       127 B         112 kB
+├   ├ /projects/category/artificial-intelligence
+├   ├ /projects/category/web-development
+├   ├ /projects/category/machine-learning
+├   └ [+3 more paths]
+├ ○ /resources/books-articles                       170 B         104 kB
+├ ○ /resources/design                               170 B         104 kB
+├ ○ /resources/development                          170 B         104 kB
+├ ƒ /rss.xml                                        156 B         100 kB
+├ ○ /search                                       4.37 kB         116 kB
+├ ○ /sitemap.xml                                    156 B         100 kB
+├ ƒ /tags/[slug]                                    173 B         109 kB
+└ ○ /terms                                        1.54 kB         111 kB
++ First Load JS shared by all                      100 kB
+  ├ chunks/4bd1b696-2385f465b218746f.js           54.1 kB
+  ├ chunks/964-b15eb237fe026218.js                  44 kB
+  └ other shared chunks (total)                   1.88 kB
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

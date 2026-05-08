@@ -63,10 +63,10 @@ export function Navbar({ items, cta = { label: 'Contact', href: '/contact' } }: 
 // Sub-components for better organization
 function Logo() {
   return (
-    <div className="flex-shrink-0">
+    <div className="shrink-0">
       <Link
         href="/"
-        className="relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2 font-medium shadow-sm transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-md md:px-5 md:py-2"
+        className="relative inline-flex items-center justify-center overflow-hidden rounded-full bg-linear-to-r from-indigo-600 to-purple-600 px-4 py-2 font-medium shadow-sm transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-md md:px-5 md:py-2"
         aria-label="Go to Homepage"
       >
         <LogoIcon />
@@ -152,7 +152,7 @@ function NavLinkContent({ label, active }: { label: string; active?: boolean }) 
       {label}
       <span
         className={cn(
-          'absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300',
+          'absolute bottom-0 left-0 h-0.5 bg-linear-to-r from-indigo-500 to-purple-500 transition-all duration-300',
           active ? 'w-full' : 'w-0 group-hover:w-full'
         )}
       ></span>
@@ -208,7 +208,7 @@ function DropdownMenuItem({ item, pathname }: { item: NavItem; pathname: string 
       {item.label}
       <span
         className={cn(
-          'absolute bottom-1 left-3 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 sm:left-4',
+          'absolute bottom-1 left-3 h-0.5 bg-linear-to-r from-indigo-500 to-purple-500 transition-all duration-300 sm:left-4',
           isActive
             ? 'w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)]'
             : 'w-0 group-hover:w-[calc(100%-1.5rem)] sm:group-hover:w-[calc(100%-2rem)]'
@@ -236,7 +236,7 @@ function DesktopControls({ cta }: { cta: { label: string; href: string } }) {
           <Button
             variant="default"
             size="sm"
-            className="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-3 py-1 text-xs font-bold text-white shadow-sm transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-md sm:px-4 sm:py-1.5 sm:text-sm md:px-5 md:py-2 md:text-base"
+            className="rounded-full bg-linear-to-r from-indigo-600 to-purple-600 px-3 py-1 text-xs font-bold text-white shadow-sm transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-md sm:px-4 sm:py-1.5 sm:text-sm md:px-5 md:py-2 md:text-base"
           >
             {cta.label}
           </Button>

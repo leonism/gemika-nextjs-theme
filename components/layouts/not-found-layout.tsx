@@ -23,7 +23,7 @@ export function NotFoundLayout({
   return (
     <Container>
       <div className="flex min-h-[70vh] flex-col items-center justify-center px-4 py-16 text-center">
-        <h1 className="mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-6xl font-bold text-transparent dark:from-gray-100 dark:to-gray-400">
+        <h1 className="mb-4 bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-6xl font-bold text-transparent dark:from-gray-100 dark:to-gray-400">
           {title}
         </h1>
 

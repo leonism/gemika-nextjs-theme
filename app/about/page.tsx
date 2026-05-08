@@ -25,12 +25,12 @@ export default function AboutPage() {
               <span className="text-sm font-medium text-indigo-600">ABOUT ME</span>
             </div>
             <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl lg:text-6xl">
-              <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
                 Gemika Haziq Nugroho
               </span>
             </h1>
             <div className="mx-auto max-w-lg">
-              <div className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-100 to-purple-100 px-6 py-2 text-indigo-600 shadow-sm transition-all duration-300 hover:shadow-md">
+              <div className="inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-indigo-100 to-purple-100 px-6 py-2 text-indigo-600 shadow-sm transition-all duration-300 hover:shadow-md">
                 <Rocket className="h-5 w-5" />
                 <span className="text-lg font-medium">UX Strategist & Mobile Developer</span>
               </div>
@@ -64,7 +64,7 @@ export default function AboutPage() {
                 className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80"
               >
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.emojiBg} transition-opacity duration-500`}
+                  className={`absolute inset-0 bg-linear-to-br opacity-0 group-hover:opacity-10 ${item.emojiBg} transition-opacity duration-500`}
                 ></div>
 
                 <div className="pb-0">
@@ -74,7 +74,7 @@ export default function AboutPage() {
                   >
                     {item.icon}
                   </div>
-                  <h3 className="mx-4 my-2 text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
+                  <h3 className="mx-4 my-2 text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-linear-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                     {item.title}
                   </h3>
                 </div>
@@ -91,7 +91,7 @@ export default function AboutPage() {
           {/* Professional Journey */}
           <div className="mt-16">
             <h2 className="mb-8 text-center text-3xl font-bold text-gray-900 dark:text-white">
-              <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
                 Professional Journey
               </span>
             </h2>
@@ -115,7 +115,7 @@ export default function AboutPage() {
                   className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80"
                 >
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.emojiBg} transition-opacity duration-500`}
+                    className={`absolute inset-0 bg-linear-to-br opacity-0 group-hover:opacity-10 ${item.emojiBg} transition-opacity duration-500`}
                   ></div>
 
                   <div className="pb-0">
@@ -125,7 +125,7 @@ export default function AboutPage() {
                     >
                       {item.icon}
                     </div>
-                    <h3 className="mx-4 my-2 text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
+                    <h3 className="mx-4 my-2 text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-linear-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                       {item.title}
                     </h3>
                   </div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
           {/* Design Philosophy */}
           <div className="mt-16">
             <h2 className="mb-8 text-center text-3xl font-bold text-gray-900 dark:text-white">
-              <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
                 Design Philosophy
               </span>
             </h2>
@@ -174,7 +174,7 @@ export default function AboutPage() {
                   className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80"
                 >
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 ${item.emojiBg} transition-opacity duration-500`}
+                    className={`absolute inset-0 bg-linear-to-br opacity-0 group-hover:opacity-10 ${item.emojiBg} transition-opacity duration-500`}
                   ></div>
 
                   <div className="pb-0">
@@ -184,7 +184,7 @@ export default function AboutPage() {
                     >
                       {item.icon}
                     </div>
-                    <h3 className="mx-4 my-2 text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
+                    <h3 className="mx-4 my-2 text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-linear-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                       {item.title}
                     </h3>
                   </div>

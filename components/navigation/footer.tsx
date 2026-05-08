@@ -25,7 +25,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
             <div className="mx-auto max-w-xl px-4 text-center">
               {' '}
               {/* Added responsive padding */}
-              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-4xl font-bold text-transparent">
+              <h3 className="mb-4 bg-linear-to-r from-purple-600 to-indigo-600 bg-clip-text text-4xl font-bold text-transparent">
                 Subscribe to our Newsletter
               </h3>
               <p className="mb-6 text-gray-600 dark:text-gray-400">
@@ -45,7 +45,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
             <div className="space-y-4">
               <Link
                 href="/"
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent"
+                className="bg-linear-to-r from-purple-600 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent"
               >
                 Gemika Theme
               </Link>
@@ -94,7 +94,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
             </div>
             {/* Quick Links Column */}
             <div>
-              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-lg font-semibold text-transparent">
+              <h3 className="mb-4 bg-linear-to-r from-purple-600 to-indigo-600 bg-clip-text text-lg font-semibold text-transparent">
                 Quick Links
               </h3>
               <ul className="space-y-2">
@@ -142,7 +142,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
             </div>
             {/* Resources Column */}
             <div>
-              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-lg font-semibold text-transparent">
+              <h3 className="mb-4 bg-linear-to-r from-purple-600 to-indigo-600 bg-clip-text text-lg font-semibold text-transparent">
                 Resources
               </h3>
               <ul className="space-y-2">
@@ -190,7 +190,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
             </div>
             {/* Legal Column */}
             <div>
-              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-lg font-semibold text-transparent">
+              <h3 className="mb-4 bg-linear-to-r from-purple-600 to-indigo-600 bg-clip-text text-lg font-semibold text-transparent">
                 Legal
               </h3>
               <ul className="space-y-2">
@@ -222,7 +222,7 @@ export function Footer({ showNewsletter = true }: FooterProps) {
             </div>
             {/* Contact Information Column */}
             <div>
-              <h3 className="mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-lg font-semibold text-transparent">
+              <h3 className="mb-4 bg-linear-to-r from-purple-600 to-indigo-600 bg-clip-text text-lg font-semibold text-transparent">
                 Contact
               </h3>
               <ul className="space-y-2">

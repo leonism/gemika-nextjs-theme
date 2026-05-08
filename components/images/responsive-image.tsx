@@ -30,7 +30,7 @@ export function ResponsiveImage({
     auto: '',
     square: 'aspect-square',
     video: 'aspect-video',
-    portrait: 'aspect-[3/4]',
+    portrait: 'aspect-3/4',
     custom: '',
   }[aspectRatio]
 

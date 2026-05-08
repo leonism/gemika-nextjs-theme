@@ -60,7 +60,7 @@ export function NewsletterForm() {
       <Button
         type="submit"
         disabled={isLoading}
-        className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white transition-colors hover:from-purple-700 hover:to-indigo-700"
+        className="bg-linear-to-r from-purple-600 to-indigo-600 text-white transition-colors hover:from-purple-700 hover:to-indigo-700"
       >
         {isLoading ? 'Subscribing...' : 'Subscribe'}
       </Button>

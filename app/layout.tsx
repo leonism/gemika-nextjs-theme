@@ -116,7 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </head>
       <body
-        className={`${inter.variable} min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800`}
+        className={`${inter.variable} min-h-screen bg-linear-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800`}
       >
         {/* Google Tag Manager (noscript) */}
         {gtmId && (

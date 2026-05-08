@@ -91,7 +91,7 @@ export default async function PostsIndexPage({
 
           <h1 className="mb-6 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
             Insights &{' '}
-            <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
               Thoughts
             </span>
           </h1>
@@ -160,7 +160,7 @@ export default async function PostsIndexPage({
                         )}
                       </div>
                     )}
-                    <div className="flex flex-grow flex-col p-6">
+                    <div className="flex grow flex-col p-6">
                       <div className="mb-3 flex items-center text-sm text-gray-500 dark:text-gray-400">
                         <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
                         {post.frontmatter.readingTime && (
@@ -173,7 +173,7 @@ export default async function PostsIndexPage({
                       <h2 className="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
                         {post.frontmatter.title}
                       </h2>
-                      <p className="mb-4 line-clamp-2 flex-grow text-gray-600 dark:text-gray-300">
+                      <p className="mb-4 line-clamp-2 grow text-gray-600 dark:text-gray-300">
                         {post.frontmatter.excerpt}
                       </p>
                       {post.frontmatter.tags && (

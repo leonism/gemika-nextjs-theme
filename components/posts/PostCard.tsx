@@ -26,12 +26,12 @@ export function PostCard({ post }: { post: Post }) {
         </div>
       )}
 
-      <div className="flex flex-grow flex-col p-6">
+      <div className="flex grow flex-col p-6">
         <h2 className="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
           {post.frontmatter.title}
         </h2>
 
-        <p className="mb-4 line-clamp-2 flex-grow text-gray-600 dark:text-gray-300">
+        <p className="mb-4 line-clamp-2 grow text-gray-600 dark:text-gray-300">
           {post.frontmatter.excerpt}
         </p>
 
@@ -74,7 +74,7 @@ export function PostCard({ post }: { post: Post }) {
           )}
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 transform bg-linear-to-r from-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100 sm:h-1.5"></div>
     </Link>
   )
 }

@@ -22,7 +22,7 @@ export function RelatedPosts({ posts, title = 'Related Posts', className }: Rela
 
   return (
     <div className={className}>
-      <h3 className="mb-6 bg-gradient-to-r from-gray-800 to-gray-500 bg-clip-text text-xl font-bold text-transparent dark:from-gray-200 dark:to-gray-500">
+      <h3 className="mb-6 bg-linear-to-r from-gray-800 to-gray-500 bg-clip-text text-xl font-bold text-transparent dark:from-gray-200 dark:to-gray-500">
         {title}
       </h3>
 

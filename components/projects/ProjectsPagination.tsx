@@ -61,7 +61,7 @@ export function ProjectsPagination({
               currentPage === 1
                 ? 'cursor-not-allowed text-gray-400'
                 : 'text-gray-700 dark:text-gray-300'
-            } rounded-full border border-gray-300 bg-white shadow-sm transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white dark:border-gray-700 dark:bg-gray-800`}
+            } rounded-full border border-gray-300 bg-white shadow-sm transition-all duration-300 hover:border-transparent hover:bg-linear-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white dark:border-gray-700 dark:bg-gray-800`}
             aria-disabled={currentPage === 1}
           >
             <ChevronLeft className="mr-2 h-4 w-4" />
@@ -79,7 +79,7 @@ export function ProjectsPagination({
                   page === currentPage
                     ? 'bg-indigo-600 text-white'
                     : 'bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300'
-                } rounded-full border border-gray-300 shadow-sm transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white dark:border-gray-700`}
+                } rounded-full border border-gray-300 shadow-sm transition-all duration-300 hover:border-transparent hover:bg-linear-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white dark:border-gray-700`}
               >
                 {page}
               </Link>
@@ -99,7 +99,7 @@ export function ProjectsPagination({
               currentPage === totalPages
                 ? 'cursor-not-allowed text-gray-400'
                 : 'text-gray-700 dark:text-gray-300'
-            } rounded-full border border-gray-300 bg-white shadow-sm transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white dark:border-gray-700 dark:bg-gray-800`}
+            } rounded-full border border-gray-300 bg-white shadow-sm transition-all duration-300 hover:border-transparent hover:bg-linear-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white dark:border-gray-700 dark:bg-gray-800`}
             aria-disabled={currentPage === totalPages}
           >
             Next

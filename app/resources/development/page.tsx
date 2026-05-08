@@ -69,7 +69,7 @@ export default function DevelopmentResourcesPage() {
 
             <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
               Development{' '}
-              <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
                 Resources
               </span>
             </h1>
@@ -91,7 +91,7 @@ export default function DevelopmentResourcesPage() {
                     >
                       {resource.icon}
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
+                    <CardTitle className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-linear-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                       {resource.title}
                     </CardTitle>
                   </CardHeader>
@@ -138,7 +138,7 @@ export default function DevelopmentResourcesPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-full bg-gradient-to-r from-indigo-600 to-emerald-600 px-6 py-3 font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:from-indigo-700 hover:to-emerald-700 hover:shadow-lg"
+              className="inline-flex items-center rounded-full bg-linear-to-r from-indigo-600 to-emerald-600 px-6 py-3 font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:from-indigo-700 hover:to-emerald-700 hover:shadow-lg"
             >
               Suggest a resource
               <svg

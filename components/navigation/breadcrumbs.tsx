@@ -38,10 +38,10 @@ export function Breadcrumbs({
                   'transition-colors duration-200'
                 )}
               >
-                <Home className="h-4 w-4 flex-shrink-0" />
+                <Home className="h-4 w-4 shrink-0" />
                 <span className="sr-only">Home</span>
               </Link>
-              <ChevronRight className="mx-2 h-4 w-4 flex-shrink-0 text-gray-400 dark:text-gray-500" />
+              <ChevronRight className="mx-2 h-4 w-4 shrink-0 text-gray-400 dark:text-gray-500" />
             </li>
           )}
 
@@ -75,7 +75,7 @@ export function Breadcrumbs({
                     >
                       {formattedLabel}
                     </Link>
-                    <ChevronRight className="mx-2 h-4 w-4 flex-shrink-0 text-gray-400 dark:text-gray-500" />
+                    <ChevronRight className="mx-2 h-4 w-4 shrink-0 text-gray-400 dark:text-gray-500" />
                   </>
                 )}
               </li>

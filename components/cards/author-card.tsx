@@ -71,7 +71,7 @@ export function AuthorCard({
 
           <div className="p-6">
             <Link href={`/authors/${slug}`}>
-              <h3 className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
+              <h3 className="text-xl font-bold text-gray-900 transition-all duration-300 group-hover:bg-linear-to-r group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                 {name}
               </h3>
             </Link>
@@ -104,7 +104,7 @@ export function AuthorCard({
         </>
       ) : (
         <>
-          <div className="relative mr-4 h-12 w-12 flex-shrink-0 overflow-hidden rounded-full">
+          <div className="relative mr-4 h-12 w-12 shrink-0 overflow-hidden rounded-full">
             <Image
               src={
                 imageUrl ||

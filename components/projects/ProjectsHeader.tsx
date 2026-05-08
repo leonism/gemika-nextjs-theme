@@ -9,7 +9,7 @@ export function ProjectsHeader() {
         <div className="max-w-3xl">
           <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl lg:text-6xl">
             My
-            <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
               Projects
             </span>
           </h1>

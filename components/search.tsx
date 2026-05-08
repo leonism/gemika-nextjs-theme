@@ -79,7 +79,7 @@ export function Search() {
         </div>
       ) : (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/50"
           onClick={() => setIsOpen(false)}
         >
           <form
@@ -92,7 +92,7 @@ export function Search() {
               <Input
                 type="text"
                 placeholder="Search and Press Enter"
-                className="flex-grow pr-10"
+                className="grow pr-10"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 autoFocus

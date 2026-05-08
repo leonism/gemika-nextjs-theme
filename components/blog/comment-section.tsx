@@ -112,7 +112,7 @@ export function CommentSection({ postSlug, initialComments = [], className }: Co
       className={`${isReply ? 'ml-12 mt-4' : 'mb-6 border-b border-gray-200 pb-6 dark:border-gray-800'}`}
     >
       <div className="flex items-start">
-        <div className="relative mr-4 h-10 w-10 flex-shrink-0 overflow-hidden rounded-full">
+        <div className="relative mr-4 h-10 w-10 shrink-0 overflow-hidden rounded-full">
           <Image
             src={comment.author.imageUrl || '/placeholder.svg'}
             alt={comment.author.name}
@@ -167,7 +167,7 @@ export function CommentSection({ postSlug, initialComments = [], className }: Co
 
   return (
     <div className={className}>
-      <h3 className="mb-6 bg-gradient-to-r from-gray-800 to-gray-500 bg-clip-text text-xl font-bold text-transparent dark:from-gray-200 dark:to-gray-500">
+      <h3 className="mb-6 bg-linear-to-r from-gray-800 to-gray-500 bg-clip-text text-xl font-bold text-transparent dark:from-gray-200 dark:to-gray-500">
         Comments ({comments.length})
       </h3>
 

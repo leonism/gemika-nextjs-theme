@@ -16,7 +16,7 @@ export default function ContactPage() {
               </span>
             </div>
             <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-              <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
                 Contact Us
               </span>
             </h1>
@@ -53,11 +53,11 @@ export default function ContactPage() {
                 className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
               >
                 <div
-                  className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
+                  className={`absolute inset-0 bg-linear-to-r ${item.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
                 />
                 <div className="relative z-10">
                   <div
-                    className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${item.gradient} text-white`}
+                    className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-linear-to-r ${item.gradient} text-white`}
                   >
                     {item.icon}
                   </div>
@@ -73,7 +73,7 @@ export default function ContactPage() {
           {/* Contact Form Section */}
           <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800">
             <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
-              <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
                 Send us a message
               </span>
             </h2>

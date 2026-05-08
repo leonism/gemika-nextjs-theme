@@ -76,7 +76,7 @@ export default function BooksResourcesPage() {
 
             <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
               Books &{' '}
-              <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
                 Articles
               </span>
             </h1>
@@ -138,7 +138,7 @@ export default function BooksResourcesPage() {
 
               {/* Hover effect elements */}
               <div className="pointer-events-none absolute inset-0 rounded-2xl border-2 border-transparent transition-all duration-500 group-hover:border-indigo-500/10 dark:group-hover:border-indigo-400/10" />
-              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-gray-800/50" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-br from-white/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-gray-800/50" />
             </Card>
           ))}
         </div>
@@ -156,7 +156,7 @@ export default function BooksResourcesPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-6 py-3 font-medium text-white shadow-lg transition-all duration-500 hover:-translate-y-1 hover:from-indigo-600 hover:to-purple-700 hover:shadow-xl"
+            className="inline-flex items-center rounded-full bg-linear-to-r from-indigo-500 to-purple-600 px-6 py-3 font-medium text-white shadow-lg transition-all duration-500 hover:-translate-y-1 hover:from-indigo-600 hover:to-purple-700 hover:shadow-xl"
           >
             Suggest a resource
             <svg

@@ -206,7 +206,7 @@ export function SearchDialog() {
                   <p className="text-gray-500 dark:text-gray-400">No results found for "{query}"</p>
                   <Button
                     onClick={() => router.push(`/search?q=${encodeURIComponent(query)}`)}
-                    className="mt-3 inline-flex items-center rounded-full bg-gradient-to-r from-indigo-600 to-emerald-600 px-6 py-3 font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:from-indigo-700 hover:to-emerald-700 hover:shadow-lg"
+                    className="mt-3 inline-flex items-center rounded-full bg-linear-to-r from-indigo-600 to-emerald-600 px-6 py-3 font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:from-indigo-700 hover:to-emerald-700 hover:shadow-lg"
                     size="sm"
                   >
                     View all search results

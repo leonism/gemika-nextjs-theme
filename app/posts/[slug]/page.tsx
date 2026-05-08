@@ -156,7 +156,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <JsonLd data={jsonLd as unknown as Record<string, unknown>} />
       <div className="container mx-auto max-w-4xl px-4 py-8">
         <article className="prose mx-auto rounded-xl bg-white p-8 shadow-sm dark:prose-invert lg:prose-lg dark:bg-gray-800">
-          <h1 className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-5xl font-bold leading-tight text-transparent dark:from-indigo-500 dark:to-emerald-500 md:text-5xl lg:text-6xl">
+          <h1 className="bg-linear-to-r from-indigo-500 to-purple-600 bg-clip-text text-5xl font-bold leading-tight text-transparent dark:from-indigo-500 dark:to-emerald-500 md:text-5xl lg:text-6xl">
             {post.frontmatter.title}
           </h1>
 
@@ -213,7 +213,7 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
 
           {post.frontmatter.coverImage && (
-            <div className="relative mb-8 aspect-[16/9] overflow-hidden rounded-xl">
+            <div className="relative mb-8 aspect-video overflow-hidden rounded-xl">
               <Image
                 src={post.frontmatter.coverImage}
                 alt={post.frontmatter.title}

@@ -186,7 +186,7 @@ function BackButton() {
 function ProjectHeader({ title, excerpt }: { title: string; excerpt: string }) {
   return (
     <div className="space-y-6">
-      <h1 className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-5xl font-bold leading-tight text-transparent dark:from-indigo-500 dark:to-emerald-500 md:text-5xl lg:text-6xl">
+      <h1 className="bg-linear-to-r from-indigo-500 to-purple-600 bg-clip-text text-5xl font-bold leading-tight text-transparent dark:from-indigo-500 dark:to-emerald-500 md:text-5xl lg:text-6xl">
         {title}
       </h1>
       <p className="max-w-3xl text-xl text-gray-600 dark:text-gray-300">{excerpt}</p>
@@ -211,7 +211,7 @@ function ProjectCoverImage({
   return (
     <div className="group relative aspect-video overflow-hidden rounded-2xl shadow-2xl">
       <div className="absolute inset-0 rounded-2xl p-[2px]">
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="absolute inset-0 rounded-2xl bg-linear-to-r from-indigo-500 to-purple-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         <div className="relative h-full w-full overflow-hidden rounded-[15px] bg-white dark:bg-gray-800">
           <Image
             src={imageUrl || '/placeholder.svg'}
@@ -223,11 +223,11 @@ function ProjectCoverImage({
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/30 via-black/10 to-transparent" />
 
       {/* Category at bottom right */}
       <div className="absolute bottom-4 right-4 z-10">
-        <span className="inline-flex items-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
+        <span className="inline-flex items-center rounded-full bg-linear-to-r from-indigo-500 to-purple-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
           {category}
         </span>
       </div>
@@ -289,7 +289,7 @@ function ProjectGallery({ images, title }: { images: string[]; title: string }) 
             className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
           >
             <div className="absolute inset-0 rounded-2xl p-[2px]">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-r from-indigo-500 to-purple-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <div className="relative h-full w-full overflow-hidden rounded-[15px] bg-white dark:bg-gray-800">
                 <Image
                   src={image || '/placeholder.svg'}
@@ -392,7 +392,7 @@ function ProjectDetailsCard({ project }: { project: Post }) {
       </div>
 
       <div className="mt-8">
-        <Button className="w-full transform rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 py-6 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:from-indigo-700 hover:to-purple-700 hover:shadow-xl">
+        <Button className="w-full transform rounded-full bg-linear-to-r from-indigo-600 to-purple-600 py-6 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:from-indigo-700 hover:to-purple-700 hover:shadow-xl">
           About This Project
         </Button>
       </div>
@@ -500,7 +500,7 @@ function RelatedProjectsCTA() {
   return (
     <section className="relative mt-16 overflow-hidden py-20">
       {/* Animated gradient background */}
-      {/* <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 dark:from-indigo-900/20 dark:to-purple-900/20 overflow-hidden">
+      {/* <div className="absolute inset-0 bg-linear-to-r from-indigo-500/10 to-purple-500/10 dark:from-indigo-900/20 dark:to-purple-900/20 overflow-hidden">
         <div className="absolute top-0 -left-20 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10 animate-blob animation-delay-2000"></div>
         <div className="absolute top-0 -right-20 w-96 h-96 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10 animate-blob animation-delay-4000"></div>
         <div className="absolute -bottom-20 left-20 w-96 h-96 bg-amber-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10 animate-blob"></div>
@@ -518,7 +518,7 @@ function RelatedProjectsCTA() {
         <div className="flex justify-center">
           <Link
             href="/projects"
-            className="inline-flex transform items-center rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-4 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:from-indigo-700 hover:to-purple-700 hover:shadow-xl"
+            className="inline-flex transform items-center rounded-full bg-linear-to-r from-indigo-600 to-purple-600 px-8 py-4 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:from-indigo-700 hover:to-purple-700 hover:shadow-xl"
           >
             View All Projects
             <svg

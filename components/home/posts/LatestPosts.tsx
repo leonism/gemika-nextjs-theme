@@ -25,7 +25,7 @@ export function LatestPosts({ posts }: LatestPostsProps) {
             <span className="text-sm font-medium text-indigo-600">BLOG</span>
           </div>
           <h2 className="mb-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-            <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
               Latest Articles
             </span>
           </h2>
