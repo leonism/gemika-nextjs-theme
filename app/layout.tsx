@@ -89,8 +89,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
     types: {
-      'application/rss+xml': '/feed.xml',
-      'text/markdown': 'https://output.domain/index.md',
+      'application/rss+xml': [{ url: '/feed.xml', title: 'RSS Feed' }],
+      'text/markdown': [{ url: `${siteUrl}/index.md`, title: 'Markdown version' }],
     },
   },
 }

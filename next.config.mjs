@@ -41,6 +41,20 @@ const nextConfig = {
           maxChunks: 1,
         })
       );
+
+      // Force CSS into a single bundle if possible
+      if (config.optimization.splitChunks) {
+        config.optimization.splitChunks.cacheGroups = {
+          ...config.optimization.splitChunks.cacheGroups,
+          styles: {
+            name: 'styles',
+            type: 'css/auto',
+            test: /\.css$/,
+            chunks: 'all',
+            enforce: true,
+          },
+        };
+      }
     }
     return config;
   },
