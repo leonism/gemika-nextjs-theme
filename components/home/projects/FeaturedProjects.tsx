@@ -20,9 +20,8 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
           badge="PORTFOLIO"
           title="Featured Projects"
           viewAllHref="/projects"
-          viewAllLabel="View all projects"
+          viewAllLabel="View All Projects"
         />
-
         <FeaturedProjectsGrid projects={projects} />
       </div>
     </section>
