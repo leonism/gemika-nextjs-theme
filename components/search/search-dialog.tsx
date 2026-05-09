@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { ArrowRight, Search, X } from 'lucide-react'
-
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -130,7 +129,7 @@ export function SearchDialog() {
             ref={dialogRef}
             className={cn(
               'mt-20 w-full max-w-xl overflow-hidden rounded-2xl border border-gray-200 bg-white/80 shadow-xl backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/80',
-              'duration-200 animate-in fade-in-75 slide-in-from-left-8'
+              'animate-in fade-in-75 slide-in-from-left-8 duration-200'
             )}
             role="dialog"
             aria-modal="true"
@@ -148,7 +147,7 @@ export function SearchDialog() {
                   aria-label="Search query"
                   autoComplete="off"
                 />
-                <div className="absolute right-2 top-2 flex space-x-1">
+                <div className="absolute top-2 right-2 flex space-x-1">
                   <Button type="submit" size="sm" className="px-6 py-3" disabled={query.length < 2}>
                     <span className="mr-1">Go</span>
                     <ArrowRight className="h-3 w-3" />

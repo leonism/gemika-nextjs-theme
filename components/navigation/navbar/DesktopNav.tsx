@@ -28,7 +28,7 @@ function NavigationItem({ item, pathname }: { item: NavItem; pathname: string | 
 
 function DropdownNavItem({ item, pathname }: { item: NavItem; pathname: string | null }) {
   const isActive = pathname?.startsWith(item.href)
-  
+
   return (
     <div className="group relative">
       <button
