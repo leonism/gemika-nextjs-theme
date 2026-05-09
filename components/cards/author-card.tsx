@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { Facebook, Github, Instagram, Linkedin, Twitter } from '@/components/icons/BrandIcons'
 
 import { cn } from '@/lib/utils'
 
@@ -33,15 +33,15 @@ export function AuthorCard({
   const renderSocialIcon = (platform: string) => {
     switch (platform) {
       case 'facebook':
-        return <FaFacebook size={16} />
+        return <Facebook size={16} />
       case 'twitter':
-        return <FaTwitter size={16} />
+        return <Twitter size={16} />
       case 'instagram':
-        return <FaInstagram size={16} />
+        return <Instagram size={16} />
       case 'linkedin':
-        return <FaLinkedin size={16} />
+        return <Linkedin size={16} />
       case 'github':
-        return <FaGithub size={16} />
+        return <Github size={16} />
       default:
         return null
     }

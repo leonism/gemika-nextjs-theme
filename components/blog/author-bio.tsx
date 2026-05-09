@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { Facebook, Github, Instagram, Linkedin, Twitter } from '@/components/icons/BrandIcons'
 
 interface SocialLink {
   platform: 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'github'
@@ -20,15 +20,15 @@ export function AuthorBio({ name, bio, imageUrl, slug, socialLinks, className }:
   const renderSocialIcon = (platform: string) => {
     switch (platform) {
       case 'facebook':
-        return <FaFacebook size={18} />
+        return <Facebook size={18} />
       case 'twitter':
-        return <FaTwitter size={18} />
+        return <Twitter size={18} />
       case 'instagram':
-        return <FaInstagram size={18} />
+        return <Instagram size={18} />
       case 'linkedin':
-        return <FaLinkedin size={18} />
+        return <Linkedin size={18} />
       case 'github':
-        return <FaGithub size={18} />
+        return <Github size={18} />
       default:
         return null
     }

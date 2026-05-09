@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FaChevronRight } from 'react-icons/fa'
+import { ChevronRight } from 'lucide-react'
 
 import ProjectCard from './ProjectCard'
 
@@ -36,7 +36,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
             className="group flex items-center gap-1 text-xs font-medium text-gray-500 transition-colors hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-300 sm:gap-2 sm:text-sm md:text-base"
           >
             View all projects
-            <FaChevronRight className="h-3 w-3 text-gray-400 sm:h-4 sm:w-4" />
+            <ChevronRight className="h-3 w-3 text-gray-400 sm:h-4 sm:w-4" />
           </Link>
         </div>
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import { FaMoon, FaSun } from 'react-icons/fa'
+import { Moon, Sun } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
@@ -23,7 +23,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     // Render a neutral state during SSR
     return (
       <div className={cn('relative inline-flex items-center justify-center', className)}>
-        <FaSun className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+        <Sun className="h-5 w-5 text-gray-600 dark:text-gray-400" />
         <span className="sr-only">Toggle theme</span>
       </div>
     )
@@ -45,13 +45,13 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
         }
       }}
     >
-      <FaSun
+      <Sun
         className={cn(
           'h-5 w-5 text-gray-600 transition-all duration-300 dark:text-gray-400',
           resolvedTheme === 'dark' ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
         )}
       />
-      <FaMoon
+      <Moon
         className={cn(
           'absolute h-5 w-5 text-gray-600 transition-all duration-300 dark:text-gray-400',
           resolvedTheme === 'light' ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'

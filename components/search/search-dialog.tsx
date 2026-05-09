@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { FaArrowRight, FaSearch, FaTimes } from 'react-icons/fa'
+import { ArrowRight, Search, X } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -121,7 +121,7 @@ export function SearchDialog() {
         className="p-2 text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
         aria-label="Open search"
       >
-        <FaSearch className="h-5 w-5" />
+        <Search className="h-5 w-5" />
       </button>
 
       {isOpen && (
@@ -151,7 +151,7 @@ export function SearchDialog() {
                 <div className="absolute right-2 top-2 flex space-x-1">
                   <Button type="submit" size="sm" className="px-6 py-3" disabled={query.length < 2}>
                     <span className="mr-1">Go</span>
-                    <FaArrowRight className="h-3 w-3" />
+                    <ArrowRight className="h-3 w-3" />
                   </Button>
                   <Button
                     type="button"
@@ -161,7 +161,7 @@ export function SearchDialog() {
                     className="text-gray-500"
                     aria-label="Close search"
                   >
-                    <FaTimes className="h-4 w-4" />
+                    <X className="h-4 w-4" />
                   </Button>
                 </div>
               </div>

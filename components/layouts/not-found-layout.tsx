@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { FaSearch } from 'react-icons/fa'
+import { Search } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
@@ -42,7 +42,7 @@ export function NotFoundLayout({
                 className="flex-1 rounded-l-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary dark:border-gray-700"
               />
               <Button className="rounded-l-none">
-                <FaSearch className="mr-2 h-4 w-4" />
+                <Search className="mr-2 h-4 w-4" />
                 Search
               </Button>
             </div>

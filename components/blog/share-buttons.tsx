@@ -2,16 +2,14 @@
 
 import { useState } from 'react'
 import {
-  FaFacebook,
-  FaLinkedin,
-  FaTwitter,
-  FaWhatsapp,
-  FaReddit,
-  FaTelegram,
-  FaEnvelope,
-  FaCheck,
-  FaCopy,
-} from 'react-icons/fa'
+  MessageCircle,
+  Share2,
+  Send,
+  Mail,
+  Check,
+  Copy,
+} from 'lucide-react'
+import { Facebook, Linkedin, Twitter } from '@/components/icons/BrandIcons'
 
 interface ShareButtonsProps {
   title: string
@@ -33,37 +31,37 @@ export function ShareButtons({ title, slug }: ShareButtonsProps) {
     {
       name: 'Twitter',
       url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
-      icon: <FaTwitter size={20} />,
+      icon: <Twitter size={20} />,
     },
     {
       name: 'LinkedIn',
       url: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
-      icon: <FaLinkedin size={20} />,
+      icon: <Linkedin size={20} />,
     },
     {
       name: 'Facebook',
       url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-      icon: <FaFacebook size={20} />,
+      icon: <Facebook size={20} />,
     },
     {
       name: 'WhatsApp',
       url: `https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' ' + url)}`,
-      icon: <FaWhatsapp size={20} />,
+      icon: <MessageCircle size={20} />,
     },
     {
       name: 'Reddit',
       url: `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
-      icon: <FaReddit size={20} />,
+      icon: <Share2 size={20} />,
     },
     {
       name: 'Telegram',
       url: `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
-      icon: <FaTelegram size={20} />,
+      icon: <Send size={20} />,
     },
     {
       name: 'Email',
       url: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`,
-      icon: <FaEnvelope size={20} />,
+      icon: <Mail size={20} />,
     },
   ]
 
@@ -88,7 +86,7 @@ export function ShareButtons({ title, slug }: ShareButtonsProps) {
           className="inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200 hover:text-indigo-500 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-indigo-400"
           aria-label="Copy link to clipboard"
         >
-          {copied ? <FaCheck size={20} /> : <FaCopy size={20} />}
+          {copied ? <Check size={20} /> : <Copy size={20} />}
         </button>
       </div>
     </div>

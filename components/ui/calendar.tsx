@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { DayPicker } from 'react-day-picker'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -49,9 +49,9 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: C
       components={{
         Chevron: ({ ...props }) =>
           props.orientation === 'left' ? (
-            <FaChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-4 w-4" />
           ) : (
-            <FaChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4" />
           ),
       }}
       {...props}

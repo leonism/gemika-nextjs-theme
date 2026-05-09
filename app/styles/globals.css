@@ -11,10 +11,15 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1400px;
 
-  --font-sans: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --font-display: "Clash Display", sans-serif;
+  --font-sans:
+    'Inter var', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --font-display: 'Clash Display', sans-serif;
 
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
@@ -43,12 +48,12 @@
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
 
-  --color-dark-1: #141D2B;
+  --color-dark-1: #141d2b;
   --color-dark-2: #111927;
-  --color-dark-3: #1A2332;
-  --color-dark-4: #313F55;
-  --color-dark-accent: #C4F468;
-  --color-dark-danger: #ED473A;
+  --color-dark-3: #1a2332;
+  --color-dark-4: #313f55;
+  --color-dark-accent: #c4f468;
+  --color-dark-danger: #ed473a;
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 1px);
@@ -61,16 +66,29 @@
   --animate-float-delay: float 6s ease-in-out 2s infinite;
 
   @keyframes accordion-down {
-    from { height: 0; }
-    to { height: var(--radix-accordion-content-height); }
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
   }
   @keyframes accordion-up {
-    from { height: var(--radix-accordion-content-height); }
-    to { height: 0; }
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
   }
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 }
 
@@ -81,10 +99,10 @@
 
 @layer base {
   .prose {
-    font-feature-settings: "calt", "ccmp", "kern", "rlig", "ss01";
+    font-feature-settings: 'calt', 'ccmp', 'kern', 'rlig', 'ss01';
     font-variant-ligatures: common-ligatures;
     font-variant-numeric: lining-nums proportional-nums;
-    font-variation-settings: "opsz" 32;
+    font-variation-settings: 'opsz' 32;
     max-width: none;
   }
 }
@@ -113,8 +131,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    letter-spacing: 0.01em;
-    line-height: 1.5;
+    letter-spacing: 0.1em;
+    line-height: 1.9;
   }
   :root {
     --background: 0 0% 100%;
@@ -211,19 +229,30 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01", "ss02", "ss03", "calt", "kern";
-    font-variation-settings: "opsz" 32;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01', 'ss02', 'ss03', 'calt', 'kern';
+    font-variation-settings: 'opsz' 32;
     letter-spacing: -0.011em;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tighter text-foreground;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-foreground font-bold;
     text-wrap: balance;
   }
 
-  h1 { line-height: 1.1; }
-  h2 { line-height: 1.2; }
-  h3 { line-height: 1.3; }
+  h1 {
+    line-height: 1.1;
+  }
+  h2 {
+    line-height: 1.2;
+  }
+  h3 {
+    line-height: 1.3;
+  }
   /* For dark mode links */
   .dark .prose a {
     color: #a855f7;

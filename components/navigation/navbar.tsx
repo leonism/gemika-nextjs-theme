@@ -1,252 +1,46 @@
 'use client'
 
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Image from 'next/image'
-import { FaChevronDown } from 'react-icons/fa'
-
-import { MobileMenu } from '@/components/navigation/mobile-menu'
-import { Search } from '@/components/search'
-import { ThemeToggle } from '@/components/theme-toggle'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-
-interface NavItem {
-  label: string
-  href: string
-  children?: NavItem[]
-}
+import { Logo } from './navbar/Logo'
+import { DesktopNav } from './navbar/DesktopNav'
+import { DesktopControls } from './navbar/DesktopControls'
+import { MobileControls } from './navbar/MobileControls'
+import { NavItem, NavCTA } from '@/types/nav'
 
 interface NavbarProps {
   items: NavItem[]
-  cta?: { label: string; href: string }
+  cta?: NavCTA
 }
 
+/**
+ * Main Navbar component that orchestrates the logo, desktop navigation,
+ * and controls for both desktop and mobile views.
+ */
 export function Navbar({ items, cta = { label: 'Contact', href: '/contact' } }: NavbarProps) {
   const pathname = usePathname()
 
   return (
-    <header className="md:h-18 sticky top-0 z-50 h-16 w-full border-b border-gray-200/50 bg-white shadow-md dark:border-gray-800/50 dark:bg-gray-900 sm:h-16 lg:h-20">
+    <header className="sticky top-0 z-50 h-16 w-full border-b border-gray-200/50 bg-white shadow-md sm:h-16 md:h-18 lg:h-20 dark:border-gray-800/50 dark:bg-gray-900">
       <div className="container mx-auto flex h-full max-w-7xl items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8">
-        {/* Logo */}
+        {/* Left: Logo */}
         <div className="flex-1">
           <Logo />
         </div>
 
-        {/* Desktop Navigation - centered */}
+        {/* Center: Desktop Navigation */}
         <div className="flex flex-1 justify-center">
           <DesktopNav items={items} pathname={pathname} />
         </div>
 
-        {/* Right side controls */}
+        {/* Right: Controls (Theme, Search, CTA, Mobile Menu) */}
         <div className="flex flex-1 justify-end">
           <div className="flex items-center space-x-1.5 sm:space-x-2 md:space-x-3">
-            {/* Desktop controls (theme toggle and CTA) */}
             <DesktopControls cta={cta} />
-
-            {/* Mobile controls - only search and hamburger */}
-            <div className="flex items-center md:hidden">
-              {/* Search icon - visible on mobile */}
-              <div className="mr-1">
-                <Search />
-              </div>
-
-              {/* Mobile Navigation */}
-              <MobileMenuButton items={items} cta={cta} />
-            </div>
+            <MobileControls items={items} cta={cta} />
           </div>
         </div>
       </div>
     </header>
-  )
-}
-
-// Sub-components for better organization
-function Logo() {
-  return (
-    <div className="shrink-0">
-      <Link
-        href="/"
-        className="relative inline-flex items-center justify-center overflow-hidden rounded-full bg-linear-to-r from-indigo-600 to-purple-600 px-4 py-2 font-medium shadow-sm transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-md md:px-5 md:py-2"
-        aria-label="Go to Homepage"
-      >
-        <LogoIcon />
-        <span className="relative text-sm font-bold tracking-wide text-white md:text-base">
-          Gemika
-        </span>
-      </Link>
-    </div>
-  )
-}
-
-function LogoIcon() {
-  return (
-    <Image
-      src="/logo-transbg.png"
-      alt="Gemika Logo"
-      width={34}
-      height={34}
-      className="mr-1 h-5 w-5 brightness-0 invert filter sm:h-6 sm:w-6 md:h-7 md:w-7"
-      priority
-    />
-  )
-}
-
-function DesktopNav({ items, pathname }: { items: NavItem[]; pathname: string | null }) {
-  return (
-    <nav className="hidden items-center space-x-0.5 sm:space-x-1 md:flex md:space-x-2">
-      {items.map((item) => (
-        <NavigationItem key={item.label} item={item} pathname={pathname} />
-      ))}
-    </nav>
-  )
-}
-
-function NavigationItem({ item, pathname }: { item: NavItem; pathname: string | null }) {
-  return item.children ? (
-    <DropdownNavItem item={item} pathname={pathname} />
-  ) : (
-    <SimpleNavItem item={item} pathname={pathname} />
-  )
-}
-
-function DropdownNavItem({ item, pathname }: { item: NavItem; pathname: string | null }) {
-  return (
-    <div className="group relative">
-      <button
-        className={cn(
-          'flex items-center px-3 py-1.5 text-sm font-medium transition-all duration-300 sm:px-4 sm:py-2 sm:text-base',
-          pathname?.startsWith(item.href)
-            ? 'font-semibold text-indigo-600 dark:text-dark-accent'
-            : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
-        )}
-      >
-        <NavLinkContent label={item.label} active={pathname?.startsWith(item.href)} />
-        <DropdownIcon active={pathname?.startsWith(item.href)} />
-      </button>
-      <DropdownMenu item={item} pathname={pathname} />
-    </div>
-  )
-}
-
-function SimpleNavItem({ item, pathname }: { item: NavItem; pathname: string | null }) {
-  const isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href))
-
-  return (
-    <Link
-      href={item.href}
-      className={cn(
-        'group relative px-2 py-1 text-xs font-medium transition-all duration-300 sm:px-3 sm:py-1.5 sm:text-sm md:px-4 md:py-2 md:text-base',
-        isActive
-          ? 'font-semibold text-indigo-600'
-          : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
-      )}
-    >
-      <NavLinkContent label={item.label} active={isActive} />
-    </Link>
-  )
-}
-
-function NavLinkContent({ label, active }: { label: string; active?: boolean }) {
-  return (
-    <>
-      {label}
-      <span
-        className={cn(
-          'absolute bottom-0 left-0 h-0.5 bg-linear-to-r from-indigo-500 to-purple-500 transition-all duration-300',
-          active ? 'w-full' : 'w-0 group-hover:w-full'
-        )}
-      ></span>
-    </>
-  )
-}
-
-function DropdownIcon({ active }: { active?: boolean }) {
-  return (
-    <FaChevronDown
-      className={cn(
-        'ml-0.5 h-2 w-2 transition-transform sm:ml-1 sm:h-3 sm:w-3 md:h-4 md:w-4',
-        active ? 'rotate-180 text-indigo-500 dark:text-dark-accent' : 'group-hover:rotate-180'
-      )}
-    />
-  )
-}
-
-function DropdownMenu({ item, pathname }: { item: NavItem; pathname: string | null }) {
-  return (
-    <div className="transform-translate-x-1/2 invisible absolute left-1/2 z-50 mt-1 w-36 rounded-lg border border-gray-200 bg-white/90 py-1 opacity-0 shadow-lg backdrop-blur-sm transition-all duration-200 group-hover:visible group-hover:opacity-100 dark:border-dark-4 dark:bg-dark-1/90 sm:w-40 md:w-48">
-      {item.children?.map((child) => (
-        <DropdownMenuItem key={child.label} item={child} pathname={pathname} />
-      ))}
-    </div>
-  )
-}
-
-function DropdownMenuItem({ item, pathname }: { item: NavItem; pathname: string | null }) {
-  const isActive = pathname === item.href
-
-  return (
-    <Link
-      href={item.href}
-      className={cn(
-        'group relative block px-3 py-1.5 text-xs transition-colors sm:px-4 sm:py-2 sm:text-sm',
-        isActive
-          ? 'font-medium text-indigo-600'
-          : 'text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
-      )}
-    >
-      {item.label}
-      <span
-        className={cn(
-          'absolute bottom-1 left-3 h-0.5 bg-linear-to-r from-indigo-500 to-purple-500 transition-all duration-300 sm:left-4',
-          isActive
-            ? 'w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)]'
-            : 'w-0 group-hover:w-[calc(100%-1.5rem)] sm:group-hover:w-[calc(100%-2rem)]'
-        )}
-      ></span>
-    </Link>
-  )
-}
-
-function DesktopControls({ cta }: { cta: { label: string; href: string } }) {
-  return (
-    <div className="hidden items-center space-x-3 md:flex md:space-x-4">
-      <div className="flex items-center justify-center transition-colors hover:text-indigo-600 dark:hover:text-indigo-400">
-        <Search />
-      </div>
-
-      {/* Theme toggle - aligned with search icon, removed rounded background */}
-      <div className="flex items-center justify-center transition-colors hover:text-indigo-600 dark:hover:text-indigo-400">
-        <ThemeToggle className="h-5 w-5 text-gray-600 dark:text-gray-400" />
-      </div>
-
-      {/* Contact Button */}
-      {cta?.href && cta?.label && (
-        <Link href={cta.href} className="block">
-          <Button
-            variant="default"
-            size="sm"
-            className="rounded-full bg-linear-to-r from-indigo-600 to-purple-600 px-3 py-1 text-xs font-bold text-white shadow-sm transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-md sm:px-4 sm:py-1.5 sm:text-sm md:px-5 md:py-2 md:text-base"
-          >
-            {cta.label}
-          </Button>
-        </Link>
-      )}
-    </div>
-  )
-}
-
-function MobileMenuButton({
-  items,
-  cta,
-}: {
-  items: NavItem[]
-  cta: { label: string; href: string }
-}) {
-  return (
-    <div className="flex items-center md:hidden">
-      <MobileMenu items={items} cta={cta} />
-    </div>
   )
 }
 

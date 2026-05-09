@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa'
+import { Mail, MapPin, Phone } from 'lucide-react'
+import { Facebook, Github, Instagram, Linkedin, Twitter } from '@/components/icons/BrandIcons'
 import { NewsletterForm } from '@/components/forms/newsletter-form'
 import { Container } from '@/components/ui/container'
 
@@ -57,35 +58,35 @@ export function MainFooterContent() {
               className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
               aria-label="Facebook"
             >
-              <FaFacebook size={20} />
+              <Facebook size={20} />
             </Link>
             <Link
               href="#"
               className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
               aria-label="Twitter"
             >
-              <FaTwitter size={20} />
+              <Twitter size={20} />
             </Link>
             <Link
               href="#"
               className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
               aria-label="Instagram"
             >
-              <FaInstagram size={20} />
+              <Instagram size={20} />
             </Link>
             <Link
               href="#"
               className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
               aria-label="LinkedIn"
             >
-              <FaLinkedin size={20} />
+              <Linkedin size={20} />
             </Link>
             <Link
               href="https://github.com/leonism/gemika-nextjs-theme"
               className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
               aria-label="GitHub"
             >
-              <FaGithub size={20} />
+              <Github size={20} />
             </Link>
           </div>
         </div>
@@ -224,7 +225,7 @@ export function MainFooterContent() {
           </h3>
           <ul className="space-y-2">
             <li className="flex items-center">
-              <FaEnvelope size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
+              <Mail size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
               <a
                 href="mailto:hello@gemika.com"
                 className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
@@ -233,7 +234,7 @@ export function MainFooterContent() {
               </a>
             </li>
             <li className="flex items-center">
-              <FaPhone size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
+              <Phone size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
               <a
                 href="tel:+1234567890"
                 className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
@@ -242,7 +243,7 @@ export function MainFooterContent() {
               </a>
             </li>
             <li className="flex items-start">
-              <FaMapMarkerAlt size={16} className="mr-2 mt-1 text-gray-600 dark:text-gray-400" />
+              <MapPin size={16} className="mr-2 mt-1 text-gray-600 dark:text-gray-400" />
               <span className="text-gray-600 dark:text-gray-400">
                 123 Design Street
                 <br />

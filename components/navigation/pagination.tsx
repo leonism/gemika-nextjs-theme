@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
@@ -60,7 +60,7 @@ export function Pagination({ currentPage, totalPages, baseUrl, className }: Pagi
         <li>
           {currentPage === 1 ? (
             <span className="inline-flex cursor-not-allowed items-center rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-400 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-              <FaChevronLeft className="mr-2 h-4 w-4" />
+              <ChevronLeft className="mr-2 h-4 w-4" />
               Previous
             </span>
           ) : (
@@ -68,7 +68,7 @@ export function Pagination({ currentPage, totalPages, baseUrl, className }: Pagi
               href={`${baseUrl}?page=${currentPage - 1}`}
               className="inline-flex items-center rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-all duration-300 hover:border-transparent hover:bg-linear-to-r hover:from-indigo-600 hover:to-emerald-600 hover:text-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
             >
-              <FaChevronLeft className="mr-2 h-4 w-4" />
+              <ChevronLeft className="mr-2 h-4 w-4" />
               Previous
             </Link>
           )}
@@ -101,7 +101,7 @@ export function Pagination({ currentPage, totalPages, baseUrl, className }: Pagi
           {currentPage === totalPages ? (
             <span className="inline-flex cursor-not-allowed items-center rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-400 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               Next
-              <FaChevronRight className="ml-2 h-4 w-4" />
+              <ChevronRight className="ml-2 h-4 w-4" />
             </span>
           ) : (
             <Link
@@ -109,7 +109,7 @@ export function Pagination({ currentPage, totalPages, baseUrl, className }: Pagi
               className="inline-flex items-center rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-all duration-300 hover:border-transparent hover:bg-linear-to-r hover:from-indigo-600 hover:to-emerald-600 hover:text-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
             >
               Next
-              <FaChevronRight className="ml-2 h-4 w-4" />
+              <ChevronRight className="ml-2 h-4 w-4" />
             </Link>
           )}
         </li>

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ToastPrimitives from '@radix-ui/react-toast'
 import { type VariantProps, cva } from 'class-variance-authority'
-import { FaTimes } from 'react-icons/fa'
+import { X } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
@@ -80,7 +80,7 @@ const ToastClose = React.forwardRef<
     toast-close=""
     {...props}
   >
-    <FaTimes className="h-4 w-4" />
+    <X className="h-4 w-4" />
   </ToastPrimitives.Close>
 ))
 ToastClose.displayName = ToastPrimitives.Close.displayName

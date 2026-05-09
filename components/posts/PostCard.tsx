@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { FaCalendarAlt, FaClock } from 'react-icons/fa'
+import { Calendar, Clock } from 'lucide-react'
 import type { Post } from '@/types/post'
 import { TAG_COLORS } from '@/lib/constants'
 
@@ -39,13 +39,13 @@ export function PostCard({ post }: { post: Post }) {
         {/* Date and Reading Time with Icons */}
         <div className="mt-auto flex items-center text-sm text-gray-500 dark:text-gray-400">
           <div className="mr-4 flex items-center">
-            <FaCalendarAlt className="mr-1.5 h-4 w-4 text-indigo-500" />
+            <Calendar className="mr-1.5 h-4 w-4 text-indigo-500" />
             <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
           </div>
 
           {post.frontmatter.readingTime && (
             <div className="flex items-center">
-              <FaClock className="mr-1.5 h-4 w-4 text-indigo-500" />
+              <Clock className="mr-1.5 h-4 w-4 text-indigo-500" />
               <span>{post.frontmatter.readingTime} read</span>
             </div>
           )}

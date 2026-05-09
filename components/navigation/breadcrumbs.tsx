@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FaChevronRight, FaHome } from 'react-icons/fa'
+import { ChevronRight, Home } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
@@ -38,10 +38,10 @@ export function Breadcrumbs({
                   'transition-colors duration-200'
                 )}
               >
-                <FaHome className="h-4 w-4 shrink-0" />
+                <Home className="h-4 w-4 shrink-0" />
                 <span className="sr-only">Home</span>
               </Link>
-              <FaChevronRight className="mx-2 h-4 w-4 shrink-0 text-gray-400 dark:text-gray-500" />
+              <ChevronRight className="mx-2 h-4 w-4 shrink-0 text-gray-400 dark:text-gray-500" />
             </li>
           )}
 
@@ -75,7 +75,7 @@ export function Breadcrumbs({
                     >
                       {formattedLabel}
                     </Link>
-                    <FaChevronRight className="mx-2 h-4 w-4 shrink-0 text-gray-400 dark:text-gray-500" />
+                    <ChevronRight className="mx-2 h-4 w-4 shrink-0 text-gray-400 dark:text-gray-500" />
                   </>
                 )}
               </li>

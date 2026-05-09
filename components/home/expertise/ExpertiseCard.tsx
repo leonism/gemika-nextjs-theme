@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaArrowRight } from 'react-icons/fa'
+import { ArrowRight } from 'lucide-react'
 
 interface ExpertiseCardProps {
   topic: {
@@ -60,7 +60,7 @@ export function ExpertiseCard({ topic }: ExpertiseCardProps) {
             </div>
             <span className="inline-flex items-center font-medium text-indigo-600 transition-colors hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300">
               Explore
-              <FaArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:scale-110" />
+              <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:scale-110" />
             </span>
           </div>
         </div>

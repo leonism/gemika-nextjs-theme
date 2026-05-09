@@ -1,7 +1,7 @@
 'use client'
 
 import { Panel, Group as PanelGroup, Separator as PanelResizeHandle } from 'react-resizable-panels'
-import { FaEllipsisV } from 'react-icons/fa'
+import { GripVertical } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
@@ -33,7 +33,7 @@ const ResizableHandle = ({
   >
     {withHandle && (
       <div className="z-10 flex h-4 w-3 items-center justify-center rounded-sm border bg-border">
-        <FaEllipsisV className="h-2.5 w-2.5" />
+        <GripVertical className="h-2.5 w-2.5" />
       </div>
     )}
   </PanelResizeHandle>
