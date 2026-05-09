@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Calendar, Clock } from 'lucide-react'
 import type { Post } from '@/types/post'
 import { TAG_COLORS } from '@/lib/constants'
+import { TypographyH3, TypographyP } from '@/components/ui/typography'
 
 export function PostCard({ post }: { post: Post }) {
   return (
@@ -28,13 +29,13 @@ export function PostCard({ post }: { post: Post }) {
       )}
 
       <div className="flex grow flex-col p-6">
-        <h2 className="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
+        <TypographyH3 className="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400 border-none">
           {post.frontmatter.title}
-        </h2>
+        </TypographyH3>
 
-        <p className="mb-4 line-clamp-2 grow text-gray-600 dark:text-gray-300">
+        <TypographyP className="mb-4 line-clamp-2 grow text-gray-600 dark:text-gray-300 mt-0">
           {post.frontmatter.excerpt}
-        </p>
+        </TypographyP>
 
         {/* Date and Reading Time with Icons */}
         <div className="mt-auto flex items-center text-sm text-gray-500 dark:text-gray-400">

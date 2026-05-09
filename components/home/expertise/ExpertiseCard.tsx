@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { TypographyH3, TypographyP } from '@/components/ui/typography'
 
 interface ExpertiseCardProps {
   topic: {
@@ -35,12 +36,12 @@ export function ExpertiseCard({ topic }: ExpertiseCardProps) {
       </div>
       <div className="relative p-6">
         <div className="relative z-10">
-          <h2 className="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
+          <TypographyH3 className="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
             {topic.title}
-          </h2>
-          <p className="mb-4 line-clamp-2 grow text-gray-600 dark:text-gray-300">
+          </TypographyH3>
+          <TypographyP className="mb-4 line-clamp-2 grow text-gray-600 dark:text-gray-300 mt-0">
             {topic.description}
-          </p>
+          </TypographyP>
           <div className="mt-auto flex items-center text-sm text-gray-500 dark:text-gray-400">
             <div className="mr-4 flex items-center">
               <svg
