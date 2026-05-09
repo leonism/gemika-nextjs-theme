@@ -1,6 +1,6 @@
 ---
 title: Quantum Quill: AI-Powered Storytelling
-description:
+description: 
 url: https://gemika.vercel.app/projects/quantum-quill-ai-powered-storytelling
 ---
 

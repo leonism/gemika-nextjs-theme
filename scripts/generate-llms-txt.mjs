@@ -43,16 +43,19 @@ async function generate() {
       allContent.push(`## ${title}\n\nURL: ${fullUrl}\n\n${content}\n\n---\n`)
 
       // Generate individual index.md
-      const targetDir = path.join(
-        PUBLIC_DIR,
-        section.dir === 'pages' ? slug : `${section.dir}/${slug}`
-      )
-      if (!fs.existsSync(targetDir)) {
-        fs.mkdirSync(targetDir, { recursive: true })
+      let targetPath;
+      if (section.dir === 'pages' && slug === 'index') {
+        targetPath = path.join(PUBLIC_DIR, 'index.md');
+      } else {
+        const targetDir = path.join(PUBLIC_DIR, section.dir === 'pages' ? slug : `${section.dir}/${slug}`);
+        if (!fs.existsSync(targetDir)) {
+          fs.mkdirSync(targetDir, { recursive: true });
+        }
+        targetPath = path.join(targetDir, 'index.md');
       }
 
       const mdContent = `---\ntitle: ${title}\ndescription: ${description}\nurl: ${fullUrl}\n---\n\n# ${title}\n\n${content}`
-      fs.writeFileSync(path.join(targetDir, 'index.md'), mdContent)
+      fs.writeFileSync(targetPath, mdContent)
     }
 
     if (sectionLinks.length > 0) {

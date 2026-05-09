@@ -1,6 +1,6 @@
 ---
 title: Mobile App Development
-description:
+description: 
 url: https://gemika.vercel.app/projects/mobile-app-development
 ---
 

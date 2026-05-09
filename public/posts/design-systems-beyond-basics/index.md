@@ -1,6 +1,6 @@
 ---
 title: Design Systems: Beyond the Basics
-description:
+description: 
 url: https://gemika.vercel.app/posts/design-systems-beyond-basics
 ---
 

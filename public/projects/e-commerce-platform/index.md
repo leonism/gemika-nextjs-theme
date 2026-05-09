@@ -1,6 +1,6 @@
 ---
 title: E-commerce Platform
-description:
+description: 
 url: https://gemika.vercel.app/projects/e-commerce-platform
 ---
 

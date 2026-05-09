@@ -1,6 +1,6 @@
 ---
 title: About Me
-description:
+description: 
 url: https://gemika.vercel.app/about
 ---
 

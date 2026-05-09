@@ -1,6 +1,6 @@
 ---
 title: Terms of Service
-description:
+description: 
 url: https://gemika.vercel.app/terms
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: The Power of Microinteractions in Creating Delightful User Experiences
-description:
+description: 
 url: https://gemika.vercel.app/posts/microinteractions-ux
 ---
 

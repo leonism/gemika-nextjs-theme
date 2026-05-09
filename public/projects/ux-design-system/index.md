@@ -1,6 +1,6 @@
 ---
 title: UX Design System
-description:
+description: 
 url: https://gemika.vercel.app/projects/ux-design-system
 ---
 

@@ -1,7 +1,8 @@
 ---
 title: cookies
-description:
+description: 
 url: https://gemika.vercel.app/cookies
 ---
 
 # cookies
+

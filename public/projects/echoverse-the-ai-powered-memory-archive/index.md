@@ -1,6 +1,6 @@
 ---
 title: EchoVerse: The AI-Powered Memory Archive
-description:
+description: 
 url: https://gemika.vercel.app/projects/echoverse-the-ai-powered-memory-archive
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: The Future of UX Design in 2024
-description:
+description: 
 url: https://gemika.vercel.app/posts/future-of-ux-design
 ---
 

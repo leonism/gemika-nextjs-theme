@@ -1,6 +1,6 @@
 ---
 title: Color Psychology in UI Design: Beyond Aesthetics
-description:
+description: 
 url: https://gemika.vercel.app/posts/color-psychology-ui
 ---
 
