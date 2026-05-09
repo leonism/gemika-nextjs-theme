@@ -25,9 +25,9 @@ function LogoIcon() {
     <Image
       src="/logo-transbg.png"
       alt="Gemika Logo"
-      width={28}
-      height={28}
-      className="h-[28px] w-[28px] brightness-0 invert filter"
+      width={19}
+      height={19}
+      className="h-[19px] w-[19px] brightness-0 invert filter"
       priority
     />
   )

@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --webpack && npm run generate:llms",
-    "generate:llms": "node scripts/generate-llms-txt.mjs",
+    "build": "next build --webpack && npm run generate:llms && npm run compress",
+    "compress": "tsx scripts/post-build.ts",
+    "generate:llms": "tsx scripts/generate-llms-txt.ts",
     "start": "next start",
     "start-local": "live-server .next/",
     "pages:build": "npm run build && npx @cloudflare/next-on-pages",
@@ -104,6 +105,7 @@
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4.2.4",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^6.0.3"
   },
   "browserslist": {

@@ -10,7 +10,7 @@ interface DesktopNavProps {
 
 export function DesktopNav({ items, pathname }: DesktopNavProps) {
   return (
-    <nav className="hidden items-center space-x-0.5 sm:space-x-1 md:flex md:space-x-2">
+    <nav className="hidden items-center space-x-0.5 sm:space-x-1 md:flex md:space-x-6">
       {items.map((item) => (
         <NavigationItem key={item.label} item={item} pathname={pathname} />
       ))}
@@ -33,10 +33,10 @@ function DropdownNavItem({ item, pathname }: { item: NavItem; pathname: string |
     <div className="group relative">
       <button
         className={cn(
-          'flex items-center px-3 py-1.5 text-sm font-medium transition-all duration-300 sm:px-4 sm:py-2 sm:text-base',
+          'flex items-center px-3 py-1.5 text-sm font-medium transition-all duration-300 sm:px-6 sm:py-2 sm:text-base',
           isActive
-            ? 'dark:text-dark-accent font-semibold text-indigo-600'
-            : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
+            ? 'dark:text-dark-accent font-semibold text-indigo-600 tracking-wider'
+            : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white tracking-wider'
         )}
       >
         <NavLinkContent label={item.label} active={isActive} />
@@ -54,10 +54,10 @@ function SimpleNavItem({ item, pathname }: { item: NavItem; pathname: string | n
     <Link
       href={item.href}
       className={cn(
-        'group relative px-2 py-1 text-xs font-medium transition-all duration-300 sm:px-3 sm:py-1.5 sm:text-sm md:px-4 md:py-2 md:text-base',
+        'group relative px-2 py-1 text-xs font-medium transition-all duration-300 sm:px-3 sm:py-1.5 sm:text-sm md:px-6 md:py-2 md:text-base',
         isActive
-          ? 'font-semibold text-indigo-600'
-          : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
+          ? 'font-semibold text-indigo-600 tracking-wider'
+          : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white tracking-wider'
       )}
     >
       <NavLinkContent label={item.label} active={isActive} />

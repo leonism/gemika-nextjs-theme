@@ -1,11 +1,13 @@
+import { TypographyLead } from '@/components/ui/typography'
+
 interface HeroDescriptionProps {
   children: React.ReactNode
 }
 
 export function HeroDescription({ children }: HeroDescriptionProps) {
   return (
-    <p className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-gray-500 sm:mb-10 sm:max-w-2xl sm:text-lg md:mb-12 md:max-w-3xl md:text-xl lg:text-2xl">
+    <TypographyLead className="mx-auto mb-8 max-w-xl leading-relaxed sm:mb-10 sm:max-w-2xl md:mb-12 md:max-w-3xl lg:text-2xl">
       {children}
-    </p>
+    </TypographyLead>
   )
 }

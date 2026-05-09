@@ -10,7 +10,7 @@ interface DesktopControlsProps {
 
 export function DesktopControls({ cta }: DesktopControlsProps) {
   return (
-    <div className="hidden items-center space-x-3 md:flex md:space-x-4">
+    <div className="hidden items-center space-x-4 md:flex md:space-x-8">
       <div className="flex items-center justify-center transition-colors hover:text-indigo-600 dark:hover:text-indigo-400">
         <Search />
       </div>
@@ -26,7 +26,7 @@ export function DesktopControls({ cta }: DesktopControlsProps) {
           <Button
             variant="default"
             size="sm"
-            className="rounded-full bg-linear-to-r from-indigo-600 to-purple-600 px-3 py-1 text-xs font-bold text-white shadow-sm transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-md sm:px-4 sm:py-1.5 sm:text-sm md:px-5 md:py-2 md:text-base"
+            className="rounded-full bg-linear-to-r from-indigo-600 to-purple-600 px-3 py-1 text-xs font-bold tracking-wider text-white shadow-sm transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-md sm:px-4 sm:py-1.5 sm:text-sm md:px-5 md:py-2 md:text-base"
           >
             {cta.label}
           </Button>

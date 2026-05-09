@@ -15,7 +15,7 @@ export async function GET() {
     <description>Latest posts and projects from gemika</description>
     <language>en</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="${baseUrl}/feed.rss" rel="self" type="application/rss+xml"/>
 
     ${posts
       .map(
