@@ -15,7 +15,7 @@ export default function ContactPage() {
                 GET IN TOUCH
               </span>
             </div>
-            <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+            <h1 className="mb-4 text-4xl leading-tight font-bold text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
               <span className="bg-linear-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
                 Contact Us
               </span>
@@ -32,7 +32,7 @@ export default function ContactPage() {
               {
                 icon: <Mail className="h-6 w-6" />,
                 title: 'Email',
-                description: 'hello@gemika.com',
+                description: 'hello@gemika.vercel.app',
                 gradient: 'from-blue-500 to-cyan-500',
               },
               {

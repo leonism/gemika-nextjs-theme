@@ -1,7 +1,7 @@
 ---
 title: Terms of Service
-description: 
-url: https://gemika.com/terms
+description:
+url: https://gemika.vercel.app/terms
 ---
 
 # Terms of Service
@@ -34,4 +34,4 @@ acceptance of the updated terms.
 ### Contact Us
 
 If you have any questions about these terms, please contact us at
-[hello@gemika.com](mailto:hello@gemika.com).
+[hello@gemika.vercel.app](mailto:hello@gemika.vercel.app).

@@ -1,7 +1,7 @@
 ---
 title: Contact Us
-description: 
-url: https://gemika.com/contact
+description:
+url: https://gemika.vercel.app/contact
 ---
 
 # Contact Us
@@ -12,7 +12,7 @@ to reach out.
 
 ### Email
 
-You can email us at [hello@gemika.com](mailto:hello@gemika.com).
+You can email us at [hello@gemika.vercel.app](mailto:hello@gemika.vercel.app).
 
 ### Phone
 

@@ -1,7 +1,7 @@
 ---
 title: Machine Learning Time Machine
-description: 
-url: https://gemika.com/projects/machine-learning-time-machine
+description:
+url: https://gemika.vercel.app/projects/machine-learning-time-machine
 ---
 
 # Machine Learning Time Machine

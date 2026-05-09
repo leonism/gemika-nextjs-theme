@@ -1,7 +1,7 @@
 ---
 title: AI Powered Dream Weaver
-description: 
-url: https://gemika.com/projects/ai-powered-dream-weaver
+description:
+url: https://gemika.vercel.app/projects/ai-powered-dream-weaver
 ---
 
 # AI Powered Dream Weaver

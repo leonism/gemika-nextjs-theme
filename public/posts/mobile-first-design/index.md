@@ -1,7 +1,7 @@
 ---
 title: Why Mobile-First Design Still Matters in 2024
-description: 
-url: https://gemika.com/posts/mobile-first-design
+description:
+url: https://gemika.vercel.app/posts/mobile-first-design
 ---
 
 # Why Mobile-First Design Still Matters in 2024

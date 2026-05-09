@@ -56,10 +56,10 @@ export function MainFooterContent() {
             <li className="flex items-center">
               <Mail size={16} className="mr-2 text-gray-600 dark:text-gray-400" />
               <a
-                href="mailto:hello@gemika.com"
+                href="mailto:hello@gemika.vercel.app"
                 className="text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
               >
-                hello@gemika.com
+                hello@gemika.vercel.app
               </a>
             </li>
             <li className="flex items-center">
@@ -72,7 +72,7 @@ export function MainFooterContent() {
               </a>
             </li>
             <li className="flex items-start">
-              <MapPin size={16} className="mr-2 mt-1 text-gray-600 dark:text-gray-400" />
+              <MapPin size={16} className="mt-1 mr-2 text-gray-600 dark:text-gray-400" />
               <span className="text-gray-600 dark:text-gray-400">
                 123 Design Street
                 <br />

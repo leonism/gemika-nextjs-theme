@@ -1,7 +1,7 @@
 ---
 title: AI in Space Exploration: Navigating the Cosmos
 description: How artificial intelligence is powering the next era of space discovery.
-url: https://gemika.com/posts/ai-in-space-exploration
+url: https://gemika.vercel.app/posts/ai-in-space-exploration
 ---
 
 # AI in Space Exploration: Navigating the Cosmos
