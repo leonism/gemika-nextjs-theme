@@ -1,3 +1,5 @@
+import { AuroraText } from '@/components/ui/aurora-text'
+
 interface LatestPostsHeaderProps {
   badge: string
   title: string
@@ -12,7 +14,7 @@ export function LatestPostsHeader({ badge, title, description }: LatestPostsHead
       </div>
       <h2 className="mb-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
         <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
-          {title}
+          Latest <AuroraText>Articles</AuroraText>
         </span>
       </h2>
       <p className="mx-auto max-w-3xl text-lg text-gray-600">{description}</p>

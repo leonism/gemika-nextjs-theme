@@ -1,4 +1,5 @@
 import { ExpertiseCard } from '@/components/home/expertise/ExpertiseCard'
+import { AuroraText } from '@/components/ui/aurora-text'
 
 interface ExpertiseSectionProps {
   topics: AreaExpertise[]
@@ -24,7 +25,7 @@ export function ExpertiseSection({ topics }: ExpertiseSectionProps) {
           </div>
           <h2 className="mb-4 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
             <span className="bg-linear-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent">
-              My Core Specializations
+              Core <AuroraText>Specializations</AuroraText>
             </span>
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-gray-600">
