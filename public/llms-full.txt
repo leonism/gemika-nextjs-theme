@@ -4,7 +4,7 @@ This file contains the full markdown content of all pages for AI consumption.
 
 ## AI in Education: Transforming Learning for the Future
 
-URL: https://gemika.vercel.app/posts/ai-in-education-transforming-learning
+URL: https://gemika.com/posts/ai-in-education-transforming-learning
 
 
 # AI in Education: Transforming Learning for the Future
@@ -39,7 +39,7 @@ example of how AI might process student responses:
 
 ## AI in Space Exploration: Navigating the Cosmos
 
-URL: https://gemika.vercel.app/posts/ai-in-space-exploration
+URL: https://gemika.com/posts/ai-in-space-exploration
 
 
 # AI in Space Exploration: Navigating the Cosmos
@@ -158,7 +158,7 @@ and imagination.
 
 ## Building Accessible Mobile Applications
 
-URL: https://gemika.vercel.app/posts/building-accessible-mobile-apps
+URL: https://gemika.com/posts/building-accessible-mobile-apps
 
 
 # Building Accessible Mobile Applications
@@ -223,7 +223,7 @@ experiences for all users and demonstrate your commitment to inclusive design.
 
 ## Color Psychology in UI Design: Beyond Aesthetics
 
-URL: https://gemika.vercel.app/posts/color-psychology-ui
+URL: https://gemika.com/posts/color-psychology-ui
 
 
 # Color Psychology in UI Design: Beyond Aesthetics
@@ -336,7 +336,7 @@ design goals and enhance the user experience, not just make the interface more c
 
 ## Design Systems: Beyond the Basics
 
-URL: https://gemika.vercel.app/posts/design-systems-beyond-basics
+URL: https://gemika.com/posts/design-systems-beyond-basics
 
 
 # Design Systems: Beyond the Basics
@@ -406,7 +406,7 @@ you can create a design system that truly scales with your organization's needs.
 
 ## The Future of UX Design in 2024
 
-URL: https://gemika.vercel.app/posts/future-of-ux-design
+URL: https://gemika.com/posts/future-of-ux-design
 
 
 # The Future of UX Design in 2024
@@ -461,7 +461,7 @@ experiences that are not only usable but truly meaningful and valuable.
 
 ## The Power of Microinteractions in Creating Delightful User Experiences
 
-URL: https://gemika.vercel.app/posts/microinteractions-ux
+URL: https://gemika.com/posts/microinteractions-ux
 
 
 # The Power of Microinteractions in Creating Delightful User Experiences
@@ -609,7 +609,7 @@ experience with your product.
 
 ## Why Mobile-First Design Still Matters in 2024
 
-URL: https://gemika.vercel.app/posts/mobile-first-design
+URL: https://gemika.com/posts/mobile-first-design
 
 
 More than a decade after Luke Wroblewski popularized the concept of "Mobile First," some designers
@@ -707,7 +707,7 @@ valuable foundation for creating user-centered experiences that work for everyon
 
 ## Essential UX Research Methods for 2024
 
-URL: https://gemika.vercel.app/posts/ux-research-methods
+URL: https://gemika.com/posts/ux-research-methods
 
 
 # Essential UX Research Methods for 2024
@@ -821,7 +821,7 @@ users helps you adapt to their changing needs and expectations.
 
 ## AI Powered Dream Weaver
 
-URL: https://gemika.vercel.app/projects/ai-powered-dream-weaver
+URL: https://gemika.com/projects/ai-powered-dream-weaver
 
 
 A machine learning system that interprets dreams and builds interactive 3D web experiences from them
@@ -883,7 +883,7 @@ LunarSleep’s stock soared as dreamers worldwide embraced their nightly adventu
 
 ## E-commerce Platform
 
-URL: https://gemika.vercel.app/projects/e-commerce-platform
+URL: https://gemika.com/projects/e-commerce-platform
 
 
 Custom e-commerce solution with integrated payment processing and inventory management.
@@ -969,7 +969,7 @@ customer behavior and business needs.
 
 ## Echoes of the Mind
 
-URL: https://gemika.vercel.app/projects/echoes-of-the-mind
+URL: https://gemika.com/projects/echoes-of-the-mind
 
 
 # The Challenge
@@ -1035,7 +1035,7 @@ focused on enhancing human potential through AI.
 
 ## EchoVerse: The AI-Powered Memory Archive
 
-URL: https://gemika.vercel.app/projects/echoverse-the-ai-powered-memory-archive
+URL: https://gemika.com/projects/echoverse-the-ai-powered-memory-archive
 
 
 An immersive AI platform that transforms personal memories into interactive virtual archives,
@@ -1104,7 +1104,7 @@ moments—or maybe even rewrite their regrets?
 
 ## Machine Learning Time Machine
 
-URL: https://gemika.vercel.app/projects/machine-learning-time-machine
+URL: https://gemika.com/projects/machine-learning-time-machine
 
 
 A predictive ML model that reconstructs historical events as interactive simulations, deployed via a
@@ -1162,7 +1162,7 @@ timeline near you!
 
 ## Mobile App Development
 
-URL: https://gemika.vercel.app/projects/mobile-app-development
+URL: https://gemika.com/projects/mobile-app-development
 
 
 Cross-platform mobile application built with React Native for a health and wellness startup.
@@ -1311,7 +1311,7 @@ with the flexible system adapting to their evolving needs.
 
 ## Quantum Canvas AR
 
-URL: https://gemika.vercel.app/projects/quantum-canvas-ar
+URL: https://gemika.com/projects/quantum-canvas-ar
 
 
 An augmented reality platform powered by quantum computing that transforms real-world surfaces into
@@ -1379,7 +1379,7 @@ a playground of pixels and photons.
 
 ## Quantum Quill: AI-Powered Storytelling
 
-URL: https://gemika.vercel.app/projects/quantum-quill-ai-powered-storytelling
+URL: https://gemika.com/projects/quantum-quill-ai-powered-storytelling
 
 
 An AI-driven narrative engine that crafts hyper-personalized stories for readers, dynamically
@@ -1443,7 +1443,7 @@ deeply personal, emotionally intelligent art form.
 
 ## Quantum Web Garden
 
-URL: https://gemika.vercel.app/projects/quatum-web-garden
+URL: https://gemika.com/projects/quatum-web-garden
 
 
 A web platform where quantum computing meets generative design to grow living, evolving digital
@@ -1502,7 +1502,7 @@ GreenCode Collective now leads the charge in living web design, one qubit at a t
 
 ## UX Design System
 
-URL: https://gemika.vercel.app/projects/ux-design-system
+URL: https://gemika.com/projects/ux-design-system
 
 
 A comprehensive design system for enterprise applications focusing on accessibility and usability.
@@ -1573,7 +1573,7 @@ positive feedback from both users and internal teams.
 
 ## About Me
 
-URL: https://gemika.vercel.app/about
+URL: https://gemika.com/about
 
 
 Hello! I'm Daryl, a passionate UX strategist and mobile developer with over 8 years of experience
@@ -1626,7 +1626,7 @@ vision. Feel free to reach out if you'd like to connect or collaborate!
 
 ## Contact Us
 
-URL: https://gemika.vercel.app/contact
+URL: https://gemika.com/contact
 
 
 We'd love to hear from you! Whether you have a question, feedback, or a business inquiry, feel free
@@ -1658,7 +1658,7 @@ Follow us on our social media channels for updates and news:
 
 ## cookies
 
-URL: https://gemika.vercel.app/cookies
+URL: https://gemika.com/cookies
 
 
 
@@ -1667,7 +1667,7 @@ URL: https://gemika.vercel.app/cookies
 
 ## Privacy Policy
 
-URL: https://gemika.vercel.app/privacy
+URL: https://gemika.com/privacy
 
 
 ## Privacy Policy
@@ -1705,7 +1705,7 @@ We may update this Privacy Policy from time to time. Please review it periodical
 
 ## Terms of Service
 
-URL: https://gemika.vercel.app/terms
+URL: https://gemika.com/terms
 
 
 ## Terms of Service

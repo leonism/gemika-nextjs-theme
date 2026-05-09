@@ -1,7 +1,7 @@
 ---
 title: Quantum Canvas AR
-description:
-url: https://gemika.vercel.app/projects/quantum-canvas-ar
+description: 
+url: https://gemika.com/projects/quantum-canvas-ar
 ---
 
 # Quantum Canvas AR

@@ -1,7 +1,7 @@
 ---
 title: Contact Us
-description:
-url: https://gemika.vercel.app/contact
+description: 
+url: https://gemika.com/contact
 ---
 
 # Contact Us

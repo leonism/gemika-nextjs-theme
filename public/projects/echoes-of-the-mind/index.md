@@ -1,7 +1,7 @@
 ---
 title: Echoes of the Mind
-description:
-url: https://gemika.vercel.app/projects/echoes-of-the-mind
+description: 
+url: https://gemika.com/projects/echoes-of-the-mind
 ---
 
 # Echoes of the Mind

@@ -1,7 +1,7 @@
 ---
 title: Quantum Web Garden
-description:
-url: https://gemika.vercel.app/projects/quatum-web-garden
+description: 
+url: https://gemika.com/projects/quatum-web-garden
 ---
 
 # Quantum Web Garden

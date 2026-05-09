@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
-description:
-url: https://gemika.vercel.app/privacy
+description: 
+url: https://gemika.com/privacy
 ---
 
 # Privacy Policy

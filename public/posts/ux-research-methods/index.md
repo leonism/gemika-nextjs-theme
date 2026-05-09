@@ -1,7 +1,7 @@
 ---
 title: Essential UX Research Methods for 2024
-description:
-url: https://gemika.vercel.app/posts/ux-research-methods
+description: 
+url: https://gemika.com/posts/ux-research-methods
 ---
 
 # Essential UX Research Methods for 2024

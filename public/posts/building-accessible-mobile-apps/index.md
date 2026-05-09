@@ -1,7 +1,7 @@
 ---
 title: Building Accessible Mobile Applications
-description:
-url: https://gemika.vercel.app/posts/building-accessible-mobile-apps
+description: 
+url: https://gemika.com/posts/building-accessible-mobile-apps
 ---
 
 # Building Accessible Mobile Applications

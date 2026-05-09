@@ -6,37 +6,37 @@ This site provides information about Gemika, its projects, and articles.
 
 ## Articles
 
-- [AI in Education: Transforming Learning for the Future](https://gemika.vercel.app/posts/ai-in-education-transforming-learning/index.md) - How artificial intelligence is revolutionizing education and shaping the future of learning.
-- [AI in Space Exploration: Navigating the Cosmos](https://gemika.vercel.app/posts/ai-in-space-exploration/index.md) - How artificial intelligence is powering the next era of space discovery.
-- [Building Accessible Mobile Applications](https://gemika.vercel.app/posts/building-accessible-mobile-apps/index.md) -
-- [Color Psychology in UI Design: Beyond Aesthetics](https://gemika.vercel.app/posts/color-psychology-ui/index.md) -
-- [Design Systems: Beyond the Basics](https://gemika.vercel.app/posts/design-systems-beyond-basics/index.md) -
-- [The Future of UX Design in 2024](https://gemika.vercel.app/posts/future-of-ux-design/index.md) -
-- [The Power of Microinteractions in Creating Delightful User Experiences](https://gemika.vercel.app/posts/microinteractions-ux/index.md) -
-- [Why Mobile-First Design Still Matters in 2024](https://gemika.vercel.app/posts/mobile-first-design/index.md) -
-- [Essential UX Research Methods for 2024](https://gemika.vercel.app/posts/ux-research-methods/index.md) -
+- [AI in Education: Transforming Learning for the Future](https://gemika.com/posts/ai-in-education-transforming-learning/index.md) - How artificial intelligence is revolutionizing education and shaping the future of learning.
+- [AI in Space Exploration: Navigating the Cosmos](https://gemika.com/posts/ai-in-space-exploration/index.md) - How artificial intelligence is powering the next era of space discovery.
+- [Building Accessible Mobile Applications](https://gemika.com/posts/building-accessible-mobile-apps/index.md) - 
+- [Color Psychology in UI Design: Beyond Aesthetics](https://gemika.com/posts/color-psychology-ui/index.md) - 
+- [Design Systems: Beyond the Basics](https://gemika.com/posts/design-systems-beyond-basics/index.md) - 
+- [The Future of UX Design in 2024](https://gemika.com/posts/future-of-ux-design/index.md) - 
+- [The Power of Microinteractions in Creating Delightful User Experiences](https://gemika.com/posts/microinteractions-ux/index.md) - 
+- [Why Mobile-First Design Still Matters in 2024](https://gemika.com/posts/mobile-first-design/index.md) - 
+- [Essential UX Research Methods for 2024](https://gemika.com/posts/ux-research-methods/index.md) - 
 
 ## Projects
 
-- [AI Powered Dream Weaver](https://gemika.vercel.app/projects/ai-powered-dream-weaver/index.md) -
-- [E-commerce Platform](https://gemika.vercel.app/projects/e-commerce-platform/index.md) -
-- [Echoes of the Mind](https://gemika.vercel.app/projects/echoes-of-the-mind/index.md) -
-- [EchoVerse: The AI-Powered Memory Archive](https://gemika.vercel.app/projects/echoverse-the-ai-powered-memory-archive/index.md) -
-- [Machine Learning Time Machine](https://gemika.vercel.app/projects/machine-learning-time-machine/index.md) -
-- [Mobile App Development](https://gemika.vercel.app/projects/mobile-app-development/index.md) -
-- [Quantum Canvas AR](https://gemika.vercel.app/projects/quantum-canvas-ar/index.md) -
-- [Quantum Quill: AI-Powered Storytelling](https://gemika.vercel.app/projects/quantum-quill-ai-powered-storytelling/index.md) -
-- [Quantum Web Garden](https://gemika.vercel.app/projects/quatum-web-garden/index.md) -
-- [UX Design System](https://gemika.vercel.app/projects/ux-design-system/index.md) -
+- [AI Powered Dream Weaver](https://gemika.com/projects/ai-powered-dream-weaver/index.md) - 
+- [E-commerce Platform](https://gemika.com/projects/e-commerce-platform/index.md) - 
+- [Echoes of the Mind](https://gemika.com/projects/echoes-of-the-mind/index.md) - 
+- [EchoVerse: The AI-Powered Memory Archive](https://gemika.com/projects/echoverse-the-ai-powered-memory-archive/index.md) - 
+- [Machine Learning Time Machine](https://gemika.com/projects/machine-learning-time-machine/index.md) - 
+- [Mobile App Development](https://gemika.com/projects/mobile-app-development/index.md) - 
+- [Quantum Canvas AR](https://gemika.com/projects/quantum-canvas-ar/index.md) - 
+- [Quantum Quill: AI-Powered Storytelling](https://gemika.com/projects/quantum-quill-ai-powered-storytelling/index.md) - 
+- [Quantum Web Garden](https://gemika.com/projects/quatum-web-garden/index.md) - 
+- [UX Design System](https://gemika.com/projects/ux-design-system/index.md) - 
 
 ## Pages
 
-- [About Me](https://gemika.vercel.app/about/index.md) -
-- [Contact Us](https://gemika.vercel.app/contact/index.md) -
-- [cookies](https://gemika.vercel.app/cookies/index.md) -
-- [Privacy Policy](https://gemika.vercel.app/privacy/index.md) -
-- [Terms of Service](https://gemika.vercel.app/terms/index.md) -
+- [About Me](https://gemika.com/about/index.md) - 
+- [Contact Us](https://gemika.com/contact/index.md) - 
+- [cookies](https://gemika.com/cookies/index.md) - 
+- [Privacy Policy](https://gemika.com/privacy/index.md) - 
+- [Terms of Service](https://gemika.com/terms/index.md) - 
 
 ## Resources
 
-- [Full Content (llms-full.txt)](https://gemika.vercel.app/llms-full.txt)
+- [Full Content (llms-full.txt)](https://gemika.com/llms-full.txt)

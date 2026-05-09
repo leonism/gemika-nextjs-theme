@@ -17,26 +17,39 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https', // Assuming HTTPS for both
+        protocol: 'https',
         hostname: 'images.unsplash.com',
-        port: '', // Optional: Defaults to standard ports (80/443)
-        pathname: '**', // Allow any path under this hostname
+        port: '',
+        pathname: '**',
       },
       {
-        protocol: 'https', // Assuming HTTPS
+        protocol: 'https',
         hostname: 'logo.clearbit.com',
-        port: '', // Optional
-        pathname: '**', // Allow any path under this hostname
+        port: '',
+        pathname: '**',
       },
     ],
-    unoptimized: true, // Keep this if you still need it
+    unoptimized: true,
+  },
+
+  // Forced unification of assets
+  webpack: (config, { isServer, webpack }) => {
+    if (!isServer) {
+      // Unify JS files into a single bundle
+      config.plugins.push(
+        new webpack.optimize.LimitChunkCountPlugin({
+          maxChunks: 1,
+        })
+      );
+    }
+    return config;
   },
 
   // Turbopack configuration
   turbopack: {
     rules: {
       '*.mdx': {
-        loaders: ['@next/mdx'], // From next.config.mjs
+        loaders: ['@next/mdx'],
       },
     },
   },
