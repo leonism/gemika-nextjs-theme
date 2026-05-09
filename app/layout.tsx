@@ -90,6 +90,7 @@ export const metadata: Metadata = {
     canonical: siteUrl,
     types: {
       'application/rss+xml': '/feed.xml',
+      'text/markdown': 'https://output.domain/index.md',
     },
   },
 }

@@ -1,7 +1,7 @@
 ---
 title: About Me
-description: 
-url: https://gemika.com/about
+description:
+url: https://gemika.vercel.app/about
 ---
 
 # About Me

@@ -1,7 +1,7 @@
 ---
 title: AI in Education: Transforming Learning for the Future
 description: How artificial intelligence is revolutionizing education and shaping the future of learning.
-url: https://gemika.com/posts/ai-in-education-transforming-learning
+url: https://gemika.vercel.app/posts/ai-in-education-transforming-learning
 ---
 
 # AI in Education: Transforming Learning for the Future
